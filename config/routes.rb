@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Flipflop::Engine => "/flipflop"
   Hydra::BatchEdit.add_routes(self)
   mount Qa::Engine => '/authorities'
 
