@@ -1,4 +1,4 @@
-class CreateFeatures < ActiveRecord::Migration
+class CreateFeaturesFlip < ActiveRecord::Migration
   def change
     create_table :flipflop_features do |t|
       t.string :key, null: false
