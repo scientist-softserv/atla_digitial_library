@@ -9,7 +9,7 @@ set :rbenv_ruby, 'ruby 2.3.0p0'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/opt/sufia-project'
+set :deploy_to, '/opt/atla'
 
 # Default value for :scm is :git
 # set :scm, :git
