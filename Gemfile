@@ -47,7 +47,7 @@ group :development do
 end
 gem 'flipflop', git: 'https://github.com/jcoyne/flipflop.git', branch: 'hydra'
 gem 'sufia', git: 'https://github.com/projecthydra/sufia.git'
-
+gem 'hydra-head', '~> 10.2.0'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
