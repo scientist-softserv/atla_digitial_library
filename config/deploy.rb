@@ -25,10 +25,19 @@ set :deploy_to, '/opt/atla'
 set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, 'config/database.yml', 'config/secrets.yml'
+append :linked_files,
+       'config/database.yml',
+       'config/secrets.yml',
+       'config/fedora.yml',
+       'config/blacklight.yml',
+       'config/redis.yml',
+       'config/resque-pool.yml',
+       'config/solr.yml',
+       'config/initializers/blacklight_initializer.rb',
+       'config/initializers/devise.rb'
 
 # Default value for linked_dirs is []
-# append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
