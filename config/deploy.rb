@@ -1,14 +1,15 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
-
+set :application, 'alt_test'
+set :repo_url, 'https://github.com/notch8/alt_test.git'
+set :rbenv_type, :system
+set :rbenv_ruby, 'ruby 2.3.0p0'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/opt/sufia-project'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -21,7 +22,7 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
