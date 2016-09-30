@@ -32,9 +32,7 @@ append :linked_files,
        'config/blacklight.yml',
        'config/redis.yml',
        'config/resque-pool.yml',
-       'config/solr.yml',
-       'config/initializers/blacklight_initializer.rb',
-       'config/initializers/devise.rb'
+       'config/solr.yml'
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
