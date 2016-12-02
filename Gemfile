@@ -45,8 +45,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-gem 'flipflop', git: 'https://github.com/jcoyne/flipflop.git', branch: 'hydra'
 gem 'sufia', git: 'https://github.com/projecthydra/sufia.git'
+gem 'flipflop', git: 'https://github.com/jcoyne/flipflop.git', branch: 'hydra'
 gem 'hydra-head', '~> 10.2.0'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
