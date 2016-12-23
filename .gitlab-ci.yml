@@ -1,13 +1,10 @@
+image: docker:latest
+
 services:
   - docker:dind
-    - postgres:latest
-        - solr:latest
       
 variables:
-    POSTGRES_DB: atla_digital_library
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: DatabaseFTW
-    
+  DOCKER_DRIVER: overlay
 
 stages:
   - build
@@ -20,16 +17,16 @@ build:
   script:
     - docker info
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME" .
-    - docker push "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME"
+    - docker-compose build --pull -t "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME" web
+    - docker-compose push "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME" web
 
 test:
-  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  image: docker:latest 
   script:
-    - bundle install --path /cache
-    - bundle exec rake db:create db:migrate db:test:prepare RAILS_ENV=test
-    - bundle exec rake
-    - bundle exec rake assets:precompile
+    - docker-compose run web bundle exec rake db:create db:migrate db:test:prepare RAILS_ENV=test
+    - docker-compose exec solr bin/solr create -c development -d /opt/config
+    - docker-compose run web bundle exec rake
+    - docker-compose run web bundle exec rake assets:precompile
 
 staging:
   image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
