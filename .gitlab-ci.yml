@@ -9,7 +9,7 @@ variables:
 stages:
   - build
   - test
-  - deploy
+#  - deploy
 
 build:
   stage: build
@@ -28,19 +28,19 @@ test:
     - docker-compose run web bundle exec rake
     - docker-compose run web bundle exec rake assets:precompile
 
-staging:
-  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
-  type: deploy
-  script:
-    - gem install dpl multi_json
-    - # TODO DEPLOY COMMAND dpl --provider=heroku --app=east-west-payroll-staging --api-key=$HEROKU_STAGING_API_KEY
-  only:
-    - master
-
-production:
-  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
-  type: deploy
-  script:
-    - gem install dpl multi_json
-    - # TODO DEPLOY COMMAND dpl --provider=heroku --app=east-west-payroll --api-key=$HEROKU_PRODUCTION_API_KEY
-  when: manual
+#staging:
+#  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+#  type: deploy
+#  script:
+#    - gem install dpl multi_json
+#    - # TODO DEPLOY COMMAND dpl --provider=heroku --app=east-west-payroll-staging --api-key=$HEROKU_STAGING_API_KEY
+#  only:
+#    - master
+#
+#production:
+#  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+#  type: deploy
+#  script:
+#    - gem install dpl multi_json
+#    - # TODO DEPLOY COMMAND dpl --provider=heroku --app=east-west-payroll --api-key=$HEROKU_PRODUCTION_API_KEY
+#  when: manual
