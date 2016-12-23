@@ -1,4 +1,4 @@
-image: docker:latest
+image: registry.gitlab.com/citygro/docker-and-compose
 
 services:
   - docker:dind
