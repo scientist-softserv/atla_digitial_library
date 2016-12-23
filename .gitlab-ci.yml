@@ -16,8 +16,10 @@ build:
   script:
     - docker info
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
-    - docker-compose build --pull -t "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME" web
+    - docker-compose build --pull web
     - docker-compose push "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME" web
+  after_script:
+    - docker-compose stop
 
 test:
   script:
@@ -25,6 +27,8 @@ test:
     - docker-compose exec solr bin/solr create -c development -d /opt/config
     - docker-compose run web bundle exec rake
     - docker-compose run web bundle exec rake assets:precompile
+  after_script:
+    - docker-compose stop
 
 #staging:
 #  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
