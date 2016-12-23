@@ -1,28 +1,21 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Versions
 
-Things you may want to cover:
+ - Ruby 2.3.1
+ - Rails 4.2.7.1
+ - Sophia 7.1.0
+  
 
-* Ruby version
+=== Development Install
 
-* System dependencies
+Development is now dockerized with stack car.  To start the environment copy config/database.example.yml to config/database.yml and do sc up web from the root directory
 
-* Configuration
+Before the first run bunle and load the database.  To do so type
 
-* Database creation
+docker-compose run web bundle install && bundle exec rake db:create db:schema:load db:migrate db:seed
+sc up web
+docker-compose exec solr bin/solr create -c development -d /opt/config
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+App should now be available at localhost:3000
+Admin user is rob@notch8.com  / testing123

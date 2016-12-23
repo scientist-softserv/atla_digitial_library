@@ -15,7 +15,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module AtlTest
+module ATLADigitalLibrary
   class Application < Rails::Application
     # Replace with a lambda or method name defined in ApplicationController
     # to implement access control for the Flipflop dashboard.

@@ -1,0 +1,49 @@
+services:
+  - docker:dind
+    - postgres:latest
+        - solr:latest
+      
+variables:
+    POSTGRES_DB: atla_digital_library
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: DatabaseFTW
+    
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  image: docker:latest
+  script:
+    - docker info
+    - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME"
+
+test:
+  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  script:
+    - bundle install --path /cache
+    - bundle exec rake db:create db:migrate db:test:prepare RAILS_ENV=test
+    - bundle exec rake
+    - bundle exec rake assets:precompile
+
+staging:
+  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  type: deploy
+  script:
+    - gem install dpl multi_json
+    - # TODO DEPLOY COMMAND dpl --provider=heroku --app=east-west-payroll-staging --api-key=$HEROKU_STAGING_API_KEY
+  only:
+    - master
+
+production:
+  image: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  type: deploy
+  script:
+    - gem install dpl multi_json
+    - # TODO DEPLOY COMMAND dpl --provider=heroku --app=east-west-payroll --api-key=$HEROKU_PRODUCTION_API_KEY
+  when: manual
