@@ -1,0 +1,61 @@
+/* ---------------
+ * Global Styles 
+ * --------------- */
+
+body {
+	font-family: $body-font-family;
+	font-size: $body-font-size;
+	line-height: $body-font-line-height;
+	color: $body-font-color;
+	background-color: $body-color-bg;
+}
+
+section {
+	padding: 40px 0;
+
+	@include max-screen($break-small) {
+		div.row > div {
+			margin-bottom: 50px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		div.row.sm-mb-20 > div {
+			margin-bottom: 20px;
+		}
+
+		form > div.row > div {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.back-to-top {
+	display: none;
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	z-index: 9999;
+	
+	a {
+		@include border-radius(3px);
+
+		display: block;
+		width: 40px;
+		height: 40px;
+		font-size: 17px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		background-color: rgba(#000, 0.5);
+
+		&:hover,
+		&:focus {
+			background-color: rgba(#000, 0.8);
+			color: #fff;
+		}
+	}
+}
+

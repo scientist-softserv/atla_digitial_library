@@ -5,7 +5,7 @@
  - Ruby 2.3.1
  - Rails 4.2.7.1
  - Sophia 7.1.0
-  
+
 
 === Development Install
 
@@ -13,7 +13,7 @@ Development is now dockerized with stack car.  To start the environment copy con
 
 Before the first run bunle and load the database.  To do so type
 
-docker-compose run web bundle install && bundle exec rake db:create db:schema:load db:migrate db:seed
+docker-compose run web bash -c 'bundle install && bundle exec rake db:create db:schema:load db:migrate db:seed'
 sc up web
 docker-compose exec solr bin/solr create -c development -d /opt/config
 

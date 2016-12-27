@@ -1,0 +1,72 @@
+/* ---------------
+ * Styled icon
+ * --------------*/
+
+.ico-styled {
+	font-size: 16px;
+	margin: 4px 8px 8px 0;
+}
+
+.icon-styled-area {
+	@include inline-block;
+
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border: 1px solid $icon-border-color;
+}
+
+.ico-styled-square {
+	@extend .icon-styled-area;
+	@include border-radius(3px);
+}
+
+.ico-styled-square-solid {
+	@extend .ico-styled-square;
+	
+	border: none;
+}
+
+.ico-styled-circle {
+	@extend .icon-styled-area;
+	@include border-radius(50%);
+}
+
+.ico-styled-circle-solid {
+	@extend .ico-styled-circle;
+
+	border: none;
+}
+
+.ico-gray-bg {
+	background-color: $icon-gray-bg;
+}
+
+.ico-styled-lg {
+	font-size: 40px;
+	margin: 4px 8px 8px 0;
+
+	&.ico-styled-square,
+	&.ico-styled-square-solid,
+	&.ico-styled-circle-solid {
+		width: 80px;
+		height: 80px;
+		line-height: 80px;
+	}
+}
+
+.ico-styled-md {
+	font-size: 30px;
+	margin: 4px 8px 8px 0;
+
+	&.ico-styled-square,
+	&.ico-styled-square-solid,
+	&.ico-styled-circle-solid {
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+}
+
+

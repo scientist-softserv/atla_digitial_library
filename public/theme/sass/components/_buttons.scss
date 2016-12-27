@@ -1,0 +1,142 @@
+/* -----------
+ * Buttons
+ * ----------*/
+
+.btn {
+	@include border-radius(2px);
+
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+
+	&:focus, 
+	&:active:focus, 
+	&.active:focus, 
+	&.focus, 
+	&:active.focus, 
+	&.active.focus {
+		outline: none;
+	}
+
+	.icon {
+		font-size: 16px;
+		top: 3px;
+		position: relative;
+		margin-left: 3px;
+	}
+}
+
+.btn > i {
+	margin-right: 5px;
+}
+
+.btn-default {
+	color: $btn-default-color;
+	border-color: $btn-default-border;
+}
+
+.btn-primary {
+	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.btn-link {
+	color: $link-color;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: $link-hover-color;
+	}
+}
+
+.btn-lg {
+	font-size: 16px;
+}
+
+.btn-fullrounded {
+	@include border-radius(20px);
+
+	padding: 10px 20px;
+	font-size: 12px;
+
+	&.btn-lg {
+		@include border-radius(25px);
+
+		padding: 12px 30px;
+		font-size: 14px;
+	}
+
+	&.btn-sm {
+		padding: 7px 17px;
+	}
+
+	&.btn-xs {
+		padding: 6px 16px;
+		font-size: 11px;
+	}
+}
+
+.btn-facebook-login {
+	background-color: map-get($social-colors, 'facebook');
+	color: #fff;
+
+	&:hover,
+	&:focus {
+		background-color: darken(map-get($social-colors, 'facebook'), 8%);
+		color: #fff;
+	}
+}
+
+.btn-social {
+	min-width: 200px;
+	color: #fff;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+	}
+}
+
+.btn-default-gray {
+	background-color: $btn-default-gray;
+	border-color: $btn-default-gray-border;
+	color: #fff;
+
+	&:hover,
+	&:focus {
+		background-color: darken($btn-default-gray, 3%);
+		color: #fff;
+	}
+}
+
+.btn-outline {
+	background-color: transparent;
+	border: 1px solid $btn-default-border;
+	color: $btn-default-color;
+
+	&.btn-default-gray {
+		border-color: $btn-default-gray-border;
+	}
+
+	&.btn-primary {
+		border-color: $brand-primary;
+	}
+
+	&.btn-info {
+		border-color: $state-info-bg;
+	}
+
+	&.btn-success {
+		border-color: $state-success-bg;
+	}
+
+	&.btn-warning {
+		border-color: $state-warning-bg;
+	}
+
+	&.btn-danger {
+		border-color: $state-danger-bg;
+	}
+}
+
+
+

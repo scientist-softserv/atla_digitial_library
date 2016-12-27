@@ -1,0 +1,542 @@
+// -----------------------------------------------------
+// SKIN STYLES TEMPLATE
+// This file should be imported in each skin file
+// -----------------------------------------------------
+
+/* general */
+a {
+	color: $brand-primary;
+
+	&:hover, &:focus {
+		color: $link-hover-color;
+	}
+}
+
+.nav-topbar {
+	&.topbar-accent {
+		background-color: $brand-primary;
+
+		.social-icons {
+			> li {
+				> a {
+					background-color: lighten($brand-primary, 5%);
+					color: lighten($brand-primary, 100%);
+
+					&:hover,
+					&:focus {
+						background-color: lighten($brand-primary, 4%);
+					}
+				}
+			}
+		}
+
+		.search-form {
+			input, .btn {
+				background-color: lighten($brand-primary, 5%);
+			}
+
+			input {
+				color: lighten($brand-primary, 50%);
+			}
+
+			.btn {
+				color: lighten($brand-primary, 20%);
+			}
+		}
+
+		.nav > li > a.as-button {
+			span {
+				background-color: darken($brand-primary, 15%);
+				border-color: darken($brand-primary, 20%);
+			}
+
+			&:hover,
+			&:focus {
+				span {
+					background-color: darken($brand-primary, 18%);
+				}
+			}
+		}
+	}
+}
+
+/* navs */
+.nav-pills.sidebar-nav {
+	li.has-submenu.active li.active > a {
+		color: $brand-primary;
+	}
+
+	ul.submenu li a {
+		&:hover, 
+		&:focus {
+			color: $brand-primary;
+		}
+	}
+}
+
+/* navbar */
+.navbar-default {
+	.navbar-nav {
+		> li > a {
+			&:hover {
+				color: $navbar-default-link-active-color;
+			}
+		}
+
+		> .open > a {
+			&,
+			&:hover,
+			&:focus {
+				color: $navbar-default-link-active-color;
+			}
+		}
+
+		.active > a {
+			&,
+			&:hover,
+			&:focus {
+				color: $brand-primary;
+				background-color: transparent;
+			}
+		}
+	}
+
+	.nav-onepage {
+		> li > a {
+			&:hover,
+			&:focus,
+			&:active {
+				color: $brand-primary;
+			}
+		}
+	}
+}
+
+.main-navbar-nav {
+	// submenu
+	li > .dropdown-menu {
+		border-top-color: $brand-primary;
+
+		> li > a {
+			&:hover, 
+			&:focus {
+				color: $brand-primary;
+			}
+		}
+	}
+
+	.dropdown-mega .dropdown-menu li {
+		a {
+			&:hover, 
+			&:focus {
+				color: $brand-primary;
+			}
+		}
+
+		&.active a {
+			&,
+			&:hover,
+			&:focus {
+				color: $brand-primary;
+			}
+		}
+	}
+}
+
+.secondary-navbar-nav .as-icon .cart-count {
+	background-color: $brand-primary;
+}
+
+/* icon info */
+.icon-info-right .title:after {
+	background-color: $brand-primary;
+}
+
+.icon-info-border i {
+	background-color: $brand-primary;
+}
+
+
+/* buttons */
+.btn-primary {
+	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.btn-link {
+	color: $brand-primary;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: $link-hover-color;
+	}
+}
+
+.btn-outline {
+	background-color: transparent;
+	border: 1px solid #a5a5a5;
+	color: #888;
+
+	&.btn-primary {
+		border-color: $brand-primary;
+	}
+}
+
+.navbar-light-font {
+	.btn-outline {
+		border-color: #fff;
+
+		&.btn-primary {
+			&:hover,
+			&:focus {
+				background-color: $btn-primary-bg;
+				border-color: $btn-primary-border;
+				color: #fff;
+			}
+		}
+	}
+}
+
+/* elements */
+.count-info .number:after {
+	background-color: $brand-primary;
+}
+
+.count-info-onerow {
+	i {
+		color: $brand-primary;
+		border-color: $brand-primary;
+	}
+}
+
+.team-member .member-info {
+	border-top-color: $brand-primary;
+}
+
+.team-member-sidebyside .team-name {
+	background-color: $brand-primary;
+}
+
+.testimonial-big .content:after {
+	background-color: $brand-primary;
+}
+
+.carousel-portfolio-simple .owl-controls .owl-buttons div {
+	background-color: $brand-primary;
+}
+
+.pricing-table.pricing-recommended .top {
+	&,
+	&:after,
+	&:before {
+		background-color: $brand-primary;
+	}
+}
+
+.pricing-table2.pricing-recommended .popular {
+	background-color: $brand-primary;
+}
+
+.cta-solid-brand-bg {
+	background-color: $cta-bg;
+
+	.btn {
+		background-color: darken($cta-bg, 12%);
+		border-color: darken($cta-bg, 18%);
+
+		&:hover, &:focus {
+			background-color: darken($cta-bg, 14%);
+		}
+	}
+}
+
+.cta-clean {
+	border-color: $brand-primary;
+}
+
+.breadcrumb {
+	> li {
+		&.active {
+			color: $brand-primary;
+		}
+	}
+
+	a {
+		&:hover, &:focus {
+			text-decoration: none;
+			color: $brand-primary;
+		}
+	}
+
+	&.link-accent {
+		a {
+			color: $brand-primary;
+
+			&:hover, &:focus {
+				color: $link-hover-color;
+			}
+		}
+	}
+}
+
+/* tabs */
+.custom-tabs-circle ul > li.active > a {
+	border-color: $brand-primary;
+	background-color: $brand-primary;
+}
+
+
+.nav-pills > li {
+	&.active > a, 
+	&.active > a:hover, 
+	&.active > a:focus {
+		background-color: $brand-primary;
+	}
+}
+
+.custom-tabs-line {
+	&.tabs-line-top {
+		.active a {
+			border-top-color: $brand-primary;
+		}
+	}
+
+	&.tabs-line-bottom {
+		.active a {
+			border-bottom-color: $brand-primary;
+		}
+	}
+
+	ul.nav-pills a {
+		&:hover, &:focus {
+			background-color: $brand-primary;
+		}
+	}
+}
+
+.custom-tabs-circle {
+	ul > li {
+		.active > a {
+			border-color: $brand-primary;
+			background-color: $brand-primary;
+		}
+	}
+}
+
+.pagination {
+	> li > a,
+	> li > span {
+		color: $brand-primary;
+	}
+	
+	> li {
+		@include pagination-button-color($brand-primary);
+	}
+
+	> .active {
+		@include pagination-button-color($brand-primary);
+
+		> a, > span {
+			background-color: $brand-primary;
+			border-color: darken($brand-primary, 5%);
+		}
+	}
+
+	&.borderless > li.active {
+		> a,
+		> span {
+			background-color: $brand-primary;
+
+			&:hover,
+			&:focus {
+				background-color: $brand-primary;
+			}
+		}
+	}
+}
+
+.pager {
+	li > a {
+		border-color: $brand-primary;
+
+		&:hover, &:focus {
+			background-color: $brand-primary;
+			border-color: darken($brand-primary, 3%);
+		}
+	}
+}
+
+.panel-group-faq.top-faq .panel-heading .number {
+	background-color: $brand-primary;
+}
+
+.panel-group-faq {
+	.panel-title {
+		font-family: inherit;
+		font-size: 16px;
+		line-height: 1.6;
+
+		a {
+			color: inherit;
+			
+			&:hover {
+				color: $brand-primary;
+			}
+
+			&:focus {
+				color: inherit;
+			}
+		}
+	}
+}
+
+.portfolio-item-filters li a {
+	&:hover, &:focus {
+		color: $brand-primary;
+	}
+
+	&.active {
+		color: $brand-primary;
+	}
+}
+
+.entry-post .entry-title a,
+.related-post-list a,
+.post-entry-sidebar .post-title a {
+	&:hover,
+	&:focus {
+		color: $brand-primary;
+	}
+}
+
+.category-list li a {
+	&:hover,
+	&:focus {
+		color: $brand-primary;
+	}
+}
+
+.tag-list li a {
+	&:hover,
+	&:focus {
+		background-color: $brand-primary;
+	}
+}
+
+.datepicker {
+	td.active {
+		&:active, &.active {
+			background-color: $brand-primary;
+			border-color: $brand-primary;
+		}
+
+		&:hover {
+			&:active, &.active {
+				background-color: $brand-primary;
+				border-color: $brand-primary;
+			}
+		}
+	}
+}
+
+.progress-bar {
+	background-color: $brand-primary;
+}
+
+.thumbnail-hover .thumbnail-icon {
+	background-color: $brand-primary;
+}
+
+.thumbnail-custom .btn {
+	background-color: rgba($brand-primary, .5);
+	border-color: darken($brand-primary, 5%);
+
+	&:hover, &:focus {
+		background-color: $brand-primary;
+	}
+}
+
+/* typography */
+.text-primary {
+	color: $brand-primary;
+}
+
+.bg-primary {
+	background-color: $brand-primary;
+}
+
+.border-primary, 
+.heading-border-bottom-short.border-primary:after {
+	border-color: $brand-primary;
+}
+
+.bold-separator {
+	border-top-color: $brand-primary;
+}
+
+.content-lead p:after {
+	border-color: $brand-primary;
+}
+
+/* misc */
+.panel-primary {
+	border-color: $brand-primary;
+
+	> .panel-heading {
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+	}
+}
+
+.toast-info {
+	background-color: $brand-primary;
+}
+
+.label-primary {
+	background-color: $brand-primary;
+}
+
+
+/* footer */
+.footer-heading:after {
+	background-color: $brand-primary;
+}
+
+
+/*********************************
+ *
+ *	SHOP TEMPLATES
+ *
+ *********************************/
+
+.product-attribute-link-list li.active {
+	color: $brand-primary;
+}
+
+.radio-icon input[type="radio"]:checked + span {
+	background-color: $brand-primary;
+}
+
+.product-size-list > li.active > a {
+	background-color: $brand-primary;
+	border-color: $brand-primary;
+}
+
+.fuelux .checkout-wizard ul.steps > li {
+	&.active .step-number {
+		background-color: $brand-primary;
+	}
+
+	&.complete {
+		.step-number,
+		&:after {
+			background-color: $brand-primary;
+		}
+	}
+}
+
+
+
+
+
+

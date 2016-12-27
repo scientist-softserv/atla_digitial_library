@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require jquery.easing
+//= require morphext
+//= require bravana
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks//
@@ -20,4 +24,3 @@
 
 //= require_tree .
 //= require sufia
-

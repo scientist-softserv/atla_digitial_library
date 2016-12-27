@@ -1,0 +1,197 @@
+/* ----------------------
+ * Custom thumbnails
+ * ---------------------*/
+
+@import 'compass/css3';
+@import 'base/variables';
+@import 'mixins/module';
+
+a {
+	&.thumbnail:hover, 
+	&.thumbnail:focus, 
+	&.thumbnail.active {
+		border-color: darken(#ddd, 20%);
+	}
+}
+
+.thumbnail {
+	.caption p {
+		color: $bs-text-muted;
+		margin-bottom: 30px;
+	}
+}
+
+.thumbnail-no-border {
+	border: none;
+	padding: 0;
+}
+
+.thumbnail-hover {
+	position: relative;
+
+	.overlay {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: rgba(#fff, .9);
+		border: 1px solid #ededed;
+	}
+
+	.dark-overlay {
+		@extend .overlay;
+
+		background-color: rgba(72, 72, 72, .9);
+		border: none;
+	}
+
+	.thumbnail-icon {
+		@include border-radius(50%);
+
+		display: block;
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		top: 50%;
+		margin-top: -30px;
+		left: 50%;
+		margin-left: -30px;
+		background-color: $brand-primary;
+		color: #fff;
+		text-align: center;
+	}
+
+	i {
+		font-size: 24px;
+		line-height: 60px;
+	}
+
+	.caption {
+		position: absolute;
+		top: 50%;
+		margin-top: -50px;
+		width: 100%;
+	}
+
+	.caption-light {
+		@extend .caption;
+
+		color: #fff;
+		
+		.heading {
+			color: #fff;
+		}
+	}
+
+	.overlay, .caption, .thumbnail-icon {
+		@include transition(all 200ms ease-out);
+		@include opacity(0);
+	}
+
+	&:hover {
+		.overlay, .caption, .thumbnail-icon {
+			@include opacity(1);
+		}
+	}
+}
+
+.thumbnail-overlay {
+	position: relative;
+
+	.overlay {
+		@include transition(all 200ms ease-out);
+
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: rgba(#4C4C4C, .7);
+	}
+
+	a:hover,
+	a:focus {
+		.overlay {
+			background-color: rgba(#4C4C4C, .9);
+		}
+	}
+
+	.caption {
+		position: absolute;
+		top: 50%;
+		margin-top: -12%;
+		width: 100%;
+		padding: 10px 30px;
+
+		.heading,
+		p {
+			color: #fff;
+		}
+	}
+}
+
+
+.thumbnail-custom {
+	position: relative;
+	margin-bottom: 30px;
+
+	.overlay {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: rgba(#595959, .88);
+	}
+
+	.btn {
+		position: absolute;
+		top: 50%;
+		margin-top: -39px;
+		left: 50%;
+		margin-left: -50px;
+	}
+
+	.thumbnail-heading {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		padding: 15px;
+		margin: 0;
+		width: 100%;
+		font-size: 20px;
+		font-weight: 700;
+		color: darken($body-font-color, 15%);
+		background-color: rgba(#fff, .85);
+		z-index: 1;
+	}
+
+	.overlay, .btn {
+		@include transition(all 200ms ease-out);
+		@include opacity(0);
+	}
+
+	&:hover {
+		.overlay, .btn {
+			@include opacity(1);
+		}
+	}
+
+	a, a:hover, a:focus {
+		color: #fff;
+	}
+
+	.btn {
+		background-color: rgba($brand-primary, .5);
+		border: 2px solid darken($brand-primary, 5%);
+
+		&:hover, &:focus {
+			background-color: $brand-primary;
+		}
+	}
+
+	@include max-screen($break-xsmall) {
+		.thumbnail-heading {
+			font-size: 16px;
+		}
+	}
+}
+
+
