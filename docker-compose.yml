@@ -2,6 +2,7 @@ version: '2'
 services:
   web:
     build: .
+    image: registry.gitlab.com/notch8/atla_digital_library
     command: bin/rails server --port 3000 --binding 0.0.0.0
     environment:
       POSTGRES_DB: "${POSTGRES_DB}"
