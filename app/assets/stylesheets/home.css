@@ -1,0 +1,55 @@
+
+/*nav.navbar.navbar-fixed-top {
+  background-color: #105b63;
+}*/
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+  color: #157984;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
+  color: #105b63;
+}
+
+section.hero-unit.hero-fullwidth.fullwidth-image.hero-image {
+  background-image: url('ATLA-hero.jpg');
+}
+
+.image-masthead .navbar {
+  background-color: rgba(219, 158, 54, 0.25);
+}
+
+.hero-fullwidth {
+  height: 500px;
+}
+
+.site-title-container {
+  padding-top: 300px;
+}
+
+a {
+  color: #bd4932;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus {
+  background-color: #ffd34e;
+  border-color: #ffc61a;
+}
+
+.btn-primary:hover {
+  background-color: #db9e36;
+  border-color: #c38822;
+}
+
+a:hover, a:focus {
+  color: #a13f2b;
+}
+
+footer.navbar.navbar-inverse {
+  background-color: #105b63;
+  border-color: #0b3c42;
+}
+
+.navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
+  color: #d9d9d9;
+}
