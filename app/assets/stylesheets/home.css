@@ -1,30 +1,36 @@
-
-/*nav.navbar.navbar-fixed-top {
-  background-color: #105b63;
-}*/
+.hero-fullscreen-bg {
+  background-image: url('ATLA-hero-new.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
-  color: #157984;
+  color: #d9d9d9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  line-height: 1;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
-  color: #105b63;
+  color: #db9e36;
 }
 
-section.hero-unit.hero-fullwidth.fullwidth-image.hero-image {
-  background-image: url('ATLA-hero.jpg');
+.main-navbar-nav li > .dropdown-menu {
+  border-top: 2px solid #db9e36;
 }
 
-.image-masthead .navbar {
-  background-color: rgba(219, 158, 54, 0.25);
+.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus, {
+  color: #db9e36;
 }
 
-.hero-fullwidth {
-  height: 500px;
+.navbar-light-font {
+  background-color: rgba(16, 91, 99, 0.95)
 }
 
-.site-title-container {
-  padding-top: 300px;
+.main-navbar-nav > li > a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  line-height: 1;
 }
 
 a {
@@ -32,13 +38,13 @@ a {
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:focus {
-  background-color: #ffd34e;
-  border-color: #ffc61a;
+  background-color: #105b63;
+  border-color: #0b3c42;
 }
 
 .btn-primary:hover {
-  background-color: #db9e36;
-  border-color: #c38822;
+  background-color: #0b3c42;
+  border-color: #07282c;
 }
 
 a:hover, a:focus {
@@ -48,6 +54,10 @@ a:hover, a:focus {
 footer.navbar.navbar-inverse {
   background-color: #105b63;
   border-color: #0b3c42;
+}
+
+footer {
+  padding: 15px 15px 15px 0;
 }
 
 .navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
