@@ -15,6 +15,10 @@
   color: #db9e36;
 }
 
+.navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
+  color: #db9e36;
+}
+
 .main-navbar-nav li > .dropdown-menu {
   border-top: 2px solid #db9e36;
 }
