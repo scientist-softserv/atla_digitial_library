@@ -1,7 +1,13 @@
+
+
 .hero-fullscreen-bg {
   background-image: url('ATLA-hero-new.jpg');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.form-control {
+  color: #555555;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
@@ -37,6 +43,30 @@
   line-height: 1;
 }
 
+@media screen and (max-width: 992px) {
+  .navbar-no-background {
+    position: absolute;
+    background: rgba(16, 91, 99, 0.95) !important;
+  }
+
+  .hero-fullscreen-bg {
+    height: auto;
+    padding-top: 100px;
+  }
+
+  .hero-fullscreen-bg .heading {
+    font-size: 60px;
+  }
+
+  .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
+    padding: 10px 10px;
+  }
+}
+
+.navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
+  background: rgba(16,91,99, 0.95);
+}
+
 a {
   color: #bd4932;
 }
@@ -55,15 +85,54 @@ a:hover, a:focus {
   color: #a13f2b;
 }
 
+section.section-gray {
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 992px) {
+  section.section-gray {
+  margin-bottom: 0;
+  }
+}
+
+/* FOOTER STYLES */
+
 footer.navbar.navbar-inverse {
   background-color: #105b63;
   border-color: #0b3c42;
 }
 
 footer {
-  padding: 15px 15px 15px 0;
+  padding: 15px;
 }
 
 .navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
   color: #d9d9d9;
+}
+
+@media screen and (max-width: 992px) {
+  .footer-text {
+    text-align: center;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .navbar-fixed-bottom {
+    position: relative;
+  }
+}
+
+/* Dashboard Styles */
+
+div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
+  background: #ffd34e;
+}
+
+.container.dashboard {
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 992px) {
+  .container.dashboard {
+    margin-top: 0;
+  }
 }

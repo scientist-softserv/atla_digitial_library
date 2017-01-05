@@ -15,12 +15,11 @@
 //= require bootstrap
 //= require jquery.easing
 //= require morphext
-//= require bravana
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require turbolinks//
+//= require bravana
 // Required by Blacklight
 //= require blacklight/blacklight
-
+//= require turbolinks//
 //= require_tree .
 //= require sufia
