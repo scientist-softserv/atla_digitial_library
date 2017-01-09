@@ -20,6 +20,5 @@
 //= require bravana
 // Required by Blacklight
 //= require blacklight/blacklight
-//= require turbolinks//
 //= require_tree .
 //= require sufia

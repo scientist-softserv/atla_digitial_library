@@ -11,7 +11,7 @@
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
-  color: #d9d9d9;
+  color: #fff;
   padding-top: 30px;
   padding-bottom: 30px;
   line-height: 1;
@@ -139,4 +139,18 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   .dashboard-margin-top {
     margin-top: 100px;
   }
+}
+
+/* Search Styles */
+.search-margin-top {
+  margin-top: 100px;
+}
+
+
+/* Navbar */
+.image-background {
+  background-image: url('ATLA-hero-new.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  max-height: 80px;
 }
