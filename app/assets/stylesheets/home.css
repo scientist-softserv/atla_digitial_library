@@ -135,4 +135,8 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   .container.dashboard {
     margin-top: 0;
   }
+
+  .dashboard-margin-top {
+    margin-top: 100px;
+  }
 }

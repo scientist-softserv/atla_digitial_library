@@ -7,10 +7,10 @@
 <body>
 <a href="#skip_to_content" class="sr-only">Skip to Content</a>
 <%= render partial: '/masthead' %>
-<%= render partial: '/controls' %>
+
 <%= render partial: '/flash_msg' %>
 <div class="image-background">
-<div id="content-wrapper" class="container white-background">
+<div id="content-wrapper" class="container">
   <%= render_breadcrumbs builder: Sufia::BootstrapBreadcrumbsBuilder %>
 
   <% if content_for?(:page_header) %>
