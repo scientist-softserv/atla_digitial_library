@@ -9,8 +9,8 @@
 <%= render partial: '/masthead' %>
 
 <%= render partial: '/flash_msg' %>
-<div class="image-background">
-<div id="content-wrapper" class="container">
+<!-- <div class="image-background"> -->
+<div id="content-wrapper">
   <%= render_breadcrumbs builder: Sufia::BootstrapBreadcrumbsBuilder %>
 
   <% if content_for?(:page_header) %>
@@ -22,12 +22,12 @@
   <% end %>
   <a name="skip_to_content"></a>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 container dashboard">
       <%= yield %>
     </div>
   </div><!-- /.row -->
 </div><!-- /#content-wrapper -->
-</div>
+<!-- </div> -->
 <div class="margin-bottom-50"></div>
 <%= render 'shared/footer' %>
 <%= render 'shared/ajax_modal' %>

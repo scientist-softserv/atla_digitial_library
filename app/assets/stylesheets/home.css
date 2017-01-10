@@ -44,9 +44,9 @@
 }
 
 @media screen and (max-width: 992px) {
-  .navbar-no-background {
-    position: absolute;
-    background: rgba(16, 91, 99, 0.95) !important;
+  .image-background {
+    background-image: none !important;
+    background: rgba(16, 91, 99, 0.95);
   }
 
   .hero-fullscreen-bg {
@@ -61,28 +61,47 @@
   .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
     padding: 10px 10px;
   }
+
+  .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+    color: #3b3b3b;
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-size: 12px;
 }
 
 .navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
-  background: rgba(16,91,99, 0.95);
+  background: rgba(16,91,99, 0.95) !important;
 }
 
-a {
+a, .btn-link {
   color: #bd4932;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:focus {
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus {
   background-color: #105b63;
   border-color: #0b3c42;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-success:hover {
   background-color: #0b3c42;
   border-color: #07282c;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, .btn-link:hover, .btn-link:focus {
   color: #a13f2b;
+}
+
+.multi_value .btn.add {
+  text-decoration: none;
+  padding: 5px 10px;
+  width: auto;
+  color: white;
+}
+
+.label-info {
+    background-color: #ffd34e;
 }
 
 section.section-gray {
@@ -127,8 +146,17 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background: #ffd34e;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .container.dashboard {
   margin-top: 100px;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 @media screen and (max-width: 992px) {
@@ -153,4 +181,10 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background-repeat: no-repeat;
   background-position: center;
   max-height: 80px;
+}
+
+
+/* Contact Page Styles */
+.form-horizontal .form-group {
+  margin-right:0;
 }
