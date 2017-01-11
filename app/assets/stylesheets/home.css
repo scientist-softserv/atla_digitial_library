@@ -163,6 +163,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 .container.dashboard {
   margin-top: 100px;
+  margin-bottom: 100px;
   margin-right: 15px;
   margin-left: 15px;
   padding-left: 15px;
@@ -197,6 +198,13 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   margin-top: 100px;
 }
 
+.panel-heading.collapse-toggle .panel-title:after {
+  margin-top: -20px;
+}
+
+#appliedParams.constraints-container {
+  margin-bottom: 10px;
+}
 
 /* Navbar */
 .image-background {
@@ -215,4 +223,9 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 /* Forms and Devise Views */
 input {
   margin-bottom: 10px;
+}
+
+/* Helper Styles */
+.margin-bottom-100 {
+  margin-bottom: 100px;
 }
