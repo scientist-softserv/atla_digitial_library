@@ -3,7 +3,9 @@
 .hero-fullscreen-bg {
   background-image: url('ATLA-hero-new.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
+  position: relative;
+  z-index: 1;
 }
 
 .form-control {
@@ -62,6 +64,10 @@
     padding: 10px 10px;
   }
 
+  .navbar .container {
+    z-index:2;
+  }
+
   .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
     color: #3b3b3b;
   }
@@ -69,6 +75,10 @@
 
 .navbar-default .navbar-nav > li > a {
     font-size: 12px;
+}
+
+.nav > li > a {
+    padding: 10px 14px;
 }
 
 .navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
@@ -167,6 +177,19 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   .dashboard-margin-top {
     margin-top: 100px;
   }
+
+  .heading-tile {
+    font-size: large;
+  }
+
+  .container.dashboard a.btn.btn-danger.pull-right {
+    float:left !important;
+  }
+
+  .pull-right.no-pull-sm {
+    float: none !important;
+    margin-bottom: 5px;
+  }
 }
 
 /* Search Styles */
@@ -177,9 +200,9 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 /* Navbar */
 .image-background {
-  background-image: url('ATLA-hero-new.jpg');
+  background-image: url('ATLA-nav-back.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   max-height: 80px;
 }
 
