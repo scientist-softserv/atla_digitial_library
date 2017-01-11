@@ -211,3 +211,8 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 .form-horizontal .form-group {
   margin-right:0;
 }
+
+/* Forms and Devise Views */
+input {
+  margin-bottom: 10px;
+}
