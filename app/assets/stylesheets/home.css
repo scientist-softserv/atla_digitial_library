@@ -1,4 +1,6 @@
-
+#content-wrapper {
+  margin-top: 100px;
+}
 
 .hero-fullscreen-bg {
   background-image: url('ATLA-hero-new.jpg');
@@ -162,7 +164,6 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .container.dashboard {
-  margin-top: 100px;
   margin-bottom: 100px;
   margin-right: 15px;
   margin-left: 15px;
@@ -171,8 +172,16 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 @media screen and (max-width: 992px) {
+  #content-wrapper {
+    margin-top: 100px;
+  }
+
   .container.dashboard {
     margin-top: 0;
+  }
+
+  .container.dashboard h2.non.lower small {
+    font-size: 50%;
   }
 
   .dashboard-margin-top {
@@ -206,6 +215,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   margin-bottom: 10px;
 }
 
+
 /* Navbar */
 .image-background {
   background-image: url('ATLA-nav-back.jpg');
@@ -228,4 +238,23 @@ input {
 /* Helper Styles */
 .margin-bottom-100 {
   margin-bottom: 100px;
+}
+
+/* Breadcrumbs */
+
+.breadcrumb > li.active {
+  color: #105b63;
+}
+
+.breadcrumb a:hover, .breadcrumb a:focus {
+  color: #105b63;
+}
+
+.breadcrumb.link-accent a {
+  color: #105b63;
+}
+
+.breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
+  text-decoration: none;
+  color: #0b3c42;
 }
