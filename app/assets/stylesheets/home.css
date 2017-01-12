@@ -171,21 +171,23 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   padding-right: 15px;
 }
 
+.main-header {
+  margin-left: 15px;
+  padding-left: 15px;
+}
+
 @media screen and (max-width: 992px) {
   #content-wrapper {
-    margin-top: 100px;
+    margin-top: 0;
   }
 
   .container.dashboard {
     margin-top: 0;
+    padding-right: 30px;
   }
 
   .container.dashboard h2.non.lower small {
     font-size: 50%;
-  }
-
-  .dashboard-margin-top {
-    margin-top: 100px;
   }
 
   .heading-tile {
@@ -257,4 +259,9 @@ input {
 .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
   text-decoration: none;
   color: #0b3c42;
+}
+
+/* User Notifications */
+.container.dashboard a.btn.btn-danger.pull-right {
+  margin-right: 30px;
 }
