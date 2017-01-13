@@ -265,3 +265,10 @@ input {
 .container.dashboard a.btn.btn-danger.pull-right {
   margin-right: 30px;
 }
+
+.well-form-wrapper {
+  width: 555px;
+  padding: 30px;
+  background-color: #fdfdfd;
+  border: 1px solid #red;
+}
