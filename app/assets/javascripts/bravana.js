@@ -65,13 +65,13 @@ $(document).ready( function() {
 
 	// submenu dropdown click event
 	$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(e) {
-		e.preventDefault(); 
-		e.stopPropagation(); 
+		e.preventDefault();
+		e.stopPropagation();
 		$(this).parent().siblings().removeClass('open');
 		$(this).parent().toggleClass('open');
 	});
 
-	// hide collapsible menu once menu item clicked 
+	// hide collapsible menu once menu item clicked
 	$('.nav-onepage li a').click( function() {
 		var navbarCollapse = $(this).parents('.navbar-collapse.collapse');
 
@@ -87,6 +87,18 @@ $(document).ready( function() {
 				$('.navbar-fixed-top').removeClass('navbar-no-background');
 			}else {
 				$('.navbar-fixed-top').addClass('navbar-no-background');
+			}
+		});
+	}
+
+	// BACKGROUND IMAGE ON NAVBAR should dispappear when scrolling
+	// background on navbar should remove background image when scrolled
+	if($('.navbar-fixed-top.image-background').length > 0) {
+		$(window).scroll(function() {
+			if($(document).scrollTop() > 100) {
+				$('.navbar-fixed-top').removeClass('image-background');
+			}else {
+				$('.navbar-fixed-top').addClass('image-background');
 			}
 		});
 	}
@@ -288,11 +300,11 @@ $(document).ready( function() {
 	if($('#markdown-editor').length > 0) {
 
 		var initContent = '<h4>Hello there</h4> ' +
-				'<p>How are you? I have below task for you :</p> ' + 
+				'<p>How are you? I have below task for you :</p> ' +
 					'<p>Select from this text... Click the bold on THIS WORD and make THESE ONE italic, ' +
 					'link GOOGLE to google.com, ' +
-					'test to insert image (and try to tab after write the image description)</p>' + 
-					'<p>Test Preview And ending here...</p> ' + 
+					'test to insert image (and try to tab after write the image description)</p>' +
+					'<p>Test Preview And ending here...</p> ' +
 					'<p>Click "List"</p> Enjoy!';
 
 		$('#markdown-editor').text(toMarkdown(initContent));
@@ -305,7 +317,7 @@ $(document).ready( function() {
 
 	if($('#textarea-counter-demo').length > 0) {
 		var textMax = 99;
-		
+
 		$('.js-textarea-help span').html(textMax + ' characters remaining');
 
 		$('.textarea-counting').keyup(function() {
@@ -348,20 +360,20 @@ $(document).ready( function() {
 			STOP CHANGING THE REST OF THE CODES UNLESS YOU KNOW WHAT YOU ARE DOING
 		*/
 
-		$('#countdown1').countdown({ 
-			until: dateUntil, 
+		$('#countdown1').countdown({
+			until: dateUntil,
 		});
 
-		$('#countdown2').countdown({ 
-			until: dateUntil, 
+		$('#countdown2').countdown({
+			until: dateUntil,
 		});
 
-		$('#countdown3').countdown({ 
-			until: dateUntil, 
+		$('#countdown3').countdown({
+			until: dateUntil,
 		});
 
-		$('#countdown4').countdown({ 
-			until: dateUntil, 
+		$('#countdown4').countdown({
+			until: dateUntil,
 		});
 	}
 
@@ -424,7 +436,7 @@ $(document).ready( function() {
 		});
 	}
 
-	
+
 
 
 	/*-----------------------------------/
@@ -538,7 +550,7 @@ $(document).ready( function() {
 				$btn.attr('disabled', 'disabled');
 			},
 			success: function( data, textStatus, XMLHttpRequest ){
-				
+
 				var className = '';
 
 				if( data.result == true ){
@@ -600,9 +612,9 @@ $(document).ready( function() {
 			}
 
 			$.post($url, $(this).serialize(), function(data){
-				
+
 				$message = data.message;
-				
+
 				if( data.result == true ){
 					$theForm.slideUp('medium', function() {
 						$alert.removeClass('alert-danger');
@@ -619,7 +631,7 @@ $(document).ready( function() {
 			.fail(function() { console.log('AJAX Error'); });
 		});
 	}
-	
+
 
 	/*----------------------------/
 	/* PORTFOLIO ISOTOPE INIT
@@ -765,7 +777,7 @@ $(document).ready( function() {
 
 	if($('.waypoint').length > 0) {
 		$('.waypoint').waypoint(function(direction) {
-			
+
 			$('.countto').each(function() {
 				$(this).countTo({
 					to: parseInt($(this).text())
@@ -1033,7 +1045,3 @@ $(document).ready( function() {
 	}
 
 });
-
-
-
-

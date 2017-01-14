@@ -121,7 +121,7 @@ section .lead {
   display: block;
   height: 14px;
   margin-top: 20px;
-  background-image: url('../img/specials/restaurant/separator.png?1470441644');
+  /*background-image: url('../img/specials/restaurant/separator.png?1470441644');*/
   background-repeat: no-repeat;
   background-position: center;
 }

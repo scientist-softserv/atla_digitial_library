@@ -48,7 +48,13 @@
 }
 
 @media screen and (max-width: 992px) {
-  .image-background {
+  .navbar-no-background {
+    position: absolute;
+    background: rgba(16, 91, 99, 0.95) !important;
+    background-image: none !important;
+  }
+
+ .navbar-no-background.image-background {
     background-image: none !important;
     background: rgba(16, 91, 99, 0.95);
   }
@@ -220,12 +226,12 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 /* Navbar */
 .image-background {
-  background-image: url('ATLA-nav-back.jpg');
+  background-image: url('ATLA-nav-back.jpg')!important;
   background-repeat: no-repeat;
   background-position: top;
-  max-height: 80px;
+  position: relative;
+  max-height: 110px;
 }
-
 
 /* Contact Page Styles */
 .form-horizontal .form-group {
@@ -266,9 +272,14 @@ input {
   margin-right: 30px;
 }
 
-.well-form-wrapper {
+/*.well-form-wrapper {
   width: 555px;
   padding: 30px;
   background-color: #fdfdfd;
   border: 1px solid #red;
+}*/
+
+/* Removing divider to prevent console error */
+.section-heading:after {
+  background-image: none;
 }
