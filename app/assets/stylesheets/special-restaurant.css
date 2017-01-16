@@ -31,11 +31,11 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-.hero-fullscreen-bg {
+/*.hero-fullscreen-bg {
   background-image: url('../img/specials/restaurant/hero-unit-bg.jpg?1470397966');
   background-repeat: no-repeat;
   background-position: center;
-}
+}*/
 .hero-fullscreen-bg .heading {
   font-size: 72px;
   margin-bottom: 0;

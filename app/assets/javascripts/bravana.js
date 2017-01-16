@@ -150,13 +150,13 @@ $(document).ready( function() {
 	}
 
 	// onepage scroll links
-	if($('.nav-onepage').length > 0 || $('.internal-links').length > 0) {
-		$('.nav-onepage, .internal-links').localScroll({
-			duration: 1000,
-			offset:  - ($('.navbar-fixed-top').height() + 30),
-			easing: 'easeInOutExpo'
-		});
-	}
+	// if($('.nav-onepage').length > 0 || $('.internal-links').length > 0) {
+	// 	$('.nav-onepage, .internal-links').localScroll({
+	// 		duration: 1000,
+	// 		offset:  - ($('.navbar-fixed-top').height() + 30),
+	// 		easing: 'easeInOutExpo'
+	// 	});
+	// }
 
 	if($('.nav-onepage').length > 0) {
 		$('body').scrollspy({ target: '#main-navbar', offset: 120});
