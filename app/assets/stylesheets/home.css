@@ -1,7 +1,8 @@
 /* Home Page and General Styles */
 
 #content-wrapper {
-  margin-top: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .hero-fullscreen-bg {
@@ -13,6 +14,7 @@
 }
 
 /* Buttons and Links */
+
 a, .btn-link {
   color: #db9e36;
 }
@@ -39,18 +41,13 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 }
 
 .label-info {
-    background-color: #none;
+    background-color: #fff;
     color: #bd4932;
+    font-size: 65%;
 }
 
 section.section-gray {
   margin-bottom: 100px;
-}
-
-@media screen and (max-width: 992px) {
-  section.section-gray {
-  margin-bottom: 0;
-  }
 }
 
 /* FOOTER STYLES */
@@ -79,21 +76,11 @@ footer .navbar-text {
 
 ul.footer-links {
   list-style-type: none;
+  padding-left: 0;
 }
 
 .navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
   color: #d9d9d9;
-}
-
-@media screen and (max-width: 992px) {
-  .footer-text {
-    text-align: center;
-    line-height: 1.25;
-    margin: 0;
-  }
-  .navbar-fixed-bottom {
-    position: relative;
-  }
 }
 
 /* Dashboard Styles */
@@ -108,11 +95,15 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .container.dashboard {
-  margin-top:100px;
+  margin-top: 100px;
   margin-right: 15px;
   margin-left: 15px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.container.dashboard>h1 {
+  margin-top: -75px;
 }
 
 .main-header {
@@ -120,11 +111,11 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   padding-left: 15px;
 }
 
+.main-header>h1 {
+  margin-bottom:-75px;
+}
 
 /* Search Styles */
-.search-margin-top {
-  margin-top: 100px;
-}
 
 .panel-heading.collapse-toggle .panel-title:after {
   margin-top: -20px;
@@ -174,7 +165,6 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background-image: url('ATLA-nav-back.jpg')!important;
   background-repeat: no-repeat;
   background-position: top !important;
-  /*position: relative;*/
   max-height: 110px;
 }
 
@@ -191,11 +181,13 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 /* Contact Page Styles */
+
 .form-horizontal .form-group {
   margin-right:0;
 }
 
 /* Forms and Devise Views */
+
 input {
   margin-bottom: 10px;
 }
@@ -205,6 +197,7 @@ input {
 }
 
 /* Helper Styles */
+
 .margin-bottom-100 {
   margin-bottom: 100px;
 }
@@ -229,34 +222,22 @@ input {
 }
 
 /* User Notifications */
+
 .container.dashboard a.btn.btn-danger.pull-right {
   margin-right: 30px;
 }
 
-/*.well-form-wrapper {
-  width: 555px;
-  padding: 30px;
-  background-color: #fdfdfd;
-  border: 1px solid #red;
-}*/
-
 /* Removing divider to prevent console error */
+
 .section-heading:after {
   background-image: none;
 }
 
 /* MEDIA QUERIES and Mobile Styles */
-@media screen and (max-width: 992px) {
-  .navbar-no-background {
-    position: absolute;
-    background: rgba(16, 91, 99, 0.95) !important;
-    background-image: none !important;
-  }
 
- .navbar-no-background.image-background {
-    background-image: none !important;
-    /*background: rgba(16, 91, 99, 0.95);*/
-  }
+@media screen and (max-width: 992px) {
+
+  /* Home Page items */
 
   .hero-fullscreen-bg {
     height: auto;
@@ -267,8 +248,34 @@ input {
     font-size: 60px;
   }
 
-  .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
-    padding: 10px 10px;
+  section.section-gray {
+    margin-bottom: 0;
+  }
+
+  #search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
+    display: none;
+  }
+
+  #search-submit-header.btn.btn-primary {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: none;
+  }
+
+  button#search-option-toggle.btn.btn-default.dropdown-toggle {
+    display: none;
+  }
+
+  /* Navigation items */
+
+  .navbar-no-background {
+    position: absolute;
+    background: rgba(16, 91, 99, 0.95) !important;
+    background-image: none !important;
+  }
+
+ .navbar-no-background.image-background {
+    background-image: none !important;
   }
 
   .navbar .container {
@@ -282,16 +289,33 @@ input {
   .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
     background-color: #fff;
   }
-}
 
-@media screen and (max-width: 992px) {
+  /* Forms */
+  .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
+    padding: 10px 10px;
+  }
+
+  /* Dashboard and other secondary pages */
+
+  #my_nav {
+    margin-top: 120px;
+  }
+
+  .search-margin-top {
+    margin-top: 100px;
+  }
+
   #content-wrapper {
     margin-top: 0;
+    margin-bottom: 50px;
   }
 
   .container.dashboard {
-    margin-top: 100px;
     padding-right: 30px;
+  }
+
+  .container.dashboard>h1 {
+      margin-top: 50px;
   }
 
   .container.dashboard h2.non.lower small {
@@ -315,17 +339,18 @@ input {
     margin-top:100px;
   }
 
-  #search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
-    display: none;
+  .profile {
+    margin-top: 20px;
   }
 
-  #search-submit-header.btn.btn-primary {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border: none;
-  }
+  /* Footer */
 
-  button#search-option-toggle.btn.btn-default.dropdown-toggle {
-    display: none;
+  .footer-text {
+    text-align: center;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .navbar-fixed-bottom {
+    position: relative;
   }
 }
