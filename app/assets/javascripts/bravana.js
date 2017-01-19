@@ -838,22 +838,22 @@ $(document).ready( function() {
 	/* BOOTSTRAP PROGRESS BAR
 	/*----------------------------------*/
 
-	if($('.progress .progress-bar').length > 0) {
-		$('.progress .progress-bar').progressbar({
-			display_text: 'fill'
-		});
-
-		$('.progress.no-percentage .progress-bar').progressbar({
-			display_text: 'fill',
-			use_percentage: false
-		});
-
-		$('.progress.custom-format .progress-bar').progressbar({
-			display_text: 'fill',
-			use_percentage: false,
-			amount_format: function(p, t) {return p + ' of ' + t;}
-		});
-	}
+	// if($('.progress .progress-bar').length > 0) {
+	// 	$('.progress .progress-bar').progressbar({
+	// 		display_text: 'fill'
+	// 	});
+	//
+	// 	$('.progress.no-percentage .progress-bar').progressbar({
+	// 		display_text: 'fill',
+	// 		use_percentage: false
+	// 	});
+	//
+	// 	$('.progress.custom-format .progress-bar').progressbar({
+	// 		display_text: 'fill',
+	// 		use_percentage: false,
+	// 		amount_format: function(p, t) {return p + ' of ' + t;}
+	// 	});
+	// }
 
 
 	/*-----------------------------------/

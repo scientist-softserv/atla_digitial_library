@@ -4,24 +4,8 @@
         <p>A service of <a href="http://projecthydra.org/" class="navbar-link" target="_blank">Project Hydra</a>.</p>
         <p>Sufia v<%= Sufia::VERSION %></p>
     </div>
-    <div class="col-sm-4 text-center navbar-text">
-      <ul class="footer-links">
-        <!-- <li <#%= 'class=active' if current_page?(sufia.root_path) %>>
-          <#%= link_to t(:'sufia.controls.home'), sufia.root_path, :'data-no-turbolink'=>"true" %></li> -->
-        <li <%= 'class=active' if current_page?(sufia.about_path) %>>
-          <%= link_to t(:'sufia.controls.about'), sufia.about_path, :'data-no-turbolink'=>"true" %></li>
-        <li <%= 'class=active' if action_name == "help" %>>
-          <%= link_to t(:'sufia.controls.help'), sufia.help_path %></li>
-        <li <%= 'class=active' if current_page?(sufia.contact_path) %>>
-          <%= link_to t(:'sufia.controls.contact'), sufia.contact_path %></li>
-          <li>
-            <%= link_to main_app.new_user_session_path do %>
-              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login
-            <% end %>
-          </li>
-      </ul><!-- /.nav -->
-    </div>
-    <div class="navbar-right col-sm-4">
+
+    <div class="navbar-right col-sm-4 col-sm-offset-4">
       <div class="navbar-text text-right footer-text">
         <p><%= t('sufia.footer.copyright_html') %></p>
       </div>

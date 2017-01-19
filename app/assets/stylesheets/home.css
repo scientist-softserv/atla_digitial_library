@@ -13,6 +13,10 @@
   z-index: 1;
 }
 
+section.section-gray {
+  margin-bottom: 100px;
+}
+
 /* Buttons and Links */
 
 a, .btn-link {
@@ -33,21 +37,20 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
   color: #c38822;
 }
 
+.btn-danger, .label-danger {
+  background-color: #bd4932;
+  border-color: #a13f2b;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
+  background-color: #a13f2b;
+  border-color: #792f20;
+}
 .multi_value .btn.add {
   text-decoration: none;
   padding: 5px 10px;
   width: auto;
   color: white;
-}
-
-.label-info {
-    background-color: #fff;
-    color: #bd4932;
-    font-size: 65%;
-}
-
-section.section-gray {
-  margin-bottom: 100px;
 }
 
 /* FOOTER STYLES */
@@ -125,7 +128,6 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   margin-bottom: 10px;
 }
 
-
 /* Navbar */
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
@@ -196,6 +198,26 @@ input {
   color: #555555;
 }
 
+.label-info::before {
+  content: "*";
+  color: #bd4932;
+}
+.label-info {
+  background-color: #fff;
+  color: #fff;
+}
+
+.required-key {
+  color: #bd4932;
+  padding-left: 16px;
+  font-size: 14px;
+}
+
+/* Remove padding for required-key field on collection pages */
+.no-left-padding {
+  padding-left: 0;
+}
+
 /* Helper Styles */
 
 .margin-bottom-100 {
@@ -226,6 +248,9 @@ input {
 .container.dashboard a.btn.btn-danger.pull-right {
   margin-right: 30px;
 }
+
+/* Progress bars */
+
 
 /* Removing divider to prevent console error */
 
