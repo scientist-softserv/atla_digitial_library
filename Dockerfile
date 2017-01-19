@@ -10,6 +10,8 @@ ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
     BUNDLE_JOBS=2 \
     BUNDLE_PATH=/bundle
 
+RUN bundle install
+
 ADD . $APP_HOME
 
 CMD ["bin/rails", "console"]
