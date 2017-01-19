@@ -23,12 +23,12 @@ a, .btn-link {
   color: #db9e36;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus {
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus {
   background-color: #105b63;
   border-color: #0b3c42;
 }
 
-.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover {
+.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover {
   background-color: #0b3c42;
   border-color: #07282c;
 }
@@ -251,6 +251,25 @@ input {
 
 /* Progress bars */
 
+.progress-bar {
+  background-color: #105b63;
+}
+
+.progress-bar-warning {
+  background-color: #db9e36;
+}
+
+.progress-bar-danger {
+  background-color: #bd4932;
+}
+
+.progress-bar-success {
+  background-color: #105b63;
+}
+
+.progress-bar-info {
+  background-color: #198d9a;
+}
 
 /* Removing divider to prevent console error */
 
