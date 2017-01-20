@@ -1,0 +1,248 @@
+/* --------
+ * Tabs
+ * -------*/
+
+.nav-tabs {
+	> li > a {
+		@include border-top-radius(2px);
+
+		font-size: 14px;
+		font-weight: normal;
+
+		&:hover, &:focus {
+			background-color: $gray-muted-bg;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	> li.active {
+		> a, > a:hover, > a:focus {
+			color: $body-font-color;
+		}
+	}
+}
+
+.tab-content {
+	padding: 15px 8px;
+}
+
+.nav .open {
+	> a, a:hover, a:focus {
+		border-color: #fff;
+	}
+}
+
+.nav-pills {
+	> li {
+		> a {
+			@include border-radius(2px);
+
+			color: $body-font-color;
+			background-color: $gray-muted-bg;
+		}
+
+		&.active > a, &.active > a:hover, &.active > a:focus {
+			background-color: $brand-primary;
+		}
+	}
+}
+
+.nav-tabs,
+.nav-pills {
+	&.nav {
+		font-family: $font-family-primary;
+	}
+
+	> li > a:focus {
+		outline: none;
+	}
+
+	&.tabs-iconized {
+		> li i {
+			position: relative;
+			margin-right: 3px;
+			top: 3px;
+			font-size: 20px;
+		}
+	}
+}
+
+.nav-stacked {
+	font-family: $font-family-primary;
+
+	i {
+		position: relative;
+		top: 1px;
+		min-width: 20px;
+		font-size: 16px;
+		text-align: center;
+	}
+}
+
+.custom-tabs-line {
+	text-align: center;
+
+	.nav {
+		font-family: $font-family-primary;
+	}
+
+	ul {
+		@include inline-block;
+
+		> li {
+			float: left;
+
+			a {
+				color: lighten($body-font-color, 15%);
+				font-weight: normal;
+
+				&:hover, &:focus {
+					color: $body-font-color;
+					background-color: transparent;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+
+		&.nav-pills a {
+			&:hover, &:focus {
+				color: #fff;
+				background-color: $brand-primary;
+			}
+		}
+	}
+	
+	&.tabs-line-top {
+		border-top: 1px solid #e4e4e4;
+
+		ul > li {
+			margin-top: -1px;
+		}
+
+		a {
+			border-top: 2px solid transparent;
+		}
+
+		.active a {
+			border-top-color: $brand-primary;
+		}
+	}
+
+	&.tabs-line-bottom {
+		border-bottom: 1px solid #e4e4e4;
+
+		ul > li {
+			margin-bottom: -1px;
+		}
+
+		a {
+			border-bottom: 1px solid transparent;
+		}
+
+		.active a {
+			border-bottom: 2px solid $brand-primary;
+		}
+	}
+
+	&.left-aligned {
+		text-align: left;
+	}
+
+	&.right-aligned {
+		text-align: right;
+	}
+
+	@include max-screen($break-small) {
+		ul li.active > a {
+			margin-bottom: -1px;
+		}
+	}
+}
+
+.tabbed-content-chronological .tab-content {
+	min-height: 250px;
+}
+
+.custom-tabs-circle {
+	text-align: center;
+	
+	.nav {
+		font-family: $font-family-primary;
+	}
+
+	ul {
+		@include inline-block;
+
+		> li {
+			margin: 0 35px;
+			float: left;
+			
+			> a {
+				@include border-radius(50%);
+
+				width: 60px;
+				height: 60px;
+				padding: 0;
+				color: darken(#fafafa, 15%);
+				font-family: $font-family-primary;
+				line-height: 60px;
+				background-color: #fff;
+				border: 1px solid darken(#fafafa, 8%);
+
+				&:hover,
+				&:focus {
+					background-color: #fafafa;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			&.active > a {
+				border-color: $brand-primary;
+				background-color: $brand-primary;
+				color: #fff;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: relative;
+				bottom: 30px;
+				margin: 0 auto;
+				width: 60px;
+				height: 1px;
+				background-color: #eaeaea;
+				left: 65px;
+			}
+
+			&:last-child:after {
+				display: none;
+			}
+		}
+	}
+
+	@include max-screen($break-small) {
+		display: block;
+
+		ul > li {
+			margin: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+
+
+
+

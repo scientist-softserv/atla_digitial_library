@@ -1,0 +1,199 @@
+/* -----------------------
+ * Wizard
+ * ----------------------*/
+
+.wizard {
+	> .steps-container {
+		background-color: #eee;
+	}
+
+	> ul.steps li.active, 
+	> .steps-container > ul.steps li.active {
+		background-color: #777;
+		color: #fff;
+
+		.badge {
+			background-color: #fff;
+			color: #777;
+		}
+
+		.chevron:before {
+			border-left-color: #777;
+		}
+	}
+
+	> ul.steps li.complete,
+	> .steps-container > ul.steps li.complete {
+		&,
+		&:hover {
+			background: $state-success-bg;
+			color: #fff;
+		}
+
+		.badge {
+			background-color: #fff;
+			color: $state-success-text;
+		}
+
+		.chevron {
+			border-left-color: darken($state-success-bg, 8%);
+
+			&:before {
+				border-left-color: $state-success-bg;
+			}
+		}
+	}
+
+	.btn-next i {
+		margin-left: 5px;
+	}
+}
+
+.wizard-center {
+	position: relative;
+	min-height: 48px;
+
+	h3 {
+		font-size: 18px;
+	}
+
+	> .steps-container {
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		text-align: center;
+
+		.connector-line {
+			position: relative;
+			top: 19px;
+			margin: 0 auto;
+			width: 50%;
+			height: 2px;
+			background-color: #000;
+		}
+	}
+
+	ul.steps {
+		@include inline-block;
+
+		list-style: none outside none;
+		padding: 0;
+		margin: 0;
+		margin: 0 !important;
+
+		> li {
+			text-align: center;
+			font-size: 16px;
+
+			span {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: relative;
+				bottom: 52px;
+				margin: 0 auto;
+				width: 100px;
+				height: 1px;
+				background-color: #eaeaea;
+				left: 90px;
+			}
+
+			&:last-child:after {
+				display: none;
+			}
+		}
+	}
+
+	ul.steps > li {
+		padding-left: 30px;
+		padding-right: 30px;
+		min-width: 180px;
+		font-weight: 800;
+		color: #ccc;
+
+		&.active {
+			color: $body-font-color;
+
+			.step-number {
+				background: #777;
+			}
+		}
+
+		&.complete {
+			color: $body-font-color;
+
+			.step-number {
+				background: #5BA412;
+				cursor: pointer;
+
+				&:hover {
+					background: darken($state-success-bg,3%);
+				}
+			}
+
+			.title:hover {
+				cursor: pointer;
+			}
+
+			&:after {
+				background-color: $state-success-bg;
+			}
+		}
+
+		@include max-screen($break-small) {
+			display: none;
+
+			&.active {
+				display: block;
+			}
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	.step-number {
+		@include border-radius(50%);
+
+		width: 35px;
+		height: 35px;
+		line-height: 35px;
+		background: #ddd;
+		color: #fff;
+		margin-bottom: 10px;
+	}
+
+	.btn-prev,
+	.btn-next {
+		margin-left: 20px;
+
+		i {
+			margin: 0 5px;
+		}
+	}
+
+	.step-content {
+		.step-pane {
+			display: none;
+		}
+
+		> .active {
+			display: block;
+		}
+	}
+
+	.actions {
+		text-align: right;
+	}
+}
+
+#demo-wizard .step-content .step-pane {
+	min-height: 303px;
+}
+
+

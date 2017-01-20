@@ -1,0 +1,189 @@
+/* -------------------------
+ * Carousel by owl carousel
+ * ------------------------*/
+ 
+/* dotted pagination */
+.owl-theme .owl-controls {
+	.owl-pagination {
+		margin-top: 20px;
+
+		/* if it has pagination, adjust top position */
+		+ .owl-buttons {
+			margin-top: -45px;
+		}
+	}
+
+	.owl-page {
+		span {
+			width: 10px;
+			height: 10px;
+			margin: 5px;
+			background: $carousel-pagination-dot-bg;
+			border: 1px solid $carousel-pagination-dot-border;
+		}
+
+		&.active span {
+			background: $carousel-pagination-dot-active-bg;
+		}
+	}
+}
+
+/* navigation buttons */
+.owl-theme .owl-controls .owl-buttons {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	margin-top: -21px;
+
+	div {
+		@include border-radius(3px);
+		@include opacity(1);
+
+		position: absolute;
+		padding: 12px 20px;
+		line-height: 0;
+		font-size: 0;
+		background-color: rgba(#000, .2);
+
+		&:before {
+			font-family: FontAwesome;
+			font-size: 24px;
+			line-height: 24px;
+		}
+
+		&.owl-prev {
+			left: 0;
+
+			&:before {
+				content: '\f104';
+			}
+		}
+
+		&.owl-next {
+			right: 0;
+
+			&:before {
+				content: '\f105';
+			}
+		}
+	}
+}
+
+/* carousel with nav buttons hidden first */
+.carousel-nav-hidefirst {
+	.owl-controls .owl-buttons {
+		@include opacity(0);
+		@include transition(opacity .3s);
+	}
+
+	&:hover .owl-controls .owl-buttons {
+		@include opacity(1);
+	}
+}
+
+/* carousel with gap between item */
+.carousel-gap .owl-item {
+	padding: 0 2px;
+}
+
+/* carousel as content slider */
+.carousel-content {
+	.media-body {
+		padding-left: 20px;
+	}
+
+	.owl-controls .owl-buttons div {
+		background-color: $carousel-nav-dark-bg;
+		color: #fff;
+	}
+
+	@include max-screen($break-medium) {
+		.media-left,
+		.media-right,
+		.media-body {
+			display: block;
+			padding: 0;
+		}
+
+		.media-left,
+		.media-right {
+			margin-bottom: 15px;
+			text-align: center;
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		.media-body {
+			padding-left: 0;
+			width: 100%;
+			vertical-align: baseline;
+		}
+
+		.section-heading {
+			margin-bottom: 20px;
+			font-size: 24px;
+		}
+	}
+}
+
+/* carousel with arrows navigation */
+.carousel-has-navigation {
+	.owl-item {
+		padding: 0 75px;
+	}
+}
+
+/* carousel with dot pagination inside slider */
+.carousel-pagination-inside {
+	.owl-controls {
+		position: absolute;
+		width: 100%;
+		bottom: 10px;
+		margin: 0;
+
+		.owl-pagination {
+			margin: 0;
+		}
+	}
+}
+
+/* carousel portfolio simple */
+.carousel-portfolio-simple {
+	/* alternate navigation button */
+	.owl-controls .owl-buttons div {
+		@include border-radius(50%);
+
+		background-color: $brand-primary;
+
+		&.owl-prev:before {
+			content: '\f0d9';
+		}
+
+		&.owl-next:before {
+			content: '\f0da';
+		}
+	}
+}
+
+/* carousel portfolio card */
+.carousel-portfolio-card {
+	.portfolio-card {
+		margin: 0 7px;
+	}
+
+	.owl-wrapper {
+		padding-bottom: 1px;
+	}
+}
+
+/* hand and loading icon */
+.grabbing { 
+	cursor: url(../img/owl-carousel/grabbing.png) 8 8, move;
+}
+
+.owl-item.loading{
+	background-image: url(../img/owl-carousel/AjaxLoader.gif);
+}
+

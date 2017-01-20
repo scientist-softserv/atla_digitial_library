@@ -1,0 +1,28 @@
+/* -----------
+ * Events
+ * ----------*/
+
+.events hr {
+	margin: 30px 0;
+}
+
+.event {
+	.event-date {
+		display: block;
+		margin-bottom: 8px;
+		line-height: 1;
+		font-size: 36px;
+		color: #d3d3d3;
+	}
+
+	.event-title {
+		display: block;
+		font-size: 18px;
+		color: $body-font-color;
+
+		&:hover,
+		&:focus {
+			color: lighten($body-font-color, 15%);
+		}
+	}
+}

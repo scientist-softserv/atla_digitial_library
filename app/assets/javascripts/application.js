@@ -10,14 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing
+//= require jquery.localscroll-1.2.7
+//= require morphext
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require turbolinks//
+//= require bravana
 // Required by Blacklight
 //= require blacklight/blacklight
-
 //= require_tree .
 //= require sufia
-

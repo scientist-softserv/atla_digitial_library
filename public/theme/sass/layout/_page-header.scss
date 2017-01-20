@@ -1,0 +1,154 @@
+/* ------------
+ * Page header 
+ * ------------*/
+
+.page-header {
+	padding: 5px 0;
+	margin: 0;
+	border-bottom: 1px solid #eaeaea;
+	background-color: $page-header-color-bg;
+
+	.container {
+		position: relative;
+	}
+
+	.breadcrumb {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		margin-top: -18px;
+	}
+
+	.page-title {
+		margin: 20px 0;
+		font: {
+			family: $font-family-secondary;
+			size: 18px;
+			weight: 500;
+		}
+	}
+
+	&.one-column {
+		padding: 20px 0;
+
+		.breadcrumb {
+			position: relative;
+			padding: 15px 0 0 0;
+			right: 0;
+		}
+	}
+
+	&.has-intro {
+		padding: 40px 0;
+
+		.left {
+			width: 50%;
+		}
+
+		.page-title {
+			margin: 10px 0 15px 0;
+		}
+
+		.page-header-intro {
+			font-weight: 300;
+			font-size: 16px;
+			color: darken($page-header-color-bg, 20%);
+		}
+	}
+
+	&.has-background-image {
+		padding: 88px 0;
+		position: relative;
+		color: #fff;
+		background: {
+			image: image-url('page-header-default-bg.jpg');
+			repeat: no-repeat;
+			position: center;
+			size: cover;
+		}
+
+		.page-title {
+			color: #fff;
+		}
+
+		.overlay {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(#000, .8);
+		}
+
+		.breadcrumb > li + li:before {
+			color: #464646;
+		}
+	}
+
+	&.has-background-pattern {
+		padding: 40px 0;
+		background: {
+			image: image-url('pattern-restaurant_icons.png');
+			repeat: repeat;
+		}
+
+		.breadcrumb > li + li:before {
+			color: inherit;
+		}
+	}
+	
+	&.breadcrumbs-only {
+		.breadcrumb {
+			position: relative;
+			margin: 0;
+		}
+	}
+
+	@include max-screen($break-small) {
+		.breadcrumb,
+		.page-title {
+			float: none !important;
+			text-align: center;
+		}
+
+		.breadcrumb {
+			position: inherit;
+			top: inherit;
+			right: inherit;
+		}
+
+		&.has-intro {
+			text-align: center;
+
+			.left {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+
+			.breadcrumb {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+#page-header-about {
+	background-image: image-url('page-header-default-bg.jpg');
+}
+
+#page-header-services {
+	background-image: image-url('page-header-services-bg.jpg');
+}
+
+#page-header-contact {
+	background-image: image-url('page-header-contact-bg.jpg');
+}
+
+#page-header-signin {
+	background-image: image-url('page-header-signin-bg.jpg');
+}
+
+#page-header-signup {
+	background-image: image-url('page-header-signup-bg.jpg');
+}
+
+

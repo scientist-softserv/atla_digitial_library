@@ -1,0 +1,182 @@
+/* ---------------
+ * Pricing tables
+ * ---------------*/
+
+.pricing-table {
+	background-color: #F6F6F6;
+	border-left: 2px solid $body-color-bg;
+
+	.top {
+		position: relative;
+		padding-top: 20px;
+		margin: 0 -15px;
+		text-align: center;
+		background-color: $pricing-table-gray-bg;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 45px;
+			
+			height: 65%;
+			width: 50%;
+			background: $pricing-table-gray-bg;
+		}
+		
+		&:before {
+			@include skew(0deg, 6deg);
+
+			left: 0;
+		}
+		
+		&:after {
+			@include skew(0deg, -6deg);
+
+			right: 0;
+		}
+
+		.heading,
+		.pricing {
+			position: relative;
+			z-index: 1;
+			font-family: $font-family-secondary;
+			color: #fff;
+		}
+
+		.heading {
+			margin-bottom: 5px;
+			font-size: 22px;
+		}
+
+		.pricing {
+			font-size: 28px;
+		}
+	}
+
+	.bottom {
+		padding: 40px 10px;
+		text-align: center;
+	}
+
+	.btn-default {
+		background-color: $pricing-table-gray-bg;
+		border-color: darken($pricing-table-gray-bg, 8%);
+		color: #fff;
+
+		&:hover,
+		&:focus {
+			background-color: darken($pricing-table-gray-bg, 8%);
+		}
+	}
+
+	ul.list-details {
+		margin-bottom: 40px;
+		font-size: 14px;
+
+		> li {
+			margin-bottom: 15px;
+		}
+	}
+
+	&.pricing-recommended {
+		.top, 
+		.top:after,
+		.top:before {
+			background-color: $brand-primary;
+		}
+	}
+
+	@include max-screen($break-medium) {
+		margin-bottom: 30px;
+	}
+}
+
+.pricing-table2-set {
+	padding-top: 20px;
+	text-align: center;
+}
+
+.pricing-table2 {
+	@include inline-block;
+
+	padding: 20px;
+	margin: 0 8px;
+	width: 25%;
+	background-color: #FCFCFC;
+	border: 1px solid #E7E7E7;
+	border-top-width: 5px;
+	border-top-color: darken(#E7E7E7, 18%);
+
+	.heading {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.package-info {
+		margin-bottom: 0;
+	}
+
+	.pricing {
+		margin: 50px 0;
+	}
+
+	&.pricing-recommended {
+		position: relative;
+
+		.popular {
+			position: absolute;
+			top: -39px;
+			width: 100.6%;
+			left: -1px;
+			padding: 8px;
+			background: $brand-primary;
+			color: #fff;
+		}
+	}
+
+	.price {
+		display: block;
+		margin-bottom: 10px;
+		font-size: 68px;
+		font-weight: 300;
+		line-height: 1;
+	}
+
+	.price-info {
+		color: darken(#fcfcfc, 12%);
+	}
+
+	.btn-default {
+		background-color: $pricing-table-gray-bg;
+		border-color: darken($pricing-table-gray-bg, 8%);
+		color: #fff;
+
+		&:hover,
+		&:focus {
+			background-color: darken($pricing-table-gray-bg, 8%);
+		}
+	}
+
+	@include max-screen($break-medium) {
+		width: 30%;
+		padding: 20px 10px;
+	}
+
+	@include max-screen($break-small) {
+		display: block;
+		margin-bottom: 30px;
+		margin-left: 0;
+		width: 100%;
+
+		&.pricing-recommended {
+			margin-top: 60px;
+		}
+	}
+}
+
+
+
+

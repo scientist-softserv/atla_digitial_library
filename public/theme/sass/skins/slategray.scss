@@ -1,0 +1,15 @@
+/* Skin: slate gray */
+
+@import 'mixins/module';
+
+$brand-primary: #708090;
+$link-hover-color: darken($brand-primary, 8%);
+$navbar-default-link-active-color: $brand-primary;
+
+$btn-primary-color: #FFF;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+
+$cta-bg: #708090;
+
+@import "skin-styles";

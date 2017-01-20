@@ -1,0 +1,220 @@
+// Accent/brand/contextual colors
+$brand-primary: #69B417;
+$state-success-bg: #5cb85c;
+$state-info-bg: #5bc0de;
+$state-warning-bg: #f0ad4e;
+$state-danger-bg: #d9534f;
+
+$state-success-text: #3c763d;
+$state-info-text: #31708f;
+$state-warning-text: #8a6d3b;
+$state-danger-text: #a94442;
+
+// Custom color
+$custom-red: #e43636;
+
+// Global
+$font-family-primary: Lato, sans-serif;
+$font-family-secondary: Raleway, sans-serif;
+$global-heading-color: #636363;
+
+$gray-muted-bg: #F8F8F8;
+$bs-text-muted: #777;
+
+$link-color: $brand-primary;
+$link-hover-color: darken($link-color, 5%);
+$link-hover-decoration: none;
+
+// Body
+$body-font-family: $font-family-primary;
+$body-font-size: 15px;
+$body-font-color: #8c8c8c;
+$body-font-muted-color: lighten($body-font-color, 20%);
+$body-font-line-height: 1.6;
+$body-color-bg: #fff;
+
+// Navbar, navbar dropdown menu
+$navbar-default-link-active-bg: transparent;
+$navbar-default-link-active-color: $brand-primary;
+$navbar-default-color-bg: #fff;
+$navbar-border-color: #e7e7e7;
+
+$navbar-dropdown-min-width: 225px;
+
+// Global navigations
+$nav-font-family: $font-family-secondary;
+$nav-font-weight: 700;
+$nav-font-color-dark: #3B3B3B;
+$nav-font-color-light: #FFF;
+
+// Top bar, top bar navigation
+$topbar-bg: #3B3B3B;
+$nav-topbar-font-size: 11px;
+
+// Page header
+$page-header-color-bg: #fefefe;
+
+// Section
+$section-bg-dark: #393939;
+$section-color-dark: lighten($section-bg-dark, 30%);
+$section-heading-color: #636363;
+
+// Footer
+$footer-bg-light: #F8F8F8;
+$footer-color-light: $body-font-color;
+$footer-bg-dark: #3D3D3D;
+$footer-color-dark: #fff;
+
+// Buttons
+$btn-font-family: $font-family-secondary;
+$btn-font-weight: 500;
+
+$btn-default-color: #888;
+$btn-default-border: #a5a5a5;
+$btn-primary-color: #FFF;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+$btn-default-gray: #4f4f4f;
+$btn-default-gray-border: darken($btn-default-gray, 8%);
+
+// Dropdown
+$bs-dropdown-bg: #FFF;
+
+// Social icons
+$social-icon-bg: #858D90;
+$social-icon-color: #FFF;
+$social-icon-dark-color: #858D90;
+
+// Call to actions
+$cta-solid-bg: #3B3B3B;
+
+// Forms and inputs
+$form-control-border-color: #dedede;
+$form-container-bg: #fdfdfd;
+$form-container-border-color: #ececec;
+$form-validation-error-color: #d9534f;
+$input-group-addon-bg: #eee;
+
+// Carousel
+$carousel-pagination-dot-bg: #fff;
+$carousel-pagination-dot-active-bg: #71787b;
+$carousel-pagination-dot-border: #71787b;
+$carousel-nav-dark-bg: #71787B;
+
+// Icons
+$icon-border-color: #939CA0;
+$icon-gray-bg: #f3f3f3;
+
+// Pricing Tables
+$pricing-table-gray-bg: #71787B;
+
+// Screen breakpoint variables
+$break-xsmall: 480px;
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+$break-xlarge: 1440px;
+
+
+// Social media brand colors
+$social-colors : (
+	z500px: #0099e5,
+	about-me: #00405d,
+	airbnb: #fd5c63,
+	alphabet: #ed1c24,
+	amazon: #ff9900,
+	american-express: #002663,
+	aol: #ff0b00,
+	behance: #1769ff,
+	bing: #ffb900,
+	bitbucket: #205081,
+	bitly: #ee6123,
+	blogger: #f57d00,
+	booking-com: #003580,
+	buffer: #168eea,
+	code-school: #616f67,
+	codecademy: #f65a5b,
+	creative-market: #8ba753,
+	delicious: #3399ff,
+	deviantart: #05cc47,
+	digg: #005be2,
+	disqus: #2e9fff,
+	django: #092e20,
+	dribbble: #ea4c89,
+	elance: #0d69af,
+	envato: #82b541,
+	etsy: #d5641c,
+	facebook: #3b5998,
+	feedly: #2bb24c,
+	flattr: #f67c1a,
+	flickr: #0063dc,
+	flipboard: #e12828,
+	flixster: #2971b2,
+	foursquare: #0732a2,
+	github: #4183c4,
+	google: #4285f4,
+	google-plus: #dc4e41,
+	instagram: #3f729b,
+	kickstarter: #2bde73,
+	kik: #82bc23,
+	lastfm: #d51007,
+	line: #00c300,
+	linkedin: #0077b5,
+	mail-ru: #168de2,
+	mailchimp: #2c9ab7,
+	myspace: #000000,
+	netflix: #e50914,
+	ning: #75af42,
+	path: #ee3423,
+	patreon: #e6461a,
+	paypal: #003087,
+	photobucket: #0ea0db,
+	pinterest: #bd081c,
+	product-hunt: #da552f,
+	quora: #a82400,
+	rdio: #007dc3,
+	reddit: #ff4500,
+	rss: #f26522,
+	salesforce: #1798c1,
+	scribd: #1a7bba,
+	shopify: #96bf48,
+	skype: #00aff0,
+	slack: #6ecadc,
+	slideshare: #0077b5,
+	soundcloud: #ff8800,
+	spotify: #2ebd59,
+	squarespace: #222222,
+	stackoverflow: #fe7a15,
+	stripe: #00afe1,
+	stumbleupon: #eb4924,
+	telegram: #0088cc,
+	tumblr: #35465c,
+	twitch-tv: #6441a5,
+	twitter: #55acee,
+	vimeo: #162221,
+	vine: #00b488,
+	wechat: #7bb32e,
+	whatsapp: #43d854,
+	yahoo: #410093,
+	youtube: #cd201f
+);
+
+// Screen breakpoint variables
+$break-xsmall: 480px;
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+$break-xlarge: 1440px;
+
+// ----------------------------
+// 3rd-party/plugin variables
+// ----------------------------
+
+// bootstrap progressbar
+$line-height-computed: 20px;
+$font-size-small: 12px
+
+
+
+
+

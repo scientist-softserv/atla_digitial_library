@@ -1,0 +1,54 @@
+/* --------------------------------------------------------
+ * Twitter feeds, styling output by twitter fetcher plugin
+ * --------------------------------------------------------*/
+
+.twitter-stream #tweets {
+	ul > li {
+		margin-bottom: 35px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.Avatar {
+		@include border-radius(50%);
+
+		width: 35px;
+		margin-right: 8px;
+		float: left;
+	}
+
+	.tweet-infos {
+		margin-bottom: 5px;
+
+		a {
+			color: inherit;
+		}
+
+		.full-name {
+			margin-right: 8px;
+		}
+	}
+
+	.tweet-content {
+		padding-left: 45px;
+		margin-bottom: 5px;
+
+		.u-hiddenVisually {
+			display: none;
+		}
+
+		a {
+			word-break: break-all;
+		}
+	}
+
+	.tweet-time {
+		font-size: 12px;
+		padding-left: 45px;
+		color: $body-font-muted-color;
+	}
+}
+
+

@@ -1,0 +1,215 @@
+/* ------------
+ * Hero unit
+ * -----------*/
+
+.hero-unit {
+	.heading {
+		font-size: 36px;
+		font-weight: normal;
+		color: #fff;
+
+		&.big-text {
+			font-size: 60px;
+		}
+
+		&.medium-text {
+			font-size: 48px;
+		}
+	}
+
+	.lead {
+		margin-bottom: 40px;
+		font-size: 28px;
+		line-height: 35px;
+		color: #fff;
+	}
+
+	.left {
+		float: left;
+		width: 60%;
+	}
+
+	.right {
+		float: right;
+		width: 40%;
+	}
+
+	@include max-screen($break-xsmall) {
+		.left {
+			width: 100%;
+			text-align: center;
+		}
+
+		.right {
+			display: none;
+		}
+	}
+
+	@include max-screen($break-medium) {
+		.heading {
+			font-size: 36px;
+		}
+
+		.lead {
+			font-size: 18px;
+		}
+	}
+}
+
+.hero-fullwidth {
+	height: 575px;
+}
+
+.fullwidth-image {
+	background: {
+		image: image-url('hero-unit/building.png');
+		position: center center;
+		repeat: no-repeat;
+		size: cover;
+	}
+
+	.heading,
+	.lead {
+		color: $global-heading-color;
+	}
+}
+
+.fullwidth-image-solid {
+	@extend .fullwidth-image;
+
+	background-image: image-url('hero-unit/solid-background.jpg');
+
+	.heading,
+	.lead {
+		color: #fff;
+	}
+}
+
+.hero-rotating-words {
+	padding: 0;
+
+	.hero-content {
+		position: relative;
+		top: 25%;
+	}
+
+	.heading {
+		font-size: 20px;
+	}
+
+	.lead {
+		margin-bottom: 50px;
+		font-size: 40px;
+	}
+
+	.btn {
+		margin-right: 15px;
+	}
+
+	.btn-default {
+		background-color: #71787B;
+		border-color: darken(#71787B, 10%);
+		color: #fff;
+	}
+}
+
+.hero-solid-color {
+	height: 575px;
+	background-color: #656565;
+
+	.container {
+		position: relative;
+		top: 30%;
+	}
+}
+
+/* fullscreen background image */
+html.fullscreen-bg, 
+html.fullscreen-bg body,
+html.fullscreen-bg #wrapper {
+	height: 100%;
+}
+
+.hero-fullscreen-bg {
+	position: relative;
+	height: 100%;
+	color: #fff;
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, .5);
+	}
+
+	.container {
+		position: relative;
+		top: 30%;
+	}
+
+	.down-arrow {
+		position: absolute;
+		left: 50%;
+		margin-left: -30px;
+		text-align: center;
+		display: none;
+
+		@include min-screen($break-large) {
+			display: block;
+			bottom: 1em;
+		}
+
+		a {
+			@include border-radius(50%);
+			@include opacity(.3);
+			@include transition(all .2s ease-out);
+
+			display: block;
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			color: #fff;
+			border: 2px solid #fff;
+			font-size: 26px;
+
+			&:hover, &:focus {
+				@include opacity(.8);
+			}
+		}
+	}
+
+	@include max-screen($break-xsmall) {
+		.heading {
+			font-size: 26px;
+		}
+
+		.lead {
+			font-size: 24px;
+		}
+	}
+}
+
+.fullscreen-image {
+	background: {
+		image: image-url('hero-unit/building.png');
+		position: center center;
+		repeat: no-repeat;
+		size: cover;
+	}
+
+	.lead {
+		color: $global-heading-color;
+	}
+}
+
+.hero-content-centered {
+	position: relative;
+	top: 30px;
+	text-align: center;
+
+	img.img-bottom {
+		margin: 70px auto 0 auto;
+	}
+}
+

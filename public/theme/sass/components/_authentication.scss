@@ -1,0 +1,99 @@
+/* -----------------------
+ * Authentication
+ * Sign up, sign in etc
+ * -----------------------*/
+
+.auth-box {
+	.left {
+		float: left;
+		width: 45%;
+		text-align: right;
+	}
+
+	.right {
+		float: right;
+		width: 45%;
+	}
+
+	.auth-social {
+		@include inline-block;
+
+		margin-top: 8em;
+	}
+
+	.btn-social {
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	.form-auth-small {
+		width: 360px;
+
+		.heading {
+			padding-bottom: 15px;
+			margin-bottom: 30px;
+			font-size: 22px;
+			font-weight: normal;
+			border-bottom: 1px solid #ececec;
+		}
+
+		.btn {
+			margin-top: 30px;
+		}
+
+		.element-left {
+			float: left;
+		}
+
+		.element-right {
+			float: right;
+		}
+	}
+
+	.center-separator {
+		display: block;
+		float: left;
+		width: 10%;
+		text-align: center;
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			height: 11.5em;
+			margin: 0 auto;
+			width: 1px;
+			border-left: 1px solid #ececec;
+		}
+	}
+
+	@include max-screen($break-small) {
+		.left,
+		.right,
+		.center-separator {
+			float: none;
+			width: 100%;
+		}
+
+		.left {
+			text-align: center;
+		}
+
+		.auth-social {
+			margin-top: 3em;
+		}
+
+		.center-separator {
+			margin: 30px 0;
+
+			&:before,
+			&:after {
+				height: 1.5em;
+			}
+		}
+
+		.form-auth-small {
+			margin: 0 auto;
+		}
+	}
+}
