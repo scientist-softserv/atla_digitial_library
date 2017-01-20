@@ -1,0 +1,14 @@
+/* -----------
+ * Dropdowns
+ * ----------*/
+ 
+.dropdown-menu {
+	@include border-radius(0);
+
+	padding: 0;
+	background-color: $bs-dropdown-bg;
+
+	> li > a {
+
+	}
+}

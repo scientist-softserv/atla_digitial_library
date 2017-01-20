@@ -1,0 +1,123 @@
+/* ---------------
+ * Knowledge Base
+ * ---------------*/
+
+.form-knowledge-search {
+	margin-bottom: 50px;
+
+	@include max-screen($break-xsmall) {
+		input[type="search"] {
+			font-size: 0.9em;
+		}
+	}
+}
+
+.knowledge {
+	h2 {
+		border-bottom: 1px solid #ccc;
+		line-height: 30px;
+		font-size: 20px;
+
+		span {
+			font-weight: normal;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			font-size: 16px;
+			font-weight: 700;
+
+			&:hover,
+			&:focus {
+				color: $brand-primary;
+			}
+		}
+	}
+
+	ul {
+		li {
+			line-height: 30px;
+
+			a {
+				color: $body-font-color;
+				display: block;
+				padding-left: 20px; 
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			i {
+				font-size: 14px;
+				line-height: 29px;
+			}
+		}
+	}
+}
+
+.knowledge-recent-popular {
+	margin-top: 50px;
+
+	ol {
+		padding-left: 20px;
+
+		li {
+			line-height: 30px;
+		}
+	}
+
+	a {
+		&,
+		&:hover,
+		&:focus {
+			color: inherit;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+ul.nav-categories {
+	margin-bottom: 30px;
+
+	> li {
+		border: 1px solid #ccc;
+
+		&:first-child {
+			@include border-top-radius(2px);
+		}
+
+		&:last-child {
+			@include border-bottom-radius(2px);
+		}
+
+		&:not(:first-child) {
+			border-top: none;
+		}
+
+		+ li {
+			margin-top: 0;
+		}
+
+		> a {
+			@include border-radius(0);
+
+			color: $body-font-color;
+
+			&:hover {
+				background-color: #e6e6e6;
+			}
+		}
+	}
+}
+
+.ticket-box {
+	@include border-radius(2px);
+
+	border: 1px solid #ccc;
+	padding: 15px;
+}

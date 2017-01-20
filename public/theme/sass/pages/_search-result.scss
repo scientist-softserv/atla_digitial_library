@@ -1,0 +1,45 @@
+/* ---------------
+ * Search Result
+ * ---------------*/
+
+ul.list-search-results {
+	li {
+		margin: 50px 0;
+
+		.heading {
+			margin: 0;
+			font-size: 18px;
+			font-weight: 500;
+
+			a {
+				color: inherit;
+
+				&:hover,
+				&:focus {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+		&.type-document i {
+			font-size: 6em;
+			line-height: 1;
+		}
+
+		&.type-image img {
+			width: 140px;
+
+			@include max-screen($break-xsmall) {
+				width: 110px;
+			}
+		}
+
+		&.type-portfolio img {
+			width: 150px;
+		}
+	}
+}

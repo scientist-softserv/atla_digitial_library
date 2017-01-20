@@ -12,6 +12,7 @@ gem 'devise'
 gem 'devise-guests', '~> 0.5'
 gem 'fcrepo_wrapper', group: [:development, :test]
 gem 'hydra-head', '~> 10.2.0'
+
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg', '~> 0.15'
@@ -21,7 +22,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'solr_wrapper', '>= 0.3', group: [:development, :test]
 gem 'spring', group: [:development]
-gem 'stack_car', group: [:development, :test]
 gem 'sufia', git: 'https://github.com/projecthydra/sufia.git'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'

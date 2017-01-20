@@ -1,0 +1,225 @@
+/* -------------------------------
+ * Numbers, count info, statistic
+ * -------------------------------*/
+
+.count-info {
+	text-align: center;
+
+	.number {
+		display: block;
+		font-size: 48px;
+		margin-bottom: 14px;
+
+		&:after {
+			content: " ";
+			display: block;
+			width: 1px;
+			height: 25px;
+			margin: 0 auto;
+			background-color: $brand-primary;
+		}
+	}
+
+	.text {
+		font-size: 18px;
+	}
+
+	&.count-info-simple {
+		i {
+			margin-bottom: 15px;
+			font-size: 35px;
+		}
+
+		.number {
+			margin-bottom: 0;
+			line-height: 1.2;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	@include max-screen($break-small) {
+		margin-bottom: 50px;
+	}
+}
+
+.count-info-onerow {
+	text-align: center;
+	
+	p {
+		font-size: 18px;
+		font-weight: 700;
+	}
+
+	i {
+		width: 70px;
+		height: 70px;
+		line-height: 70px;
+		font-size: 28px;
+		color: $brand-primary;
+		border-color: $brand-primary;
+	}
+
+	@include max-screen($break-medium) {
+		text-align: left;
+	}
+}
+
+.skill-chart {
+	text-align: center;
+
+	.chart-title {
+		display: block;
+		font-size: 24px;
+	}
+
+	@include max-screen($break-small) {
+		margin-bottom: 50px;
+	}
+}
+
+.pie-chart {
+	@include inline-block;
+
+	position: relative;
+	width: 180px;
+	margin-bottom: 20px;
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.percent {
+		@include inline-block;
+
+		line-height: 180px;
+		z-index: 2;
+		font-size: 32px;
+
+		&:after {
+			margin-left: 0.1em;
+		}
+	}
+}
+
+.countdown {
+	background-color: transparent;
+	border: none;
+
+	.countdown-amount {
+		font-size: 36px;
+		font-weight: 300;
+		line-height: 1;
+	}
+
+	.countdown-period {
+		font-size: 24px;
+	}
+
+	&.countdown-xlg {
+		.countdown-amount {
+			font-size: 72px;
+			line-height: 1;
+		}
+
+		.countdown-period {
+			font-size: 28px;
+		}
+	}
+
+	&.countdown-lg {
+		.countdown-amount {
+			font-size: 48px;
+			line-height: 1;
+		}
+
+		.countdown-period {
+			font-size: 22px;
+		}
+	}
+
+	&.countdown-sm {
+		.countdown-amount {
+			font-size: 22px;
+			line-height: 1;
+		}
+
+		.countdown-period {
+			font-size: 16px;
+		}
+	}
+
+	@include max-screen($break-medium) {
+		.countdown-section {
+			width: 23.9% !important;
+		}
+	}
+
+	@include max-screen($break-small) {
+		.countdown-amount {
+			font-size: 22px !important;
+		}
+
+		.countdown-period {
+			font-size: 18px !important;
+		}
+	}
+}
+
+.countdown-show4 .countdown-section {
+	width: 24.9%;
+}
+
+.countdown-holding span {
+	color: inherit;
+}
+
+
+.count-info-solid {
+	@include border-radius(3px);
+	@include box-shadow(1px 2px 3px rgba(#000, .1));
+
+	background-color: #616871;
+	padding: 20px;
+	margin-bottom: 20px;
+
+	i {
+		@include border-radius(50%);
+
+		display: block;
+		float: left;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		color: #fff;
+		font-size: 22px; 
+		text-align: center;
+		background-color: darken(#616871, 8%);
+	}
+
+	p {
+		margin-bottom: 0;
+		margin-top: 7px;
+	}
+
+	span {
+		display: block;
+		padding-left: 75px;
+		color: #fff;
+		font-weight: 300;
+
+		.number {
+			font-size: 26px;
+		}
+
+		.text {
+			font-size: 14px;
+		}
+	}
+}
+
+

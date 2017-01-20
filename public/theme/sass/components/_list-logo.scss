@@ -1,0 +1,18 @@
+/* -------------------------------
+ * list of clients or brand logo 
+ * -------------------------------*/
+
+.list-logo {
+	text-align: center;
+
+	> li {
+		margin: 1em 2.5em;
+	}
+
+	@include max-screen($break-xsmall) {
+		> li {
+			display: block;
+			margin: 2em 0;
+		}
+	}
+}

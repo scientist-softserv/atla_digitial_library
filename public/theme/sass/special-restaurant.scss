@@ -1,0 +1,297 @@
+// Sass file for special template
+
+@import 'compass/css3';
+@import 'base/variables';
+@import 'mixins/module';
+
+
+// specific vars
+$brand-primary: #EE8614;
+$btn-primary-color: #fff;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+
+$link-color: darken($brand-primary, 5%);
+$link-hover-color: $brand-primary;
+
+$special-font-family: 'Dancing Script', cursive;
+
+body {
+	font-size: 16px;
+	font-weight: 300;
+}
+
+/* Links */
+a {
+	color: $link-color;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+	}
+}
+
+
+/* specific nav styles */
+.navbar-default .navbar-nav > li > a {
+	font-size: 14px;
+
+	&.hover {
+		text-decoration: underline;
+	}
+
+	&:hover,
+	&:focus {
+		color: #fff;
+	}
+}
+
+.navbar-default .navbar-nav .active > a, 
+.navbar-default .navbar-nav .active > a:hover, 
+.navbar-default .navbar-nav .active > a:focus {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.hero-fullscreen-bg {
+	background: {
+		image: image-url('specials/restaurant/hero-unit-bg.jpg');
+		repeat: no-repeat;
+		position: center;
+	}
+
+	.heading {
+		font-size: 72px;
+		margin-bottom: 0;
+		color: #fff;
+	}
+
+	.lead {
+		font-family: $special-font-family;
+		font-weight: 700;
+		font-size: 48px;
+	}
+}
+
+.btn-primary {
+	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+/* section */
+section {
+	.subheading {
+		margin-top: 0;
+		margin-bottom: 30px;
+		font-family: $special-font-family;
+		font-size: 30px;
+		color: #858D90;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 70px;
+			margin-top: 15px;
+			border-top: 2px solid $brand-primary;
+		}
+	}
+
+	.lead {
+		line-height: 1.6;
+	}
+
+	@include max-screen($break-medium) {
+		.img-section {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.section-gray {
+	background-color: #f9f9f9;
+}
+
+.section-heading {
+	.heading {
+		font-family: $special-font-family;
+		color: $brand-primary;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		height: 14px;
+		margin-top: 20px;
+		background: {
+			image: image-url('specials/restaurant/separator.png');
+			repeat: no-repeat;
+			position: center;
+		}
+	}
+}
+
+.section-heading-center {
+	margin-bottom: 60px;
+}
+
+
+/* dishes menu */
+.menu-item {
+	margin-bottom: 50px;
+}
+
+.menu-info {
+	position: relative;
+
+	.menu-title {
+		font: {
+			family: $special-font-family;
+			weight: 700;
+			size: 34px;
+		}
+
+		color: $brand-primary;
+	}
+
+	.price {
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-weight: 700;
+		font-size: 24px;
+	}
+}
+
+@include max-screen($break-medium) {
+	.menu-item.menu-highlight {
+		margin-bottom: 50px;
+	}
+
+	.menu-item:not(.menu-highlight) {
+		.menu-image {
+			float: left;
+			width: 50%;
+		}
+
+		.menu-info {
+			float: right;
+			width: 45%;
+
+			.menu-title {
+				margin-top: 0;
+			}
+
+			.price {
+				position: relative;
+			}
+		}
+	}
+}
+
+@include max-screen($break-xsmall) {
+	.menu-info {
+		.menu-title {
+			font-size: 20px;
+		}
+
+		.price {
+			font-size: 18px;
+		}
+	}
+	
+}
+
+ul.list-dishes {
+	> li {
+		position: relative;
+		min-height: 100px;
+		margin-bottom: 30px;
+	}
+
+	.title {
+		margin-top: 0;
+		margin-bottom: 5px;
+		font: {
+			family: $special-font-family;
+			size: 22px;
+		}
+		color: $brand-primary;
+	}
+
+	p {
+		font-size: 14px;
+	}
+
+	.price {
+		position: absolute;
+		right: 30px;
+		top: 0;
+		font-weight: 700;
+		font-size: 18px;
+	}
+
+	@include max-screen($break-xsmall) {
+		.price {
+			position: relative;
+			right: 0;
+		}
+	}
+}
+
+.reservation-phone {
+	margin-top: 15px;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 2.2;
+	color: $body-font-color;
+
+	&:hover,
+	&:focus {
+		color: darken($body-font-color, 8%);
+	}
+}
+
+.form-reservation {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.reservation-or {
+	display: block;
+	padding: 8px 0;
+	width: 90px;
+	margin: 40px auto 50px auto;
+	border-top: 1px solid $brand-primary;
+	border-bottom: 1px solid $brand-primary;
+	font-size: 20px;
+	text-align: center;
+}
+
+.contact-info {
+	margin-top: 60px;
+
+	.heading {
+		display: block;
+		margin-bottom: 8px;
+
+		i {
+			margin-right: 5px;
+			font-size: 18px;
+			position: relative;
+		}
+	}
+
+	span {
+		font-size: 13px;
+	}
+}
+
+.bold-separator {
+	border-color: $brand-primary;
+}
+
+
+
+

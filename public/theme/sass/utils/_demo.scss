@@ -1,0 +1,56 @@
+/* specific styles for demo purposes */
+
+.fontawesome-icon-list {
+	.fa-hover a {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: block;
+		color: inherit;
+		line-height: 32px;
+		height: 32px;
+		border-radius: 4px;
+
+		.fa {
+			width: 32px;
+			font-size: 14px;
+			display: inline-block;
+			text-align: right;
+			margin-right: 10px;
+		}
+
+		&:hover {
+			background-color: $gray-muted-bg;
+			text-decoration: none;
+		}
+	}
+}
+
+.elegant-icon-list {
+	.box {
+		font-size: 13px;
+		display: inline-block;
+		width: 14.2em;
+		padding: .25em .5em;
+		margin: 20px 95px 0 0;
+
+		span:before {
+			font-size: 16px;
+		}
+	}
+
+	@include max-screen($break-small) {
+		.box {
+			margin: 20px 55px 0 0;
+		}
+	}
+}
+
+#toastr-demo {
+	.btn-toastr {
+		margin-bottom: 8px;
+	}
+}
+
+
+

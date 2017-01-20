@@ -1,0 +1,15 @@
+/* Skin: red */
+
+@import 'mixins/module';
+
+$brand-primary: #FF4B4B;
+$link-hover-color: darken($brand-primary, 8%);
+$navbar-default-link-active-color: $brand-primary;
+
+$btn-primary-color: #FFF;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+
+$cta-bg: #FF4B4B;
+
+@import "skin-styles";

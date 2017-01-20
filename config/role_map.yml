@@ -1,6 +1,8 @@
 development:
   archivist:
     - archivist1@example.com
+  admin:
+    - rob@nontch8.com
 
 test:
   archivist:
@@ -22,5 +24,3 @@ test:
 production:
   archivist:
     - archivist1@example.com
-
-

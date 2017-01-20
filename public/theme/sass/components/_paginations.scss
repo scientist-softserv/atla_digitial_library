@@ -1,0 +1,88 @@
+/* ----------------------
+ * Paginations and pager
+ * ----------------------*/
+
+.pagination {
+	> li > a,
+	> li > span {
+		color: $brand-primary;
+	}
+	
+	> li {
+		@include pagination-button-color($brand-primary);
+
+		&:first-child > a,
+		&:first-child > span {
+			@include border-left-radius(2px);
+		}
+
+		&:last-child > a,
+		&:last-child > span {
+			@include border-right-radius(2px);
+		}
+	}
+
+	> .active {
+		@include pagination-button-color($brand-primary);
+
+		> a, > span {
+			background-color: $brand-primary;
+			border-color: darken($brand-primary, 5%);
+		}
+	}
+
+	&.borderless {
+		> li {
+			> a,
+			> span {
+				@include border-radius(2px);
+
+				border-color: transparent;
+				margin: 0 1px;
+			}
+
+			&:first-child,
+			&:last-child {
+				> a,
+				> span {
+					@include border-radius(2px);
+				}
+			}
+
+			&.active {
+				> a,
+				> span {
+					color: #fff;
+					background-color: $brand-primary;
+
+					&:hover,
+					&:focus {
+						color: #fff;
+						background-color: $brand-primary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.pager {
+	li > a {
+		border-color: $brand-primary;
+
+		&:hover, &:focus {
+			background-color: $brand-primary;
+			border-color: darken($brand-primary, 3%);
+			color: #fff;
+		}
+	}
+
+	.disabled > a, 
+	.disabled > a:hover, 
+	.disabled > a:focus, 
+	.disabled > span {
+		border-color: #ddd;
+	}
+}
+
+

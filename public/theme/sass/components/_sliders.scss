@@ -1,0 +1,95 @@
+/* ----------
+ * Slider
+ * ---------*/
+
+.slide-overlay {
+	background-color: rgba(#000, .5	);
+}
+
+.slide-overlay-dark-gray {
+	background-color: rgba(59,59,59,.9);
+}
+
+.blog-slider {
+	.post-title {
+		margin-bottom: 40px;
+		font-size: 36px;
+		line-height: 1.6;
+
+		a {
+			&,
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+		}
+	}
+}
+
+/* typography for slider revolution content */
+.tp-caption {
+	.heading {
+		font-size: 36px;
+	}
+
+	&.big-text,
+	&.big-text .heading {
+		font-size: 60px;
+	}
+
+	&.medium-text,
+	&.medium-text .heading {
+		font-size: 48px;
+	}
+
+	&.lead-text,
+	&.lead-text p {
+		font-size: 28px;
+		line-height: 35px;
+	}
+
+	&.light-text {
+		&,
+		.heading {
+			color: #fff !important;
+		}
+	}
+
+	.btn {
+		margin-right: 15px;
+	}
+
+	.icon-info {
+		i {
+			font-size: 45px;
+		}
+
+		strong {
+			display: block;
+			margin-top: 15px;
+			font-size: 22px;
+		}
+	}
+}
+
+.tp-resizeme {
+	strong,
+	span,
+	em,
+	.btn i {
+		font-size: inherit !important;
+	}
+
+	.icon-info {
+		strong {
+			font-size: inherit !important;
+		}
+	}
+}
+
+
+
+
+
+
+
