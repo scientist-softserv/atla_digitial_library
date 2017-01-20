@@ -13,6 +13,13 @@
   z-index: 1;
 }
 
+.home_marketing_text {
+  display:none;
+}
+
+#announcement {
+  display:none;
+}
 section.section-gray {
   margin-bottom: 100px;
 }
@@ -116,6 +123,20 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 .main-header>h1 {
   margin-bottom:-75px;
+}
+
+.facet_limit-active > .panel-heading {
+  color: #105b63;
+  background-color: #fffce6;
+  border-color: #fffad5;
+}
+
+.facet_limit-active {
+  border-color: #fffad5;
+}
+
+.facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #fffad5;
 }
 
 /* Search Styles */
