@@ -30,12 +30,12 @@ a, .btn-link {
   color: #db9e36;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus {
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span {
   background-color: #105b63;
   border-color: #0b3c42;
 }
 
-.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover {
+.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   background-color: #0b3c42;
   border-color: #07282c;
 }
@@ -147,6 +147,33 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 #appliedParams.constraints-container {
   margin-bottom: 10px;
+}
+
+/* Admin Page */
+
+.page-container {
+  background-color: #157984 !important;
+}
+
+.x-navigation {
+  background-color: #105b63 !important;
+}
+
+.x-navigation li > a {
+  border-bottom: 1px solid #0b3c42 !important;
+}
+
+.x-navigation > li.xn-logo > a:first-child {
+  background: #0b3c42 !important;
+}
+
+.x-navigation.x-navigation-horizontal {
+    height: 41px !important;
+    background: #0b3c42 !important;
+}
+
+.x-navigation > li > a:hover {
+    background: #198d9a !important;
 }
 
 /* Navbar */
