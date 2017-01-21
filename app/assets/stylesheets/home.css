@@ -6,7 +6,7 @@
 }
 
 .hero-fullscreen-bg {
-  background-image: url('ATLA-hero-new.jpg');
+  background-image: image-url('ATLA-hero-new.jpg');
   background-repeat: no-repeat;
   background-position: top;
   position: relative;

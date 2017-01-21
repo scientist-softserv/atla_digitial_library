@@ -7,6 +7,10 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+server '35.163.222.248', user: 'ubuntu', roles: %w{app db web}
+
+set :default_env, { path: "/usr/local/rbenv/shims/:$PATH" }
+
 
 
 # role-based syntax

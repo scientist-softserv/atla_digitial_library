@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'alt_test'
-set :repo_url, 'https://github.com/notch8/alt_test.git'
+set :application, 'atla_digital_library'
+set :repo_url, 'https://github.com/notch8/atla_digital_library.git'
 set :rbenv_type, :system
 set :rbenv_ruby, 'ruby 2.3.0p0'
 # Default branch is :master
