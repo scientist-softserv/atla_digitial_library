@@ -212,7 +212,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .image-background {
-  background-image: url('ATLA-nav-back.jpg')!important;
+  background-image: image-url('ATLA-nav-back.jpg')!important;
   background-repeat: no-repeat;
   background-position: top !important;
   max-height: 110px;
