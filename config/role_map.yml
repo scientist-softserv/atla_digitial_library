@@ -24,3 +24,6 @@ test:
 production:
   archivist:
     - archivist1@example.com
+  admin:
+    - rob@notch8.com
+
