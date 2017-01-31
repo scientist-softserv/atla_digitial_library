@@ -12,4 +12,10 @@ end
 
 User.where(email: 'archivist1@example.com').first_or_create do |f|
   f.password = 'testing123'
+
+end
+
+User.where(email: 'acarter@atla.com').first_or_create do |f|
+  f.password = 'testing123'
+  f.admin_area = true
 end
