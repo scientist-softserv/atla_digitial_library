@@ -3,6 +3,7 @@ development:
     - archivist1@example.com
   admin:
     - rob@notch8.com
+    - acarter@atla.com
 
 test:
   archivist:
@@ -26,4 +27,4 @@ production:
     - archivist1@example.com
   admin:
     - rob@notch8.com
-
+    - acarter@atla.com
