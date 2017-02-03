@@ -155,12 +155,17 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background-color: #157984 !important;
 }
 
+.page-container .page-content .page-content-wrap {
+  background-color: #f5f5f5;
+}
+
 .x-navigation {
   background-color: #105b63 !important;
 }
 
 .x-navigation li > a {
   border-bottom: 1px solid #0b3c42 !important;
+  color: #db9e36;
 }
 
 .x-navigation > li.xn-logo > a:first-child {
@@ -189,6 +194,9 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   color: #db9e36;
 }
 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #db9e36;
+}
 .navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
   color: #db9e36;
 }
@@ -219,11 +227,11 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .navbar-default .navbar-nav > li > a {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .nav > li > a {
-    padding: 10px 14px;
+    padding: 10px 10px;
 }
 
 .navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
@@ -259,6 +267,12 @@ input {
   color: #bd4932;
   padding-left: 16px;
   font-size: 14px;
+}
+
+.checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 0;
+  margin-right: 5px;
 }
 
 /* Remove padding for required-key field on collection pages */
@@ -298,7 +312,8 @@ input {
 }
 
 .alert {
-  margin-top: 100px;
+  margin-top: 150px;
+  margin-bottom: -125px;
 }
 
 /* Progress bars */
@@ -386,6 +401,19 @@ input {
     background-color: #fff;
   }
 
+  /* Admin Page */
+  .page-container .page-sidebar {
+    width: 150px;
+  }
+
+  .page-container .page-content {
+    margin-left: 150px;
+  }
+
+  .dropdown-menu .divider {
+    margin: 0;
+  }
+
   /* Forms */
   .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
     padding: 10px 10px;
@@ -437,6 +465,17 @@ input {
 
   .profile {
     margin-top: 20px;
+  }
+
+  /* Make images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  img.file_listing_thumbnail {
+    max-width: initial;
   }
 
   /* Footer */
