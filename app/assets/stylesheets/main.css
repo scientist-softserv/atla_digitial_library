@@ -13419,6 +13419,6 @@ ul.list-dishes .price {
   border-color: #EE8614;
 }
 
-#content-wrapper.dashboard {
+.container.dashboard {
   margin-bottom: 100px;
 }
