@@ -13418,3 +13418,7 @@ ul.list-dishes .price {
 .bold-separator {
   border-color: #EE8614;
 }
+
+#content-wrapper.dashboard {
+  margin-bottom: 100px;
+}
