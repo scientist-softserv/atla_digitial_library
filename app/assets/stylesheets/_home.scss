@@ -22,6 +22,8 @@
 }
 section.section-gray {
   margin-bottom: 100px;
+  /*remove margin on home page that is needed on other pages */
+  margin-top: -150px;
 }
 /* Custom Thumbnails */
 .thumbnail-custom p {
