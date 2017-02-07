@@ -1,0 +1,12 @@
+<div class="col-md-4">
+  <div class="thumbnail-custom">
+    <h4 class="thumbnail-heading">
+      <span class="sr-only">Title</span><%= link_to truncate(recent_document.to_s, length: 28, separator: ' '), recent_document  %>
+    </h4>
+    <div class="overlay"></div>
+    <%= link_to_profile recent_document.depositor("no depositor value") %>
+    <%= link_to recent_document do %>
+      <%= render_thumbnail_tag recent_document, :class => 'img-responsive feature-image' %>
+    <% end %>
+  </div>
+</div>
