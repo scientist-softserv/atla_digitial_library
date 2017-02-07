@@ -1,0 +1,9 @@
+<div class="col-md-4">
+  <div id="featured_works" class="thumbnail-custom">
+    <% presenter = featured.presenter %>
+    <div class="featured-item" data-id="<%= presenter.id %>">
+      <%= render 'sufia/homepage/featured_fields', featured: presenter %>
+      <%= render_thumbnail_tag presenter, :class => 'img-responsive feature-image' %>
+    </div>
+  </div>
+</div>
