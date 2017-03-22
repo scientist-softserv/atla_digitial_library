@@ -3,6 +3,7 @@ class Collection < ActiveFedora::Base
   include ::CurationConcerns::CollectionBehavior
   # You can replace these metadata if they're not suitable
   include CurationConcerns::BasicMetadata
+
   property :institution, predicate: ::RDF::Vocab::FOAF.based_near do |index|
     index.as :stored_searchable
   end
@@ -11,7 +12,11 @@ class Collection < ActiveFedora::Base
     index.as :stored_searchable
   end
 
-  property :filename, predicate: ::RDF::Vocab::DC.identifier do |index|
+  property :file_name, predicate: ::RDF::Vocab::DC.MediaTypeOrExtent do |index|
+    index.as :stored_searchable
+  end
+
+  property :name_code, predicate: ::RDF::Vocab::DC.identifier do |index|
     index.as :stored_searchable
   end
 end

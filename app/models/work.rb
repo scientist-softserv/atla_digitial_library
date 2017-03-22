@@ -17,7 +17,7 @@ class Work < ActiveFedora::Base
     index.as :stored_searchable
   end
 
-  property :filename, predicate: ::RDF::Vocab::DC.identifier do |index|
+  property :file_name, predicate: ::RDF::Vocab::DC.identifier do |index|
     index.as :stored_searchable
   end
 
