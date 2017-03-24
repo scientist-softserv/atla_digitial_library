@@ -12,10 +12,12 @@ class Collection < ActiveFedora::Base
     index.as :stored_searchable
   end
 
+  # required
   property :file_name, predicate: ::RDF::Vocab::DC.MediaTypeOrExtent do |index|
     index.as :stored_searchable
   end
 
+  # required
   property :name_code, predicate: ::RDF::Vocab::DC.identifier do |index|
     index.as :stored_searchable
   end

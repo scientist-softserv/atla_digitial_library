@@ -13,9 +13,40 @@ Development is now dockerized with stack car.  To start the environment copy con
 
 Before the first run bunle and load the database.  To do so type
 
-docker-compose run web bash -c 'bundle install && bundle exec rake db:create db:schema:load db:migrate db:seed'
-sc up web
-docker-compose exec solr bin/solr create -c development -d /opt/config
+<tt>docker-compose run web bash -c 'bundle install && bundle exec rake db:create db:schema:load db:migrate db:seed'</tt>
+
+<tt>sc up web</tt>
+
+<tt>docker-compose exec solr bin/solr create -c development -d /opt/config</tt>
 
 App should now be available at localhost:3000
+
 Admin user is rob@notch8.com  / testing123
+
+=== Rake Tasks for importing metadata and files
+
+There are individual rake tasks for importing meta data and files that corspond to that metadata. The metadata task is run first to create all of the active fedora objects.  Then the file import task can be run to associate files with metadata. The tasks can be chained to run them automatically in sequence.
+
+*Metadata Rake Task*
+
+<tt>bundle exec rake setup:import_metadata[<path to xml file>,<email of a admin user in the system>]</tt>
+
+This task requires 2 arguements:
+* A path to the exported xml file
+* A email of a admin user in the system, this user will be seen as the one that has imported all of the new collections and works
+
+*File Import Task*
+
+<tt>bundle exec rake setup:import_files[<directory of images>]</tt>
+
+This task requires 1 arguement:
+* A path to a directory containing the images
+  the expected hierarchy of the directory is:
+  * collection name_code eg. MSOXYPAP
+    * image files for the collection
+
+You can run the 2 tasks in series like this:
+
+<tt>bundle exec rake setup:import_metadata[<path to xml file>,<email of a admin user in the system>] setup:import_files[<directory of images>]</tt>
+
+

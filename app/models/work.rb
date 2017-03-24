@@ -17,6 +17,7 @@ class Work < ActiveFedora::Base
     index.as :stored_searchable
   end
 
+  # required
   property :file_name, predicate: ::RDF::Vocab::DC.identifier do |index|
     index.as :stored_searchable
   end
@@ -25,5 +26,6 @@ class Work < ActiveFedora::Base
     index.as :stored_searchable
   end
 
+  # required
   property :old_id, predicate: ::RDF::Vocab::DC.identifier
 end

@@ -6,12 +6,14 @@ namespace :setup do
     file_path = args[:filepath]
     user_email = args[:user_email]
     puts "#{file_path} will import metadata as #{user_email}"
-    Atla::CollectionImporter.new(file_path, user_email).process
+    logger = Logger.new(Rails.root.join('log', 'importer.log'), 10, 1_024_000)
+    Atla::CollectionImporter.new(file_path, user_email, logger).process
   end
 
   desc 'Import files from dir to exsiting works'
   task :import_files, [:dir] => :environment do |_t, args|
     dirs = Dir["#{args[:dir]}/*"]
+    logger = Logger.new(Rails.root.join('log', 'file_importer.log'), 10, 1_024_000)
     puts dirs
     dirs.each do |dir|
       image_paths = Dir[dir + '/*']
@@ -26,10 +28,21 @@ namespace :setup do
         file_path = image_paths.detect do |i|
           i =~ Regexp.new(work.file_name.first, true)
         end
-        raise "no file for work id #{work.id} in dir #{dir}" if file_path.blank?
+        if file_path.blank?
+          msg = "no file for work id #{work.id} in dir #{dir}"
+          puts msg
+          logger.info(msg)
+          next
+        end
         File.open(file_path) do |file|
-          work.add_file(file, mime_type: 'image/jpeg', original_name: work.file_name.first)
-          work.save
+          begin
+            work.add_file(file, mime_type: 'image/jpeg', original_name: work.file_name.first)
+            work.save
+          rescue Exception => e
+            msg = "#{e}, could not add file at #{file_path}, to #{work.inspect}"
+            puts msg
+            logger.error(msg)
+          end
         end
       end
     end
