@@ -19,10 +19,10 @@ module ATLADigitalLibrary
   class Application < Rails::Application
     # Replace with a lambda or method name defined in ApplicationController
     # to implement access control for the Flipflop dashboard.
-    config.flipflop.dashboard_access_filter = -> { head :forbidden }
+    #config.flipflop.dashboard_access_filter = -> { head :forbidden }
 
 
-    
+
     config.generators do |g|
       g.test_framework :rspec, :spec => true
     end
