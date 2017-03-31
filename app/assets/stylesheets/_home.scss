@@ -263,6 +263,11 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background: rgba(16,91,99, 0.95) !important;
 }
 
+/* set minimum width to prevent reflow after login button was removed from navbar */
+ul.nav.navbar-nav {
+  min-width: 15px;
+}
+
 /* Contact Page Styles */
 
 .form-horizontal .form-group {
