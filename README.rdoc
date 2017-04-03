@@ -49,4 +49,8 @@ You can run the 2 tasks in series like this:
 
 <tt>bundle exec rake setup:import_metadata[<path to xml file>,<email of a admin user in the system>] setup:import_files[<directory of images>]</tt>
 
+*Make Everything Public Task*
 
+<tt>bundle exec rake setup:set_everything_public</tt>
+
+This task makes every Collection and work public.
