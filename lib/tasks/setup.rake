@@ -11,8 +11,9 @@ namespace :setup do
   end
 
   desc 'Import files from dir to exsiting works'
-  task :import_files, [:dir] => :environment do |_t, args|
+  task :import_files, [:dir, :user_email] => :environment do |_t, args|
     dirs = Dir["#{args[:dir]}/*"]
+    user = User.where(email: args[:user_email]).first
     logger = Logger.new(Rails.root.join('log', 'file_importer.log'), 10, 1_024_000)
     dirs.each do |dir|
       image_paths = Dir[dir + '/*']
@@ -29,7 +30,7 @@ namespace :setup do
       end
       works = collection.works
       works.each do |work|
-        next if work.attached_files.keys.present?
+        next if work.file_sets.present?
         file_path = image_paths.detect do |i|
           i =~ Regexp.new(work.file_name.first, true)
         end
@@ -39,17 +40,21 @@ namespace :setup do
           logger.info(msg)
           next
         end
-        File.open(file_path) do |file|
-          begin
-            work.add_file(file, mime_type: 'image/jpeg', original_name: work.file_name.first)
-            work.save
-            msg = "#{file_path} added to work with id #{work.id}"
-            puts msg
-          rescue Exception => e
-            msg = "#{e}, could not add file at #{file_path}, to #{work.inspect}"
-            puts msg
-            logger.error(msg)
+        begin
+          uploaded_file = Sufia::UploadedFile.create(file: File.open(file_path), user: user)
+          file_set = FileSet.new
+          actor = CurationConcerns::Actors::FileSetActor.new(file_set, user)
+          actor.create_metadata(work, visibility: work.visibility) do |file|
+            file.permissions_attributes = work.permissions.map(&:to_hash)
           end
+          actor.create_content(uploaded_file.file.file)
+          uploaded_file.update(file_set_uri: file_set.uri)
+          msg = "#{file_path} added to work with id #{work.id}"
+          puts msg
+        rescue Exception => e
+          msg = "#{e}, could not add file at #{file_path}, to #{work.inspect}"
+          puts msg
+          logger.error(msg)
         end
       end
     end
@@ -63,6 +68,10 @@ namespace :setup do
       collection.works.each do |work|
         work.visibility = 'open'
         work.save
+        work.file_sets.each do |fs|
+          fs.visibility = 'open'
+          fs.save
+        end
       end
     end
   end
