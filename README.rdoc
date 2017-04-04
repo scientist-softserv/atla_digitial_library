@@ -35,6 +35,16 @@ This task requires 2 arguements:
 * A path to the exported xml file
 * A email of a admin user in the system, this user will be seen as the one that has imported all of the new collections and works
 
+*Import Metadata for a Single Collection task*
+
+
+<tt>bundle exec rake setup:import_metadata_for_collection[<path to xml file>,<email of a admin user in the system>,<collection code>]</tt>
+
+This task requires 3 arguments:
+* A path to the exported xml file
+* A email of a admin user in the system, this user will be seen as the one that has imported all of the new collections and works
+* The name code for the collection, ex: MSOXYPAP
+
 *File Import Task*
 
 <tt>bundle exec rake setup:import_files[<directory of images>,<email of a admin user in the system>]</tt>

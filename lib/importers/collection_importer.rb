@@ -3,10 +3,11 @@ require Rails.root.join('lib', 'importers', 'work_factory')
 
 module Atla
   class CollectionImporter
-    def initialize(path, user_email, logger)
+    def initialize(path, user_email, logger, collection: nil)
       @path = path
       @user = User.where(email: user_email).first
       @logger = logger
+      @collection = collection
     end
 
     def process
@@ -21,7 +22,13 @@ module Atla
     end
 
     def create_collections
+      found_collection = false
       data.css('Collections').each do |collection|
+        next if collection.attributes['CollectionNameCode'].value != @collection && !@collection.nil?
+        if !@collection.nil?
+          puts 'Data found, Importing collection'
+          found_collection = true
+        end
         begin
           fedora_collection = new_collection(collection.attributes, @user)
           existing_collection = Collection.where(name_code: fedora_collection.name_code).first
@@ -34,6 +41,11 @@ module Atla
         rescue Exception => e
           log("#{e}, Failed to save fedora_collection: #{fedora_collection.inspect}")
         end
+      end
+      if !@collection.nil? && !found_collection
+        msg = "collection data not found for collection with code #{@collection}"
+        puts msg
+        log(msg)
       end
     end
 

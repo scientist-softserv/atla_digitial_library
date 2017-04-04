@@ -10,6 +10,16 @@ namespace :setup do
     Atla::CollectionImporter.new(file_path, user_email, logger).process
   end
 
+  desc 'Import single collection from metadata xml file'
+  task :import_metadata_for_collection, [:filepath, :user_email, :name_code] => :environment do |_t, args|
+    file_path = args[:filepath]
+    user_email = args[:user_email]
+    collection_name_code = args[:name_code]
+    puts "#{file_path} will import metadata as #{user_email}"
+    logger = Logger.new(Rails.root.join('log', 'importer.log'), 10, 1_024_000)
+    Atla::CollectionImporter.new(file_path, user_email, logger, collection: collection_name_code).process
+  end
+
   desc 'Import files from dir to exsiting works'
   task :import_files, [:dir, :user_email] => :environment do |_t, args|
     dirs = Dir["#{args[:dir]}/*"]
