@@ -17,6 +17,7 @@ namespace :setup do
     collection_name_code = args[:name_code]
     puts "#{file_path} will import metadata as #{user_email}"
     logger = Logger.new(Rails.root.join('log', 'importer.log'), 10, 1_024_000)
+    puts "Only importing metadata for the collection with the code #{collection_name_code}"
     Atla::CollectionImporter.new(file_path, user_email, logger, collection: collection_name_code).process
   end
 
@@ -84,5 +85,11 @@ namespace :setup do
         end
       end
     end
+  end
+
+  desc 'Assign all works to a single collection'
+  task :assign_all_works_to, [:collection_id] => :environment do |_t, args|
+    collection = Collection.find(args[:collection_id])
+    collection.add_members(Work.all.map(&:id))
   end
 end

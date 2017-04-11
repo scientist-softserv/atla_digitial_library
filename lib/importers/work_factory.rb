@@ -23,7 +23,7 @@ module Atla
         clean_key = key.gsub(/component/i, '').gsub(/\d+/, '').underscore
         if Work.new.respond_to?(clean_key.to_sym) && clean_key != 'id'
           hash[clean_key] ||= []
-          hash[clean_key] << value.value
+          hash[clean_key] << value.value.gsub(/\n|\r|\r\n/, ' ')
         end
       end
     end

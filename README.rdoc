@@ -65,3 +65,13 @@ You can run the 2 tasks in series like this:
 <tt>bundle exec rake setup:set_everything_public</tt>
 
 This task makes every Collection and work public.
+
+*Assign all works to a single collection task*
+
+<tt>bundle exec rake setup:assign_all_works_to[<collection_id>]</tt>
+
+This task assigns all works in the system to the specified collection.
+
+This task requires one arguement:
+* the ID of the collection that the works are to be assigned to
+  * the ID can be found in the url for the collection ex: http://dl.atla.com/collections/vq27zn72g  (vq27zn72g is the id for the collection on this page)
