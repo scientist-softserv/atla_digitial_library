@@ -68,7 +68,7 @@ This task makes every Collection and work public.
 
 *Assign all works to a single collection task*
 
-<tt>bundle exec rake setup:assign_all_works_to[<collection_id>]</tt>
+<tt>bundle exec rake setup:assign_all_works_to[<collection id>]</tt>
 
 This task assigns all works in the system to the specified collection.
 
