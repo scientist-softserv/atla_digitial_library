@@ -89,7 +89,11 @@ namespace :setup do
 
   desc 'Assign all works to a single collection'
   task :assign_all_works_to, [:collection_id] => :environment do |_t, args|
+    all_work_ids = Work.all.map(&:id)
     collection = Collection.find(args[:collection_id])
-    collection.add_members(Work.all.map(&:id))
+    collection_works_ids = collection.works.map(&:id)
+    ids_to_add = (all_work_ids - collection_works_ids)
+    puts "adding #{ids_to_add.count} works to collection #{args[:collection_id]}"
+    collection.add_members(ids_to_add)
   end
 end
