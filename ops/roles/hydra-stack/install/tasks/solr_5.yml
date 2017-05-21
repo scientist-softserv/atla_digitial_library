@@ -35,7 +35,6 @@
 - name: solrconfig from code to solr
   become: yes
   template: src=solrconfig.xml.j2 dest=/var/solr/data/{{ solr_core }}/conf/solrconfig.xml group=tomcat7 owner=tomcat7
-  notify: restart solr
 
 - name: remove managed_schema
   become: yes
@@ -46,3 +45,7 @@
 - name: set the solr port
   set_fact:
     solr_port: 8983
+
+- name: restart solr
+  become: yes
+  service: name=solr enabled=yes state=restarted
