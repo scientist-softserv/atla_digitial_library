@@ -4,9 +4,6 @@ ruby '2.3.1'
 gem 'rails', '4.2.7.1'
 
 gem 'byebug', group: [:development, :test]
-gem 'capistrano-passenger', group: :development
-gem 'capistrano-rails', group: :development
-gem 'capistrano-rbenv', group: :development
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'devise-guests', '~> 0.5'

@@ -84,3 +84,7 @@ tags
 .solano*
 
 **.#*
+*.retry
+ops/keys/*
+ops/ec2.ini
+ops/group_vars/all

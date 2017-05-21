@@ -1,0 +1,46 @@
+- name: Permissions and folders
+  hosts: "tag_Type_web"
+  user: ubuntu
+  tasks:
+    - name: make shared root config directory
+      become: yes
+      file:
+        path: "{{ ansistrano_deploy_to }}/releases"
+        recurse: true
+        state: directory
+        owner: ubuntu
+        mode: 0755
+
+- name: Permissions and folders
+  hosts: "tag_Type_web"
+  user: ubuntu
+  tasks:
+    - name: make shared root config directory
+      become: yes
+      file:
+        path: "{{ ansistrano_deploy_to }}/shared"
+        recurse: true
+        state: directory
+        owner: ubuntu
+        mode: 0755
+
+- name: Permissions and folders
+  hosts: "tag_Type_web"
+  user: ubuntu
+  tasks:
+    - name: make shared root config directory
+      become: yes
+      file:
+        path: "{{ ansistrano_deploy_to }}"
+        recurse: true
+        state: directory
+        owner: ubuntu
+        mode: 0755
+
+
+
+- name: Deploy Rails App
+  hosts: "tag_Type_web"
+  user: ubuntu
+  roles:
+    - { role: carlosbuenosvinos.ansistrano-deploy }

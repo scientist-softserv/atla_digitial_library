@@ -1,0 +1,14 @@
+---
+- name: set up N8 ssh keys
+  authorized_key: >
+    user="ubuntu"
+    key="https://github.com/{{ item }}.keys"
+  with_items:
+    - winescout
+    - donohue76
+    - smcfarlane
+    - orangewolf
+    - butlerjim
+    - busspatrick
+    - zhongwen-jin
+...
