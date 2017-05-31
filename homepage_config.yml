@@ -1,0 +1,33 @@
+---
+homepage:
+  collections:
+    - id: 1
+      anchor_text: Cooperative Digital Resources Initiative
+      url: /collections/hm50tr96s #PATH TO COLLECTION
+      image:
+        path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
+    # - id: 2
+    #   anchor_text: COLLECTION_NAME
+    #   url: /collections/z029p497s #PATH TO COLLECTION
+    #   image:
+    #     path_to_file: /img/church3.jpg #DESIRED THUMBNAIL NAME
+    # - id: 3
+    #   anchor_text: COLLECTION_NAME
+    #   url: /collections/z029p497s #PATH TO COLLECTION
+    #   image:
+    #     path_to_file: /img/imagery1.jpg #DESIRED THUMBNAIL NAME
+    # - id: 4
+    #   anchor_text: COLLECTION_NAME
+    #   url: /collections/z029p497s #PATH TO COLLECTION
+    #   image:
+    #     path_to_file: /img/redroof.jpg #DESIRED THUMBNAIL NAME
+    # - id: 5
+    #   anchor_text: COLLECTION_NAME
+    #   url: /collections/z029p497s #PATH TO COLLECTION
+    #   image:
+    #     path_to_file: /img/snowcross.jpg #DESIRED THUMBNAIL NAME
+    # - id: 6
+    #   anchor_text: COLLECTION_NAME
+    #   url: /collections/z029p497s #PATH TO COLLECTION
+    #   image:
+    #     path_to_file: /img/minibig.jpg #DESIRED THUMBNAIL NAME

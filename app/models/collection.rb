@@ -21,4 +21,9 @@ class Collection < ActiveFedora::Base
   property :name_code, predicate: ::RDF::Vocab::DC.identifier do |index|
     index.as :stored_searchable
   end
+
+  # property :display_on_home, predicate: ::RDF::Vocab::DC.identifier, multiple: false do |index|
+  #   index.as :stored_searchable
+  # end
+
 end
