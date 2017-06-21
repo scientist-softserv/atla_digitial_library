@@ -3,4 +3,4 @@ __DIR__ = File.expand_path(File.dirname(__FILE__) + "/../ops")
 
 command = "cd #{__DIR__} && ansible-playbook -i ec2.py --private-key ./keys/hydra.pem deploy.yml -l tag_Type_web --extra-vars \"hosts=web\""
 puts command
-%x{command}
+exec command
