@@ -24,8 +24,7 @@ s3_bucket: atla-hydra-notch8
 project_name: atla
 repo: git@gitlab.com:notch8/atla_digital_library.git 
 deploy_target: production
-capistrano_user: ubuntu
-capistrano_group: ubuntu
+
 # used in capistrano_setup, system_setup roles
 keys_to_add: []
 # used in sufia_dependencies role
@@ -175,3 +174,35 @@ solr_port: 8983
 # Fedora
 fedora_version: 4.6.0
 tomcat_url: TODO 
+
+# Anistrano
+ansistrano_deploy_from: "{{ playbook_dir }}/../" # Where my local project is (relative or absolute path)
+ansistrano_deploy_to: "/opt/atla" # Base path to deploy to.
+ansistrano_version_dir: "releases" # Releases folder name
+ansistrano_current_dir: "current" # Softlink name. You should rarely changed it.
+ansistrano_current_via: "symlink"
+ansistrano_keep_releases: 3 # Releases to keep after a new deployment. See "Pruning old releases".
+ansistrano_shared_paths:
+  - log
+  - tmp/pids
+  - tmp/cache
+  - tmp/sockets
+  - public/system
+  - tmp/derivatives
+  - tmp/uploads
+
+ansistrano_shared_files:
+  - config/database.yml
+  - config/secrets.yml
+  - config/fedora.yml
+  - config/blacklight.yml
+  - config/redis.yml
+  - config/resque-pool.yml
+  - config/solr.yml
+
+ansistrano_deploy_via: "git"
+ansistrano_git_repo: TODO 
+ansistrano_git_branch: master # What version of the repository to check out. This can be the full 40-character SHA-1 hash, the literal string HEAD, a branch name, or a tag name
+ansistrano_git_identity_key_path: "keys/deploy" # If specified this file is copied over and used as the identity key for the git commands, path is relative to the playbook in which it is used
+ansistrano_before_symlink_tasks_file: "{{ playbook_dir }}/roles/deploy/tasks/before_symlink.yml"
+ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/roles/deploy/tasks/after_symlink.yml"
