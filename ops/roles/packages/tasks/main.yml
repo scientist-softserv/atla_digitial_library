@@ -52,3 +52,4 @@
     - xfsprogs
     - libsqlite3-dev
     - libreoffice
+    - nasm
