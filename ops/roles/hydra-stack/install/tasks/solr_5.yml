@@ -46,6 +46,6 @@
   set_fact:
     solr_port: 8983
 
-- name: restart solr
-  become: yes
-  service: name=solr enabled=yes state=restarted
+# - name: restart solr
+#   become: yes
+#   service: name=solr enabled=yes state=restarted
