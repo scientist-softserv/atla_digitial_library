@@ -206,3 +206,22 @@ ansistrano_git_branch: master # What version of the repository to check out. Thi
 ansistrano_git_identity_key_path: "keys/deploy" # If specified this file is copied over and used as the identity key for the git commands, path is relative to the playbook in which it is used
 ansistrano_before_symlink_tasks_file: "{{ playbook_dir }}/roles/deploy/tasks/before_symlink.yml"
 ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/roles/deploy/tasks/after_symlink.yml"
+
+# Backup
+backup_db_names:
+  - "{{ hydra_db }}"
+  - fcrepo 
+backup_db_user: "{{ hydra_db_user }}"
+backup_db_pass: "{{ hydra_db_pass }}"
+backup_db_host: "{{ hydra_db_host }}"
+backup_db_port: "{{ hydra_db_port }}"
+
+backup_files:
+  - /opt/fedora-data/
+  - /opt/solr-home/data/
+
+backup_location: /opt
+backup_password: TODO
+
+backup_bucket: TODO
+backup_region: eu-west-1

@@ -26,6 +26,7 @@
     - { role: openjdk1_8 }
     - { role: hydra-stack/install } # Fedora / Solr
     - { role: app-config }
+    - { role: notch8.backups }
 
 - name: ruby-webserver
   hosts: "tag_Type_web"
