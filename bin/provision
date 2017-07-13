@@ -19,6 +19,6 @@ else
   tag = (target == "tomcat" ? "-l tag_Type_tomcat" : "-l tag_Type_web")
 end
 
-command = "cd #{__DIR__} && ansible-playbook -i ec2.py #{tag} --private-key ./keys/hydra.pem #{action} --extra-vars \"hosts=#{target}\""
+command = "cd #{__DIR__} && ansible-playbook -i ec2.py #{tag} --private-key ./keys/hydra-realkp.pem #{action} --extra-vars \"hosts=#{target}\""
 puts command
 exec command

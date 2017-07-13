@@ -1,0 +1,50 @@
+---
+# ROLE: nasm
+# roles/nasm/tasks/main.yml
+#
+# removes package nasm, installs nasm from source
+#
+#- name: check nasm {{ nasm_version }} installed
+#  shell: "nasm -v | grep {{ nasm_version }}"
+#  register: nasm_installed
+#  changed_when: false
+#  ignore_errors: yes # failure means our nasm version isn't installed yet
+#  always_run: yes
+
+- name: remove package nasm
+  become: yes
+  package: name=nasm state=absent
+
+- name: create install directory
+  file:
+    path: /opt/install 
+    state: directory
+    mode: 0755
+
+- name: download nasm
+  become: yes
+  get_url: url={{ nasm_gzip_url }} owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} dest={{ install_path }}/nasm-{{ nasm_ver }}.tar.gz
+  
+- name: unzip nasm file
+  become: yes
+  unarchive: src=/opt/install/nasm-{{ nasm_ver }}.tar.gz dest={{ install_path }}/ creates={{ install_path }}/nasm-{{ nasm_ver }}/compile.c copy=no
+
+- name: check if nasm is installed
+  become: yes
+  stat: path=/usr/bin/nasm
+  register: nasm
+
+- name: configure nasm
+  become: yes
+  shell: cd {{ install_path }}/nasm-{{ nasm_ver }} && ./configure --enable-shared creates={{ install_path }}/nasm-{{ nasm_ver }}/Makefile
+  
+- name: make nasm
+  become: yes
+  shell: cd {{ install_path }}/nasm-{{ nasm_ver }} && make 
+  when: nasm.stat.exists == False
+
+- name: install nasm
+  become: yes
+  shell: cd {{ install_path }}/nasm-{{ nasm_ver }} && make install creates=/usr/bin/nasm
+  when: nasm.stat.exists == False
+
