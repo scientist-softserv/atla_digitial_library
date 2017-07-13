@@ -1,0 +1,5 @@
+---
+# roles/nasm/defaults/main.yml
+install_path: /opt/install
+nasm_ver: '2.13.01'
+nasm_gzip_url: http://www.nasm.us/pub/nasm/releasebuilds/{{ nasm_ver }}/nasm-{{ nasm_ver }}.tar.gz
