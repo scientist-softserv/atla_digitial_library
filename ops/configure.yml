@@ -10,7 +10,6 @@
     - { role: set_timezone }
     - { role: system_setup }
     - { role: notch8.python-upgrade }
-    - { role: nasm }
     - { role: repleo.postfix, become: yes, become_user: root, become_method: sudo }
     - { role: dj-wasabi.ossec-server, become: yes, become_user: root, become_method: sudo }
     - { role: notch8.swap, tags: 'swap', become: yes, become_user: root, become_method: sudo }
