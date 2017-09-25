@@ -40,8 +40,12 @@ namespace :setup do
         puts "collection found for name_code #{name_code}"
       end
       works = collection.works
+      file_paths_matched = []
       works.each do |work|
-        next if work.file_sets.present?
+        if work.file_sets.present?
+          puts "work with id #{work.id} already has a image associated with it"
+          next
+        end
         file_path = image_paths.detect do |i|
           i =~ Regexp.new(work.file_name.first, true)
         end
@@ -51,6 +55,7 @@ namespace :setup do
           logger.info(msg)
           next
         end
+        file_paths_matched << file_path
         begin
           uploaded_file = Sufia::UploadedFile.create(file: File.open(file_path), user: user)
           file_set = FileSet.new
@@ -68,6 +73,7 @@ namespace :setup do
           logger.error(msg)
         end
       end
+      puts "files that no work was found for: #{(image_paths - file_paths_matched).join(', ')}"
     end
   end
 
