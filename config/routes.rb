@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  get '/admin' => 'sufia/admin#show', as: :real_admin
   mount CurationConcerns::Engine, at: '/'
   resources :welcome, only: 'index'
   root 'sufia/homepage#index'
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
