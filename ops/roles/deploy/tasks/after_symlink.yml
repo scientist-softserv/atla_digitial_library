@@ -1,5 +1,5 @@
 - name: Restart Passenger
   file:
-    path: "{{ansistrano_release_path.stdout}}/tmp/touch.txt"
+    path: "{{ansistrano_release_path.stdout}}/tmp/restart.txt"
     state: touch
     mode: "u=rw,g=r,o=r"
