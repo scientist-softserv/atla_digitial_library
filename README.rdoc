@@ -4,6 +4,8 @@
 
 A change has been made.  This repo will be used going forward.
 
+Testing git via windows for Christy.
+
 === Versions
 
  - Ruby 2.3.1
