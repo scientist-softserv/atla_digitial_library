@@ -2,9 +2,7 @@
 
 === ATLA
 
-A change has been made.  This repo will be used going forward.
-
-Testing git via windows for Christy.  Testing folders as well.
+ATLA Staff will use this repo when making changes to the digital library going forward.
 
 === Versions
 
