@@ -1,7 +1,5 @@
 <%= csrf_meta_tag %>
 <meta charset="utf-8" />
-
-<!-- added for use on small devices like phones -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="resourcesync" href="<%= sufia.capability_list_url %>"/>
 
@@ -11,6 +9,9 @@
 <%= yield :gscholar_meta %>
 
 <title>ATLA Digital Library</title>
+<meta name="description" content="The ATLA Digital Library provides access to digital collections of 
+interest to religion and theology researchers. It is conceived in support of ATLA's mission of fostering the study
+of theology and religion by enhancing the development of theological and religious studies libraries and librarianship.">
 
 <!-- application css -->
 <%= stylesheet_link_tag 'application' %>
@@ -27,3 +28,5 @@
 <!-- GOOGLE FONTS -->
 <link href='https://fonts.googleapis.com/css?family=Raleway:700,400,400italic,500' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300,300italic' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,900" rel="stylesheet">

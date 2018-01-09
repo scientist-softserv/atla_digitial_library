@@ -9,18 +9,21 @@
       <button type="submit" class="btn btn-primary" id="search-submit-header">
         <%= t('sufia.search.button.html') %>
       </button>
-      <button id="search-option-toggle" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+     
+<!-- commenting out search scope dropdown bcz all is the only option
+     <button id="search-option-toggle" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
         <span data-search-element="label"><%= t("sufia.search.form.option.all.label_long") %></span>
         <span class="caret"></span>
-      </button>
+     </button>
 
       <ul class="dropdown-menu pull-right">
-        <li>
+          <li>
           <%= link_to "All Collections", "#",
               data: { "search-option" => main_app.search_catalog_path, "search-label" => "All" } %>
-        </li>
+          </li>
+      </ul>-->
 
-      </ul>
+
     </div><!-- /.input-group-btn -->
 
   </div><!-- /.input-group -->

@@ -1,11 +1,39 @@
 en:
   sufia:
-    product_name:       "Sufia"
+    controls:
+      home: "Home"
+      about: "About"
+      help: "Help"
+      contact: "Contact"
+    product_name:       "ATLA Digital Library"
     product_twitter_handle: "@HydraSphere"
-    institution_name:   "Institution Name"
-#    institution_name_full:   "The Institution Name"
+    icons:
+      collection: 'fa fa-cubes'
+      default: 'fa fa-file'
+    institution_name:   "ATLA Digital Library"
+    institution_name_full:   "American Theological Library Association"
     account_name:       "My Institution Account Id"
     directory:
-      suffix:           "@example.org"
-    footer:
-      copyright_html: "<strong>Copyright &copy; 2016 Project Hydra</strong> Licensed under the Apache License, Version 2.0"
+      suffix:           "@atla.com"
+    search:
+      form:
+        q:
+          label:          "Search ATLA Digital Library"
+          placeholder:    "Enter search terms ..."
+        option:
+          all:
+            label_short:  "All"
+            label_long:   "All of Sufia"
+          my_works:
+            label_short:  "My Works"
+            label_long:   "My Works"
+          my_collections:
+            label_short:  "My Collections"
+            label_long:   "My Collections"
+          my_shares:
+            label_short:  "My Shares"
+            label_long:   "My Shares"
+      button:
+        html: '<span class="glyphicon glyphicon-search"></span> Search'
+        text: "Search"
+   

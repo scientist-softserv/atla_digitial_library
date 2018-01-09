@@ -9,9 +9,10 @@
 <%= render partial: '/masthead' %>
 <%= render partial: '/flash_msg' %>
 <!-- <div class="image-background"> -->
-<div id="content-wrapper">
-  <%= render_breadcrumbs builder: Sufia::BootstrapBreadcrumbsBuilder %>
-
+<div id="content-wrapper" class="one-pages">
+   <div class="container">
+       <%= render_breadcrumbs builder: Sufia::BootstrapBreadcrumbsBuilder %>
+   </div>
   <% if content_for?(:page_header) %>
     <div class="row">
       <div class="col-xs-12 main-header">
@@ -19,9 +20,10 @@
       </div>
     </div>
   <% end %>
+
   <a name="skip_to_content"></a>
   <div class="row">
-    <div class="col-xs-12 container dashboard">
+    <div class="container"><!--removed class dashboard and class col-xs-12 -->
       <%= yield %>
     </div>
   </div><!-- /.row -->

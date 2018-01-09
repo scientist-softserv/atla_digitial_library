@@ -1,17 +1,60 @@
 /* Home Page and General Styles */
 
-#content-wrapper {
-  margin-top: 150px;
-  margin-bottom: 150px;
+body {
+     margin-bottom:0px;
+     font-family: 'Open Sans', sans-serif;
 }
+
+h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
+     font-family: 'Montserrat', sans-serif;
+}
+
+#content-wrapper {
+     margin-top: 0px;/*needed for all pages except home which uses section-gray class*
+     /*margin-bottom: 150px;*/
+     padding-bottom:2em;
+}
+	
+section.section-gray {
+     margin-bottom: 0px; /*was 100px*/
+     margin-top:0px; /*remove margin on home page that is needed on other pages? */
+}
+	
+/*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
+#content-wrapper.one-pages {
+     padding-top:125px;
+     padding-bottom:2em;
+}
+
+/*fixing the admin page content-wrapper not sure if its affecting other pages*/
+#content-wrapper.container-fluid {
+     padding-top:125px; 
+}
+
+/*fixing the admin page content-wrapper not sure if its affecting other pages*/
+#content-wrapper[role=main] {
+     padding-top:110px;
+}
+
+
 
 .hero-fullscreen-bg {
   background-image: image-url('ATLA-hero-new.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat; /*changed from no repeat for very wide screens so that it doesnt show the grey*/
   background-position: top;
   position: relative;
   z-index: 1;
 }
+
+.hero-fullscreen-bg {
+  height: 60%; /*was 100%*/
+}
+
+.hero-fullscreen-bg .heading {
+    font-size: 2.5em;
+    font-weight:normal;
+  }
+
 
 .home_marketing_text {
   display:none;
@@ -20,12 +63,12 @@
 #announcement {
   display:none;
 }
-section.section-gray {
-  margin-bottom: 100px;
-  /*remove margin on home page that is needed on other pages */
-  margin-top: -150px;
-}
+
+
+
+
 /* Custom Thumbnails */
+
 .thumbnail-custom p {
   -moz-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
@@ -49,6 +92,31 @@ section.section-gray {
   display: block;
 }
 
+.thumbnail-custom .overlay {
+    background-color:rgba(197, 196, 196, 0.6);
+}
+
+
+/*making thumbnail titles entire area clickable as link*/
+.thumbnail-custom .thumbnail-heading {
+  padding: 0px;
+}
+.thumbnail-heading a {
+    padding:15px;
+    display:block;
+}
+
+
+
+/*masonry grid for featured and collecitons spacing*/
+.grid-item {
+    padding-left:1em;
+    padding-right:1em;
+}
+
+
+
+
 /* Buttons and Links */
 
 a, .btn-link {
@@ -57,6 +125,11 @@ a, .btn-link {
 
 .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span {
   background-color: #105b63;
+  border-color: #0b3c42;
+}
+
+footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus {
+  background-color: #0b3c42;
   border-color: #0b3c42;
 }
 
@@ -85,16 +158,82 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
   color: white;
 }
 
+
+
+/* -------- Explore Collections and Featured -------*/
+
+.explore-section, .featured-section {
+     padding-top:1em;
+     padding-bottom:0px;
+}
+.list-inline.collection-highlights-list {
+     margin-left:0;
+     text-align:center;
+     padding-bottom:2em;
+     padding-top:1.5em;
+}
+.list-inline.collection-highlights-list li a {
+     font-size:1.5em;
+}   
+
+/*making the orange tab text a little bigger in admin page*/
+.nav-tabs > li > a {
+    font-size:1em;
+}
+
+/*this is sizing the explore and featured text tabs on home */
+.home-content .nav-tabs > li > a {
+  font-size: 2em;
+}
+
+.home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
+   background-color:transparent;
+   border: 1px solid transparent;
+   color:#db9e36;
+}
+
+
+
+
+
+
+
 /* FOOTER STYLES */
+
+
+.footer-info {
+    padding:1em;
+}
+.footer-info p {
+     line-height:.8em;
+}
+
+footer h4, footer h5 {
+     font-size:1em;
+     line-height:.8em;
+}
+
+.footer-terms {
+    padding:1em;
+}
+
+.footer-search {
+    padding:1em;
+}
 
 footer.navbar.navbar-inverse {
   background-color: #105b63;
   border-color: #0b3c42;
 }
 
-footer {
-  padding: 15px;
+footer.navbar {
+  padding: 1.5em 0;
 }
+
+footer .container {
+  padding:0;
+}
+
 footer.navbar.navbar-inverse img {
   margin: 0 auto 15px auto;
 }
@@ -121,6 +260,9 @@ ul.footer-links {
   color: #d9d9d9;
 }
 
+
+
+
 /* Dashboard Styles */
 
 div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
@@ -132,6 +274,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   margin-right: 0;
 }
 
+/*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
 .container.dashboard {
   margin-top: 100px;
   margin-right: 15px;
@@ -144,14 +287,18 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   margin-top: -75px;
 }
 
+
 .main-header {
-  margin-left: 15px;
-  padding-left: 15px;
+  margin-top:0;
+  /*margin-left: 15px;
+  padding-left: 15px;*/
 }
 
+/*
 .main-header>h1 {
   margin-bottom:-75px;
 }
+*/
 
 .facet_limit-active > .panel-heading {
   color: #105b63;
@@ -167,6 +314,14 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
     border-top-color: #fffad5;
 }
 
+#my_nav {
+    margin-top:10px;
+     }
+
+
+
+
+
 /* Search Styles */
 
 .panel-heading.collapse-toggle .panel-title:after {
@@ -176,6 +331,22 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 #appliedParams.constraints-container {
   margin-bottom: 10px;
 }
+
+.search-results {
+padding:1em;
+}
+
+.search-results h2{
+   color:#105b63;
+   margin-top:0;
+}
+
+
+/*removes second dropdown carat symbol on facets*/
+.collapse-toggle::after {display:none;}
+
+
+
 
 /* Admin Page */
 
@@ -209,7 +380,15 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
     background: #198d9a !important;
 }
 
+
+
+
 /* Navbar */
+
+.nav {font-family: 'Open Sans', sans-serif;}
+
+/*removing padding on right side of logo so admin menu can fit on wider screens*/
+.navbar-brand {padding-right:0;}
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
   color: #fff;
@@ -255,7 +434,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .navbar-default .navbar-nav > li > a {
-    font-size: 11px;
+    font-size: 1em; /*changed from 11px*/
 }
 
 .nav > li > a {
@@ -270,6 +449,44 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 ul.nav.navbar-nav {
   min-width: 15px;
 }
+
+/*DROPDOWN*/
+.dropdown-menu > li > a {
+padding:1em;
+}
+
+.dropdown-menu {
+font-size:1em;
+}
+
+.navbar-nav .open .dropdown-menu > li > a {
+   line-height:1.5em;
+   padding:1em;
+}
+
+
+/*cant get these to work*/
+.navbar-light-font .dropdown.open dropdown-menu > li > a {
+   color:#777 !important;
+}
+.navbar-light-font .open dropdown-menu > li > a:hover {
+   color:#d97910 !important;
+}
+
+
+
+
+
+
+
+/* Terms Page */
+
+ol.terms-page li {
+     margin-bottom:.8em;
+}
+
+
+
 
 /* Contact Page Styles */
 
@@ -313,11 +530,17 @@ input {
   padding-left: 0;
 }
 
-/* Helper Styles */
 
+
+
+/* Helper Styles */
+/*
 .margin-bottom-100 {
   margin-bottom: 100px;
 }
+
+*/
+
 
 /* Breadcrumbs */
 
@@ -338,16 +561,21 @@ input {
   color: #0b3c42;
 }
 
+
+
+
 /* User Notifications */
 
 .container.dashboard a.btn.btn-danger.pull-right {
   margin-right: 30px;
 }
 
+/*
 .alert {
   margin-top: 150px;
   margin-bottom: -125px;
 }
+*/
 
 /* Progress bars */
 
@@ -377,24 +605,146 @@ input {
   background-image: none;
 }
 
-/* MEDIA QUERIES and Mobile Styles */
+
+
+
+/* ITEM PAGE*/
+
+/*putting space above and below metadata on item page when headings are removed*/
+.meta-table {
+   margin-top:1em;
+   margin-bottom:0;
+}
+
+/*putting table border to bottom instead of top*/
+.table tbody tr td, .table tbody tr th, .table thead tr th {
+     border-top:0; 
+     border-bottom: 1px solid #ddd;
+}
+
+/*this hides border under In Collection metadata*/
+.relationships.table tbody tr td, .relationships.table tbody tr th {
+     border-bottom: 0px solid #ddd;
+}
+
+
+/*adjusting padding under the value content*/
+ul.tabular {
+     margin-bottom:0px;
+}
+
+/*adjusting attribute font*/
+.meta-table tbody tr th, .relationships tbody tr th, .related-files thead tr th {
+   font-weight:600;
+  }
+
+/*sidebar show-actions*/
+.show-actions{
+     padding-left:0px;
+}
+
+/*making table responsive*/
+.table-overflow {overflow-x:auto;}
+
+.social-media{
+     padding-right:0px;
+     padding-left:0px;
+}
+
+.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
+
+
+
+
+
+
+/* COLLECTION PAGE*/
+
+/*adjusting attribute font*/
+.doc-list thead tr th {
+   font-weight:600;
+   }
+
+/*when logged in, remove space on left of edit buttons*/
+.actions-controls-collections {
+   margin-left:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments*/
+
+@media screen and (min-width:768px) {
+
+	.navbar-right {margin-right:0px;}/*trying to fix scrollbar in mobile menu */
+	
+	.fixedsticky-on {padding-top:125px;}
+
+	.navbar-nav {float:none;}
+
+	
+/* FOOTER STYLES */
+	.footer-info {
+	     float:left;
+	     padding-left:2em;
+             width:40%;
+	}
+
+	.footer-terms {
+	     width:20%;
+	     float:left;
+	}
+
+	.footer-search {
+	     width:40%;
+	     float:left;
+	}
+
+	.footer-info p, .footer-info h4 {line-height:1em;}
+	
+
+}
+
+@media screen and (min-width: 992px){
+	.navbar-nav {float:left;}
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES (not mobile first-so stylying mobile and tablet) */
 
 @media screen and (max-width: 992px) {
 
-  /* Home Page items */
+/* Home Page items */
 
   .hero-fullscreen-bg {
     height: auto;
-    padding-top: 100px;
+    padding-top: 150px;
   }
 
   .hero-fullscreen-bg .heading {
-    font-size: 60px;
+    font-size: 2em; /*making font smaller for mobile*/
   }
 
-  section.section-gray {
-    margin-bottom: 0;
-  }
 
   #search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
     display: none;
@@ -431,8 +781,27 @@ input {
   }
 
   .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
-    background-color: #fff;
+    background-color: #f5f5f5;
   }
+
+/*adding border to the main site menu dropdown to be consistent with admin dropdown and make it look more like the whole area is clickable*/
+    .navbar-nav > li{
+       border-bottom: 1px solid #424242;
+       padding-left:1em;
+    }
+    .navbar-nav.main-navbar-nav {
+       border-top:1px solid #424242;
+    }
+    .navbar-nav {
+       margin:0;
+}
+
+
+
+
+
+
+
 
   /* Admin Page */
   .page-container .page-sidebar {
@@ -450,22 +819,29 @@ input {
   /* Forms */
   .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
     padding: 10px 10px;
-  }
+  
+}
+
+
+
 
   /* Dashboard and other secondary pages */
-
+/*
   #my_nav {
     margin-top: 120px;
   }
-
+*/
+/*
   .search-margin-top {
     margin-top: 100px;
   }
-
-  #content-wrapper {
+*/
+/* 
+#content-wrapper {
     margin-top: 0;
     margin-bottom: 50px;
   }
+*/
 
   .container.dashboard {
     padding-right: 30px;
@@ -492,9 +868,11 @@ input {
     margin-bottom: 5px;
   }
 
+/* not needed
   .main-header {
     margin-top:100px;
   }
+*/
 
   .profile {
     margin-top: 20px;
@@ -511,14 +889,20 @@ input {
     max-width: initial;
   }
 
-  /* Footer */
-
-  .footer-text {
-    text-align: center;
-    line-height: 1.25;
-    margin: 0;
-  }
-  .navbar-fixed-bottom {
-    position: relative;
-  }
+ 
 }
+
+
+@media screen and (min-width:993px) and (max-width: 1199px) {
+
+/*admin logged-in menu changed font size so it will fit in header without breaking layout*/
+
+.main-navbar-nav {
+   font-size:.7em;
+}
+
+}
+
+
+
+
