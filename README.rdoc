@@ -4,7 +4,7 @@
 
 A change has been made.  This repo will be used going forward.
 
-Testing git via windows for Christy.
+Testing git via windows for Christy.  Testing folders as well.
 
 === Versions
 
