@@ -16,8 +16,8 @@
 		Explore <span class="caret"></span></a>
 		<ul class="dropdown-menu">
 		 
-			<li <%= 'class=active dropdown' if current_page?(sufia.collections_path) %>>
-				<%= link_to "Collections", sufia.collections_path, :'data-no-turbolink'=>"true" %>
+			<li <%= 'class=active dropdown' if current_page?(collections_path) %>>
+				<%= link_to "Collections", collections_path, :'data-no-turbolink'=>"true" %>
 			</li>
 			<li <%= 'class=active dropdown' if current_page?(sufia.about_path) %>>
 				<%= link_to "Institutions", sufia.about_path, :'data-no-turbolink'=>"true" %>
