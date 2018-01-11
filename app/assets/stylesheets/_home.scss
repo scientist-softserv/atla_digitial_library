@@ -452,25 +452,16 @@ ul.nav.navbar-nav {
 
 /*DROPDOWN*/
 .dropdown-menu > li > a {
-padding:1em;
+    padding:1em;
 }
 
 .dropdown-menu {
-font-size:1em;
+    font-size:1em;
 }
 
 .navbar-nav .open .dropdown-menu > li > a {
    line-height:1.5em;
    padding:1em;
-}
-
-
-/*cant get these to work*/
-.navbar-light-font .dropdown.open dropdown-menu > li > a {
-   color:#777 !important;
-}
-.navbar-light-font .open dropdown-menu > li > a:hover {
-   color:#d97910 !important;
 }
 
 
@@ -682,7 +673,7 @@ ul.tabular {
 
 
 
-/*MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments*/
+/****MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments******/
 
 @media screen and (min-width:768px) {
 
@@ -691,6 +682,8 @@ ul.tabular {
 	.fixedsticky-on {padding-top:125px;}
 
 	.navbar-nav {float:none;}
+	.nabar-nav li {float:none;} /*trying to fix responsive menu*/
+
 
 	
 /* FOOTER STYLES */
@@ -717,8 +710,7 @@ ul.tabular {
 
 @media screen and (min-width: 992px){
 	.navbar-nav {float:left;}
-
-	
+	.nabar-nav li {float:left;}/*trying to fix responsive menu*/
 }
 
 
@@ -796,7 +788,14 @@ ul.tabular {
        margin:0;
 }
 
-
+/***************************cant get these to work*/
+.navbar-light-font .open .dropdown-menu > li > a {
+   color:#3b3b3b !important;
+}
+.navbar-light-font .open dropdown-menu > li > a:hover {
+   color:#db9e36 !important;
+   background-color:transparent !important;
+}
 
 
 
