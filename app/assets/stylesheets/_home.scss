@@ -67,7 +67,7 @@ section.section-gray {
 
 
 
-/* Custom Thumbnails */
+/*** Custom Thumbnails ***/
 
 .thumbnail-custom p {
 	-moz-transition: all 200ms ease-out;
@@ -108,7 +108,7 @@ section.section-gray {
 
 
 
-/*masonry grid for featured and collecitons spacing*/
+/*** MASONRY GRID for featured and collecitons spacing***/
 .grid-item {
     padding-left:1em;
     padding-right:1em;
@@ -117,7 +117,7 @@ section.section-gray {
 
 
 
-/* Buttons and Links */
+/*** Buttons and Links ***/
 
 a, .btn-link {
 	color: #db9e36;
@@ -200,7 +200,7 @@ ul.collection-highlights-list {
 
 
 
-/* FOOTER STYLES */
+/* -------- FOOTER STYLES -------- */
 
 
 .footer-info {
@@ -270,7 +270,7 @@ ul.footer-links {
 
 
 
-/* Dashboard Styles */
+/* -------- Dashboard Styles -------- */
 
 div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
 	background: #ffd34e;
@@ -329,7 +329,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 
 
-/* Search Styles */
+/* -------- Search Styles -------- */
 
 .panel-heading.collapse-toggle .panel-title:after {
 	margin-top: -20px;
@@ -357,7 +357,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 
 
-/* Admin Page */
+/* -------- Admin Page -------- */
 
 .page-container {
 	background-color: #157984 !important;
@@ -392,7 +392,7 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 
 
-/* Navbar */
+/* -------- Navbar -------- */
 
 .nav {font-family: 'Open Sans', sans-serif;}
 
@@ -479,7 +479,7 @@ ul.nav.navbar-nav {
 
 
 
-/* Terms Page */
+/* -------- Terms Page -------- */
 
 ol.terms-page li {
 	margin-bottom:.8em;
@@ -488,7 +488,7 @@ ol.terms-page li {
 
 
 
-/* Contact Page Styles */
+/* -------- Contact Page Styles -------- */
 
 .form-horizontal .form-group {
 	margin-right:0;
@@ -533,7 +533,7 @@ input {
 
 
 
-/* Helper Styles */
+/* -------- Helper Styles -------- */
 /*
 .margin-bottom-100 {
 	margin-bottom: 100px;
@@ -542,7 +542,7 @@ input {
 */
 
 
-/* Breadcrumbs */
+/* -------- Breadcrumbs -------- */
 
 .breadcrumb > li.active {
 	color: #105b63;
@@ -564,7 +564,7 @@ input {
 
 
 
-/* User Notifications */
+/* -------- User Notifications -------- */
 
 .container.dashboard a.btn.btn-danger.pull-right {
 	margin-right: 30px;
@@ -577,7 +577,7 @@ input {
 }
 */
 
-/* Progress bars */
+/* -------- Progress bars -------- */
 
 .progress-bar {
 	background-color: #105b63;
@@ -608,7 +608,7 @@ input {
 
 
 
-/* ITEM PAGE*/
+/* -------- ITEM PAGE --------*/
 
 /*putting space above and below metadata on item page when headings are removed*/
 .meta-table {
@@ -658,7 +658,7 @@ ul.tabular {
 
 
 
-/* COLLECTION PAGE*/
+/* -------- COLLECTION PAGE -------- */
 
 /*adjusting attribute font*/
 .doc-list thead tr th {
@@ -682,7 +682,7 @@ ul.tabular {
 
 
 
-/****MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments******/
+/* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
 
 @media screen and (min-width:768px) {
 
@@ -691,11 +691,12 @@ ul.tabular {
 	.fixedsticky-on {padding-top:125px;}
 
 	.navbar-nav {float:none;}
+	
 	.nabar-nav > li {float:none !important;} /*trying to fix responsive menu*/
-
+	.nav.nabar-nav > li {float:none !important;} /*trying to fix responsive menu*/
 
 	
-/* FOOTER STYLES */
+/* -------- FOOTER STYLES -------- */
 	.footer-info {
 		float:left;
 		padding-left:2em;
