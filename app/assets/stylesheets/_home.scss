@@ -692,8 +692,8 @@ ul.tabular {
 
 	.navbar-nav {float:none;}
 	
-	.nabar-nav > li {float:none !important;} /*trying to fix responsive menu*/
-	.nav.nabar-nav > li {float:none !important;} /*trying to fix responsive menu*/
+	.navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
+
 
 	
 /* -------- FOOTER STYLES -------- */
