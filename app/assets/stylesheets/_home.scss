@@ -773,6 +773,10 @@ ul.tabular {
     background-image: none !important;
   }
 
+  
+.navbar-no-background .main-navbar-nav .dropdown > .dropdown-menu {
+	background-color:#f5f5f5;
+	}
   .navbar .container {
     z-index:2;
   }
@@ -812,21 +816,21 @@ ul.tabular {
 
 
   /* Admin Page */
-  .page-container .page-sidebar {
-    width: 150px;
+.page-container .page-sidebar {
+	width: 150px;
   }
 
-  .page-container .page-content {
-    margin-left: 150px;
+.page-container .page-content {
+	margin-left: 150px;
   }
 
-  .dropdown-menu .divider {
-    margin: 0;
+.dropdown-menu .divider {
+	margin: 0;
   }
 
   /* Forms */
-  .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
-    padding: 10px 10px;
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
+	padding: 10px 10px;
   
 }
 
@@ -835,7 +839,7 @@ ul.tabular {
 
   /* Dashboard and other secondary pages */
 /*
-  #my_nav {
+#my_nav {
     margin-top: 120px;
   }
 */
@@ -851,27 +855,29 @@ ul.tabular {
   }
 */
 
-  .container.dashboard {
+
+
+.container.dashboard {
     padding-right: 30px;
   }
 
-  .container.dashboard>h1 {
+.container.dashboard>h1 {
       margin-top: 50px;
   }
 
-  .container.dashboard h2.non.lower small {
+.container.dashboard h2.non.lower small {
     font-size: 50%;
   }
 
-  .heading-tile {
+.heading-tile {
     font-size: large;
   }
 
-  .container.dashboard a.btn.btn-danger.pull-right {
+.container.dashboard a.btn.btn-danger.pull-right {
     float:left !important;
   }
 
-  .pull-right.no-pull-sm {
+.pull-right.no-pull-sm {
     float: none !important;
     margin-bottom: 5px;
   }
@@ -882,18 +888,18 @@ ul.tabular {
   }
 */
 
-  .profile {
+.profile {
     margin-top: 20px;
   }
 
   /* Make images responsive */
-  img {
+img {
     max-width: 100%;
     height: auto;
     display: block;
   }
 
-  img.file_listing_thumbnail {
+img.file_listing_thumbnail {
     max-width: initial;
   }
 
