@@ -1,67 +1,67 @@
 /* Home Page and General Styles */
 
 body {
-     margin-bottom:0px;
-     font-family: 'Open Sans', sans-serif;
+	margin-bottom:0px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
-     font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 #content-wrapper {
-     margin-top: 0px;/*needed for all pages except home which uses section-gray class*
-     /*margin-bottom: 150px;*/
-     padding-bottom:2em;
+	margin-top: 0px;/*needed for all pages except home which uses section-gray class*
+	/*margin-bottom: 150px;*/
+	padding-bottom:2em;
 }
 	
 section.section-gray {
-     margin-bottom: 0px; /*was 100px*/
-     margin-top:0px; /*remove margin on home page that is needed on other pages? */
+	margin-bottom: 0px; /*was 100px*/
+	margin-top:0px; /*remove margin on home page that is needed on other pages? */
 }
 	
 /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
 #content-wrapper.one-pages {
-     padding-top:125px;
-     padding-bottom:2em;
+	padding-top:125px;
+	padding-bottom:2em;
 }
 
 /*fixing the admin page content-wrapper not sure if its affecting other pages*/
 #content-wrapper.container-fluid {
-     padding-top:125px; 
+	padding-top:125px; 
 }
 
 /*fixing the admin page content-wrapper not sure if its affecting other pages*/
 #content-wrapper[role=main] {
-     padding-top:110px;
+	padding-top:110px;
 }
 
 
 
 .hero-fullscreen-bg {
-  background-image: image-url('ATLA-hero-new.jpg');
-  background-repeat: repeat; /*changed from no repeat for very wide screens so that it doesnt show the grey*/
-  background-position: top;
-  position: relative;
-  z-index: 1;
+	background-image: image-url('ATLA-hero-new.jpg');
+	background-repeat: repeat; /*changed from no repeat for very wide screens so that it doesnt show the grey*/
+	background-position: top;
+	position: relative;
+	z-index: 1;
 }
 
 .hero-fullscreen-bg {
-  height: 60%; /*was 100%*/
+	height: 60%; /*was 100%*/
 }
 
 .hero-fullscreen-bg .heading {
-    font-size: 2.5em;
-    font-weight:normal;
+	font-size: 2.5em;
+	font-weight:normal;
   }
 
 
 .home_marketing_text {
-  display:none;
+	display:none;
 }
 
 #announcement {
-  display:none;
+	display:none;
 }
 
 
@@ -70,40 +70,40 @@ section.section-gray {
 /* Custom Thumbnails */
 
 .thumbnail-custom p {
-  -moz-transition: all 200ms ease-out;
-  -o-transition: all 200ms ease-out;
-  -webkit-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	transition: all 200ms ease-out;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
 }
 
 .thumbnail-custom a {
-  color: #db9e36;
+	color: #db9e36;
 }
 
 .thumbnail-custom a:hover {
-  color: #0b3c42;
+	color: #0b3c42;
 }
 
 .feature-image {
-  width: 100%;
-  height: auto;
-  display: block;
+	width: 100%;
+	height: auto;
+	display: block;
 }
 
 .thumbnail-custom .overlay {
-    background-color:rgba(197, 196, 196, 0.6);
+	background-color:rgba(197, 196, 196, 0.6);
 }
 
 
 /*making thumbnail titles entire area clickable as link*/
 .thumbnail-custom .thumbnail-heading {
-  padding: 0px;
+	padding: 0px;
 }
 .thumbnail-heading a {
-    padding:15px;
-    display:block;
+	padding:15px;
+	display:block;
 }
 
 
@@ -120,42 +120,42 @@ section.section-gray {
 /* Buttons and Links */
 
 a, .btn-link {
-  color: #db9e36;
+	color: #db9e36;
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span {
-  background-color: #105b63;
-  border-color: #0b3c42;
+	background-color: #105b63;
+	border-color: #0b3c42;
 }
 
 footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus {
-  background-color: #0b3c42;
-  border-color: #0b3c42;
+	background-color: #0b3c42;
+	border-color: #0b3c42;
 }
 
 .btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  background-color: #0b3c42;
-  border-color: #07282c;
+	background-color: #0b3c42;
+	border-color: #07282c;
 }
 
 a:hover, a:focus, .btn-link:hover, .btn-link:focus {
-  color: #c38822;
+	color: #c38822;
 }
 
 .btn-danger, .label-danger {
-  background-color: #bd4932;
-  border-color: #a13f2b;
+	background-color: #bd4932;
+	border-color: #a13f2b;
 }
 
 .btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
-  background-color: #a13f2b;
-  border-color: #792f20;
+	background-color: #a13f2b;
+	border-color: #792f20;
 }
 .multi_value .btn.add {
-  text-decoration: none;
-  padding: 5px 10px;
-  width: auto;
-  color: white;
+	text-decoration: none;
+	padding: 5px 10px;
+	width: auto;
+	color: white;
 }
 
 
@@ -163,36 +163,38 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 /* -------- Explore Collections and Featured -------*/
 
 .explore-section, .featured-section {
-     padding-top:1em;
-     padding-bottom:0px;
+	padding-top:1em;
+	padding-bottom:0px;
 }
 .list-inline.collection-highlights-list {
-     margin-left:0;
-     text-align:center;
-     padding-bottom:2em;
-     padding-top:1.5em;
+	margin-left:0;
+	text-align:center;
+	padding-bottom:2em;
+	padding-top:1.5em;
 }
 .list-inline.collection-highlights-list li a {
-     font-size:1.5em;
+	font-size:1.5em;
 }   
 
 /*making the orange tab text a little bigger in admin page*/
 .nav-tabs > li > a {
-    font-size:1em;
+	font-size:1em;
 }
 
 /*this is sizing the explore and featured text tabs on home */
 .home-content .nav-tabs > li > a {
-  font-size: 2em;
+	font-size: 2em;
 }
 
 .home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
-   background-color:transparent;
-   border: 1px solid transparent;
-   color:#db9e36;
+	background-color:transparent;
+	border: 1px solid transparent;
+	color:#db9e36;
 }
 
-ul.collection-highlights-list {clear:both;}
+ul.collection-highlights-list {
+	clear:both;
+	}
 
 
 
@@ -205,15 +207,17 @@ ul.collection-highlights-list {clear:both;}
     padding:1em;
 }
 
-.footer-info h5, .footer-info h4 {color:antiquewhite;}
+.footer-info h5, .footer-info h4 {
+	color:antiquewhite;
+	}
 
 .footer-info p {
-     line-height:.8em;
+	line-height:.8em;
 }
 
 footer h4, footer h5 {
-     font-size:1em;
-     line-height:.8em;
+	font-size:1em;
+	line-height:.8em;
 }
 
 .footer-terms {
@@ -225,42 +229,42 @@ footer h4, footer h5 {
 }
 
 footer.navbar.navbar-inverse {
-  background-color: #105b63;
-  border-color: #0b3c42;
+	background-color: #105b63;
+	border-color: #0b3c42;
 }
 
 footer.navbar {
-  padding: 1.5em 0;
+	padding: 1.5em 0;
 }
 
 footer .container {
-  padding:0;
+	padding:0;
 }
 
 footer.navbar.navbar-inverse img {
-  margin: 0 auto 15px auto;
+	margin: 0 auto 15px auto;
 }
 
 footer .navbar-text {
-  margin-left: 0;
-  margin-right: 0;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .footer-links a {
-  color: #9d9d9d;
+	color: #9d9d9d;
 }
 
 .footer-links {
-  color: #d9d9d9;
+	color: #d9d9d9;
 }
 
 ul.footer-links {
-  list-style-type: none;
-  padding-left: 0;
+	list-style-type: none;
+	padding-left: 0;
 }
 
 .navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
-  color: #d9d9d9;
+	color: #d9d9d9;
 }
 
 
@@ -269,48 +273,48 @@ ul.footer-links {
 /* Dashboard Styles */
 
 div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
-  background: #ffd34e;
+	background: #ffd34e;
 }
 
 .row {
-  margin-left: 0;
-  margin-right: 0;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 /*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
 .container.dashboard {
-  margin-top: 100px;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
+	margin-top: 100px;
+	margin-right: 15px;
+	margin-left: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .container.dashboard>h1 {
-  margin-top: -75px;
+	margin-top: -75px;
 }
 
 
 .main-header {
-  margin-top:0;
-  /*margin-left: 15px;
-  padding-left: 15px;*/
+	margin-top:0;
+	/*margin-left: 15px;
+	padding-left: 15px;*/
 }
 
 /*
 .main-header>h1 {
-  margin-bottom:-75px;
+	margin-bottom:-75px;
 }
 */
 
 .facet_limit-active > .panel-heading {
-  color: #105b63;
-  background-color: #fffce6;
-  border-color: #fffad5;
+	color: #105b63;
+	background-color: #fffce6;
+	border-color: #fffad5;
 }
 
 .facet_limit-active {
-  border-color: #fffad5;
+	border-color: #fffad5;
 }
 
 .facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
@@ -318,8 +322,8 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 #my_nav {
-    margin-top:10px;
-     }
+	margin-top:10px;
+    }
 
 
 
@@ -328,25 +332,27 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 /* Search Styles */
 
 .panel-heading.collapse-toggle .panel-title:after {
-  margin-top: -20px;
+	margin-top: -20px;
 }
 
 #appliedParams.constraints-container {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .search-results {
-padding:1em;
+	padding:1em;
 }
 
 .search-results h2{
-   color:#105b63;
-   margin-top:0;
+	color:#105b63;
+	margin-top:0;
 }
 
 
 /*removes second dropdown carat symbol on facets*/
-.collapse-toggle::after {display:none;}
+.collapse-toggle::after {
+	display:none;
+	S}
 
 
 
@@ -685,7 +691,7 @@ ul.tabular {
 	.fixedsticky-on {padding-top:125px;}
 
 	.navbar-nav {float:none;}
-	.nabar-nav li {float:none;} /*trying to fix responsive menu*/
+	.nabar-nav > li {float:none !important;} /*trying to fix responsive menu*/
 
 
 	
@@ -713,7 +719,7 @@ ul.tabular {
 
 @media screen and (min-width: 992px){
 	.navbar-nav {float:left;}
-	.nabar-nav li {float:left;}/*trying to fix responsive menu*/
+	.nabar-nav > li {float:left !important;} /*trying to fix responsive menu*/
 }
 
 
@@ -797,7 +803,7 @@ ul.tabular {
 }
 .navbar-light-font .open dropdown-menu > li > a:hover {
    color:#db9e36 !important;
-   background-color:transparent !important;
+   background-color:#f5f5f5 !important;
 }
 
 
