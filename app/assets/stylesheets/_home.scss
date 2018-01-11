@@ -722,7 +722,7 @@ ul.tabular {
 
 @media screen and (min-width: 992px){
 	.navbar-nav {float:left;}
-	.nabar-nav > li {float:left !important;} /*trying to fix responsive menu*/
+		.navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
 }
 
 
