@@ -19,8 +19,8 @@
   <a name="skip_to_content"></a>
   <div class="row">
   <% if content_for?(:sidebar) %>
-      <div class="col-xs-12 col-sm-9 col-sm-push-3 margin-bottom-100"><%= yield %></div>
-      <div id="sidebar" class="col-xs-12 col-sm-3 col-sm-pull-9"><%= yield :sidebar %></div>
+      <div class="col-xs-12 col-md-9 col-md-push-3 margin-bottom-100"><%= yield %></div>
+      <div id="sidebar" class="col-xs-12 col-md-3 col-md-pull-9"><%= yield :sidebar %></div>
     <% else %>
       <div class="col-xs-12">
         <%= yield %>
