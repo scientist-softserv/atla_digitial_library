@@ -694,7 +694,7 @@ ul.tabular {
 	
 	.navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
 
-	#content-wrapper .container {
+	.container[role=main]{
 		width:100%;
 		}
 
