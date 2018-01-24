@@ -28,4 +28,20 @@ class Work < ActiveFedora::Base
 
   # required
   property :old_id, predicate: ::RDF::Vocab::DC.identifier
+
+  # property :title, predicate: ::RDF::Vocab::DC.title { |i| i.as :stored_searchable }
+  property :alternate_title, predicate: ::RDF::Vocab::DC.alternative { |i| i.as :stored_searchable }
+  property :contributing_instituion, predicate: ::RDF::Vocab::DC11.contributor { |i| i.as :stored_searchable }
+  property :date, predicate: ::RDF::Vocab::DC11.date { |i| i.as :stored_searchable }
+  property :extent, predicate: ::RDF::Vocab::DC.extent { |i| i.as :stored_searchable }
+  property :original_format, predicate: ::RDF::Vocab::DC11.format { |i| i.as :stored_searchable }
+  property :digital_format, predicate: ::RDF::Vocab::DC11.format { |i| i.as :stored_searchable }
+  property :place, predicate: ::RDF::Vocab::DC.Location { |i| i.as :stored_searchable }
+  property :relation, predicate: ::RDF::Vocab::DC11.relation { |i| i.as :stored_searchable }
+  property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder { |i| i.as :stored_searchable }
+  property :rights_license, predicate: ::RDF::Vocab::DC.license { |i| i.as :stored_searchable }
+  property :thumbnail_url, predicate: ::RDF::Vocab::DC.URI { |i| i.as :stored_searchable }
+  property :original_url, predicate: ::RDF::Vocab::DC.URI { |i| i.as :stored_searchable }
+  property :time_period, predicate: ::RDF::Vocab::DC.PeriodOfTime { |i| i.as :stored_searchable }
+  property :types, predicate: ::RDF::Vocab::DC11.type { |i| i.as :stored_searchable }
 end
