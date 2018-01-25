@@ -2,4 +2,8 @@
   <span class="sr-only">Title</span>
   <%= link_to truncate(featured.title.first, length: 28, separator: ' '), featured %>
 </h4>
-<div class="overlay"></div>
+
+<%= link_to featured do %>
+  <%= content_tag :div, "", :class => "overlay" %>
+<% end%>
+
