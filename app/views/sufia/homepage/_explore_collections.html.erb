@@ -1,26 +1,28 @@
-<section>
-  <div class="container">
-    <div class="row">
+<section class="explore-section">
+ 
+<div class="blog-masonry clearfix"><!--removed class container-->
+    
+<div class="grid-sizer"></div>
+
       <% @collections.each do |collection| %>
-        <div class="col-md-4">
+       <div class="grid-item">
           <div class="thumbnail-custom">
             <h4 class="thumbnail-heading">
               <%= link_to collection['url'] do %>
                 <%= collection['anchor_text'] %>
               <% end %></h4>
-            <div class="overlay"></div>
             <%= link_to collection['url'], class: '', 'aria-hidden' => true do %>
+		<span class="overlay"></span>
               <img src="<%= collection['image']['path_to_file'] %>" class="img-responsive feature-image"/>
             <% end %>
           </div>
         </div>
       <% end %>
-    </div>
-  </div>
+</div>
 </section>
 
 <ul class="list-inline collection-highlights-list">
   <li>
-    <%= link_to "View All Collections", search_catalog_path, class: 'btn btn-default' %>
+    <%= link_to "View All Collections", collections_path, class: 'btn btn-default' %>
   </li>
 </ul>
