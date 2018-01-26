@@ -1,5 +1,9 @@
 == README
 
+=== ATLA
+
+ATLA staff will use this repo when making changes to the digital library going forward.
+
 === Versions
 
  - Ruby 2.3.1

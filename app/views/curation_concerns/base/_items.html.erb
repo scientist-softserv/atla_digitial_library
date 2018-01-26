@@ -1,0 +1,21 @@
+<h3><%= t('.header') %></h3>
+<% if presenter.member_presenters.present? %>
+<div class="table-overflow">
+  <table class="table related-files">
+    <thead>
+      <tr>
+        <th><%= t('.thumbnail') %></th>
+        <th><%= t('.title') %></th>
+        <th><%= t('.date_uploaded') %></th>
+        <th><%= t('.visibility') %></th>
+        <th><%= t('.actions') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'member', collection: presenter.member_presenters %>
+    </tbody>
+  </table>
+</div>
+<% elsif can? :edit, presenter.id %>
+    <div class="alert alert-warning" role="alert"><%= t('.empty', type: presenter.human_readable_type) %></div>
+<% end %>
