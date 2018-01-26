@@ -127,9 +127,9 @@ module Atla
         collection.add_members([work.id])
         collection.save
         add_image(attrs['thumbnail_url'].first, work)
-        OaiImporter::LOGGER.info("created work with title: #{attrs['title'].first} and id: #{work.id}")
+        OaiImporter::LOGGER.info("created work with title: #{attrs['title'].try(:first)} and id: #{work.id}")
       else
-        OaiImporter::LOGGER.error("Failed to create Work with title: #{attrs['title'].first} and Identifier: #{attrs['identifier']}, error messages: #{work.errors.messages}")
+        OaiImporter::LOGGER.error("Failed to create Work with title: #{attrs['title'].try(:first)} and Identifier: #{attrs['identifier']}, error messages: #{work.try(:errors).try(:messages)}")
       end
       work
     end
@@ -174,7 +174,7 @@ module Atla
         end
         collection.apply_depositor_metadata(@user.user_key)
         collection.save
-        OaiImporter::LOGGER.info("Created collection with title: #{attrs['title'].first} and id: #{collection.id}")
+        OaiImporter::LOGGER.info("Created collection with title: #{attrs['title'].try(:first)} and id: #{collection.id}")
         collection
       end
     end
