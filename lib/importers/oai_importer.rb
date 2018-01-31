@@ -36,7 +36,9 @@ module Atla
     end
 
     def bar
-      @bar ||= ProgressBar.new(response.doc.find('.//resumptionToken').to_a.first.attributes['completeListSize'].to_i)
+      return @bar if @bar
+      number = @test.present? ? 100 : response.doc.find('.//resumptionToken').to_a.first.attributes['completeListSize'].to_i
+      @bar = ProgressBar.new(number)
     end
 
     def loop_all_records(&block)
@@ -73,25 +75,49 @@ module Atla
       end
       url = "#{@image_url}?cover=#{record.header.identifier.split(':').last}&size=L"
       @header = {
-        'identifier' => [record.header.identifier],
         'date' => [record.header.datestamp],
         'set_spec' => record.header.set_spec.map(&:content),
+        'collection' => set_spec['classification'],
         'thumbnail_url' => [url]
-      }.merge(set_spec)
+      }
     end
 
     def metadata
-      @metadata ||= record.metadata&.child&.children&.each_with_object({}) do |node, hash|
-        hash[node.name] ||= []
-        hash[node.name] << node.content
+      return @metadata if @metadata
+      @metadata = record.metadata&.child&.children&.each_with_object({}) do |node, hash|
+        case node.name
+        when 'format'
+          hash['original_format'] ||= []
+          hash['original_format'] << node.content
+        when 'coverage'
+          hash['place'] ||= []
+          hash['place'] << node.content
+        when 'relation'
+          hash['collection_name'] ||= []
+          hash['collection_name'] << node.content
+        when 'type'
+          hash['types'] ||= []
+          hash['types'] << node.content
+        else
+          hash[node.name] ||= []
+          hash[node.name] << node.content
+        end
       end
+      if @metadata
+        @metadata['contributing_instituion'] = ['Princeton Theological Seminary Library']
+        @metadata['rights'] = ['Copyright Not Evaluated. The copyright and related rights status of this Item has not been evaluated. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. http://rightsstatements.org/vocab/CNE/1.0/']
+      end
+      @metadata
     end
 
     def about
-      @about ||= record.about&.child&.children&.each_with_object({}) do |node, hash|
+      return @about if @about
+      @about = record.about&.child&.children&.each_with_object({}) do |node, hash|
         hash[node.name] ||= []
         hash[node.name] << node.content
       end
+      @about.delete('rigths') if @about.respond_to?(:delete)
+      @about
     end
 
     def merge_attrs(first, second)
@@ -117,12 +143,17 @@ module Atla
     end
 
     def build(attrs)
+      if self.existing_work?(attrs['identifier'])
+        OaiImporter::LOGGER.info("skipping exisitng work with identifier: #{attrs['identifier']}")
+        return
+      end
       collection = collection_factory.build('title' => attrs['collection'])
       work = Work.new
       clean_attrs(attrs).each do |key, value|
         work.send("#{key}=", value)
       end
       work.apply_depositor_metadata(@user.user_key)
+      work.visibility = 'open'
       if work.save
         collection.add_members([work.id])
         collection.save
@@ -134,10 +165,15 @@ module Atla
       work
     end
 
+    def existing_work?(identifier)
+      Work.where(identifier: identifier).present?
+    end
+
     def add_image(url, work)
       open(url) do |f|
         uploaded_file = Sufia::UploadedFile.create(file: f, user: @user)
         file_set = FileSet.new
+        file_set.visibility = 'open'
         actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user)
         actor.create_metadata(work, visibility: work.visibility) do |file|
           file.permissions_attributes = work.permissions.map(&:to_hash)
@@ -173,6 +209,7 @@ module Atla
           collection.send("#{key}=", value)
         end
         collection.apply_depositor_metadata(@user.user_key)
+        collection.visibility = 'open'
         collection.save
         OaiImporter::LOGGER.info("Created collection with title: #{attrs['title'].try(:first)} and id: #{collection.id}")
         collection

@@ -8,7 +8,7 @@ namespace :import do
       image_url: 'http://commons.ptsem.edu/',
       default_collection_name: 'Princeton Theological Commons Collection',
       user_email: args[:user_email],
-      test: args[:test],
+      test: args[:test] == 'true',
       name: 'ptsem',
       headers: { from: 'rob@notch8.com' }
     }
