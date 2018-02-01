@@ -75,7 +75,7 @@ module Atla
       end
       url = "#{@image_url}?cover=#{record.header.identifier.split(':').last}&size=L"
       @header = {
-        'date' => [record.header.datestamp],
+        # 'date' => [record.header.datestamp],
         'set_spec' => record.header.set_spec.map(&:content),
         'collection' => set_spec['classification'],
         'thumbnail_url' => [url]
@@ -98,6 +98,8 @@ module Atla
         when 'type'
           hash['types'] ||= []
           hash['types'] << node.content
+        when 'rights'
+          next
         else
           hash[node.name] ||= []
           hash[node.name] << node.content
@@ -116,7 +118,7 @@ module Atla
         hash[node.name] ||= []
         hash[node.name] << node.content
       end
-      @about.delete('rigths') if @about.respond_to?(:delete)
+      @about.delete('rights') if @about.respond_to?(:delete)
       @about
     end
 
