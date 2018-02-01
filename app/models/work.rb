@@ -10,11 +10,11 @@ class Work < ActiveFedora::Base
 
   # property :title, predicate: ::RDF::Vocab::DC.title { |i| i.as :stored_searchable }
   property :alternate_title, predicate: ::RDF::Vocab::DC.alternative do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
   # property :collection_name, predicate: ::RDF::Vocab::DC.isPartOf { |i| i.as :stored_searchable }
   property :contributing_instituion, predicate: ::RDF::Vocab::DC.contributor do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
   property :contributor, predicate: ::RDF::Vocab::DC11.contributor do |index|
     index.as :stored_searchable, :facetable
@@ -23,41 +23,41 @@ class Work < ActiveFedora::Base
     index.as :stored_searchable, :facetable
   end
   property :date, predicate: ::RDF::Vocab::DC11.date do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
   property :description, predicate: ::RDF::Vocab::DC11.description do |index|
     index.type :text
     index.as :stored_searchable
   end
   property :extent, predicate: ::RDF::Vocab::DC.extent do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
-  property :original_format, predicate: ::RDF::Vocab::DC.medium do |i|
-    i.as :stored_searchable
+  property :format_original, predicate: ::RDF::Vocab::DC.medium do |i|
+    i.as :stored_searchable, :facetable
   end
-  property :digital_format, predicate: ::RDF::Vocab::DC11.format do |i|
-    i.as :stored_searchable
+  property :format_digital, predicate: ::RDF::Vocab::DC11.format do |i|
+    i.as :stored_searchable, :facetable
   end
   property :identifier, predicate: ::RDF::Vocab::DC.identifier do |index|
-    index.as :stored_searchable
+    index.as :stored_searchable, :facetable
   end
   property :language, predicate: ::RDF::Vocab::DC11.language do |index|
     index.as :stored_searchable, :facetable
   end
   property :place, predicate: ::RDF::Vocab::DC.coverage do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
   property :publisher, predicate: ::RDF::Vocab::DC11.publisher do |index|
     index.as :stored_searchable, :facetable
   end
   property :relation, predicate: ::RDF::Vocab::DC11.relation do |index|
-    index.as :stored_searchable
+    index.as :stored_searchable, :facetable
   end
   property :rights, predicate: ::RDF::Vocab::DC.rights do |index|
-    index.as :stored_searchable
+    index.as :stored_searchable, :facetable
   end
   property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
   property :subject, predicate: ::RDF::Vocab::DC11.subject do |index|
     index.as :stored_searchable, :facetable
@@ -66,11 +66,12 @@ class Work < ActiveFedora::Base
     i.as :stored_searchable
   end
   property :time_period, predicate: ::RDF::Vocab::DC.temporal do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
   property :types, predicate: ::RDF::Vocab::DC11.type do |i|
-    i.as :stored_searchable
+    i.as :stored_searchable, :facetable
   end
+
   property :resource_type, predicate: ::RDF::Vocab::DC.type do |index|
     index.as :stored_searchable, :facetable
   end
