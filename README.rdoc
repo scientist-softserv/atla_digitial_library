@@ -82,7 +82,7 @@ This task requires one arguement:
 
 *Import Princeton Theological Commons OAI feed Task*
 
-<tt>bundle exec rake import:import_ptc_oia[<user_email>, <test>]</tt>
+<tt>bundle exec rake import:import_ptc_oia[<user_email>,<test>]</tt>
 
 This task imports the works and collections from the Princeton Theological Commons
  OAI feed.
@@ -90,3 +90,4 @@ This task imports the works and collections from the Princeton Theological Commo
 This task has 2 arguments
 * A email of a admin user in the system, this user will be seen as the one that has imported all of the new files
 * Test can be true or false. True runs the import for just the first 100 records, false imports everything
+* Make sure there is not space between the arguments
