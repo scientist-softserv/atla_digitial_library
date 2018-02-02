@@ -9,11 +9,10 @@ class Work < ActiveFedora::Base
   validates :title, presence: { message: 'Your work must have a title.' }
 
   # property :title, predicate: ::RDF::Vocab::DC.title { |i| i.as :stored_searchable }
-  property :alternate_title, predicate: ::RDF::Vocab::DC.alternative do |i|
+  property :alternative_title, predicate: ::RDF::Vocab::DC.alternative do |i|
     i.as :stored_searchable, :facetable
   end
-  # property :collection_name, predicate: ::RDF::Vocab::DC.isPartOf { |i| i.as :stored_searchable }
-  property :contributing_instituion, predicate: ::RDF::Vocab::DC.contributor do |i|
+  property :contributing_institution, predicate: ::RDF::Vocab::DC.contributor do |i|
     i.as :stored_searchable, :facetable
   end
   property :contributor, predicate: ::RDF::Vocab::DC11.contributor do |index|
@@ -54,7 +53,7 @@ class Work < ActiveFedora::Base
     index.as :stored_searchable, :facetable
   end
   property :rights, predicate: ::RDF::Vocab::DC.rights do |index|
-    index.as :stored_searchable, :facetable
+    index.as :stored_searchable
   end
   property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder do |i|
     i.as :stored_searchable, :facetable

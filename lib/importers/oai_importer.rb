@@ -11,13 +11,11 @@ module Atla
     def initialize(opts = {})
       @url = opts[:url]
       @image_url = opts[:image_url]
-      @default_collection_name = opts[:default_collection_name]
       @user = User.find_by_email(opts[:user_email])
-      @name = opts[:name]
       @headers = opts[:headers]
       @test = opts[:test]
       @work_factory = OaiWorkFactory.new(@user)
-      @collection_factory = OaiCollectionFactory.new(@user, @default_collection_name)
+      @collection_factory = OaiCollectionFactory.new(@user)
       @work_factory.collection_factory = @collection_factory
       @client = OAI::Client.new(@url, headers: @headers, parser: 'libxml', metadata_prefix: 'mods')
     end
@@ -64,22 +62,11 @@ module Atla
     end
 
     def all_attrs
-      merge_attrs(merge_attrs(header, metadata), about)
+      merge_attrs(header, metadata)
     end
 
     def header
-      return @header if @header
-      set_spec = record.header.set_spec.each_with_object({}) do |node, hash|
-        content = node.content.split(':')
-        hash[content.first] = content[1..-1]
-      end
-      url = "#{@image_url}?cover=#{record.header.identifier.split(':').last}&size=L"
-      @header = {
-        # 'date' => [record.header.datestamp],
-        'set_spec' => record.header.set_spec.map(&:content),
-        'collection' => set_spec['classification'],
-        'thumbnail_url' => [url]
-      }
+      { 'thumbnail_url' => ["#{@image_url}?cover=#{record.header.identifier.split(':').last}&size=L"] }
     end
 
     def metadata
@@ -87,14 +74,14 @@ module Atla
       @metadata = record.metadata&.child&.children&.each_with_object({}) do |node, hash|
         case node.name
         when 'format'
-          hash['original_format'] ||= []
-          hash['original_format'] << node.content
+          hash['format_original'] ||= []
+          hash['format_original'] << node.content
         when 'coverage'
           hash['place'] ||= []
           hash['place'] << node.content
         when 'relation'
-          hash['collection_name'] ||= []
-          hash['collection_name'] << node.content
+          hash['collection'] ||= []
+          hash['collection'] << node.content
         when 'type'
           hash['types'] ||= []
           hash['types'] << node.content
@@ -106,20 +93,10 @@ module Atla
         end
       end
       if @metadata
-        @metadata['contributing_instituion'] = ['Princeton Theological Seminary Library']
-        @metadata['rights'] = ['Copyright Not Evaluated. The copyright and related rights status of this Item has not been evaluated. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. http://rightsstatements.org/vocab/CNE/1.0/']
+        @metadata['contributing_institution'] = ['Princeton Theological Seminary Library']
+        @metadata['rights'] = ['Copyright Not Evaluated. The copyright and related rights status of this Item has not been evaluated. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href="http://rightsstatements.org/vocab/CNE/1.0/" target="_blank">http://rightsstatements.org/vocab/CNE/1.0/</a>']
       end
       @metadata
-    end
-
-    def about
-      return @about if @about
-      @about = record.about&.child&.children&.each_with_object({}) do |node, hash|
-        hash[node.name] ||= []
-        hash[node.name] << node.content
-      end
-      @about.delete('rights') if @about.respond_to?(:delete)
-      @about
     end
 
     def merge_attrs(first, second)
@@ -157,8 +134,10 @@ module Atla
       work.apply_depositor_metadata(@user.user_key)
       work.visibility = 'open'
       if work.save
-        collection.add_members([work.id])
-        collection.save
+        if collection.present?
+          collection.add_members([work.id])
+          collection.save
+        end
         add_image(attrs['thumbnail_url'].first, work)
         OaiImporter::LOGGER.info("created work with title: #{attrs['title'].try(:first)} and id: #{work.id}")
       else
@@ -194,14 +173,13 @@ module Atla
 
   class OaiCollectionFactory
     attr_accessor :default_collection_name
-    def initialize(user, default_collection_name)
+    def initialize(user)
       @user = user
-      @default_collection_name = default_collection_name
-      @default_collection = Collection.where(title: @default_collection_name).first
       @valid_attrs = Collection.new.attributes.keys
     end
 
     def build(attrs)
+      return if attrs['title'].blank?
       existing_collection = get_collection(attrs['title'])
       if existing_collection.present?
         existing_collection
@@ -219,7 +197,6 @@ module Atla
     end
 
     def get_collection(title)
-      return @default_collection if title.blank?
       Collection.where(title: title).first
     end
 

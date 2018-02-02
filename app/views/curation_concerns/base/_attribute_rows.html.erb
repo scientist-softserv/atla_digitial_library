@@ -1,53 +1,41 @@
 
-<%# w = Work.find(presenter.solr_document.response['response']['docs'].first['id']) %>
-<%# fail %>
-<%= presenter.attribute_to_html(:identifier, render_as: :external_link) %>
+<%
+  attrs = attributes_hash = presenter.solr_document.response['response']['docs'].first
+%>
+
 <%= presenter.attribute_to_html(:creator, render_as: :faceted) %>
-<%= presenter.attribute_to_html(:language, render_as: :faceted) %>
-<%= presenter.attribute_to_html(:publisher, render_as: :faceted) %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Date', value: attrs['date_tesim'], field: 'date_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Contributing Institution', value: attrs['contributing_instituion_tesim'], field: 'contributing_instituion_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Description', value: attrs['description_tesim'], is_not_faceted: true } %>
+
 <%= presenter.attribute_to_html(:subject, render_as: :faceted) %>
-<% presenter.solr_document.response['response']['docs'].first.each do |name, value| %>
-  <%
-    clean_name = name.gsub(/_dtsi|_ssim|_tesim|_ss|_bsi/, '')
-    next if %w[
-      id
-      title
-      creator
-      identifier
-      language
-      publisher
-      subject
-      system_create
-      system_modified
-      has_model
-      accessControl
-      hasRelatedMediaFragment
-      hasRelatedImage
-      depositor
-      thumbnail_path
-      suppressed
-      member_ids
-      file_set_ids
-      human_readable_type
-      read_access_group
-      edit_access_person
-      _version_
-      timestamp
-      score
-      rights
-    ].include?(clean_name)
-  %>
-  <tr>
-    <th><%= clean_name.titlecase %></th>
-    <td>
-      <ul class="tabular">
-        <li class="attribute <%= clean_name %>">
-          <span>
-            <%= value.is_a?(Array) ? value.join(', ') : value %>
-          </span>
-        </li>
-      </ul>
-    </td>
-  </tr>
-<% end %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Place', value: attrs['place_tesim'], field: 'place_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Contributor', value: attrs['contributor_tesim'], field: 'contributor_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Extent', value: attrs['extent_tesim'], field: 'extent_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Format (Original)', value: attrs['format_original_tesim'], field: 'format_original_sim' } %>
+
+<%= presenter.attribute_to_html(:language, render_as: :faceted) %>
+
+<%= presenter.attribute_to_html(:publisher, render_as: :faceted) %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Alternative Title', value: attrs['alternative_title_tesim'], field: 'alternative_title_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Time Period', value: attrs['time_period_tesim'], field: 'time_period_sim' } %>
+
+<%= render 'relationships_parent_rows', presenter: presenter %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Format (Digital)', value: attrs['format_digital_tesim'], field: 'format_digital_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Type', value: attrs['types_tesim'], field: 'types_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'URL', value: attrs['identifier_tesim'], field: 'identifier_sim' } %>
+
+<%= render partial: 'attribute_partial', locals: { name: 'Rights', value: attrs['rights_tesim'], is_not_faceted: true } %>
 
