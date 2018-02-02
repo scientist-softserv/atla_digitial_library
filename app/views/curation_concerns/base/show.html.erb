@@ -8,14 +8,14 @@
     <span class="state state-<%= @presenter.workflow.state %>"><%= @presenter.workflow.state_label %></span>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-3">
     <%= render "show_actions", presenter: @presenter %>
     <!--<%= t('.last_modified', value: @presenter.date_modified) %>-->
     <%= render 'representative_media', presenter: @presenter %>
     <%= render 'social_media' %>
-    <%= render 'citations', presenter: @presenter %>
+    <!--<%= render 'citations', presenter: @presenter %>-->
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-9">
     <%= render 'work_description', presenter: @presenter %>
     <%= render 'metadata', presenter: @presenter %>
     <%= render 'relationships', presenter: @presenter %>
