@@ -209,9 +209,6 @@ ul.collection-highlights-list {
     padding:1em;
 }
 
-.footer-info h5, .footer-info h4 {
-	color:antiquewhite;
-	}
 
 .footer-info p {
 	line-height:1.3em;
@@ -220,6 +217,7 @@ ul.collection-highlights-list {
 .footer-name-one, .footer-name-one {
 	font-size:1em;
 	font-weight:800;
+	color:antiquewhite;
 }
 
 .footer-terms {
@@ -721,9 +719,7 @@ a[title="Tumblr"] {display:none;}
 		float:left;
 	}
 
-	.footer-info p, .footer-info h4 {
-		line-height:1em;
-	}
+
 	
 
 }
