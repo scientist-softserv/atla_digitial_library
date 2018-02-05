@@ -7,12 +7,12 @@ homepage:
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
     - id: 2
-      anchor_text: Latin America Collection
+      anchor_text: Latin America Collection - Princeton Theological Seminary
       url: /collections/h989r4234 #PATH TO COLLECTION
       image:
         path_to_file: /img/latin_america.PNG #DESIRED THUMBNAIL NAME
     - id: 3
-      anchor_text: Moffett Korea Collection
+      anchor_text: Moffett Korea Collection - Princeton Theological Seminary
       url: /collections/j6731476f #PATH TO COLLECTION
       image:
         path_to_file: /img/moffett_korea.PNG #DESIRED THUMBNAIL NAME
