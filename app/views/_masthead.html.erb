@@ -19,9 +19,10 @@
 			<li <%= 'class=active dropdown' if current_page?(main_app.collections_path) %>>
 				<%= link_to "Collections", main_app.collections_path, :'data-no-turbolink'=>"true" %>
 			</li>
-			<li <%= 'class=active dropdown' if current_page?(sufia.institutions_path) %>>
-				<%= link_to "Institutions", sufia.institutions_path, :'data-no-turbolink'=>"true" %>
-			</li>			
+			<li <%= 'class=active dropdown' if current_page?(sufia.about_path) %>>
+				<%= link_to "Institutions", sufia.about_path, :'data-no-turbolink'=>"true" %>
+			</li>
+			
 		</ul>
 	</li>
 
