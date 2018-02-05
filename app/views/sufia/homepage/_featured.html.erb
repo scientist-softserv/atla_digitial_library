@@ -3,7 +3,7 @@
     <% presenter = featured.presenter %>
     <div class="featured-item" data-id="<%= presenter.id %>">
       <%= render 'sufia/homepage/featured_fields', featured: presenter %>
-      <%= render_thumbnail_tag presenter, :class => 'img-responsive feature-image' %>
+      <%= render_full_image_tag presenter, :class => 'img-responsive feature-image' %>
     </div>
   </div>
 </div>

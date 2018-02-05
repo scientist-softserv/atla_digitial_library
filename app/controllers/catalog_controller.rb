@@ -74,7 +74,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("title", :stored_searchable), label: "Title", itemprop: 'name', if: false
     config.add_index_field solr_name("creator", :stored_searchable), label: "Creator", itemprop: 'creator', link_to_search: solr_name("creator", :facetable)
     config.add_index_field solr_name("date", :stored_searchable), label: "Date", itemprop: 'dateCreated'
-    config.add_index_field solr_name("contributing_institution", :stored_searchable), label: "Contributing Institution", itemprop: 'contributingInstitution', link_to_search: solr_name("contributor", :facetable)
+    config.add_index_field solr_name("contributing_institution", :stored_searchable), label: "Contributing Institution", itemprop: 'contributingInstitution', link_to_search: solr_name("contributing_institution", :facetable)
     config.add_index_field solr_name("description", :stored_searchable), label: "Description", itemprop: 'description', helper_method: :iconify_auto_link
     config.add_index_field solr_name("subject", :stored_searchable), label: "Subject", itemprop: 'about', link_to_search: solr_name("subject", :facetable)
     config.add_index_field solr_name("place", :symbol), label: "Place", helper_method: :link_to_profile, link_to_search: solr_name("place", :facetable)

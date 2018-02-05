@@ -1,7 +1,12 @@
 <% if presenter.representative_id.present? && presenter.representative_presenter.present? %>
-  <a href="<%= presenter.solr_document.response['response']['docs']&.first.fetch('identifier_tesim', nil)&.first %>" target="_blank">
+  <% url = presenter.solr_document.response['response']['docs']&.first.fetch('identifier_tesim', nil)&.first %>
+  <% if url =~ /^http:/ %>
+    <a href="<%= url %>" target="_blank">
+      <%= media_display presenter.representative_presenter %>
+    </a>
+  <% else %>
     <%= media_display presenter.representative_presenter %>
-  </a>
+  <% end %>
 <% else %>
   <%= image_tag 'nope.png', class: "canonical-image" %>
 <% end %>
