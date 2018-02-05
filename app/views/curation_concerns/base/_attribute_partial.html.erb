@@ -1,0 +1,39 @@
+<% is_not_faceted = false unless defined?(is_not_faceted) %>
+<% if value.present? %>
+  <tr>
+    <th><%= name %></th>
+    <td>
+      <ul class="tabular">
+        <li class="attribute <%= name %>">
+
+          <% if value.is_a?(Array) %>
+            <% if value.all? { |e| e =~ /^http:/ } %>
+              <% value.each do |url| %>
+                <a href="<%= url %>" target="_blank">
+                  <%= url %>
+                  <span class="glyphicon glyphicon-new-window"></span>
+                </a>
+              <% end %>
+            <% else %>
+              <% if is_not_faceted %>
+                <% value.each do |e| %>
+                <span><%= sanitize(e, tags: %w[a], attributes: %w[href target]) %></span>
+                <% end %>
+              <% else %>
+                <% value.each do |e| %>
+                  <a href="<%= faceted_search_path(field, e) %>"><%= e %></a>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <% if is_not_faceted %>
+              <span><%= sanitize(value, tags: %w[a], attributes: %w[href target]) %></span>
+            <% else %>
+              <a href="<%= faceted_search_path(field, value) %>"><%= value %></a>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </td>
+  </tr>
+<% end %>

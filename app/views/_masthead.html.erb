@@ -15,14 +15,12 @@
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expaned="false">
 		Explore <span class="caret"></span></a>
 		<ul class="dropdown-menu">
-		 
 			<li <%= 'class=active dropdown' if current_page?(main_app.collections_path) %>>
 				<%= link_to "Collections", main_app.collections_path, :'data-no-turbolink'=>"true" %>
 			</li>
-			<li <%= 'class=active dropdown' if current_page?(sufia.about_path) %>>
-				<%= link_to "Institutions", sufia.about_path, :'data-no-turbolink'=>"true" %>
-			</li>
-			
+            <li><p style="padding: 1em 1em 0 1em;">Contributing Institutions</p></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Princeton Theological Seminary Library', '/catalog?f[contributing_institution_sim][]=Princeton+Theological+Seminary+Library&q=' %></li>
 		</ul>
 	</li>
 
