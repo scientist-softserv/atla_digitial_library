@@ -162,6 +162,8 @@ module Atla
         actor.create_content(uploaded_file.file.file)
         uploaded_file.update(file_set_uri: file_set.uri)
       end
+    rescue
+      OaiImporter::LOGGER.error("Failed to add image url (#{url}) to work with identifier #{work.identifier}")
     end
 
     def clean_attrs(attrs)
