@@ -10,12 +10,12 @@ homepage:
       anchor_text: Latin America Collection
       url: /collections/h989r4234 #PATH TO COLLECTION
       image:
-        path_to_file: /img/latin_america.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/latin_america.PNG #DESIRED THUMBNAIL NAME
     - id: 3
       anchor_text: Moffett Korea Collection
       url: /collections/j6731476f #PATH TO COLLECTION
       image:
-        path_to_file: /img/moffett_korea.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/moffett_korea.PNG #DESIRED THUMBNAIL NAME
     #- id: 4
     #  anchor_text: COLLECTION_NAME
     #  url: /collections/0r967372b #PATH TO COLLECTION
