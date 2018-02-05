@@ -16,9 +16,9 @@ homepage:
       url: /collections/j6731476f #PATH TO COLLECTION
       image:
         path_to_file: /img/moffett_korea.PNG #DESIRED THUMBNAIL NAME
-    #- id: 4
-    #  anchor_text: COLLECTION_NAME
-    #  url: /collections/0r967372b #PATH TO COLLECTION
-    #  image:
-    #    path_to_file: /img/snowcross.jpg #DESIRED THUMBNAIL NAME
+    - id: 4
+      anchor_text: Missionary Research Library Pamphlets - Princeton Theological Seminary
+      url: /collections/qb98mg29d #PATH TO COLLECTION
+      image:
+        path_to_file: /img/missionary_research.PNG #DESIRED THUMBNAIL NAME
 
