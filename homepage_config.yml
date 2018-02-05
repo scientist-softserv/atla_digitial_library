@@ -7,42 +7,18 @@ homepage:
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
     - id: 2
-      anchor_text: Pandas
-      url: /collections/s4655g560 #PATH TO COLLECTION
+      anchor_text: Latin America Collection
+      url: /collections/h989r4234 #PATH TO COLLECTION
       image:
-        path_to_file: /img/church3.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/latin_america.png #DESIRED THUMBNAIL NAME
     - id: 3
-      anchor_text: Elephants
-      url: /collections/0r967372b #PATH TO COLLECTION
+      anchor_text: Moffett Korea Collection
+      url: /collections/j6731476f #PATH TO COLLECTION
       image:
-        path_to_file: /img/imagery1.jpg #DESIRED THUMBNAIL NAME
-    - id: 4
-      anchor_text: COLLECTION_NAME
-      url: /collections/0r967372b #PATH TO COLLECTION
-      image:
-        path_to_file: /img/snowcross.jpg #DESIRED THUMBNAIL NAME
-    - id: 5
-      anchor_text: COLLECTION_NAME
-      url: /collections/0r967372b #PATH TO COLLECTION
-      image:
-        path_to_file: /img/rubin_museum_of_art.jpg #DESIRED THUMBNAIL NAME
-    - id: 6
-      anchor_text: COLLECTION_NAME
-      url: /collections/0r967372b #PATH TO COLLECTION
-      image:
-        path_to_file: /img/minibig.jpg #DESIRED THUMBNAIL NAME
-    - id: 7
-      anchor_text: COLLECTION_NAME
-      url: /collections/0r967372b #PATH TO COLLECTION
-      image:
-        path_to_file: /img/temple_guardian.jpg #DESIRED THUMBNAIL NAME
-    - id: 8
-      anchor_text: COLLECTION_NAME
-      url: /collections/0r967372b #PATH TO COLLECTION
-      image:
-        path_to_file: /img/imagery1.jpg #DESIRED THUMBNAIL NAME
-    - id: 9
-      anchor_text: COLLECTION_NAME
-      url: /collections/0r967372b #PATH TO COLLECTION
-      image:
-        path_to_file: /img/redroof.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/moffett_korea.png #DESIRED THUMBNAIL NAME
+    #- id: 4
+    #  anchor_text: COLLECTION_NAME
+    #  url: /collections/0r967372b #PATH TO COLLECTION
+    #  image:
+    #    path_to_file: /img/snowcross.jpg #DESIRED THUMBNAIL NAME
+
