@@ -6,6 +6,10 @@ body {
 }
 
 img.representative-media {max-width:100%;}
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
 
 h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
 	font-family: 'Montserrat', sans-serif;
