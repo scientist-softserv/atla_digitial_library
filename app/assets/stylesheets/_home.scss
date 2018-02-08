@@ -354,6 +354,11 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 ol.catalog h2 {font-size:1.6em;}
 
+ol.catalog {padding-left:15px;}
+
+ol.catalog li div h2 {margin-top:0;}
+#sortAndPerPage {margin-bottom:1.5em;}
+
 /*removes second dropdown carat symbol on facets*/
 .collapse-toggle::after {
 	display:none;
