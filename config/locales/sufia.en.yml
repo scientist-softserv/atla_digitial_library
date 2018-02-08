@@ -36,4 +36,8 @@ en:
       button:
         html: '<span class="glyphicon glyphicon-search"></span> Search'
         text: "Search"
-   
+      homepage:
+        admin_sets:
+          link:               'View all administrative collections'
+          tab_label:          'Explore Collections'
+          title:              'Featured Collections'
