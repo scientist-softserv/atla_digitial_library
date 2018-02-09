@@ -1,4 +1,5 @@
 require Rails.root.join('lib', 'importers', 'collection_importer')
+require 'progress_bar'
 
 namespace :setup do
   desc 'Import a cdri metadata xml export'
@@ -79,6 +80,7 @@ namespace :setup do
 
   desc 'Set visibility of all items to public'
   task :set_everything_public, [] => :environment do
+    @bar = ProgressBar.new(Collection.count)
     Collection.all.each do |collection|
       collection.visibility = 'open'
       collection.save
@@ -90,6 +92,7 @@ namespace :setup do
           fs.save
         end
       end
+      @bar.increment!
     end
   end
 
