@@ -5,13 +5,19 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+img.representative-media {max-width:100%;}
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
 h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
 	font-family: 'Montserrat', sans-serif;
 }
 
 .attribute-label.h4 {font-size:1em;}
 
-h1 {font-size: 1.8em;}
+h1 {font-size: 1.6em;}
 
 #content-wrapper {
 	margin-top: 0px;/*needed for all pages except home which uses section-gray class*
@@ -350,6 +356,12 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 	margin-top:0;
 }
 
+ol.catalog h2 {font-size:1.6em;}
+
+ol.catalog {padding-left:15px;}
+
+ol.catalog li div h2 {margin-top:0;}
+#sortAndPerPage {margin-bottom:1.5em;}
 
 /*removes second dropdown carat symbol on facets*/
 .collapse-toggle::after {
@@ -357,6 +369,8 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 	}
 
 
+/* metadata facets on search results, more ... panel */
+.modal-content {margin-top:115px;}
 
 
 /* -------- Admin Page -------- */
@@ -623,6 +637,9 @@ input {
 	border-top:0; 
 	border-bottom: 1px solid #ddd;
 }
+
+li.URL {word-break:break-all;}
+li.Rights a {word-break:break-all;}
 
 /*this hides border under In Collection metadata*/
 .relationships.table tbody tr td, .relationships.table tbody tr th {
