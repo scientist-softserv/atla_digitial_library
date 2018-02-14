@@ -80,19 +80,25 @@ namespace :setup do
 
   desc 'Set visibility of all items to public'
   task :set_everything_public, [] => :environment do
-    @bar = ProgressBar.new(Collection.count)
-    Collection.all.each do |collection|
-      collection.visibility = 'open'
-      collection.save
-      collection.works.each do |work|
-        work.visibility = 'open'
-        work.save
-        work.file_sets.each do |fs|
-          fs.visibility = 'open'
-          fs.save
+    Collection.find_each do |collection|
+      puts "Starting #{collection.id} - #{collection.title.first}"
+      begin
+        next if collection.visibility == 'open'
+        collection.visibility = 'open'
+        collection.save
+        @bar = ProgressBar.new(collection.works.count)
+        collection.works.each do |work|
+          work.visibility = 'open'
+          work.save
+          work.file_sets.each do |fs|
+            fs.visibility = 'open'
+            fs.save
+          end
+          @bar.increment!
         end
+      rescue => e
+        puts "error #{e.message}"
       end
-      @bar.increment!
     end
   end
 
