@@ -169,6 +169,35 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 }
 
 
+/*pager prev next and numbers*/
+
+.pager a {
+	border: 1px solid #ddd;
+	padding: .4em .8em;
+	line-height: 2.5em;
+	}
+
+.pager a:hover {
+	background-color:#1c636b;
+	color:white;
+	}
+	
+.pager a.disabled {
+	background-color:#1c636b;
+	color:white;
+	}
+
+.pager a.disabled[rel~="prev"] {
+	background-color:white;
+	color:#db9e36;
+	}
+	
+.pager a.disabled[rel~="next"] {
+	background-color:white;
+	color:#db9e36;
+	}
+	
+
 
 /* -------- Explore Collections and Featured -------*/
 
