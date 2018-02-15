@@ -197,7 +197,30 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 	color:#db9e36;
 	}
 	
+.pagination a {
+	border: 1px solid #ddd;
+	padding: .4em .8em;
+	line-height:2.5em;
+}
 
+.pagination a:hover {
+	background-color:#1c636b;
+	color:white;
+}
+
+.pagination a.disabled {
+	background-color:#1c636b;
+	color:white;
+	}
+	
+.pagination a.disabled[rel~="prev"]{
+	background-color:white;
+	color:#db9e36;
+}
+.pagination a.disabled[rel~="next"]{
+	background-color:white;
+	color:#db9e36;
+}
 
 /* -------- Explore Collections and Featured -------*/
 
