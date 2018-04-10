@@ -8,20 +8,20 @@ ATLA staff will use this repo when making changes to the digital library going f
 
  - Ruby 2.3.1
  - Rails 4.2.7.1
- - Sufia 7.1.0
+ - Sufia 7.4.1
 
 
 === Development Install
 
 Development is now dockerized with stack car.  To start the environment copy config/database.example.yml to config/database.yml and do sc up web from the root directory
 
-Before the first run bunle and load the database.  To do so type
+On your first run, after you have done `sc up`
 
-<tt>docker-compose run web bash -c 'bundle install && bundle exec rake db:create db:schema:load db:migrate db:seed'</tt>
+<tt>sc exec -s solr bin/solr create -c development -d /opt/config</tt>
 
-<tt>sc up web</tt>
+<tt>sc be rake db:schema:load db:migrate db:seed</tt>
 
-<tt>docker-compose exec solr bin/solr create -c development -d /opt/config</tt>
+
 
 App should now be available at localhost:3000
 
