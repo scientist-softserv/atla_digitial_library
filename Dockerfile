@@ -1,5 +1,10 @@
 FROM botimer/sufia-base:7.2
 
+RUN apt-get update -qq && \
+    apt-get install -y vim && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 ENV APP_HOME /app
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME

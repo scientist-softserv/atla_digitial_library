@@ -23,10 +23,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'solr_wrapper', '>= 0.3', group: %i[development test]
 gem 'spring', group: [:development]
-gem 'sufia', git: 'https://github.com/projecthydra/sufia.git'
+gem 'sufia', git: 'https://github.com/projecthydra/sufia.git', tag: 'v7.4.1'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '~> 2.0', group: [:development]
+gem 'blacklight_advanced_search', '~> 6.0'
 
-# Flipflop gets pouty if it is not last, thus it is in timeout down here at the bottom
-gem 'flipflop', git: 'https://github.com/jcoyne/flipflop.git', branch: 'hydra'

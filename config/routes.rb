@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get '/admin' => 'sufia/admin#show', as: :real_admin
+  mount Sufia::Engine => '/'
   mount CurationConcerns::Engine, at: '/'
   resources :welcome, only: 'index'
   root 'sufia/homepage#index'
@@ -93,5 +94,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
- mount Sufia::Engine => '/'
 end

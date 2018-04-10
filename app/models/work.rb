@@ -3,6 +3,7 @@
 class Work < ActiveFedora::Base
   include ::CurationConcerns::WorkBehavior
   include Sufia::WorkBehavior
+  include ::CurationConcerns::BasicMetadata
   self.human_readable_type = 'Work'
   # Change this to restrict which works can be added as a child.
   # self.valid_child_concerns = []

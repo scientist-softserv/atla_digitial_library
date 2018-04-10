@@ -24,3 +24,12 @@ User.where(email: 'ckarpinski@atla.com').first_or_create do |f|
   f.password = 'testing123'
   f.admin_area = true
 end
+
+#Rake::Task['hyrax:default_collection_types:create'].invoke
+#Rake::Task['hyrax:default_admin_set:create'].invoke
+Rake::Task['sufia:default_admin_set:create'].invoke
+Rake::Task['curation_concerns:workflow:load'].invoke
+Rake::Task['sufia:migrate:move_all_works_to_admin_set']
+Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com',true)
+
+ActiveFedora::Base.reindex_everything
