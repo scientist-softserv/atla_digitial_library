@@ -48,8 +48,11 @@ module Sufia::Forms
 
     def self.sanitize_params(form_params)
       admin_set_id = form_params[:admin_set_id]
-      if admin_set_id && Sipity::Workflow.find_by!(name: Sufia::PermissionTemplate.find_by!(admin_set_id: admin_set_id).workflow_name).allows_access_grant?
-        return super
+      if admin_set_id
+        name = Sufia::PermissionTemplate.find_by!(admin_set_id: admin_set_id).workflow_name
+        if name && Sipity::Workflow.find_by!(name: name).allows_access_grant?
+          return super
+        end
       end
       params_without_permissions = permitted_params.reject { |arg| arg.respond_to?(:key?) && arg.key?(:permissions_attributes) }
       form_params.permit(*params_without_permissions)
