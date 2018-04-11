@@ -12,6 +12,6 @@ namespace :import do
       name: 'ptsem',
       headers: { from: 'rob@notch8.com' }
     }
-    Atla::OaiImporter.new(options).process
+    OaiImporter.new(options).process
   end
 end

@@ -21,6 +21,7 @@ gem 'rsolr', '~> 1.0'
 gem 'rspec-rails', group: %i[development test]
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sidekiq'
 gem 'solr_wrapper', '>= 0.3', group: %i[development test]
 gem 'spring', group: [:development]
 gem 'sufia', git: 'https://github.com/projecthydra/sufia.git', tag: 'v7.4.1'
