@@ -10,9 +10,10 @@ User.where(email: 'rob@notch8.com').first_or_create do |f|
   f.admin_area = true
 end
 
-User.where(email: 'archivist1@example.com').first_or_create do |f|
-  f.password = 'testing123'
-
+if Rails.env.development?
+  User.where(email: 'archivist1@example.com').first_or_create do |f|
+    f.password = 'testing123'
+  end
 end
 
 User.where(email: 'acarter@atla.com').first_or_create do |f|
@@ -30,6 +31,6 @@ end
 Rake::Task['sufia:default_admin_set:create'].invoke
 Rake::Task['curation_concerns:workflow:load'].invoke
 Rake::Task['sufia:migrate:move_all_works_to_admin_set']
-Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com', 'true')
+Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com', 'true') if Rails.env.development?
 
-#ActiveFedora::Base.reindex_everything
+ActiveFedora::Base.reindex_everything if Rails.env.development?
