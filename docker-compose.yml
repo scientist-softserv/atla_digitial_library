@@ -1,16 +1,29 @@
 version: '2'
 services:
-  web:
+  main:
     build: .
     image: registry.gitlab.com/notch8/atla_digital_library
-    command: bin/rails server --port 3000 --binding 0.0.0.0
     env_file:
       - .env
-    ports:
-      - "3000:3000"
     volumes:
       - .:/app
+
+  sidekiq:
+    extends: main
+    command: sidekiq -q ingest -q default -q event
     depends_on:
+      - redis
+      - solr
+      - fcrepo
+      - postgres
+
+  web:
+    extends: main
+    command: bin/rails server --port 3000 --binding 0.0.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - sidekiq
       - redis
       - solr
       - fcrepo
