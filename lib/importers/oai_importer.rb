@@ -26,7 +26,12 @@ class OaiImporter
     else
       loop_all_records { |record| process_record(record) }
     end
+    # Trigger index of all the collections since we've been skipping them
     Collection.do_index = true
+    puts 'indexing collections'
+    @collection_factory.collections.each do |key, value|
+      value.save
+    end
   end
 
   def response

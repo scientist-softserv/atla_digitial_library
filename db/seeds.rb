@@ -32,4 +32,4 @@ Rake::Task['curation_concerns:workflow:load'].invoke
 Rake::Task['sufia:migrate:move_all_works_to_admin_set']
 Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com',true)
 
-ActiveFedora::Base.reindex_everything
+#ActiveFedora::Base.reindex_everything
