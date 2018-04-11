@@ -44,4 +44,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.web_console.whitelisted_ips = ['172.16.0.0/12', '192.168.0.0/16']
+
+  config.cache_classes = !!Sidekiq.server?
+  config.eager_load = !!Sidekiq.server?
 end

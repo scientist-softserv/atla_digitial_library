@@ -26,6 +26,7 @@ class OaiImporter
     else
       loop_all_records { |record| process_record(record) }
     end
+    Collection.do_index = true
   end
 
   def response
@@ -115,9 +116,14 @@ end
 
 class OaiWorkFactory
   attr_accessor :collection_factory
+
   def initialize(user)
     @user = user
     @valid_attrs = Work.new.attributes.keys
+  end
+
+  def self.admin_set_id
+    @@admin_set_id ||= AdminSet.first.id
   end
 
   def build(attrs)
@@ -132,6 +138,7 @@ class OaiWorkFactory
     end
     work.apply_depositor_metadata(@user.user_key)
     work.visibility = 'open'
+    work.admin_set_id = OaiWorkFactory.admin_set_id
     if work.save
       if collection.present?
         collection.add_members([work.id])
@@ -184,7 +191,9 @@ class OaiCollectionFactory
     existing_collection = get_collection(attrs['title'])
     if existing_collection.present?
       existing_collection
+      Collection.do_index = false
     else
+      Collection.do_index = true
       collection = Collection.new
       clean_attrs(attrs).each do |key, value|
         collection.send("#{key}=", value)
