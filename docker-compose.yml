@@ -1,7 +1,7 @@
 version: '2'
 services:
   main:
-    build: .
+    # build: .
     image: registry.gitlab.com/notch8/atla_digital_library
     env_file:
       - .env
@@ -22,6 +22,7 @@ services:
     command: bin/rails server --port 3000 --binding 0.0.0.0
     ports:
       - "3000:3000"
+      - "3001:3001"
     depends_on:
       - sidekiq
       - redis
