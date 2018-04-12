@@ -41,5 +41,6 @@
     - { role: webserver/install }
     - { role: webserver/config }
     - { role: app-config }
+    - { role: sidekiq, become: true }
 
 - include: deploy.yml
