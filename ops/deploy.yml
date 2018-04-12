@@ -44,3 +44,11 @@
   user: ubuntu
   roles:
     - { role: carlosbuenosvinos.ansistrano-deploy }
+
+- name: Restart Sidekiq
+  hosts: "tag_Type_web"
+  user: ubuntu
+  tasks:
+    - name: kick sidekiq
+      service: name=sidekiq state=restarted enabled=yes
+      become: yes
