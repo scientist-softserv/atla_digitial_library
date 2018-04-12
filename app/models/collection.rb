@@ -3,6 +3,11 @@ class Collection < ActiveFedora::Base
   include ::CurationConcerns::CollectionBehavior
   # You can replace these metadata if they're not suitable
   include CurationConcerns::BasicMetadata
+  class_attribute :do_index, default: true
+
+  def self.do_index
+     @@do_index ||= true
+  end
 
   property :institution, predicate: ::RDF::Vocab::FOAF.based_near do |index|
     index.as :stored_searchable
@@ -26,4 +31,12 @@ class Collection < ActiveFedora::Base
   #   index.as :stored_searchable
   # end
 
+  def update_index
+    CollectionIndexJob.perform_later(self.id)
+  end
+
+  protected
+  def update_needs_index?
+    Collection.do_index && ActiveFedora.enable_solr_updates?
+  end
 end

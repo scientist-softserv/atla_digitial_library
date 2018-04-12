@@ -1,9 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   mount Flipflop::Engine => "/flipflop"
   Hydra::BatchEdit.add_routes(self)
   mount Qa::Engine => '/authorities'
-
-
+  authenticate :user, lambda { |u| u.admin_area? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   mount Blacklight::Engine => '/'
 
     concern :searchable, Blacklight::Routes::Searchable.new

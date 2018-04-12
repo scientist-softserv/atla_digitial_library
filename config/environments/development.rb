@@ -2,7 +2,7 @@ Rails.application.configure do
   # Replace with a lambda or method name defined in ApplicationController
   # to implement access control for the Flipflop dashboard.
   config.flipflop.dashboard_access_filter = nil
-
+  config.active_job.queue_adapter = :sidekiq
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -44,4 +44,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.web_console.whitelisted_ips = ['172.16.0.0/12', '192.168.0.0/16']
+
+  config.cache_classes = !!Sidekiq.server?
+  config.eager_load = !!Sidekiq.server?
 end
