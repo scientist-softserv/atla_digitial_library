@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/notch8/health-monitor-rails.git
+  revision: c789fcffce0e09e54cdfb773a78b8f669240c2ec
+  specs:
+    health-monitor-rails (7.5.1)
+      rails (>= 4.0)
+
+GIT
   remote: https://github.com/projecthydra/sufia.git
   revision: 4df378a6beb243271e6776644363dbdaf2b562a2
   tag: v7.4.1
@@ -689,6 +696,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.5)
   fcrepo_wrapper
+  health-monitor-rails!
   hydra-head (>= 10.2.0)
   jbuilder (~> 2.0)
   jquery-rails

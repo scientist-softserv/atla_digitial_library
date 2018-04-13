@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'devise-guests', '~> 0.5'
 gem 'fcrepo_wrapper', group: %i[development test]
+gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
 gem 'hydra-head', '>= 10.2.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'

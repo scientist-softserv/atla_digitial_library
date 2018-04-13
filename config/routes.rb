@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  mount HealthMonitor::Engine, at: '/'
   mount Flipflop::Engine => "/flipflop"
   Hydra::BatchEdit.add_routes(self)
   mount Qa::Engine => '/authorities'
