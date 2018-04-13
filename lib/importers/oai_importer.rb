@@ -53,8 +53,12 @@ class OaiImporter
   end
 
   def process_record(record)
-    parsed_record = OaiRecordParser.new(record, @image_url)
-    @work_factory.build(parsed_record.all_attrs)
+    begin
+      parsed_record = OaiRecordParser.new(record, @image_url)
+      @work_factory.build(parsed_record.all_attrs)
+    rescue => e
+      Raven.capture_exception(e)
+    end
     bar.increment!
   end
 end
