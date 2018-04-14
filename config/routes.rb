@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   mount Blacklight::Engine => '/'
 
-    concern :searchable, Blacklight::Routes::Searchable.new
+  concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
@@ -18,12 +18,14 @@ Rails.application.routes.draw do
 
   devise_for :users
   get '/admin' => 'sufia/admin#show', as: :real_admin
+  get 'sufia/admin/admin_sets/:id', to: 'sufia/admin/admin_sets#show'
   mount Sufia::Engine => '/'
   mount CurationConcerns::Engine, at: '/'
   resources :welcome, only: 'index'
   root 'sufia/homepage#index'
-  curation_concerns_collections
+
   curation_concerns_basic_routes
+  curation_concerns_collections
   curation_concerns_embargo_management
   concern :exportable, Blacklight::Routes::Exportable.new
 
