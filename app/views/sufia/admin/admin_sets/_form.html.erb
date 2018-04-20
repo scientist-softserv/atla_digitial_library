@@ -24,7 +24,7 @@
               <%= f.input :thumbnail_id, collection: @form.select_files %>
             <% end %>
 
-            <%= f.input :workflow_name, as: :select, collection: f.object.workflows %>
+            <%= f.input :workflow_name, as: :select, required: true, collection: f.object.workflows %>
 
           </div>
           <div class="panel-footer">
