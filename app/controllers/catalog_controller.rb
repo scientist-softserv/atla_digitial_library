@@ -105,7 +105,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("subject", :stored_searchable), label: "Subject"
     config.add_show_field solr_name("place", :stored_searchable), label: "Place"
     config.add_show_field solr_name("contributor", :stored_searchable), label: "Contributor"
-    config.add_show_field solr_name("Extent", :stored_searchable), label: "Extent"
+    config.add_show_field solr_name("extent", :stored_searchable), label: "Extent"
     config.add_show_field solr_name("format_original", :stored_searchable), label: "Format (Original)"
     config.add_show_field solr_name("language", :stored_searchable), label: "Language"
     config.add_show_field solr_name("publisher", :stored_searchable), label: "Publisher"
