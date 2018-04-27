@@ -1,6 +1,6 @@
 <% if presenter.representative_id.present? && presenter.representative_presenter.present? %>
   <% url = presenter.solr_document.response['response']['docs']&.first.fetch('identifier_tesim', nil)&.first %>
-  <% if url =~ /^http:/ %>
+  <% if url =~ /^https*:/ %>
     <a href="<%= url %>" target="_blank">
       <%= media_display presenter.representative_presenter %>
     </a>
