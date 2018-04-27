@@ -5,9 +5,10 @@
     <td>
       <ul class="tabular">
         <li class="attribute <%= name %>">
-
-          <% if value.is_a?(Array) %>
-            <% if value.all? { |e| e =~ /^http:/ } %>
+          <% if name == "Rights" %>
+            <%= license_text(value: value) %>
+          <% elsif value.is_a?(Array) %>
+            <% if value.all? { |e| e =~ /^https*:/ } %>
               <% value.each do |url| %>
                 <a href="<%= url %>" target="_blank">
                   <%= url %>
