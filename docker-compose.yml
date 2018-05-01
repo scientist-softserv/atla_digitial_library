@@ -10,7 +10,7 @@ services:
 
   sidekiq:
     extends: main
-    command: sidekiq -q ingest -q default -q event
+    command: sidekiq -c 5 -q ingest -q default -q event
     depends_on:
       - redis
       - solr
