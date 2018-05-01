@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410221417) do
+ActiveRecord::Schema.define(version: 20180416191449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,23 @@ ActiveRecord::Schema.define(version: 20180410221417) do
     t.boolean  "enabled",    default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "harvesters", force: :cascade do |t|
+    t.string   "name"
+    t.string   "admin_set_id"
+    t.integer  "user_id"
+    t.string   "external_set_id"
+    t.string   "base_url"
+    t.string   "institution_name"
+    t.string   "frequency"
+    t.integer  "limit"
+    t.string   "importer"
+    t.string   "right_statement"
+    t.string   "thumbnail_url"
+    t.datetime "last_harvested_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "local_authorities", force: :cascade do |t|

@@ -1,0 +1,30 @@
+<%= render 'admin_content' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Harvesters</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Last Run</th>
+      <th scope="col">Next Run</th>
+      <th scope="col">Records Found</th>
+      <th scope="col" colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @harvesters.each do |harvester| %>
+      <tr>
+        <th scope="row"><%= harvester.name %></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_harvester_path(harvester) %></td>
+        <td><%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), harvester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
