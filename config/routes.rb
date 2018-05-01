@@ -1,6 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :harvesters
+  post '/harvesters/external_sets', to: 'harvesters#external_sets'
+
   mount HealthMonitor::Engine, at: '/'
   mount Flipflop::Engine => "/flipflop"
   Hydra::BatchEdit.add_routes(self)

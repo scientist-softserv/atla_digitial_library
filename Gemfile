@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 gem 'rails', '4.2.7.1'
 
+gem 'iso8601', '~> 0.9.0'
 gem 'blacklight_advanced_search', '~> 6.0'
 gem 'byebug', group: %i[development test]
 gem 'coffee-rails', '~> 4.1.0'
@@ -30,4 +31,4 @@ gem 'sufia', git: 'https://github.com/projecthydra/sufia.git', tag: 'v7.4.1'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '~> 2.0', group: [:development]
-
+gem 'iso8601', '~> 0.9.0'

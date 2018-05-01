@@ -31,6 +31,6 @@ end
 Rake::Task['sufia:default_admin_set:create'].invoke
 Rake::Task['curation_concerns:workflow:load'].invoke
 Rake::Task['sufia:migrate:move_all_works_to_admin_set']
-Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com', 'true') if Rails.env.development?
+# Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com', 'true') if Rails.env.development?
 
 ActiveFedora::Base.reindex_everything if Rails.env.development?

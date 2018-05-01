@@ -373,6 +373,7 @@ GEM
     i18n (0.8.1)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    iso8601 (0.9.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -698,6 +699,7 @@ DEPENDENCIES
   fcrepo_wrapper
   health-monitor-rails!
   hydra-head (>= 10.2.0)
+  iso8601 (~> 0.9.0)
   jbuilder (~> 2.0)
   jquery-rails
   libxml-ruby
