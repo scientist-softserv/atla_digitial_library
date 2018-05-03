@@ -1,8 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :harvesters
-  post '/harvesters/external_sets', to: 'harvesters#external_sets'
+  resources :harvesters do
+    collection do
+      post :external_sets
+    end
+  end
 
   mount HealthMonitor::Engine, at: '/'
   mount Flipflop::Engine => "/flipflop"
