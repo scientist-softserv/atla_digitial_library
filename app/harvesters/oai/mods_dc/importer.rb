@@ -40,11 +40,10 @@ module OAI::ModsDC
     def process_record(record)
       begin
         parsed_record = OAI::ModsDC::RecordParser.new(record, @rights, @institution, @thumbnail_url)
-        
+
         @work_factory.build(parsed_record.all_attrs)
       rescue => e
-        # Raven.capture_exception(e)
-        puts "Error: #{e}"
+        Raven.capture_exception(e)
       end
     end
   end
