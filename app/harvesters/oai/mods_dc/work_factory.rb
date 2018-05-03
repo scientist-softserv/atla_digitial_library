@@ -9,6 +9,9 @@ module OAI::ModsDC
     end
 
     def build(attrs)
+      # TODO: this could be smarter: do a check of the attributes
+      # and a found work. Ideally, we don't want to re-download an image
+      # set the attributes (blindly) and then do an (expensive) update to solr.
       work = self.existing_or_new_work(attrs['identifier'])
 
       collection = collection_factory.build('title' => attrs['collection'])
@@ -38,7 +41,7 @@ module OAI::ModsDC
     end
 
     def self.existing_or_new_work(identifier)
-        Work.where(identifier: identifier).present? || Work.new(identifier: identifier)
+      Work.where(identifier: identifier).present? || Work.new(identifier: identifier)
     end
 
     def add_image(url, work)
