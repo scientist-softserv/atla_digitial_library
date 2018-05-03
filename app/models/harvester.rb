@@ -1,16 +1,14 @@
 require 'iso8601'
 
 class Harvester < ActiveRecord::Base
+  belongs_to :user
+
   def collection
     Collection.find collection_id
   end
 
   def collection=(id)
     collection_id = id if Collection.find id or id == nil
-  end
-
-  def user
-    User.where(id: user_id).first
   end
 
   def importer_enums
