@@ -25,13 +25,14 @@ class HarvestersController < ApplicationController
       if @harvester.save
         format.html { redirect_to harvesters_path, notice: 'Harvester was successfully created.' }
         format.json { render :show, status: :created, location: @harvester }
+        
+        HarvestSetJob.perform_later(@harvester.id)
       else
         format.html { render :new }
         format.json { render json: @harvester.errors, status: :unprocessable_entity }
       end
     end
 
-    HarvestSetJob.perform_later(@harvester.id)
   end
 
   def update
@@ -39,17 +40,17 @@ class HarvestersController < ApplicationController
       if @harvester.update(harvester_params)
         format.html { redirect_to harvesters_path, notice: 'Harvester was successfully updated.' }
         format.json { render :show, status: :ok, location: @harvester }
+
+        # TODO: handle the different actions with Ruby-OAI
+        if params[:commit] == 'Harvest Updates'
+      
+        elsif params[:commit] == 'Re-Harvest All Data' # here we reset the last_harvested_at to ensure that we are pulling all new data
+          HarvestSetJob.perform_later(@harvester.id)
+        end
       else
         format.html { render :edit }
         format.json { render json: @harvester.errors, status: :unprocessable_entity }
       end
-    end
-
-    # TODO: handle the different actions with Ruby-OAI
-    if params[:commit] == 'Harvest Updates'
-      
-    elsif params[:commit] == 'Re-Harvest All Data' # here we reset the last_harvested_at to ensure that we are pulling all new data
-      HarvestSetJob.perform_later(@harvester.id)
     end
   end
 
