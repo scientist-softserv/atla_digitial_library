@@ -10,7 +10,7 @@ class Harvester < ActiveRecord::Base
   end
 
   def user
-    User.find user_id
+    User.where(id: user_id).first
   end
 
   def importer_enums
