@@ -9,14 +9,9 @@ module OAI::ModsDC
     end
 
     def build(attrs)
-      if self.existing_work?(attrs['identifier'])
-        # OaiImporter::LOGGER.info("skipping exisitng work with identifier: #{attrs['identifier']}")
-        return
-      end
+      work = self.existing_or_new_work(attrs['identifier'])
 
       collection = collection_factory.build('title' => attrs['collection'])
-
-      work = Work.new
 
       clean_attrs(attrs).each do |key, value|
         work.send("#{key}=", value)
@@ -42,8 +37,8 @@ module OAI::ModsDC
       work
     end
 
-    def existing_work?(identifier)
-      Work.where(identifier: identifier).present?
+    def self.existing_or_new_work(identifier)
+        Work.where(identifier: identifier).present? || Work.new(identifier: identifier)
     end
 
     def add_image(url, work)
