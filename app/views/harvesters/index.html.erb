@@ -19,8 +19,8 @@
     <% @harvesters.each do |harvester| %>
       <tr>
         <th scope="row"><%= harvester.name %></th>
-        <td></td>
-        <td></td>
+        <td><%= harvester.last_harvested_at.strftime("%b %d, %Y") if harvester.last_harvested_at %></td>
+        <td><%= harvester.next_harvest_at.strftime("%b %d, %Y") if harvester.next_harvest_at %></td>
         <td></td>
         <td><%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_harvester_path(harvester) %></td>
         <td><%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), harvester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
