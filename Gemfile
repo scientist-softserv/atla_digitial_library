@@ -32,3 +32,4 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '~> 2.0', group: [:development]
 gem 'iso8601', '~> 0.9.0'
+gem 'language_list', '~> 1.2', '>= 1.2.1'
