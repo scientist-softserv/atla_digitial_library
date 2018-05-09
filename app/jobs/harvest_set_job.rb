@@ -11,7 +11,7 @@ class HarvestSetJob < ActiveJob::Base
 
     limit = h.limit
 
-    importer.list_identifiers.each do |identifier|
+    importer.list_identifiers({set: h.external_set_id}).each do |identifier|
       HarvestWorkJob.perform_later(h.id, identifier.identifier)
 
       limit -= 1 if !limit.nil?
@@ -23,7 +23,7 @@ class HarvestSetJob < ActiveJob::Base
     h.save
 
     if h.schedulable?
-      ScheduleHarvestJob.perform_later(h.id, "#{start + h.frequency.to_seconds}")
+      ScheduleHarvestJob.perform_later(h.id, "#{h.next_harvest_at}")
     end
   end
 end

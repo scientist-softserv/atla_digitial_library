@@ -8,6 +8,10 @@ class HarvestWorkJob < ActiveJob::Base
     # create an importer
     importer = OAI::ModsDC::Importer.new(h.base_url, h.thumbnail_url, h.right_statement, h.institution_name, User.find(h.user_id), h.admin_set_id, {})
 
-    response = importer.get_record identifier
+    if importer.get_record identifier
+      puts "successfully harvested #{identifier}"
+    else
+      puts "unable to harvest #{identifier}"
+    end
   end
 end
