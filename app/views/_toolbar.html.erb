@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-
   <ul class="nav navbar-nav main-navbar-nav">
     <%= render 'sufia/admin/menu' if can? :read, :admin_dashboard %>
     <li class="dropdown">
@@ -38,6 +37,10 @@
             <li class="divider"></li>
           <% end %>
           <li><%= link_to t("sufia.toolbar.works.batch"), sufia.new_batch_upload_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "List Harvesters", main_app.harvesters_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "New Harvester", main_app.new_harvester_path %></li>
         </ul>
       </li>
     <% end %>
