@@ -37,7 +37,7 @@ function handleSourceLoad(refresh_button, base_url, external_set_select) {
     base_url: base_url.val(),
   }, function(res) {
     if (!res.error) {
-      genExternalSetOptions(external_set_select, res.sets)
+      genExternalSetOptions(external_set_select, res.sets) // sets is [[name, spec]...]
     } else {
       setError(external_set_select, res.error)
     }
@@ -51,7 +51,7 @@ function genExternalSetOptions(selector, sets) {
   out = '<option value="">- Select One -</option>'
 
   out += sets.map(function(set) {
-    return '<option value="'+set[0]+'">'+set[1]+'</option>'
+    return '<option value="'+set[1]+'">'+set[0]+'</option>'
   })
 
   selector.html(out)
