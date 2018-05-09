@@ -12,7 +12,7 @@ class Harvester < ActiveRecord::Base
   end
 
   def importer_enums
-    [["OAI Mods - Dublin Core", "oai_mods_dc"]]
+    [["OAI - Dublin Core", "oai_dublic_core"]]
   end
 
   def frequency_enums
@@ -32,5 +32,9 @@ class Harvester < ActiveRecord::Base
 
   def schedulable?
     frequency.to_seconds != 0
+  end
+
+  def next_harvest_at
+    (last_harvested_at || Time.current) + frequency.to_seconds if schedulable? and last_harvested_at.present?
   end
 end
