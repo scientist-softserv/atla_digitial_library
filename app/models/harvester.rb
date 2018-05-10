@@ -2,6 +2,7 @@ require 'iso8601'
 
 class Harvester < ActiveRecord::Base
   belongs_to :user
+  has_many :harvest_runs
 
   def collection
     Collection.find collection_id

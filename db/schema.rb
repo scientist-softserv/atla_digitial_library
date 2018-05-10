@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416191449) do
+ActiveRecord::Schema.define(version: 20180510064954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,17 @@ ActiveRecord::Schema.define(version: 20180416191449) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "harvest_runs", force: :cascade do |t|
+    t.integer  "harvester_id"
+    t.integer  "total",        default: 0
+    t.integer  "enqueued",     default: 0
+    t.integer  "processed",    default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "harvest_runs", ["harvester_id"], name: "index_harvest_runs_on_harvester_id", using: :btree
+
   create_table "harvesters", force: :cascade do |t|
     t.string   "name"
     t.string   "admin_set_id"
@@ -140,10 +151,15 @@ ActiveRecord::Schema.define(version: 20180416191449) do
     t.string   "importer"
     t.string   "right_statement"
     t.string   "thumbnail_url"
+    t.integer  "total_records"
     t.datetime "last_harvested_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "harvesters", ["admin_set_id"], name: "index_harvesters_on_admin_set_id", using: :btree
+  add_index "harvesters", ["external_set_id"], name: "index_harvesters_on_external_set_id", using: :btree
+  add_index "harvesters", ["user_id"], name: "index_harvesters_on_user_id", using: :btree
 
   create_table "local_authorities", force: :cascade do |t|
     t.string "name"
@@ -614,6 +630,7 @@ ActiveRecord::Schema.define(version: 20180416191449) do
   add_index "work_view_stats", ["work_id"], name: "index_work_view_stats_on_work_id", using: :btree
 
   add_foreign_key "curation_concerns_operations", "users"
+  add_foreign_key "harvest_runs", "harvesters"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"

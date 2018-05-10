@@ -24,6 +24,7 @@
       Name: '{{ hosts }}-{{ date }}'
       Env: '{{ aws_tag }}'
       Type: '{{ hosts }}'
+      Compound: '{{ hosts }}_{{ aws_tag }}'
       Stack: 'hydra'
     volumes:
       - device_name: /dev/sda1

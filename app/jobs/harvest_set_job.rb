@@ -10,12 +10,16 @@ class HarvestSetJob < ActiveJob::Base
     importer = OAI::DC::Importer.new(h.base_url, h.thumbnail_url, h.right_statement, h.institution_name, User.find(h.user_id), h.admin_set_id, {})
 
     limit = h.limit
+    harvest_run = h.harvest_runs.create(total: limit)
+    importer.list_identifiers({set: h.external_set_id}).each_with_index do |identifier, index|
+      HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
 
-    importer.list_identifiers({set: h.external_set_id}).each do |identifier|
-      HarvestWorkJob.perform_later(h.id, identifier.identifier)
-
-      limit -= 1 if !limit.nil?
-      break if !limit.nil? and limit == 0
+      if (index + 1) % 25 == 0
+        harvest_run.total = importer.total unless limit.to_i > 0
+        harvest_run.enqueued = index + 1
+        harvest_run.save
+      end
+      break if !limit.nil? and index >= limit
     end
 
     # saving the time the job started so we don't end up with time staggering
