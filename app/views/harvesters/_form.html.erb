@@ -29,14 +29,19 @@
 
   <%= f.input :admin_set_id,
     label: 'Admin Set',
-    collection: @admin_sets
+    collection: @admin_sets,
+    selected: @harvester.admin_set_id || @admin_sets.first
   %>
 
   <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
 
   <%= f.input :frequency, collection: @harvester.frequency_enums %>
   <%= f.input :limit, label: 'Limit (leave blank or 0 for all records)',  as: :integer %>
-  <%= f.input :importer, label: 'Data Grabber', collection: @harvester.importer_enums %>
+  <%= f.input :importer,
+    label: 'Data Grabber',
+    collection: @harvester.importer_enums,
+    selected: @harvester.importer || @harvester.importer_enums.first
+  %>
   <%= f.input :right_statement,
     label: 'Rights Statement',
     collection: @rights.select_active_options,
