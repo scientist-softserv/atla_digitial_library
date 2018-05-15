@@ -4,7 +4,7 @@
 
 
 - name: configure ffmpeg
-  shell: cd {{ ffmpeg_path }}/ffmpeg && PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --extra-libs="-ldl" --enable-gpl --enable-nonfree --enable-libfdk_aac --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264
+  shell: cd {{ ffmpeg_path }}/ffmpeg && PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --extra-libs="-ldl" --enable-gpl --enable-nonfree --enable-libfdk_aac --enable-libmp3lame --enable-libvorbis --enable-libvpx --enable-libx264
   args:
     creates: /usr/local/bin/ffmpeg
 

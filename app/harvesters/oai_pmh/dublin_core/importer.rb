@@ -3,7 +3,7 @@ require 'libxml'
 
 module OAI::DC
   class Importer
-    attr_accessor :url, :thumbnail_url, :user, :admin_set_id, :rights, :institution
+    attr_accessor :url, :thumbnail_url, :user, :admin_set_id, :rights, :institution, :total, :client
 
     def initialize(url, thumbnail_url, rights, institution, user, admin_set_id, opts = {})
       @url = url
@@ -19,11 +19,15 @@ module OAI::DC
       @work_factory = OAI::DC::WorkFactory.new(admin_set_id, user)
       @work_factory.collection_factory = @collection_factory
 
-      @client = OAI::Client.new(@url, headers: @headers, parser: 'libxml', metadata_prefix: 'mods')
+      @client = OAI::Client.new(@url, headers: @headers, parser: 'libxml', metadata_prefix: 'oai_dc')
     end
 
     def list_identifiers(opts = {})
-      @client.list_identifiers(opts).full
+      @list_identifiers ||= @client.list_identifiers(opts)
+    end
+
+    def total
+      @total ||= list_identifiers.doc.find(".//resumptionToken").to_a.first.attributes["completeListSize"].to_i
     end
 
     def get_record(identifier, opts = {})

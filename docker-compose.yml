@@ -4,6 +4,7 @@ services:
     build: .
     image: registry.gitlab.com/notch8/atla_digital_library
     env_file:
+      - .env.development
       - .env
     volumes:
       - .:/app

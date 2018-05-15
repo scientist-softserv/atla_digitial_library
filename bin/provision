@@ -3,22 +3,31 @@ __DIR__ = File.expand_path(File.dirname(__FILE__) + "/../ops")
 
 target = ARGV[0]
 unless ["tomcat", "web"].include?(target)
-  raise "Please specify $ ./bin/provision tomcat (create|update) or $ ./bin/provision web (create|update)"
+  raise "Please specify $ ./bin/provision tomcat (create|update) (staging|production) or $ ./bin/provision web (create|update) (staging|production)"
 end
 
 action = ARGV[1]
 unless ["create", "update"].include?(action)
-  raise "Please specify $ ./bin/provision (tomcat|web) create or $ ./bin/provision (tomcat|web) update"
+  raise "Please specify $ ./bin/provision (tomcat|web) create (staging|production )or $ ./bin/provision (tomcat|web) update (staging|production)"
 end
 
+environment = ARGV[2]
+unless ["staging", "production"].include?(environment)
+  raise "Please specify $ ./bin/provision (tomcat|web) (create|update) staging or $ ./bin/provision (tomcat|web) (create|update) production"
+end
+
+tag = []
+extras = ""
 if action == "create"
   action = "create_ec2.yml"
-  tag = ""
+  extras = "--extra-vars \"hosts=#{target} aws_tag=#{environment}\""
+  tag << "-l \"localhost,tag_Compound_#{target}_#{environment}\""
 else
   action = "configure.yml"
-  tag = (target == "tomcat" ? "-l tag_Type_tomcat" : "-l tag_Type_web")
+  tag << "-l tag_Compound_#{target}_#{environment}"
 end
 
-command = "cd #{__DIR__} && ansible-playbook -i ec2.py #{tag} --private-key ./keys/hydra.pem #{action} --extra-vars \"hosts=#{target}\""
+
+command = "cd #{__DIR__} && ansible-playbook -i ec2.py #{tag.join(' ')} --private-key ./keys/hydra.pem #{action} #{extras}"
 puts command
 exec command
