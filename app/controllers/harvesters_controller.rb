@@ -118,6 +118,6 @@ class HarvestersController < ApplicationController
 
       headers = { from: 'rob@notch8.com' } # TODO: this also needs to be passed in
 
-      @client ||= OAI::Client.new(url, headers: headers, parser: 'libxml', metadata_prefix: 'mods')
+      @client ||= OAI::Client.new(url, headers: headers, parser: 'libxml', metadata_prefix: 'oai_dc')
     end
 end

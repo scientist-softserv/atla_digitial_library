@@ -19,7 +19,7 @@ module OAI::DC
       @work_factory = OAI::DC::WorkFactory.new(admin_set_id, user)
       @work_factory.collection_factory = @collection_factory
 
-      @client = OAI::Client.new(@url, headers: @headers, parser: 'libxml', metadata_prefix: 'mods')
+      @client = OAI::Client.new(@url, headers: @headers, parser: 'libxml', metadata_prefix: 'oai_dc')
     end
 
     def list_identifiers(opts = {})
