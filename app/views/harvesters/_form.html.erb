@@ -39,8 +39,7 @@
   <%= f.input :limit, label: 'Limit (leave blank or 0 for all records)',  as: :integer %>
   <%= f.input :importer,
     label: 'Data Grabber',
-    collection: @harvester.importer_enums,
-    selected: @harvester.importer || @harvester.importer_enums.first
+    collection: @harvester.importer_enums
   %>
   <%= f.input :right_statement,
     label: 'Rights Statement',
