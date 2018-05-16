@@ -1,6 +1,6 @@
 module OAI::DC
   class WorkFactory
-    attr_accessor :collection_factory, :admin_set_id
+    attr_accessor :admin_set_id
 
     def initialize(admin_set_id, user)
       @admin_set_id = admin_set_id
@@ -15,7 +15,10 @@ module OAI::DC
       work = WorkFactory.existing_or_new_work(attrs['identifier'])
       verb = work.new_record? ? "created" : "updated"
 
-      collection = collection_factory.build('title' => attrs['collection'])
+      collections = attrs['collection'].map do |collection_title|
+        collection = Collection.where(title: collection_title).first
+        collection ||= Collection.create(title: collection_title, admin_set_id: self.admin_set_id)
+      end
 
       clean_attrs(attrs).each do |key, value|
         work.send("#{key}=", value)
@@ -26,16 +29,18 @@ module OAI::DC
       work.admin_set_id = @admin_set_id
 
       if work.save
-        if collection.present?
-          collection.add_members([work.id])
-          collection.save
+        if collections.present?
+          collections.each do |collection|
+            collection.add_members([work.id])
+            collection.save
+          end
         end
 
         add_image(attrs['thumbnail_url'].first, work)
 
         puts "#{verb} work with title: #{attrs['title'].try(:first)} and id: #{work.id}"
       else
-        puts "Failed to create Work with title: #{attrs['title'].try(:first)} and Identifier: #{attrs['identifier']}, error messages: #{work.try(:errors).try(:messages)}"
+        raise "Failed to create Work with title: #{attrs['title'].try(:first)} and Identifier: #{attrs['identifier']}, error messages: #{work.try(:errors).try(:messages)}"
       end
 
       work
