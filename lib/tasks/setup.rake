@@ -1,4 +1,4 @@
-require Rails.root.join('lib', 'importers', 'collection_importer')
+# require Rails.root.join('lib', 'importers', 'collection_importer')
 require 'progress_bar'
 
 namespace :setup do
