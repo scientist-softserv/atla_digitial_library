@@ -13,6 +13,7 @@ class HarvestWorkJob < ActiveJob::Base
     else
       puts "unable to harvest #{identifier}"
     end
+
     harvest_run = HarvestRun.find(harvest_run_id)
     harvest_run.processed += 1
     harvest_run.save
