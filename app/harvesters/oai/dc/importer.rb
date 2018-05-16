@@ -15,9 +15,7 @@ module OAI::DC
 
       @headers = { from: user.email }
 
-      @collection_factory = OAI::DC::CollectionFactory.new(user)
       @work_factory = OAI::DC::WorkFactory.new(admin_set_id, user)
-      @work_factory.collection_factory = @collection_factory
 
       @client = OAI::Client.new(@url, headers: @headers, parser: 'libxml', metadata_prefix: 'oai_dc')
     end
