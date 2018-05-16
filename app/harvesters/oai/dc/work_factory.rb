@@ -16,8 +16,8 @@ module OAI::DC
       verb = work.new_record? ? "created" : "updated"
 
       collections = attrs['collection'].map do |collection_title|
-        collection = Collection.where(title: collection_title).first
-        collection ||= Collection.create(title: collection_title, admin_set_id: self.admin_set_id)
+        collection = Collection.where(title: [collection_title]).first
+        collection ||= Collection.create(title: [collection_title])
       end
 
       clean_attrs(attrs).each do |key, value|
@@ -31,6 +31,8 @@ module OAI::DC
       if work.save
         if collections.present?
           collections.each do |collection|
+            collection.apply_depositor_metadata(@user.user_key)
+            collection.visibility = 'open' # this may need to be changed -- but it is set as open on the work as well
             collection.add_members([work.id])
             collection.save
           end
