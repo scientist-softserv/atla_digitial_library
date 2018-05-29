@@ -37,7 +37,7 @@ class Collection < ActiveFedora::Base
   # end
 
   def update_index
-    CollectionIndexJob.perform_later(self.id)
+    CollectionIndexJob.perform_later(self.id) unless CollectionIndexJob.exists?(self.id)
   end
 
   protected
