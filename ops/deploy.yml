@@ -45,10 +45,10 @@
   roles:
     - { role: carlosbuenosvinos.ansistrano-deploy }
 
-- name: Restart Sidekiq
+- name: Restart Delayed Job
   hosts: "tag_Type_web"
   user: ubuntu
   tasks:
-    - name: kick sidekiq
-      service: name=sidekiq state=restarted enabled=yes
+    - name: kick delayed job
+      service: name=delayed_job state=restarted enabled=yes
       become: yes
