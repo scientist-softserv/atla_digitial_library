@@ -1,7 +1,7 @@
 class HarvestSetJob < ActiveJob::Base
   queue_as :default
 
-  def perform(harvester_id)
+  def perform(harvester_id, update=false)
     h = Harvester.find harvester_id
 
     start = Time.current
@@ -21,17 +21,27 @@ class HarvestSetJob < ActiveJob::Base
 
     limit = h.limit
     harvest_run = h.harvest_runs.create(total: limit)
-    importer.list_identifiers({set: h.external_set_id}).full.each_with_index do |identifier, index|
-      HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
+    list_identifiers_args = { set: h.external_set_id }
+    list_identifiers_args[:from] = h.last_harvested_at if update
 
-      if (index + 1) % 25 == 0
-        harvest_run.total = importer.total unless limit.to_i > 0
-        harvest_run.enqueued = index + 1
-        harvest_run.save
+    begin
+      importer.list_identifiers(list_identifiers_args).full.each_with_index do |identifier, index|
+        HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
+
+        if (index + 1) % 25 == 0
+          harvest_run.total = importer.total unless limit.to_i > 0
+          harvest_run.enqueued = index + 1
+          harvest_run.save
+        end
+        break if !limit.nil? and index >= limit
       end
-      break if !limit.nil? and index >= limit
+    rescue OAI::Exception => e
+      if e.code == "noRecordsMatch"
+        # continue there were 0 records to update
+      else
+        raise e
+      end
     end
-
     # saving the time the job started so we don't end up with time staggering
     h.last_harvested_at = start
     h.save
