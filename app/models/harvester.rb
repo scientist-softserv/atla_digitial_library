@@ -6,14 +6,15 @@ class Harvester < ActiveRecord::Base
 
   def importer
     # create an importer based on harvester
-    @importer ||= OAI::DC::Importer.new(self.base_url,
-                                        self.thumbnail_url,
-                                        self.right_statement,
-                                        self.institution_name,
-                                        User.where(id: self.user_id).first,
-                                        self.admin_set_id,
-                                        self.external_set_id,
-                                        {})
+    @importer ||= self.importer_name.constantize.new(self.base_url,
+                                                     self.thumbnail_url,
+                                                     self.right_statement,
+                                                     self.institution_name,
+                                                     self.user,
+                                                     self.admin_set_id,
+                                                     self.external_set_id,
+                                                     self.metadata_prefix,
+                                                     {})
   end
 
   def collection
@@ -25,7 +26,10 @@ class Harvester < ActiveRecord::Base
   end
 
   def importer_names_enum
-    [["OAI - Dublin Core", "oai_dublic_core"]]
+    [
+      ["OAI - Dublin Core", "OAI::DC::Importer"],
+      ["OAI - Qualified Dublin Core", "OAI::QualifiedDC::Importer"],
+    ]
   end
 
   def frequency_enums

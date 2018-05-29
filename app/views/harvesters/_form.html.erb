@@ -41,6 +41,13 @@
     label: 'Data Grabber',
     collection: @harvester.importer_names_enum
   %>
+  <%= f.input :metadata_prefix,
+    label: 'Metadata Prefix'
+  %>
+  <div class="help-block well well-sm">
+    <p>Such as oai_dc, dcterms or oai_qdc</p>
+  </div>
+
   <%= f.input :right_statement,
     label: 'Rights Statement',
     collection: @rights.select_active_options,

@@ -2,8 +2,8 @@ require 'language_list'
 require 'erb'
 require 'ostruct'
 
-module OAI::DC
-  class RecordParser << OAI::Base::RecordParser
+module OAI::QualifiedDC
+  class RecordParser < OAI::Base::RecordParser
     def metadata
       return @metadata if @metadata
 
@@ -23,7 +23,7 @@ module OAI::DC
         when 'coverage'
           hash['place'] ||= []
           hash['place'] << node.content
-        when 'relation'
+        when 'relation', 'isPartOf'
           if @all
             hash['collection'] ||= []
             hash['collection'] << node.content
@@ -31,6 +31,27 @@ module OAI::DC
         when 'type'
           hash['types'] ||= []
           hash['types'] << node.content
+        when 'alternative'
+          hash['alternative_title'] ||= []
+          hash['alternative_title'] << node.content
+        when 'date', 'created'
+          hash['date'] ||= []
+          hash['date'] << node.content
+        when 'extent'
+          hash['extent'] ||= []
+          hash['extent'] << node.content
+        when 'medium'
+          hash['format_original'] ||= []
+          hash['format_original'] << node.content
+        when 'spatial'
+          hash['place'] ||= []
+          hash['place'] << node.content
+        when 'rightsHolder'
+          hash['rights_holder'] ||= []
+          hash['rights_holder'] << node.content
+        when 'temporal'
+          hash['time_period'] ||= []
+          hash['time_period'] << node.content
         when 'rights'
           next
         else
