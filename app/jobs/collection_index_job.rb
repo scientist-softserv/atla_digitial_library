@@ -6,4 +6,8 @@ class CollectionIndexJob < ActiveJob::Base
 
     ActiveFedora::SolrService.add(collection.to_solr, softCommit: true)
   end
+
+  def self.exists?(id)
+    Delayed::Job.where("handler LIKE ? AND handler LIKE ?", "%job_class: CollectionIndexJob%", "%arguments:\n  - #{id}%").count > 0
+  end
 end
