@@ -4,15 +4,15 @@ services:
     build: .
     image: registry.gitlab.com/notch8/atla_digital_library
     env_file:
+      - .env.development
       - .env
     volumes:
       - .:/app
 
-  sidekiq:
+  delayed_job: 
     extends: main
-    command: sidekiq -q ingest -q default -q event
+    command: ./bin/delayed_job run
     depends_on:
-      - redis
       - solr
       - fcrepo
       - postgres
@@ -26,7 +26,7 @@ services:
     ports:
       - "${DOCKER_PORT}"
     depends_on:
-      - sidekiq
+      - delayed_job 
       - redis
       - solr
       - fcrepo

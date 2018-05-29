@@ -1,6 +1,13 @@
 #!/usr/bin/env ruby
 __DIR__ = File.expand_path(File.dirname(__FILE__) + "/../ops")
 
-command = "cd #{__DIR__} && ansible-playbook -i ec2.py --private-key ./keys/hydra.pem deploy.yml -l tag_Type_web --extra-vars \"hosts=web\""
+environment = ARGV[0]
+unless ["staging", "production"].include?(environment)
+  raise "Please specify $ ./bin/deploy staging or $ ./bin/deploy production"
+end
+
+tag = "tag_Compound_web_#{environment}"
+
+command = "cd #{__DIR__} && ansible-playbook -i ec2.py --private-key ./keys/hydra.pem deploy.yml -l #{tag} --extra-vars \"hosts=web\""
 puts command
 exec command

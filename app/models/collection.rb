@@ -9,6 +9,11 @@ class Collection < ActiveFedora::Base
      @@do_index ||= true
   end
 
+  # Override method that does not currently scale to large collections, disabling size sorting of collections
+  def bytes
+    0
+  end
+
   property :institution, predicate: ::RDF::Vocab::FOAF.based_near do |index|
     index.as :stored_searchable
   end
