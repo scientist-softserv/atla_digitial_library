@@ -37,9 +37,9 @@
 
   <%= f.input :frequency, collection: @harvester.frequency_enums %>
   <%= f.input :limit, label: 'Limit (leave blank or 0 for all records)',  as: :integer %>
-  <%= f.input :importer,
+  <%= f.input :importer_name,
     label: 'Data Grabber',
-    collection: @harvester.importer_enums
+    collection: @harvester.importer_names_enum
   %>
   <%= f.input :right_statement,
     label: 'Rights Statement',

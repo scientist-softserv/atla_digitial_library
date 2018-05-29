@@ -15,9 +15,11 @@ module OAI::DC
       work = WorkFactory.existing_or_new_work(attrs['identifier'])
       verb = work.new_record? ? "created" : "updated"
 
-      collections = attrs['collection'].map do |collection_title|
-        collection = Collection.where(title: [collection_title]).first
-        collection ||= Collection.create(title: [collection_title])
+      if attrs['collection']
+        collections = attrs['collection'].map do |collection_title|
+          collection = Collection.where(title: [collection_title]).first
+          collection ||= Collection.create(title: [collection_title])
+        end
       end
 
       clean_attrs(attrs).each do |key, value|

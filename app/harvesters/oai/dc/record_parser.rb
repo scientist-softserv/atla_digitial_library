@@ -6,11 +6,12 @@ module OAI::DC
   class RecordParser
     attr_accessor :record, :rights, :institution, :thumbnail_url
 
-    def initialize(record, rights, institution, thumbnail_url)
+    def initialize(record, rights, institution, thumbnail_url, all = false)
       @record = record.record
       @rights = rights
       @institution = institution
       @thumbnail_url = thumbnail_url
+      @all = all
     end
 
     def metadata
@@ -33,8 +34,10 @@ module OAI::DC
           hash['place'] ||= []
           hash['place'] << node.content
         when 'relation'
-          hash['collection'] ||= []
-          hash['collection'] << node.content
+          if @all
+            hash['collection'] ||= []
+            hash['collection'] << node.content
+          end
         when 'type'
           hash['types'] ||= []
           hash['types'] << node.content

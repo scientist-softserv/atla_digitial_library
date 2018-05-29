@@ -1,5 +1,3 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   resources :harvesters do
     collection do
@@ -11,9 +9,6 @@ Rails.application.routes.draw do
   mount Flipflop::Engine => "/flipflop"
   Hydra::BatchEdit.add_routes(self)
   mount Qa::Engine => '/authorities'
-  authenticate :user, lambda { |u| u.admin_area? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
   mount Blacklight::Engine => '/'
 
   concern :searchable, Blacklight::Routes::Searchable.new
@@ -49,7 +44,9 @@ Rails.application.routes.draw do
 
   get '/institutions' => 'static#institutions'
 
-
+  authenticate :user, lambda { |u| u.admin_area? } do
+    mount DelayedJobWeb, at: "/delayed_job"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

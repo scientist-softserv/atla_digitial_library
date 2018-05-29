@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510064954) do
+ActiveRecord::Schema.define(version: 20180529062619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,22 @@ ActiveRecord::Schema.define(version: 20180510064954) do
   add_index "curation_concerns_operations", ["parent_id"], name: "index_curation_concerns_operations_on_parent_id", using: :btree
   add_index "curation_concerns_operations", ["rgt"], name: "index_curation_concerns_operations_on_rgt", using: :btree
   add_index "curation_concerns_operations", ["user_id"], name: "index_curation_concerns_operations_on_user_id", using: :btree
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "domain_terms", force: :cascade do |t|
     t.string "model"
@@ -148,7 +164,7 @@ ActiveRecord::Schema.define(version: 20180510064954) do
     t.string   "institution_name"
     t.string   "frequency"
     t.integer  "limit"
-    t.string   "importer"
+    t.string   "importer_name"
     t.string   "right_statement"
     t.string   "thumbnail_url"
     t.integer  "total_records"

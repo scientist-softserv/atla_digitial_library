@@ -4,6 +4,18 @@ class Harvester < ActiveRecord::Base
   belongs_to :user
   has_many :harvest_runs
 
+  def importer
+    # create an importer based on harvester
+    @importer ||= OAI::DC::Importer.new(self.base_url,
+                                        self.thumbnail_url,
+                                        self.right_statement,
+                                        self.institution_name,
+                                        User.where(id: self.user_id).first,
+                                        self.admin_set_id,
+                                        self.external_set_id,
+                                        {})
+  end
+
   def collection
     Collection.find collection_id
   end
@@ -12,7 +24,7 @@ class Harvester < ActiveRecord::Base
     collection_id = id if Collection.find id or id == nil
   end
 
-  def importer_enums
+  def importer_names_enum
     [["OAI - Dublin Core", "oai_dublic_core"]]
   end
 

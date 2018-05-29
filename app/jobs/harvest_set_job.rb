@@ -7,11 +7,21 @@ class HarvestSetJob < ActiveJob::Base
     start = Time.current
 
     # create an importer based on harvester
-    importer = OAI::DC::Importer.new(h.base_url, h.thumbnail_url, h.right_statement, h.institution_name, User.find(h.user_id), h.admin_set_id, {})
+    importer = h.importer
+
+    # create the collections first so that the parallel jobs can access them
+    importer.list_sets.each do |set|
+      if h.external_set_id == "all" || h.external_set_id == set.spec
+        collection = Collection.where(name_code: [set.spec]).first
+        collection ||= Collection.create(title: [set.name],
+                                         name_code: [set.spec],
+                                         institution: [h.institution_name] )
+      end
+    end
 
     limit = h.limit
     harvest_run = h.harvest_runs.create(total: limit)
-    importer.list_identifiers({set: h.external_set_id}).each_with_index do |identifier, index|
+    importer.list_identifiers({set: h.external_set_id}).full.each_with_index do |identifier, index|
       HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
 
       if (index + 1) % 25 == 0

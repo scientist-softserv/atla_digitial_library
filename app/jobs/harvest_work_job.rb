@@ -6,12 +6,12 @@ class HarvestWorkJob < ActiveJob::Base
     h = Harvester.find harvester_id
 
     # create an importer
-    importer = OAI::DC::Importer.new(h.base_url, h.thumbnail_url, h.right_statement, h.institution_name, User.find(h.user_id), h.admin_set_id, {})
+    importer = h.importer
 
     if importer.get_record identifier
-      puts "successfully harvested #{identifier}"
+      Rails.logger.info "successfully harvested #{identifier}"
     else
-      puts "unable to harvest #{identifier}"
+      Rails.logger.error "unable to harvest #{identifier}"
     end
 
     harvest_run = HarvestRun.find(harvest_run_id)
