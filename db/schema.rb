@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529062619) do
+ActiveRecord::Schema.define(version: 20180529230950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(version: 20180529062619) do
     t.datetime "last_harvested_at"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "metadata_prefix"
   end
 
   add_index "harvesters", ["admin_set_id"], name: "index_harvesters_on_admin_set_id", using: :btree
