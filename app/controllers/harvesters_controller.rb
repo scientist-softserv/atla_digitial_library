@@ -41,8 +41,8 @@ class HarvestersController < ApplicationController
         format.html { redirect_to harvesters_path, notice: 'Harvester was successfully updated.' }
         format.json { render :show, status: :ok, location: @harvester }
 
-        # TODO: handle the different actions with Ruby-OAI
         if params[:commit] == 'Harvest Updates'
+          HarvestSetJob.perform_later(@harvester.id)
 
         elsif params[:commit] == 'Re-Harvest All Data' # here we reset the last_harvested_at to ensure that we are pulling all new data
           HarvestSetJob.perform_later(@harvester.id)
@@ -116,7 +116,7 @@ class HarvestersController < ApplicationController
     def setup_client(url)
       return false if url.nil?
 
-      headers = { from: 'server@atla.com' } # TODO: this also needs to be passed in
+      headers = { from: 'server@atla.com' }
 
       @client ||= OAI::Client.new(url, headers: headers, parser: 'libxml', metadata_prefix: 'oai_dc')
     end
