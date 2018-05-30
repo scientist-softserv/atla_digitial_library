@@ -1,71 +1,22 @@
-require 'language_list'
-require 'erb'
-require 'ostruct'
-
 module OAI::QualifiedDC
   class RecordParser < OAI::Base::RecordParser
-    def metadata
-      return @metadata if @metadata
-
-      @metadata = record.metadata&.child&.children&.each_with_object({}) do |node, hash|
-        case node.name
-        when 'language'
-          hash['language'] ||= []
-          language = parse_language node.content
-          hash['language'] << language
-        when 'title'
-          hash['title'] ||= []
-          title = parse_title node.content
-          title.each {|t| hash['title'] << t}
-        when 'format'
-          hash['format_original'] ||= []
-          hash['format_original'] << node.content
-        when 'coverage'
-          hash['place'] ||= []
-          hash['place'] << node.content
-        when 'relation', 'isPartOf'
-          if @all
-            hash['collection'] ||= []
-            hash['collection'] << node.content
-          end
-        when 'type'
-          hash['types'] ||= []
-          hash['types'] << node.content
-        when 'alternative'
-          hash['alternative_title'] ||= []
-          hash['alternative_title'] << node.content
-        when 'date', 'created'
-          hash['date'] ||= []
-          hash['date'] << node.content
-        when 'extent'
-          hash['extent'] ||= []
-          hash['extent'] << node.content
-        when 'medium'
-          hash['format_original'] ||= []
-          hash['format_original'] << node.content
-        when 'spatial'
-          hash['place'] ||= []
-          hash['place'] << node.content
-        when 'rightsHolder'
-          hash['rights_holder'] ||= []
-          hash['rights_holder'] << node.content
-        when 'temporal'
-          hash['time_period'] ||= []
-          hash['time_period'] << node.content
-        when 'rights'
-          next
-        else
-          hash[node.name] ||= []
-          hash[node.name] << node.content
-        end
-      end
-
-      if @metadata
-        @metadata['contributing_institution'] = [institution]
-        @metadata['rights'] = [rights]
-      end
-
-      @metadata
-    end
+    matcher 'alternative_title', from: ['alternative', 'alternative_title'], split: true
+    matcher 'collection', from: ['relation', 'isPartOf'], if: ->(parser, content) { parser.all }
+    matcher 'contributor', split: true
+    matcher 'creator', split: true
+    matcher 'date', from: ['date', 'created'], split: true
+    matcher 'description'
+    matcher 'extent'
+    matcher 'format_digital', from: ['format_digital', 'format'], parsed: true
+    matcher 'format_original', from: ['medium']
+    matcher 'language', parsed: true, split: true
+    matcher 'original_url', from: ['identifier'], if: ->(parser, content) { content.match(/http(s+):\/\//) }
+    matcher 'place', from: ['coverage', 'spatial']
+    matcher 'publisher', split: true
+    matcher 'rights_holder', from: ['rights_holder', 'rightsHolder']
+    matcher 'subject', split: true
+    matcher 'time_period', from: ['time_period', 'temporal'], split: true
+    matcher 'title', split: true
+    matcher 'types', from: ['types', 'type'], split: true
   end
 end
