@@ -60,7 +60,10 @@ module OAI::Base
     def header
       context = OpenStruct.new(record: record, identifier: record.header.identifier)
 
-      { 'thumbnail_url' => [ERB.new(@thumbnail_url).result(context.instance_eval { binding })] }
+      {
+        'thumbnail_url' => [ERB.new(@thumbnail_url).result(context.instance_eval { binding })],
+        'identifier' => [record.header.identifier]
+      }
     end
 
     def merge_attrs(first, second)

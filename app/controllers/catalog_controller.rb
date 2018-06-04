@@ -113,6 +113,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("time_period", :stored_searchable), label: "Time Period"
     config.add_show_field solr_name("format_digital", :stored_searchable), label: "Format (Digital)"
     config.add_show_field solr_name("types", :stored_searchable), label: "Type"
+    config.add_show_field solr_name("original_url", :stored_searchable), label: "URL"
     config.add_show_field solr_name("identifier", :stored_searchable), label: "URL"
 
 

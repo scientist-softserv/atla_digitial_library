@@ -38,7 +38,12 @@ class HarvestSetJob < ActiveJob::Base
           harvest_run.enqueued = index + 1
           harvest_run.save
         end
-        break if !limit.nil? and index >= (limit + 1)
+        if !limit.nil? and (index + 1) >= limit
+          harvest_run.total = importer.total unless limit.to_i > 0
+          harvest_run.enqueued = index + 1
+          harvest_run.save
+          break
+        end
       end
     rescue OAI::Exception => e
       if e.code == "noRecordsMatch"

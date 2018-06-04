@@ -12,12 +12,13 @@ module OAI::Base
       # TODO: this could be smarter: do a check of the attributes
       # and a found work. Ideally, we don't want to re-download an image
       # set the attributes (blindly) and then do an (expensive) update to solr.
-      work = WorkFactory.existing_or_new_work(attrs['identifier'])
+      work = existing_or_new_work(attrs['identifier'])
       verb = work.new_record? ? "created" : "updated"
 
       if attrs['collection']
         collections = attrs['collection'].map do |collection_title|
-          collection = Collection.where(title: [collection_title]).first
+          collection = Collection.where(title: collection_title).first
+          collection ||= Collection.where(identifier: collection_title ).first
           collection ||= Collection.create(title: [collection_title])
         end
       end
@@ -50,32 +51,29 @@ module OAI::Base
       work
     end
 
-    def self.existing_or_new_work(identifier)
-      if Work.where(identifier: identifier).present?
-        return Work.where(identifier: identifier).first
-      end
-
+    def existing_or_new_work(identifier)
+      return @existing_or_new_work if @existing_or_new_work.present?
+      @existing_or_new_work = Work.where(identifier: identifier).first
+      @existing_or_new_work ||= Work.new(identifier: [identifier])
       Work.new(identifier: identifier)
     end
 
     def add_image(url, work)
-      open(url) do |f|
-        uploaded_file = Sufia::UploadedFile.create(file: f, user: @user) # this sort of behavior might need to be added to the Work model (local project)
+      uploaded_file = Sufia::UploadedFile.create(remote_file_url: url, user: @user) 
 
-        file_set = FileSet.new
-        file_set.visibility = 'open'
+      file_set = FileSet.new
+      file_set.visibility = 'open'
 
-        actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user) # voodoo...
+      actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user) # voodoo...
 
-        actor.create_metadata(work, visibility: work.visibility) do |file|
-          file.permissions_attributes = work.permissions.map(&:to_hash)
-        end
-
-        actor.create_content(uploaded_file.file.file) # stutter much?
-        uploaded_file.update(file_set_uri: file_set.uri)
+      actor.create_metadata(work, visibility: work.visibility) do |file|
+        file.permissions_attributes = work.permissions.map(&:to_hash)
       end
-    rescue
-      # OaiImporter::LOGGER.error("Failed to add image url (#{url}) to work with identifier #{work.identifier}")
+
+      actor.create_content(uploaded_file.file.file) # stutter much?
+      uploaded_file.update(file_set_uri: file_set.uri)
+    rescue => e
+      Raven.capture_exception(e)
     end
 
     def clean_attrs(attrs)
