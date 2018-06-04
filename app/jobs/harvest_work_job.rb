@@ -19,7 +19,7 @@ class HarvestWorkJob < ActiveJob::Base
     harvest_run.save
   rescue => e
     harvest_run = HarvestRun.find(harvest_run_id)
-    harvest_run.errors += 1
+    harvest_run.failures += 1
     harvest_run.save
     raise
   end
