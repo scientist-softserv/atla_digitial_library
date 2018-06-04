@@ -1,6 +1,6 @@
 module OAI::Base
   class Matcher
-    attr_accessor :to, :from, :parsed, :if
+    attr_accessor :to, :from, :parsed, :if, :split
     def initialize(args)
       args.each do |k, v|
         send("#{k}=", v)
@@ -16,7 +16,7 @@ module OAI::Base
       end
 
       if self.parsed
-        @result = send("parse_#{key}", @result)
+        @result = send("parse_#{to}", @result)
       end
 
       return @result
@@ -32,7 +32,7 @@ module OAI::Base
       src
     end
 
-    def parse_format(src)
+    def parse_format_digital(src)
       case src
       when 'application/pdf','pdf', 'PDF'
         'pdf'
