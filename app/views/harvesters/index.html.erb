@@ -27,7 +27,7 @@
         <td><%= harvester.next_harvest_at.strftime("%b %d, %Y") if harvester.next_harvest_at %></td>
         <td><%= harvester.harvest_runs.last&.enqueued %></td>
         <td><%= harvester.harvest_runs.last&.processed %></td>
-        <td><%= harvester.harvest_runs.last&.errors %></td>
+        <td><%= harvester.harvest_runs.last&.failures %></td>
         <td><%= harvester.harvest_runs.last&.deleted %></td>
         <td><%= harvester.harvest_runs.last&.total %></td>
         <td><%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_harvester_path(harvester) %></td>
