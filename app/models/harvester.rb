@@ -4,6 +4,11 @@ class Harvester < ActiveRecord::Base
   belongs_to :user
   has_many :harvest_runs
 
+  validates :name, presence: true
+  validates :base_url, presence: true
+  validates :admin_set_id, presence: true
+  validates :metadata_prefix, presence: true
+
   def importer
     # create an importer based on harvester
     @importer ||= self.importer_name.constantize.new(self.base_url,

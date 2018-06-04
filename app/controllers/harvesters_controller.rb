@@ -78,7 +78,7 @@ class HarvestersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def harvester_params
-      params.require(:harvester).permit(:name, :base_url, :user_id, :admin_set_id, :institution_name, :external_set_id, :frequency, :limit, :importer_name, :right_statement, :thumbnail_url)
+      params.require(:harvester).permit(:name, :base_url, :user_id, :admin_set_id, :institution_name, :metadata_prefix, :external_set_id, :frequency, :limit, :importer_name, :right_statement, :thumbnail_url)
     end
 
     def new_and_edit_befores

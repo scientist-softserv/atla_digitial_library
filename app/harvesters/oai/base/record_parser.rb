@@ -30,23 +30,25 @@ module OAI::Base
     def metadata
       return @metadata if @metadata
 
-      @metadata = record.metadata&.child&.children&.each_with_object({}) do |node, hash|
-        matcher = matchers[node.name]
+      @metadata = record.metadata.children.each do |child|
+        child.children.each_with_object({}) do |node, hash|
+          matcher = matchers[node.name]
 
-        # Allow for matchers that only happen if we are on the 'all' set
-        if matcher
-          result = matcher.result
-          if result
-            key = matcher.to
-            hash[key] ||= []
-            hash[key] << result 
+          # Allow for matchers that only happen if we are on the 'all' set
+          if matcher
+            result = matcher.result
+            if result
+              key = matcher.to
+              hash[key] ||= []
+              hash[key] << result
+            end
           end
         end
-      end
 
-      if @metadata
-        @metadata['contributing_institution'] = [institution]
-        @metadata['rights'] = [rights]
+        if @metadata
+          @metadata['contributing_institution'] = [institution]
+          @metadata['rights'] = [rights]
+        end
       end
 
       @metadata
