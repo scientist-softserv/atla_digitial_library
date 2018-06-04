@@ -26,6 +26,7 @@ class HarvestSetJob < ActiveJob::Base
 
     begin
       importer.list_identifiers(list_identifiers_args).full.each_with_index do |identifier, index|
+        next if identifier.status == "deleted"
         HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
 
         if (index + 1) % 25 == 0
