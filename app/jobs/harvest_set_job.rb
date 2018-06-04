@@ -26,7 +26,11 @@ class HarvestSetJob < ActiveJob::Base
 
     begin
       importer.list_identifiers(list_identifiers_args).full.each_with_index do |identifier, index|
-        next if identifier.status == "deleted"
+        if identifier.status == "deleted"
+          harvest_run.deleted += 1
+          harvest_run.save
+          next
+        end
         HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
 
         if (index + 1) % 25 == 0
@@ -34,7 +38,7 @@ class HarvestSetJob < ActiveJob::Base
           harvest_run.enqueued = index + 1
           harvest_run.save
         end
-        break if !limit.nil? and index >= limit
+        break if !limit.nil? and index >= (limit + 1)
       end
     rescue OAI::Exception => e
       if e.code == "noRecordsMatch"
