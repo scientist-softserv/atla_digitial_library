@@ -25,7 +25,7 @@ module OAI::Base
     def parse_language(src)
       LanguageList::COMMON_LANGUAGES.each do |lang|
         if src == lang.iso_639_1 or src == lang.iso_639_3
-          return lange.name
+          return lang.name
         end
       end
 
