@@ -2,7 +2,7 @@ require 'iso8601'
 
 class Harvester < ActiveRecord::Base
   belongs_to :user
-  has_many :harvest_runs
+  has_many :harvest_runs, dependent: :destroy
 
   validates :name, presence: true
   validates :base_url, presence: true
