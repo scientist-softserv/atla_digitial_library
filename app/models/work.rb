@@ -79,9 +79,6 @@ class Work < ActiveFedora::Base
   property :original_url, predicate: ::RDF::Vocab::DC.URI do |i|
     i.as :stored_searchable
   end
-  property :original_identifier, predicate: ::RDF::Vocab::DC.identifier do |index|
-    index.as :stored_searchable, :facetable
-  end
 
   # required for file based import
   # property :file_name, predicate: ::RDF::Vocab::DC.identifier { |index| index.as :stored_searchable }
@@ -102,5 +99,5 @@ class Work < ActiveFedora::Base
   # property :based_near, predicate: ::RDF::Vocab::FOAF.based_near do |index| index.as :stored_searchable, :facetable end
   # property :related_url, predicate: ::RDF::RDFS.seeAlso do |index| index.as :stored_searchable end
   # property :bibliographic_citation, predicate: ::RDF::Vocab::DC.bibliographicCitation do |index| index.as :stored_searchable end
-  # property :source, predicate: ::RDF::Vocab::DC.source do |index| index.as :stored_searchable end
+  property :source, predicate: ::RDF::Vocab::DC.source do |index| index.as :stored_searchable end
 end

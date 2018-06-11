@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529230950) do
+ActiveRecord::Schema.define(version: 20180604051252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(version: 20180529230950) do
     t.integer  "processed",    default: 0
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "deleted",      default: 0
+    t.integer  "failures",     default: 0
   end
 
   add_index "harvest_runs", ["harvester_id"], name: "index_harvest_runs_on_harvester_id", using: :btree

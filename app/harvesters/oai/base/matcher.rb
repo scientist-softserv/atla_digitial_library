@@ -23,13 +23,8 @@ module OAI::Base
     end
 
     def parse_language(src)
-      LanguageList::COMMON_LANGUAGES.each do |lang|
-        if src == lang.iso_639_1 or src == lang.iso_639_3
-          return lang.name
-        end
-      end
-
-      src
+      l = LanguageList::LanguageInfo.find(src)
+      l ? l.name : src
     end
 
     def parse_format_digital(src)

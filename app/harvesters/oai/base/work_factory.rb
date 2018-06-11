@@ -12,7 +12,7 @@ module OAI::Base
       # TODO: this could be smarter: do a check of the attributes
       # and a found work. Ideally, we don't want to re-download an image
       # set the attributes (blindly) and then do an (expensive) update to solr.
-      work = existing_or_new_work(attrs['identifier'])
+      work = existing_or_new_work(attrs['source'])
       verb = work.new_record? ? "created" : "updated"
 
       if attrs['collection']
@@ -51,10 +51,10 @@ module OAI::Base
       work
     end
 
-    def existing_or_new_work(identifier)
+    def existing_or_new_work(source)
       return @existing_or_new_work if @existing_or_new_work.present?
-      @existing_or_new_work = Work.where(identifier: identifier).first || Work.where(original_identifier: identifier).first
-      @existing_or_new_work ||= Work.new(original_identifier: [identifier])
+      @existing_or_new_work = Work.where(source: source).first
+      @existing_or_new_work ||= Work.new(source: source)
     end
 
     def add_image(url, work)

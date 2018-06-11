@@ -34,10 +34,10 @@ class HarvestSetJob < ActiveJob::Base
           HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
           if limit.to_i > 0
             harvest_run.total = limit
-          elsif importer.total
+          elsif importer.total > 0
             harvest_run.total = importer.total
           else
-            harvest_run.total = index
+            harvest_run.total = index + 1
           end
           harvest_run.enqueued = index + 1
         end

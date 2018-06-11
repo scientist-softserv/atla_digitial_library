@@ -62,7 +62,7 @@ module OAI::Base
 
       {
         'thumbnail_url' => [ERB.new(@thumbnail_url).result(context.instance_eval { binding })],
-        'identifier' => [record.header.identifier]
+        'source' => [record.header.identifier]
       }
     end
 
