@@ -43,6 +43,8 @@ module OAI::Base
 
     def total
       @total ||= list_identifiers.doc.find(".//resumptionToken").to_a.first.attributes["completeListSize"].to_i
+    rescue
+      @total = 0
     end
 
     def get_record(identifier, opts = {})
