@@ -7,7 +7,7 @@ module OAI::DC
     matcher 'description'
     matcher 'format_digital', from: ['format_digital', 'format'], parsed: true
     matcher 'language', parsed: true, split: true
-    matcher 'original_url', from: ['identifier'], if: ->(parser, content) { content.match(/http(s+):\/\//) }
+    matcher 'identifier', from: ['identifier'], if: ->(parser, content) { content.match(/http(s+):\/\//) }
     matcher 'place', from: ['coverage']
     matcher 'subject', split: true
     matcher 'title', split: true

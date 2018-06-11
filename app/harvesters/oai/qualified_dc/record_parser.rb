@@ -10,7 +10,7 @@ module OAI::QualifiedDC
     matcher 'format_digital', from: ['format_digital', 'format'], parsed: true
     matcher 'format_original', from: ['medium']
     matcher 'language', parsed: true, split: true
-    matcher 'original_url', from: ['identifier'], if: ->(parser, content) { content.match(/http(s{0,1}):\/\//) }
+    matcher 'identifier', from: ['identifier'], if: ->(parser, content) { content.match(/http(s{0,1}):\/\//) }
     matcher 'place', from: ['coverage', 'spatial']
     matcher 'publisher', split: true
     matcher 'rights_holder', from: ['rights_holder', 'rightsHolder']

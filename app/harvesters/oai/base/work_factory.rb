@@ -53,9 +53,8 @@ module OAI::Base
 
     def existing_or_new_work(identifier)
       return @existing_or_new_work if @existing_or_new_work.present?
-      @existing_or_new_work = Work.where(identifier: identifier).first
-      @existing_or_new_work ||= Work.new(identifier: [identifier])
-      Work.new(identifier: identifier)
+      @existing_or_new_work = Work.where(identifier: identifier).first || Work.where(original_identifier: identifier).first
+      @existing_or_new_work ||= Work.new(original_identifier: [identifier])
     end
 
     def add_image(url, work)
