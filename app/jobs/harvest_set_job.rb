@@ -26,24 +26,22 @@ class HarvestSetJob < ActiveJob::Base
 
     begin
       importer.list_identifiers(list_identifiers_args).full.each_with_index do |identifier, index|
-        if identifier.status == "deleted"
-          harvest_run.deleted += 1
-          harvest_run.save
-          next
-        end
-        HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
-
-        if (index + 1) % 25 == 0
-          harvest_run.total = importer.total unless limit.to_i > 0
-          harvest_run.enqueued = index + 1
-          harvest_run.save
-        end
-        if !limit.nil? and (index + 1) >= limit
-          harvest_run.total = importer.total unless limit.to_i > 0
-          harvest_run.enqueued = index + 1
-          harvest_run.save
+        if !limit.nil? and index >= limit
           break
+        elsif identifier.status == "deleted"
+          harvest_run.deleted += 1
+        else
+          HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
+          if limit.to_i > 0
+            harvest_run.total = limit
+          elsif importer.total
+            harvest_run.total = importer.total
+          else
+            harvest_run.total = index
+          end
+          harvest_run.enqueued = index + 1
         end
+        harvest_run.save
       end
     rescue OAI::Exception => e
       if e.code == "noRecordsMatch"
