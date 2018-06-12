@@ -11,3 +11,4 @@
   command: bash -l -c "cd {{ ansistrano_release_path.stdout }} && bundle exec rake db:migrate"
   environment:
     RAILS_ENV: '{{ deploy_target }}'
+  run_once: true
