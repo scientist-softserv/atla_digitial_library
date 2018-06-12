@@ -22,11 +22,21 @@ homepage:
       image:
         path_to_file: /img/tf_torrance.PNG #DESIRED THUMBNAIL NAME
     - id: 5
+      anchor_text: The W. H. Dub Jackson Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
+      url: /collections/76537649g #PATH TO COLLECTION
+      image:
+        path_to_file: /img/whdub.PNG #DESIRED THUMBNAIL NAME
+    - id: 6
+      anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
+      url: /collections/8w32rb49z #PATH TO COLLECTION
+      image:
+        path_to_file: /img/lrscarborough.PNG #DESIRED THUMBNAIL NAME
+    - id: 7
       anchor_text: Robert Hamill Nassau Manuscript Collection - Princeton Theological Seminary
       url: /collections/gb19f682g #PATH TO COLLECTION
       image:
         path_to_file: /img/robert_hamill.PNG #DESIRED THUMBNAIL NAME
-    - id: 6
+    - id: 8
       anchor_text: Cooperative Digital Resources Initiative
       url: /collections/hm50tr96s #PATH TO COLLECTION
       image:
