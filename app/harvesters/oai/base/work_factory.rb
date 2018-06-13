@@ -58,6 +58,12 @@ module OAI::Base
     end
 
     def add_image(url, work)
+      # clear any existing uploads so we can start from scratch
+      if work && work.file_sets.size > 0
+        work.file_sets.each do |f|
+          f.destroy
+        end
+      end
       uploaded_file = Sufia::UploadedFile.create(remote_file_url: url, user: @user) 
 
       file_set = FileSet.new
