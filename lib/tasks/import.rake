@@ -10,7 +10,7 @@ namespace :import do
       @bar.increment!
       begin
         w.file_sets.each do |f|
-          f.destroy if f.files.first.persisted_size < 100
+          f.destroy if f.files.try(:first).try(:persisted_size).to_i < 100
         end
         if w.reload.file_sets.size < 1
           r = h.importer.get_record(w.source.first)
