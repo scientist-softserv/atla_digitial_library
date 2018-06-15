@@ -10,7 +10,7 @@ module OAI::Base
     def result(parser, content)
       return nil if self.if && !self.if.call(parser, content)
 
-      @result = content
+      @result = content.gsub(/\s/, ' ') # remove any line feeds and tabs
       if self.split
         @result = @result.split(/\s*[:|]\s*/)
       end

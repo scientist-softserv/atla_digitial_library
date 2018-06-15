@@ -9,11 +9,11 @@ namespace :import do
       retries = 0
       @bar.increment!
       begin
-        w.file_sets.each do |f|
+        work.file_sets.each do |f|
           f.destroy if f.files.try(:first).try(:persisted_size).to_i < 100
         end
-        if w.reload.file_sets.size < 1
-          r = h.importer.get_record(w.source.first)
+        if work.reload.file_sets.size < 1
+          r = h.importer.get_record(work.source.first)
         end
       rescue Faraday::TimeoutError
         retry if (retires += 1) <= 3
@@ -40,8 +40,8 @@ namespace :import do
         retries = 0
         @bar.increment!
         begin
-          w.admin_set_id = "admin_set/default"
-          w.save
+          work.admin_set_id = "admin_set/default"
+          work.save
         rescue Faraday::TimeoutError
           retry if (retries += 1) <= 3
         end
