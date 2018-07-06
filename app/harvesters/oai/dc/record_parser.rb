@@ -12,6 +12,5 @@ module OAI::DC
     matcher 'subject', split: true
     matcher 'title', split: true
     matcher 'types', from: ['types', 'type'], split: true
-
   end
 end
