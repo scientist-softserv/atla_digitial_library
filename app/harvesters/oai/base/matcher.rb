@@ -30,7 +30,7 @@ module OAI::Base
     def parse_format_digital(src)
       case src
       when 'application/pdf','pdf', 'PDF'
-        'pdf'
+        'PDF'
       when 'image/jpeg', 'image/jpg', 'jpeg', 'jpg', 'JPEG', 'JPG'
         'JPEG'
       when 'image/tiff', 'image/tif', 'tiff', 'tif', 'TIFF', 'TIF'
@@ -68,7 +68,7 @@ module OAI::Base
       when 'text/rtf', 'rtf', 'RTF'
         'RTF'
       else
-        src
+        src.to_s.titleize
       end
     end
   end
