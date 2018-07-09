@@ -26,7 +26,9 @@ class HarvestersController < ApplicationController
         format.html { redirect_to harvesters_path, notice: 'Harvester was successfully created.' }
         format.json { render :show, status: :created, location: @harvester }
 
-        HarvestSetJob.perform_later(@harvester.id)
+        if params[:commit] == 'Create And Harvest'
+          HarvestSetJob.perform_later(@harvester.id)
+        end
       else
         format.html { render :new }
         format.json { render json: @harvester.errors, status: :unprocessable_entity }
@@ -43,7 +45,6 @@ class HarvestersController < ApplicationController
 
         if params[:commit] == 'Harvest Updates'
           HarvestSetJob.perform_later(@harvester.id)
-
         elsif params[:commit] == 'Re-Harvest All Data' # here we reset the last_harvested_at to ensure that we are pulling all new data
           HarvestSetJob.perform_later(@harvester.id)
         end
