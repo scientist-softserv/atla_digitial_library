@@ -8,6 +8,7 @@ class HarvestSetJob < ActiveJob::Base
 
     # create an importer based on harvester
     importer = h.importer
+    collections = [] # used for delete clean up
 
     # create the collections first so that the parallel jobs can access them
     importer.list_sets.each do |set|
@@ -16,6 +17,7 @@ class HarvestSetJob < ActiveJob::Base
         collection ||= Collection.create(title: [set.name],
                                          name_code: [set.spec],
                                          institution: [h.institution_name] )
+        collections << collection
       end
     end
 
@@ -24,6 +26,8 @@ class HarvestSetJob < ActiveJob::Base
     list_identifiers_args = { set: h.external_set_id }
     list_identifiers_args[:from] = h.last_harvested_at if update
 
+    seen = {}
+
     begin
       importer.list_identifiers(list_identifiers_args).full.each_with_index do |identifier, index|
         if !limit.nil? and index >= limit
@@ -31,6 +35,7 @@ class HarvestSetJob < ActiveJob::Base
         elsif identifier.status == "deleted"
           harvest_run.deleted += 1
         else
+          seen[identifier.identifier] = true
           HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
           if limit.to_i > 0
             harvest_run.total = limit
@@ -50,9 +55,19 @@ class HarvestSetJob < ActiveJob::Base
         raise e
       end
     end
+
     # saving the time the job started so we don't end up with time staggering
     h.last_harvested_at = start
     h.save
+
+    if update && collections.length > 0
+      collections.each do |collection|
+        sources = {}
+        collection.works.each { |w|
+          w.delete unless seen[w.source[0]]
+        }
+      end
+    end
 
     if h.schedulable?
       ScheduleHarvestJob.perform_later(h.id, "#{h.next_harvest_at}")
