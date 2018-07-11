@@ -10,6 +10,8 @@ class HarvestSetJob < ActiveJob::Base
     importer = h.importer
     collections = [] # used for delete clean up
 
+    primary_collection = nil
+
     # create the collections first so that the parallel jobs can access them
     importer.list_sets.each do |set|
       if h.external_set_id == "all" || h.external_set_id == set.spec
@@ -17,14 +19,17 @@ class HarvestSetJob < ActiveJob::Base
         collection ||= Collection.create(title: [set.name],
                                          name_code: [set.spec],
                                          institution: [h.institution_name] )
-        collections << collection
+        primary_collection = collection if h.external_set_id == set.spec
       end
     end
 
     limit = h.limit
-    harvest_run = h.harvest_runs.create(total: limit)
     list_identifiers_args = { set: h.external_set_id }
-    list_identifiers_args[:from] = h.last_harvested_at if update
+    
+    # TODO: figure out a way to bring this back in
+    # currently, the ability to delete outranks
+    # list_identifiers_args[:from] = h.last_harvested_at if update
+    harvest_run = h.harvest_runs.create(total: limit)
 
     seen = {}
 
@@ -60,12 +65,16 @@ class HarvestSetJob < ActiveJob::Base
     h.last_harvested_at = start
     h.save
 
-    if update && collections.length > 0
-      collections.each do |collection|
-        sources = {}
-        collection.works.each { |w|
-          w.delete unless seen[w.source[0]]
-        }
+    if update && primary_collection
+      primary_collection.works.each do |w|
+        unless seen[w.source[0]]
+          if w.in_collections.size > 1
+            primary_collection.members.delete w # only removes from primary collection
+            primary_collection.save
+          else
+            w.delete
+          end
+        end
       end
     end
 
