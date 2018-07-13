@@ -53,15 +53,16 @@ module OAI::Base
 
     def process_record(record)
       parsed_record = record_parser_class.new(record,
-                                        rights,
-                                        institution,
-                                        thumbnail_url,
-                                        collection_name == "all")
+                                              rights,
+                                              institution,
+                                              thumbnail_url,
+                                              collection_name == "all")
       all_attrs = parsed_record.all_attrs
       unless collection_name == "all"
         all_attrs['collection'] ||= []
         all_attrs['collection'] << collection_name
       end
+      
       work_factory.build(all_attrs)
     end
   end
