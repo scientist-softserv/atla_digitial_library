@@ -62,7 +62,7 @@ module OAI::Base
         all_attrs['collection'] ||= []
         all_attrs['collection'] << collection_name
       end
-      
+
       work_factory.build(all_attrs)
     end
   end

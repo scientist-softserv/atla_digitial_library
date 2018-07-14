@@ -24,6 +24,8 @@ module OAI::Base
       end
 
       clean_attrs(attrs).each do |key, value|
+        next if key == "id"
+
         work.send("#{key}=", value)
       end
 
@@ -64,7 +66,7 @@ module OAI::Base
           f.destroy
         end
       end
-      uploaded_file = Sufia::UploadedFile.create(remote_file_url: url, user: @user) 
+      uploaded_file = Sufia::UploadedFile.create(remote_file_url: url, user: @user)
 
       file_set = FileSet.new
       file_set.visibility = 'open'
@@ -83,7 +85,11 @@ module OAI::Base
 
     def clean_attrs(attrs)
       @valid_attrs.each_with_object({}) do |attr_name, hash|
-        hash[attr_name] = attrs[attr_name] if attrs[attr_name].present?
+        if attrs[attr_name].present?
+          hash[attr_name] = attrs[attr_name]
+        else
+          hash[attr_name] = nil
+        end
       end
     end
   end
