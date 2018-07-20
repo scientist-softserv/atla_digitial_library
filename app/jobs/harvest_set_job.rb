@@ -1,7 +1,7 @@
 class HarvestSetJob < ActiveJob::Base
   queue_as :default
 
-  def perform(harvester_id, update=false)
+  def perform(harvester_id, only_updates_since_last_harvest=false)
     h = Harvester.find harvester_id
 
     start = Time.current
@@ -25,10 +25,7 @@ class HarvestSetJob < ActiveJob::Base
 
     limit = h.limit
     list_identifiers_args = { set: h.external_set_id }
-    
-    # TODO: figure out a way to bring this back in
-    # currently, the ability to delete outranks
-    # list_identifiers_args[:from] = h.last_harvested_at if update
+    list_identifiers_args[:from] = h.last_harvested_at if only_updates_since_last_harvest
     harvest_run = h.harvest_runs.create(total: limit)
 
     seen = {}
@@ -55,7 +52,7 @@ class HarvestSetJob < ActiveJob::Base
       end
     rescue OAI::Exception => e
       if e.code == "noRecordsMatch"
-        # continue there were 0 records to update
+        # continue there were 0 records to only_updates_since_last_harvest
       else
         raise e
       end
@@ -65,14 +62,15 @@ class HarvestSetJob < ActiveJob::Base
     h.last_harvested_at = start
     h.save
 
-    if update && primary_collection
-      primary_collection.works.each do |w|
+    if primary_collection
+      primary_collection.member_ids.each do |id|
+        w = Work.find id
         unless seen[w.source[0]]
           if w.in_collections.size > 1
-            primary_collection.members.delete w # only removes from primary collection
+            primary_collection.members.delete w # only removes from primary collection - wants the record, not the id
             primary_collection.save
           else
-            w.delete
+            w.delete # removes from all collections
           end
         end
       end
