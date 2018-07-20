@@ -52,7 +52,7 @@ class HarvestSetJob < ActiveJob::Base
       end
     rescue OAI::Exception => e
       if e.code == "noRecordsMatch"
-        # continue there were 0 records to only_updates_since_last_harvest
+        # continue there were 0 records to update
       else
         raise e
       end
