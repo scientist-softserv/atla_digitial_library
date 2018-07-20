@@ -26,7 +26,9 @@ class HarvestersController < ApplicationController
         format.html { redirect_to harvesters_path, notice: 'Harvester was successfully created.' }
         format.json { render :show, status: :created, location: @harvester }
 
-        HarvestSetJob.perform_later(@harvester.id)
+        if params[:commit] == 'Create And Harvest'
+          HarvestSetJob.perform_later(@harvester.id)
+        end
       else
         format.html { render :new }
         format.json { render json: @harvester.errors, status: :unprocessable_entity }
