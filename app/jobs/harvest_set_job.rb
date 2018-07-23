@@ -1,13 +1,16 @@
 class HarvestSetJob < ActiveJob::Base
   queue_as :default
 
-  def perform(harvester_id, update=false)
+  def perform(harvester_id, only_updates_since_last_harvest=false)
     h = Harvester.find harvester_id
 
     start = Time.current
 
     # create an importer based on harvester
     importer = h.importer
+    collections = [] # used for delete clean up
+
+    primary_collection = nil
 
     # create the collections first so that the parallel jobs can access them
     importer.list_sets.each do |set|
@@ -16,13 +19,16 @@ class HarvestSetJob < ActiveJob::Base
         collection ||= Collection.create(title: [set.name],
                                          name_code: [set.spec],
                                          institution: [h.institution_name] )
+        primary_collection = collection if h.external_set_id == set.spec
       end
     end
 
     limit = h.limit
-    harvest_run = h.harvest_runs.create(total: limit)
     list_identifiers_args = { set: h.external_set_id }
-    list_identifiers_args[:from] = h.last_harvested_at if update
+    list_identifiers_args[:from] = h.last_harvested_at if only_updates_since_last_harvest
+    harvest_run = h.harvest_runs.create(total: limit)
+
+    seen = {}
 
     begin
       importer.list_identifiers(list_identifiers_args).full.each_with_index do |identifier, index|
@@ -31,6 +37,7 @@ class HarvestSetJob < ActiveJob::Base
         elsif identifier.status == "deleted"
           harvest_run.deleted += 1
         else
+          seen[identifier.identifier] = true
           HarvestWorkJob.perform_later(h.id, identifier.identifier, harvest_run.id)
           if limit.to_i > 0
             harvest_run.total = limit
@@ -50,9 +57,24 @@ class HarvestSetJob < ActiveJob::Base
         raise e
       end
     end
+
     # saving the time the job started so we don't end up with time staggering
     h.last_harvested_at = start
     h.save
+
+    if primary_collection
+      primary_collection.member_ids.each do |id|
+        w = Work.find id
+        unless seen[w.source[0]]
+          if w.in_collections.size > 1
+            primary_collection.members.delete w # only removes from primary collection - wants the record, not the id
+            primary_collection.save
+          else
+            w.delete # removes from all collections
+          end
+        end
+      end
+    end
 
     if h.schedulable?
       ScheduleHarvestJob.perform_later(h.id, "#{h.next_harvest_at}")
