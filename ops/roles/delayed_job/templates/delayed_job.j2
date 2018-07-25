@@ -16,13 +16,13 @@ AS_USER="{{ capistrano_user }}"
 APP_DIR="{{ ansistrano_deploy_to }}/current"
 LOG_FILE="$APP_DIR/log/delayed_job.log"
 APP_ENV="production"
-
+NUMBER=2
 #!/bin/sh
 
 case "$1" in
     start)
         echo -n "Starting delayed_job: "
-        su - $AS_USER -c "cd $APP_DIR; RAILS_ENV=$APP_ENV bin/delayed_job start" >> $LOG_FILE 2>&1
+        su - $AS_USER -c "cd $APP_DIR; RAILS_ENV=$APP_ENV bin/delayed_job start -n $NUMBER" >> $LOG_FILE 2>&1
         echo "done."
         ;;
     stop)
