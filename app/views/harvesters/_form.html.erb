@@ -54,19 +54,7 @@
     item_helper: @rights.method(:include_current_value)
   %>
   <%= f.input :thumbnail_url, label: 'Thumbnail URL' %>
-  <div class="help-block well well-sm">
-    <p>
-      The Thumbnail URL allows for basic templating and substitution on any identified information in to the url. For example:
-    </p>
-
-    <p>
-      http://commons.ptsem.edu/?cover=<&#37= identifier.split(':').last &#37>&size=L
-    </p>
-
-    <p>
-      http://commons.ptsem.edu/?cover=<&#37= record.header.identifier.split(':').last &#37>&size=L
-    </p>
-  </div>
+  <%= render 'thumbnail_instructions' %>
 
   <% if params[:action] == "edit" %>
     <div class='actions'>
@@ -77,7 +65,8 @@
     </div>
   <% else %>
     <div class='actions'>
-      <%= link_to 'Cancel', sufia.dashboard_index_path, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', sufia.dashboard_index_path, class: 'btn btn-default' %> |
+      <%= f.submit 'Create', class: 'btn btn-primary' %> |
       <%= f.submit 'Create and Harvest', class: 'btn btn-primary' %>
     </div>
   <% end %>

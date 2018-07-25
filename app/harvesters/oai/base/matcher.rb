@@ -12,7 +12,7 @@ module OAI::Base
 
       @result = content.gsub(/\s/, ' ') # remove any line feeds and tabs
       if self.split
-        @result = @result.split(/\s*[:|]\s*/)
+        @result = @result.split(/\s*[:;|]\s*/)
       end
 
       if self.parsed
