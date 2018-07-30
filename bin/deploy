@@ -10,4 +10,4 @@ tag = "tag_Compound_web_#{environment}"
 
 command = "cd #{__DIR__} && ansible-playbook -i ec2.py --private-key ./keys/hydra.pem deploy.yml -l #{tag} --extra-vars \"hosts=web\""
 puts command
-exec command
+system(command) || raise 'Failed to deploy'
