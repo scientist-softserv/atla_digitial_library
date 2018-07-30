@@ -24,7 +24,8 @@ class HarvestSetJob < ActiveJob::Base
     end
 
     limit = h.limit
-    list_identifiers_args = { set: h.external_set_id }
+    list_identifiers_args = {}
+    list_identifiers_args[:set] = h.external_set_id unless h.external_set_id == 'all'
     list_identifiers_args[:from] = h.last_harvested_at if only_updates_since_last_harvest
     harvest_run = h.harvest_runs.create(total: limit)
 
