@@ -11,15 +11,17 @@ class Harvester < ActiveRecord::Base
 
   def importer
     # create an importer based on harvester
-    @importer ||= self.importer_name.constantize.new(self.base_url,
-                                                     self.thumbnail_url,
-                                                     self.right_statement,
-                                                     self.institution_name,
-                                                     self.user,
-                                                     self.admin_set_id,
-                                                     self.external_set_id,
-                                                     self.metadata_prefix,
-                                                     {})
+    @importer ||= self.importer_name.constantize.new(
+      self.base_url,
+      self.thumbnail_url,
+      self.right_statement,
+      self.institution_name,
+      self.user,
+      self.admin_set_id,
+      self.external_set_id,
+      self.metadata_prefix,
+      {use_harvester_name: true}
+    )
   end
 
   def collection
@@ -34,6 +36,7 @@ class Harvester < ActiveRecord::Base
     [
       ["OAI - Dublin Core", "OAI::DC::Importer"],
       ["OAI - Qualified Dublin Core", "OAI::QualifiedDC::Importer"],
+      ["OAI - Princeton Theological Commons", "OAI::PTC::Importer"],
     ]
   end
 
