@@ -1,7 +1,6 @@
 module OAI::QualifiedDC
   class RecordParser < OAI::Base::RecordParser
     matcher 'alternative_title', from: ['alternative', 'alternative_title'], split: true
-    matcher 'collection', from: ['relation', 'isPartOf'], if: ->(parser, content) { parser.all }
     matcher 'contributor', split: true
     matcher 'creator', split: true
     matcher 'date', from: ['date', 'created'], split: true
