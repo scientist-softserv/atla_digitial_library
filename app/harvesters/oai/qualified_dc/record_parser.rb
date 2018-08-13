@@ -11,7 +11,7 @@ module OAI::QualifiedDC
     matcher 'language', parsed: true, split: true
     matcher 'identifier', from: ['identifier'], if: ->(parser, content) { content.match(/http(s{0,1}):\/\//) }
     matcher 'place', from: ['coverage', 'spatial']
-    matcher 'publisher', split: /\s*[;|]\s*/
+    matcher 'publisher', split: /\s*[;]\s*/
     matcher 'relation', split: true
     matcher 'rights_holder', from: ['rights_holder', 'rightsHolder']
     matcher 'subject', split: true
