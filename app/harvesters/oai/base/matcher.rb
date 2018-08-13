@@ -14,7 +14,7 @@ module OAI::Base
 
       if self.split == true
         @result = @result.split(/\s*[:;|]\s*/) # default split by : ; |
-      elsif self.split b.is_a?(Regexp)
+      elsif self.split.is_a?(Regexp)
         @result = @result.split(self.split)
       end
 
