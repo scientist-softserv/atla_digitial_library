@@ -36,7 +36,7 @@ class Harvester < ActiveRecord::Base
     [
       ["OAI - Dublin Core", "OAI::DC::Importer"],
       ["OAI - Qualified Dublin Core", "OAI::QualifiedDC::Importer"],
-      ["OAI - Princeton Theological Commons", "OAI::PTC::Importer"],
+      ["OAI - Princeton Theological Commons", "OAI::PTC::Importer"]
     ]
   end
 
