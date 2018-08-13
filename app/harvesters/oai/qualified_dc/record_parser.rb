@@ -1,7 +1,6 @@
 module OAI::QualifiedDC
   class RecordParser < OAI::Base::RecordParser
     matcher 'alternative_title', from: ['alternative', 'alternative_title'], split: true
-    matcher 'collection', from: ['relation', 'isPartOf'], if: ->(parser, content) { parser.all }
     matcher 'contributor', split: true
     matcher 'creator', split: true
     matcher 'date', from: ['date', 'created'], split: true
@@ -12,7 +11,8 @@ module OAI::QualifiedDC
     matcher 'language', parsed: true, split: true
     matcher 'identifier', from: ['identifier'], if: ->(parser, content) { content.match(/http(s{0,1}):\/\//) }
     matcher 'place', from: ['coverage', 'spatial']
-    matcher 'publisher', split: true
+    matcher 'publisher', split: /\s*[;|]\s*/
+    matcher 'relation', split: true
     matcher 'rights_holder', from: ['rights_holder', 'rightsHolder']
     matcher 'subject', split: true
     matcher 'time_period', from: ['time_period', 'temporal'], split: true

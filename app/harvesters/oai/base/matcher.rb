@@ -11,8 +11,11 @@ module OAI::Base
       return nil if self.if && !self.if.call(parser, content)
 
       @result = content.gsub(/\s/, ' ') # remove any line feeds and tabs
-      if self.split
+
+      if self.split == true
         @result = @result.split(/\s*[:;|]\s*/)
+      elsif self.split b.is_a?(Regexp)
+        @result = @result.split(self.split)
       end
 
       if self.parsed

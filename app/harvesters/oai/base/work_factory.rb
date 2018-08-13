@@ -18,7 +18,7 @@ module OAI::Base
       if attrs['collection']
         collections = attrs['collection'].map do |collection_title|
           collection = Collection.where(title: collection_title).first
-          collection ||= Collection.where(identifier: collection_title ).first
+          collection ||= Collection.where(identifier: collection_title).first
           collection ||= Collection.create(title: [collection_title])
         end
       end
