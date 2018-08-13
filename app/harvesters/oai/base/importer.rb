@@ -62,7 +62,7 @@ module OAI::Base
 
       if @use_harvester_name
         all_attrs['collection'] ||= []
-        all_attrs['collection'] << [@collection_name]
+        all_attrs['collection'] << @collection_name
       else
         unless collection_name == "all"
           all_attrs['collection'] ||= []
