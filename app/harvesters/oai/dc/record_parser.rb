@@ -8,7 +8,7 @@ module OAI::DC
     matcher 'language', parsed: true, split: true
     matcher 'identifier', from: ['identifier'], if: ->(parser, content) { content.match(/http(s{0,1}):\/\//) }
     matcher 'place', from: ['coverage']
-    matcher 'publisher'
+    matcher 'publisher', split: /\s*[;|]\s*/
     matcher 'relation', split: true
     matcher 'subject', split: true
     matcher 'title', split: true
