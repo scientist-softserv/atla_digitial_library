@@ -53,11 +53,14 @@ module OAI::Base
     end
 
     def process_record(record)
-      parsed_record = record_parser_class.new(record,
-                                              rights,
-                                              institution,
-                                              thumbnail_url,
-                                              collection_name == "all")
+      parsed_record = record_parser_class.new(
+        record,
+        rights,
+        institution,
+        thumbnail_url,
+        collection_name == "all"
+      )
+      
       all_attrs = parsed_record.all_attrs
 
       if @use_harvester_name

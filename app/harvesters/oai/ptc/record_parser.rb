@@ -11,7 +11,7 @@ module OAI::PTC
     matcher 'place', from: ['coverage']
     matcher 'publisher', split: /\s*[;]\s*/
     matcher 'subject', split: true
-    matcher 'title', split: true
+    matcher 'title'
     matcher 'types', from: ['types', 'type'], split: true
   end
 end

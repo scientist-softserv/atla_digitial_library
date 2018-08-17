@@ -17,7 +17,15 @@ module OAI::Base
     def self.matcher(name, args={})
       @@matchers ||= {}
       from = args[:from] || [name]
-      matcher = Matcher.new(to: name, from: from, parsed: args[:parsed], if: args[:if])
+
+      matcher = Matcher.new(
+        to: name,
+        from: from,
+        parsed: args[:parsed],
+        # split: args[:split],
+        if: args[:if]
+      )
+
       from.each do |lookup|
         @@matchers[lookup] = matcher
       end

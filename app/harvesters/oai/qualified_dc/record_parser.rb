@@ -16,7 +16,7 @@ module OAI::QualifiedDC
     matcher 'rights_holder', from: ['rights_holder', 'rightsHolder']
     matcher 'subject', split: true
     matcher 'time_period', from: ['time_period', 'temporal'], split: true
-    matcher 'title', split: true
+    matcher 'title'
     matcher 'types', from: ['types', 'type'], split: true
   end
 end

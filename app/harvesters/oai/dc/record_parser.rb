@@ -11,7 +11,7 @@ module OAI::DC
     matcher 'publisher', split: /\s*[;]\s*/
     matcher 'relation', split: true
     matcher 'subject', split: true
-    matcher 'title', split: true
+    matcher 'title'
     matcher 'types', from: ['types', 'type'], split: true
   end
 end

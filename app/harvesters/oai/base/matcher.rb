@@ -12,22 +12,38 @@ module OAI::Base
 
       @result = content.gsub(/\s/, ' ') # remove any line feeds and tabs
 
-      if self.split == true
-        @result = @result.split(/\s*[:;|]\s*/) # default split by : ; |
-      elsif self.split.is_a?(Regexp)
+      if self.split.is_a?(Regexp)
         @result = @result.split(self.split)
+      elsif self.split
+        @result = @result.split(/\s*[:;|]\s*/) # default split by : ; |
       end
 
-      if self.parsed
-        @result = send("parse_#{to}", @result)
-      end
+      @result = send("parse_#{to}", @result) if self.parsed
+
+      # if @result.is_a?(Array) && @result.size > 1
+      #   @result = RDF::Literal(@result)
+      # else
+      #   @result = @result[0]
+      # end
 
       return @result
     end
 
     def parse_language(src)
-      l = LanguageList::LanguageInfo.find(src)
-      l ? l.name : src
+      if src.is_a?(Array)
+        count = 0
+        src.each do |lang|
+          l = LanguageList::LanguageInfo.find(lang)
+          src[count] = l ? l.name : src
+          count += 1
+        end
+
+        return src
+      else
+        l = LanguageList::LanguageInfo.find(src)
+
+        return l ? l.name : src
+      end
     end
 
     def parse_format_digital(src)
