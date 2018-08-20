@@ -51,7 +51,7 @@ module OAI::Base
               @metadata[key] ||= []
 
               if result.is_a?(Array)
-                @metadata[key].concat result
+                @metadata[key] += result
               else
                 @metadata[key] << result
               end
