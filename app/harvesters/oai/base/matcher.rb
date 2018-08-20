@@ -23,7 +23,7 @@ module OAI::Base
       end
 
       if @result.is_a?(Array) && self.parsed
-        @result.each.with_index do |res, index|
+        @result.each_with_index do |res, index|
           @result[index] = send("parse_#{to}", res)
         end
       elsif self.parsed
