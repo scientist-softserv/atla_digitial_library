@@ -18,32 +18,24 @@ module OAI::Base
         @result = @result.split(/\s*[:;|]\s*/) # default split by : ; |
       end
 
-      @result = send("parse_#{to}", @result) if self.parsed
+      if @result.is_a?(Array) && @result.size == 1
+        @result = @result[0]
+      end
 
-      # if @result.is_a?(Array) && @result.size > 1
-      #   @result = RDF::Literal(@result)
-      # else
-      #   @result = @result[0]
-      # end
+      if @result.is_a?(Array) && self.parsed
+        @result.each.with_index do |res, index|
+          @result[index] = send("parse_#{to}", res)
+        end
+      elsif self.parsed
+        @result = send("parse_#{to}", @result)
+      end
 
       return @result
     end
 
     def parse_language(src)
-      if src.is_a?(Array)
-        count = 0
-        src.each do |lang|
-          l = LanguageList::LanguageInfo.find(lang)
-          src[count] = l ? l.name : src
-          count += 1
-        end
-
-        return src
-      else
-        l = LanguageList::LanguageInfo.find(src)
-
-        return l ? l.name : src
-      end
+      l = LanguageList::LanguageInfo.find(src)
+      return l ? l.name : src
     end
 
     def parse_format_digital(src)

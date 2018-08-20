@@ -22,7 +22,7 @@ module OAI::Base
         to: name,
         from: from,
         parsed: args[:parsed],
-        # split: args[:split],
+        split: args[:split],
         if: args[:if]
       )
 
@@ -49,7 +49,12 @@ module OAI::Base
             if result
               key = matcher.to
               @metadata[key] ||= []
-              @metadata[key] << result
+
+              if result.is_a?(Array)
+                @metadata[key].concat result
+              else
+                @metadata[key] << result
+              end
             end
           end
         end
