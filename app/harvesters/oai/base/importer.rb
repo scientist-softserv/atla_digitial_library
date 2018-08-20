@@ -15,6 +15,7 @@ module OAI::Base
       @collection_name = collection_name
       @metadata_prefix = metadata_prefix
       @headers = { from: user.email }
+      @use_harvester_name = opts[:use_harvester_name] if opts[:use_harvester_name].present?
     end
 
     def work_factory
@@ -52,15 +53,24 @@ module OAI::Base
     end
 
     def process_record(record)
-      parsed_record = record_parser_class.new(record,
-                                              rights,
-                                              institution,
-                                              thumbnail_url,
-                                              collection_name == "all")
+      parsed_record = record_parser_class.new(
+        record,
+        rights,
+        institution,
+        thumbnail_url,
+        collection_name == "all"
+      )
+
       all_attrs = parsed_record.all_attrs
-      unless collection_name == "all"
+
+      if @use_harvester_name
         all_attrs['collection'] ||= []
         all_attrs['collection'] << collection_name
+      else
+        unless collection_name == "all"
+          all_attrs['collection'] ||= []
+          all_attrs['collection'] << collection_name
+        end
       end
 
       work_factory.build(all_attrs)

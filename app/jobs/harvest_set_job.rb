@@ -1,7 +1,7 @@
 class HarvestSetJob < ActiveJob::Base
   queue_as :default
 
-  def perform(harvester_id, only_updates_since_last_harvest=false)
+  def perform(harvester_id, only_updates_since_last_harvest=false, use_harvester_name=true)
     h = Harvester.find harvester_id
 
     start = Time.current
@@ -16,7 +16,7 @@ class HarvestSetJob < ActiveJob::Base
     importer.list_sets.each do |set|
       if h.external_set_id == "all" || h.external_set_id == set.spec
         collection = Collection.where(name_code: [set.spec]).first
-        collection ||= Collection.create(title: [set.name],
+        collection ||= Collection.create(title: [use_harvester_name ? h.name : set.name],
                                          name_code: [set.spec],
                                          institution: [h.institution_name] )
         primary_collection = collection if h.external_set_id == set.spec

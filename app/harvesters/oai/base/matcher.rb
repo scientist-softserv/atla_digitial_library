@@ -11,11 +11,22 @@ module OAI::Base
       return nil if self.if && !self.if.call(parser, content)
 
       @result = content.gsub(/\s/, ' ') # remove any line feeds and tabs
-      if self.split
-        @result = @result.split(/\s*[:;|]\s*/)
+
+      if self.split.is_a?(Regexp)
+        @result = @result.split(self.split)
+      elsif self.split
+        @result = @result.split(/\s*[:;|]\s*/) # default split by : ; |
       end
 
-      if self.parsed
+      if @result.is_a?(Array) && @result.size == 1
+        @result = @result[0]
+      end
+
+      if @result.is_a?(Array) && self.parsed
+        @result.each_with_index do |res, index|
+          @result[index] = send("parse_#{to}", res)
+        end
+      elsif self.parsed
         @result = send("parse_#{to}", @result)
       end
 
@@ -24,7 +35,7 @@ module OAI::Base
 
     def parse_language(src)
       l = LanguageList::LanguageInfo.find(src)
-      l ? l.name : src
+      return l ? l.name : src
     end
 
     def parse_format_digital(src)
