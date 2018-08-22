@@ -9,6 +9,7 @@ module OAI::PTC
     matcher 'language', parsed: true, split: true
     matcher 'place', from: ['coverage']
     matcher 'publisher', split: /\s*[;]\s*/
+    matcher 'relation'
     matcher 'subject', split: true
     matcher 'title'
     matcher 'types', from: ['types', 'type'], split: true
