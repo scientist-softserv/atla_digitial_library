@@ -42,6 +42,10 @@ module OAI::Base
       src.to_s.titleize
     end
 
+    def parse_format_original(src)
+      src.to_s.titleize
+    end
+
     def parse_format_digital(src)
       case src
       when 'application/pdf','pdf', 'PDF'
