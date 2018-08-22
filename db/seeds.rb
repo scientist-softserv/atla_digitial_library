@@ -33,7 +33,7 @@ Rake::Task['curation_concerns:workflow:load'].invoke
 Rake::Task['sufia:migrate:move_all_works_to_admin_set']
 # Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com', 'true') if Rails.env.development?
 
-Harvester(
+Harvester.create(
   name: "Princeton Theological Commons - Benson",
   admin_set_id: "admin_set/default",
   user_id: 1,
@@ -45,6 +45,6 @@ Harvester(
   right_statement: "http://rightsstatements.org/vocab/CNE/1.0/",
   thumbnail_url: "http://commons.ptsem.edu/?cover=<%= record.header.identifier.split(':').last %>",
   metadata_prefix: 'oai_dc'
-).create
+)
 
 ActiveFedora::Base.reindex_everything if Rails.env.development?
