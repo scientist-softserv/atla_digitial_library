@@ -38,6 +38,10 @@ module OAI::Base
       return l ? l.name : src
     end
 
+    def parse_types(src)
+      src.to_s.titleize
+    end
+
     def parse_format_original(src)
       src.to_s.titleize
     end
