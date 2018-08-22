@@ -12,6 +12,6 @@ module OAI::PTC
     matcher 'relation'
     matcher 'subject', split: true
     matcher 'title'
-    matcher 'types', from: ['types', 'type'], split: true
+    matcher 'types', from: ['types', 'type'], split: true, parsed: true
   end
 end

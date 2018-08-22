@@ -17,6 +17,6 @@ module OAI::QualifiedDC
     matcher 'subject', split: true
     matcher 'time_period', from: ['time_period', 'temporal'], split: true
     matcher 'title'
-    matcher 'types', from: ['types', 'type'], split: true
+    matcher 'types', from: ['types', 'type'], split: true, parsed: true
   end
 end
