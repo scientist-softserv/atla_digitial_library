@@ -20,7 +20,6 @@ class Harvester < ActiveRecord::Base
       self.admin_set_id,
       self.external_set_id,
       self.metadata_prefix,
-      {use_harvester_name: true}
     )
   end
 
