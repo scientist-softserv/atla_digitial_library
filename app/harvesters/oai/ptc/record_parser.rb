@@ -4,8 +4,7 @@ module OAI::PTC
     matcher 'creator', split: true
     matcher 'date', from: ['date'], split: true
     matcher 'description'
-    matcher 'format_digital', from: ['format_digital'], parsed: true
-    matcher 'format_original', from: ['format_original', 'format'], parsed: true
+    matcher 'format_original', from: ['format'], parsed: true
     matcher 'identifier', from: ['identifier'], if: ->(parser, content) { content.match(/http(s{0,1}):\/\//) }
     matcher 'language', parsed: true, split: true
     matcher 'place', from: ['coverage']
