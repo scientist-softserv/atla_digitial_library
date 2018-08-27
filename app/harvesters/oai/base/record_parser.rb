@@ -5,6 +5,7 @@ require 'ostruct'
 module OAI::Base
   class RecordParser
     attr_accessor :record, :rights, :institution, :thumbnail_url, :all
+    class_attribute :matchers
 
     def initialize(record, rights, institution, thumbnail_url, all = false)
       @record = record.record
@@ -15,7 +16,7 @@ module OAI::Base
     end
 
     def self.matcher(name, args={})
-      @@matchers ||= {}
+      self.matchers ||= {}
       from = args[:from] || [name]
 
       matcher = Matcher.new(
@@ -27,12 +28,8 @@ module OAI::Base
       )
 
       from.each do |lookup|
-        @@matchers[lookup] = matcher
+        self.matchers[lookup] = matcher
       end
-    end
-
-    def self.matchers
-      @@matchers
     end
 
     def metadata
