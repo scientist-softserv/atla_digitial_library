@@ -24,7 +24,7 @@ services:
       VIRTUAL_HOST: atla.docker
       VIRTUAL_PORT: 3000
     ports:
-      - "${DOCKER_PORT}"
+      - "${DEV_PORT}"
     depends_on:
       - delayed_job 
       - redis
