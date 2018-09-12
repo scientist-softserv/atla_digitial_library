@@ -1,5 +1,5 @@
 class HarvestWorkJob < ActiveJob::Base
-  queue_as :default
+  queue_as :harvest
 
   def perform(harvester_id, identifier, harvest_run_id)
     # pull the harvester from db

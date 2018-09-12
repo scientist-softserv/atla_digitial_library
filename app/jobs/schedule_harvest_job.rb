@@ -1,5 +1,5 @@
 class ScheduleHarvestJob < ActiveJob::Base
-  queue_as :default
+  queue_as :harvest
 
   def perform(harvester_id, next_harvest_at)
     h = Harvester.find harvester_id

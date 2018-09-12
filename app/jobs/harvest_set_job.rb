@@ -1,5 +1,5 @@
 class HarvestSetJob < ActiveJob::Base
-  queue_as :default
+  queue_as :harvest
 
   def perform(harvester_id, only_updates_since_last_harvest=false)
     h = Harvester.find harvester_id
