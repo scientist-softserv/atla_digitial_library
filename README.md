@@ -1,24 +1,28 @@
-# README
+# ATLA Digital Library
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ATLA staff use this repository as their digital library.
 
-Things you may want to cover:
+## Versions
 
-* Ruby version
+  - Ruby 2.5.1
+  - Rails 5.1.6
+  - Hyrax 2.3.3
 
-* System dependencies
+## Development Install
 
-* Configuration
+```
+bundle; bundle exec rake hydra:server
+```
 
-* Database creation
+The app should now be available at http://localhost:3000.
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+On the first run you will need to do: `bundle exec rake db:migrate RAILS_ENV=test`
 
-* Services (job queues, cache servers, search engines, etc.)
+Then run the test suite with:
 
-* Deployment instructions
-
-* ...
+```
+bundle; bundle exec rake hydra:test_server
+bundle exec rake spec
+```
