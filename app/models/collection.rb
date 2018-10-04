@@ -11,4 +11,7 @@ class Collection < ActiveFedora::Base
   def bytes
     0
   end
+
+  apply_schema Schemas::CollectionMetadata,
+               Schemas::GeneratedResourceSchemaStrategy.new
 end

@@ -12,4 +12,30 @@ RSpec.describe Collection do
       it 'is hard coded to 0'
     end
   end
+
+  describe '#metadata' do
+    it 'has a #file_name' do
+      is_expected
+        .to have_editable_property(:file_name)
+        .with_predicate(RDF::Vocab::DC.MediaTypeOrExtent)
+    end
+
+    it 'has an #institution' do
+      is_expected
+        .to have_editable_property(:institution)
+        .with_predicate(RDF::Vocab::FOAF.based_near)
+    end
+
+    it 'has a #name_code' do
+      is_expected
+        .to have_editable_property(:name_code)
+        .with_predicate(RDF::Vocab::DC.identifier)
+    end
+
+    it 'has a #pub_place' do
+      is_expected
+        .to have_editable_property(:pub_place)
+        .with_predicate(RDF::Vocab::DC.Location)
+    end
+  end
 end
