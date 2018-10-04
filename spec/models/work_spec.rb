@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Work do
   describe 'metadata' do
+    it_behaves_like 'a model with hyrax basic metadata', except: []
+
     it 'has an #alternative_title' do
       is_expected
         .to have_editable_property(:alternative_title)
