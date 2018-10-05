@@ -89,7 +89,6 @@ GEM
     bcp47 (0.3.3)
       i18n
     bcrypt (3.1.12)
-    bindex (0.5.0)
     blacklight (6.15.0)
       bootstrap-sass (~> 3.2)
       deprecation
@@ -730,11 +729,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.7.0)
-      actionview (>= 5.0)
-      activemodel (>= 5.0)
-      bindex (>= 0.4.0)
-      railties (>= 5.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -749,7 +743,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-  devise
+  devise (~> 4.5)
   devise-guests (~> 0.6)
   fcrepo_wrapper
   hyrax (~> 2.3.3)
@@ -758,9 +752,9 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.7)
-  rails (~> 5.1.6)
+  rails (= 5.1.6)
   riiif (~> 1.1)
-  rsolr (>= 1.0)
+  rsolr (~> 2.2)
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
@@ -769,9 +763,10 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   turbolinks (~> 5)
-  tzinfo-data
   uglifier (>= 1.3.0)
-  web-console (>= 3.3.0)
+
+RUBY VERSION
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.4
