@@ -15,7 +15,7 @@ ADD Gemfile.lock /data/Gemfile.lock
 ENV BUNDLE_JOBS=4
 RUN bundle install
 ADD . /data
-RUN bundle exec rake assets:precompile
+#RUN  cd /data && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile
 EXPOSE 3000
 
 CMD ["bin/rails", "console"]

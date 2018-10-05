@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2.2'
 services:
   main:
     build: .
@@ -26,7 +26,7 @@ services:
     ports:
       - "${DEV_PORT}"
     depends_on:
-      - delayed_job
+      # - delayed_job
       - redis
       - solr
       - fcrepo
