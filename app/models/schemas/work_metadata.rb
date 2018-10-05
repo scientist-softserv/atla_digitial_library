@@ -2,7 +2,6 @@ module Schemas
   class WorkMetadata < ActiveTriples::Schema
     property :alternative_title, predicate: ::RDF::Vocab::DC.alternative
     property :contributing_institution, predicate: ::RDF::Vocab::DC.contributor
-    property :contributor, predicate: ::RDF::Vocab::DC11.contributor
     property :date, predicate: ::RDF::Vocab::DC11.date
     property :extent, predicate: ::RDF::Vocab::DC.extent
     property :format_digital, predicate: ::RDF::Vocab::DC11.format
