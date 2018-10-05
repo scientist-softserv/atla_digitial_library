@@ -155,6 +155,8 @@ GEM
     daemons (1.2.6)
     declarative (0.0.10)
     declarative-option (0.1.0)
+    delayed_job (4.1.5)
+      activesupport (>= 3.0, < 5.3)
     deprecation (1.0.0)
       activesupport
     devise (4.5.0)
@@ -743,6 +745,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  delayed_job
   devise (~> 4.5)
   devise-guests (~> 0.6)
   fcrepo_wrapper

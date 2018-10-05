@@ -6,6 +6,8 @@ gem 'rails', '5.1.6'
 gem 'byebug', group: %i[development test]
 gem 'coffee-rails', '~> 4.2'
 gem 'capybara', '~> 2.13', group: %i[development test]
+gem 'delayed_job'
+gem 'delayed_job_web' # mount this somewhere!
 gem 'devise', '~> 4.5'
 gem 'devise-guests', '~> 0.6'
 gem 'fcrepo_wrapper', group: %i[development test]
