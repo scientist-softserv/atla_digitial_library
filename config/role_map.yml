@@ -1,6 +1,9 @@
 development:
   archivist:
     - archivist1@example.com
+  admin:
+    - rob@notch8.com
+    - acarter@atla.com
 
 test:
   archivist:
@@ -20,4 +23,8 @@ test:
     - leland_himself@example.com
 
 production:
-  # Add roles for users here.
+  archivist:
+    - archivist1@example.com
+  admin:
+    - rob@notch8.com
+    - acarter@atla.com
