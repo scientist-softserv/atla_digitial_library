@@ -9,4 +9,6 @@ class Work < ActiveFedora::Base
   include ::Hyrax::BasicMetadata
 
   apply_schema Schemas::WorkMetadata, Schemas::GeneratedResourceSchemaStrategy.new
+
+  alias_attribute :rights, :license
 end

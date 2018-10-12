@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Work do
+  subject(:work) { described_class.new }
+
   describe 'metadata' do
     it_behaves_like 'a model with hyrax basic metadata', except: []
 
@@ -140,6 +142,22 @@ RSpec.describe Work do
       is_expected
         .to have_editable_property(:types)
         .with_predicate(RDF::Vocab::DC11.type)
+    end
+  end
+
+  describe '#rights' do
+    let(:values) { [:a_license, :another_license] }
+
+    it 'is aliased to #license' do
+      expect { work.license = values }
+        .to change { work.rights.to_a }
+        .to contain_exactly(*values)
+    end
+
+    it 'can set license' do
+      expect { work.rights = values }
+        .to change { work.license.to_a }
+        .to contain_exactly(*values)
     end
   end
 end
