@@ -85,10 +85,10 @@ Hyrax.config do |config|
   # config.redis_namespace = "hyrax"
 
   # Path to the file characterization tool
-  # config.fits_path = "fits.sh"
+  config.fits_path = "/opt/fits/fits.sh"
 
   # Path to the file derivatives creation tool
-  # config.libreoffice_path = "soffice"
+  config.libreoffice_path = "soffice"
 
   # Option to enable/disable full text extraction from PDFs
   # Default is true, set to false to disable full text extraction

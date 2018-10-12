@@ -1,22 +1,21 @@
-FROM botimer/sufia-base:7.2
-
+FROM ruby:2.5.1
 RUN apt-get update -qq && \
-    apt-get install -y vim && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get install -y build-essential libpq-dev nodejs vim libreoffice imagemagick unzip ghostscript && \
+    rm -rf /var/lib/apt/lists/*
+# If changes are made to fits version or location,
+# amend `LD_LIBRARY_PATH` in docker-compose.yml accordingly.
+RUN mkdir -p /opt/fits && \
+    curl -fSL -o /opt/fits/fits-latest.zip https://projects.iq.harvard.edu/files/fits/files/fits-latest.zip && \
+    cd /opt/fits && unzip fits-latest.zip && chmod +X /opt/fits/fits.sh
 
-ENV APP_HOME /app
-RUN mkdir -p $APP_HOME
-WORKDIR $APP_HOME
-
-ADD Gemfile* $APP_HOME/
-
-ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
-    BUNDLE_JOBS=2 \
-    BUNDLE_PATH=/bundle
-
+RUN mkdir /data
+WORKDIR /data
+ADD Gemfile /data/Gemfile
+ADD Gemfile.lock /data/Gemfile.lock
+ENV BUNDLE_JOBS=4
 RUN bundle install
-
-ADD . $APP_HOME
+ADD . /data
+#RUN  cd /data && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile
+EXPOSE 3000
 
 CMD ["bin/rails", "console"]
