@@ -20,6 +20,13 @@ sc up
 
 The app should now be available at http://localhost:3000.
 
+On the first run, you may need to do setup Solr and run database migrations:
+
+```sh
+sc exec -s solr bin/solr create -c development -d /opt/config`
+sc be rake db:schema:load db:migrate
+```
+
 ## Testing
 
 On the first run you will need to do: `bundle exec rake db:migrate RAILS_ENV=test`
