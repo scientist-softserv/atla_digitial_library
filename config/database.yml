@@ -1,0 +1,12 @@
+development: &default
+  adapter: <%= ENV['DB_ADAPTER'] %>
+  encoding: unicode
+  database: <%= ENV['POSTGRES_DB'] %>
+  pool: 30
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+
+test:
+  <<: *default
+  database: atla_digital_library_test

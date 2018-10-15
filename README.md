@@ -10,8 +10,12 @@ ATLA staff use this repository as their digital library.
 
 ## Development Install
 
-```
-bundle; bundle exec rake hydra:server
+This project is has a containerized developement environment managed with with `stack_car`.
+
+```sh
+git clone git@gitlab.com:notch8/atla_digital_library.git
+cd atla_digital_library
+sc up
 ```
 
 The app should now be available at http://localhost:3000.
