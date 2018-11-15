@@ -2,7 +2,11 @@ image: registry.gitlab.com/citygro/docker-and-compose
 
 services:
   - docker:dind
-      
+  - redis:3
+  - postgres
+  - solr:5.5
+  - botimer/fcrepo:4.5.1
+
 variables:
   DOCKER_DRIVER: overlay
 
