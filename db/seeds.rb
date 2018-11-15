@@ -12,17 +12,22 @@ end
 
 if Rails.env.development?
   User.where(email: 'archivist1@example.com').first_or_create do |f|
-    f.password = 'testing123'
+    f.password = 'Ka55ttp72'
   end
 end
 
 User.where(email: 'acarter@atla.com').first_or_create do |f|
-  f.password = 'testing123'
+  f.password = 'Ka55ttp72'
   f.admin_area = true
 end
 
 User.where(email: 'ckarpinski@atla.com').first_or_create do |f|
-  f.password = 'testing123'
+  f.password = 'Ka55ttp72'
+  f.admin_area = true
+end
+
+User.where(email: 'jbutler@atla.com').first_or_create do |f|
+  f.password = 'Ka55ttp72'
   f.admin_area = true
 end
 
