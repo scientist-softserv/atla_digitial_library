@@ -1,47 +1,44 @@
 <!DOCTYPE html>
-<html lang="<%= t("sufia.document_language") %>" class="fullscreen-bg">
+<html lang="<%= t("hyrax.document_language") %>" class="fullscreen-bg">
+  <head>
+    <%= render "layouts/head_tag_content"%>
+  </head>
+  <body id="top" data-spy="scroll">
 
-<head>
-  <%= render "layouts/head_tag_content"%>
-</head>
+  	<div id="wrapper">
+      <!-- NAV UNIT -->
+      <%= render '/masthead' %>
+      <%= render "hyrax/homepage/marketing" if controller_name == 'homepage' %>
 
-<body id="top" data-spy="scroll">
-
-	<div id="wrapper">
-    <!-- NAV UNIT -->
-    <%= render '/masthead' %>
-    <%# render "sufia/homepage/marketing" if controller_name == 'homepage' %>
-
-		<!-- HERO UNIT -->
-		<section class="hero-fullscreen-bg text-center">
-			<div class="overlay"></div>
-			<div class="container">
-        			<h2 class="heading">Explore Our Theological Collections</h2>
-        			<div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-          				<%= render partial: 'catalog/search_form' %>
-        			</div>
-			</div>
-			<!-- <div class="scroll-down down-arrow internal-links">
-				<a href="#specials"><i class="fa fa-angle-down"></i></a>
-			</div> -->
-		</section>
-		<!-- END HERO UNIT -->
-    <%= render '/flash_msg' %>
-    <%# render 'sufia/homepage/announcement' if controller_name == 'homepage' %>
-		<!-- YIELD CONTENT -->
-		<section class="section-gray">
-			<div class="container">
-				<div class="row">
-          				<div id="content-wrapper">
-            					<%= yield %>
-          				</div><!-- /#content-wrapper -->
-				</div>
-			</div>
-		</section>
-		<!-- END YIELD CONTENT -->
-    <%= render 'shared/footer' %>
-    <%= render 'shared/ajax_modal' %>
-	</div>
-</body>
-
+  		<!-- HERO UNIT -->
+  		<section class="hero-fullscreen-bg text-center">
+  			<div class="overlay"></div>
+  			<div class="container">
+          			<h2 class="heading">Explore Our Theological Collections</h2>
+          			<div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            				<%= render partial: 'catalog/search_form' %>
+          			</div>
+  			</div>
+  			<!-- <div class="scroll-down down-arrow internal-links">
+  				<a href="#specials"><i class="fa fa-angle-down"></i></a>
+  			</div> -->
+  		</section>
+  		<!-- END HERO UNIT -->
+      <%= render '/flash_msg' %>
+      <%# render 'sufia/homepage/announcement' if controller_name == 'homepage' %>
+  		<!-- YIELD CONTENT -->
+  		<section class="section-gray">
+  			<div class="container">
+  				<div class="row">
+            				<div id="content-wrapper">
+              					<%= yield %>
+            				</div><!-- /#content-wrapper -->
+  				</div>
+  			</div>
+  		</section>
+  		<!-- END YIELD CONTENT -->
+      <%= render 'shared/footer' %>
+      <%= render 'shared/ajax_modal' %>
+  	</div>
+  </body>
 </html>
