@@ -5,7 +5,7 @@ RUN apt-get update -qq && \
 # If changes are made to fits version or location,
 # amend `LD_LIBRARY_PATH` in docker-compose.yml accordingly.
 RUN mkdir -p /opt/fits && \
-    curl -fSL -o /opt/fits/fits-latest.zip https://projects.iq.harvard.edu/files/fits/files/fits-latest.zip && \
+    curl -fSL -o /opt/fits/fits-latest.zip https://github.com/harvard-lts/fits/releases/download/1.4.0/fits-latest.zip && \
     cd /opt/fits && unzip fits-latest.zip && chmod +X /opt/fits/fits.sh
 
 RUN mkdir /data

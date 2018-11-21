@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'listen', '>= 3.0.5', '< 3.2', group: [:development]
 gem 'pg'
+gem 'progress_bar'
 gem 'puma', '~> 3.7'
 gem 'riiif', '~> 1.1'
 gem 'rsolr', '~> 2.2'
