@@ -3,11 +3,7 @@ Rails.application.routes.draw do
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
 
-<<<<<<< HEAD
-    concern :searchable, Blacklight::Routes::Searchable.new
-=======
   concern :searchable, Blacklight::Routes::Searchable.new
->>>>>>> i72-fits-file
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
