@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  
+
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
-  
+
     concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
@@ -28,6 +28,11 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  authenticate :user, lambda { |u| u.admin_area? } do
+    mount DelayedJobWeb, at: "/delayed_job"
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
