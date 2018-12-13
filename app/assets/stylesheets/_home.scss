@@ -465,7 +465,10 @@ ol.catalog li div h2 {margin-top:0;}
 .nav {font-family: 'Open Sans', sans-serif;}
 
 /*removing padding on right side of logo so admin menu can fit on wider screens*/
-.navbar-brand {padding-right:0;}
+.navbar-brand {
+  padding-right:0;
+  height: auto;
+}
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
 	color: #fff;
