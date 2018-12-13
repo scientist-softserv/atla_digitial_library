@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= I18n.locale.to_s %>" prefix="og:http://ogp.me/ns#">
+<html lang="<%= I18n.locale.to_s %>" prefix="og:http://ogp.me/ns#" class='fullscreen-bg'>
   <head>
     <%= render partial: 'layouts/head_tag_content' %>
     <%= content_for(:head) %>
@@ -25,8 +25,8 @@
         <!-- YIELD CONTENT -->
         <%= content_for?(:content) ? yield(:content) : yield %>
 
+      <%= render 'shared/footer' %>
+      <%= render 'shared/ajax_modal' %>
     </div><!-- /#wrapper -->
-    <%= render 'shared/footer' %>
-    <%= render 'shared/ajax_modal' %>
   </body>
 </html>

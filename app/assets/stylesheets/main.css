@@ -12074,7 +12074,7 @@ html, body {
 }
 
 .navbar-no-background {
-  background: none !important;
+  background: none;
   border: none;
   z-index: 9999;
 }
