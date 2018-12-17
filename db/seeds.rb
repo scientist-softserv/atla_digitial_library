@@ -31,20 +31,19 @@ end
 Rake::Task['hyrax:default_collection_types:create'].invoke
 Rake::Task['hyrax:default_admin_set:create'].invoke
 
-if Rails.env.development?
-  Harvester.create!(
-    name: "Princeton Theological Commons - Benson",
-    admin_set_id: "admin_set/default",
-    user_id: 1,
-    base_url: "http://commons.ptsem.edu/api/oai-pmh",
-    external_set_id: "collection:Benson",
-    institution_name: "Princeton Theological Seminary",
-    frequency: "PT0S",
-    limit: 50,
-    importer_name: "OAI::PTC::Importer",
-    right_statement: "http://rightsstatements.org/vocab/CNE/1.0/",
-    thumbnail_url: "http://commons.ptsem.edu/?cover=<%= identifier.split('/').last %>",
-    metadata_prefix: 'oai_dc'
-  )
-end
-end
+# if Rails.env.development?
+#   Harvester.create!(
+#     name: "Princeton Theological Commons - Benson",
+#     admin_set_id: "admin_set/default",
+#     user_id: 1,
+#     base_url: "http://commons.ptsem.edu/api/oai-pmh",
+#     external_set_id: "collection:Benson",
+#     institution_name: "Princeton Theological Seminary",
+#     frequency: "PT0S",
+#     limit: 50,
+#     importer_name: "OAI::PTC::Importer",
+#     right_statement: "http://rightsstatements.org/vocab/CNE/1.0/",
+#     thumbnail_url: "http://commons.ptsem.edu/?cover=<%= identifier.split('/').last %>",
+#     metadata_prefix: 'oai_dc'
+#   )
+# end
