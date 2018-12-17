@@ -7,8 +7,8 @@ gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]
 gem 'capybara', '~> 2.13', group: %i[development test]
 gem 'coffee-rails', '~> 4.2'
-gem 'delayed_job'
-gem 'delayed_job_web' # mount this somewhere!
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
 gem 'devise', '~> 4.5'
 gem 'devise-guests', '~> 0.6'
 gem 'fcrepo_wrapper', group: %i[development test]

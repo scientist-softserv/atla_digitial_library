@@ -31,5 +31,10 @@ Rails.application.routes.draw do
     end
   end
 
+  authenticate :user, lambda { |u| u.admin_area? } do
+    mount DelayedJobWeb, at: "/delayed_job"
+  end
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
