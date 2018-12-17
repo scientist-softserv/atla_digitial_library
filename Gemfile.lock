@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/notch8/health-monitor-rails.git
+  revision: a97ccc65372fe55e1ff4c3e301597cc758f9f40c
+  specs:
+    health-monitor-rails (8.4.0)
+      rails (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -771,6 +778,7 @@ DEPENDENCIES
   devise (~> 4.5)
   devise-guests (~> 0.6)
   fcrepo_wrapper
+  health-monitor-rails!
   hyrax (~> 2.3.3)
   hyrax-spec
   jbuilder (~> 2.5)
