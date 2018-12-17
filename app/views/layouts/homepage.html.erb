@@ -1,0 +1,30 @@
+<% content_for(:precontainer_content) do %>
+  <%= render 'hyrax/homepage/announcement' if controller_name == 'homepage' %>
+  <section class="hero-fullscreen-bg text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <h2 class="heading">Explore Our Theological Collections</h2>
+      <div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <%= render partial: 'catalog/search_form' %>
+      </div>
+    </div>
+    <!-- <div class="scroll-down down-arrow internal-links">
+      <a href="#specials"><i class="fa fa-angle-down"></i></a>
+      </div> -->
+  </section>
+<% end %>
+
+<% content_for(:content) do %>
+  <section class="section-gray">
+    <div class="container">
+      <div class="row">
+        <div id="content-wrapper">
+          <%= yield :home_content %>
+        </div><!-- /#content-wrapper -->
+      </div>
+    </div>
+  </section>
+  <!-- END YIELD CONTENT -->
+<% end %>
+
+<%= render template: 'layouts/hyrax' %>

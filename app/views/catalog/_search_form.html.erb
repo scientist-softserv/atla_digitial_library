@@ -1,0 +1,30 @@
+<%= form_tag search_form_action, method: :get, id: "search-form-header", role: "search" do %>
+  <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
+  <div class="input-group input-group-lg">
+
+    <label class="sr-only" for="search-field-header"><%= t("hyrax.search.form.q.label") %></label>
+    <%= text_field_tag :q, current_search_parameters , class: "q form-control", id: "search-field-header", placeholder: t("hyrax.search.form.q.placeholder") %>
+
+    <div class="input-group-btn">
+      <button type="submit" class="btn btn-primary" id="search-submit-header">
+        <%= t('hyrax.search.button.html') %>
+      </button>
+     
+<!-- commenting out search scope dropdown bcz all is the only option
+     <button id="search-option-toggle" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+        <span data-search-element="label"><%= t("hyrax.search.form.option.all.label_long") %></span>
+        <span class="caret"></span>
+     </button>
+
+      <ul class="dropdown-menu pull-right">
+          <li>
+          <%= link_to "All Collections", "#",
+              data: { "search-option" => main_app.search_catalog_path, "search-label" => "All" } %>
+          </li>
+      </ul>-->
+
+
+    </div><!-- /.input-group-btn -->
+
+  </div><!-- /.input-group -->
+<% end %>
