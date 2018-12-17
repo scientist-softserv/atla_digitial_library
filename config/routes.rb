@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     mount DelayedJobWeb, at: "/delayed_job"
   end
 
+  mount HealthMonitor::Engine, at: '/'
+
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
 
@@ -32,6 +34,11 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  authenticate :user, lambda { |u| u.admin_area? } do
+    mount DelayedJobWeb, at: "/delayed_job"
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

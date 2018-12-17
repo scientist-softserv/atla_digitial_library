@@ -1,0 +1,1016 @@
+/* Home Page and General Styles */
+
+body {
+	margin-bottom:0px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+img.representative-media {max-width:100%;}
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
+h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.attribute-label.h4 {font-size:1em;}
+
+h1 {font-size: 1.6em;}
+
+#content-wrapper {
+	margin-top: 0px;/*needed for all pages except home which uses section-gray class*
+	/*margin-bottom: 150px;*/
+	padding-bottom:2em;
+}
+	
+section.section-gray {
+	margin-bottom: 0px; /*was 100px*/
+	margin-top:0px; /*remove margin on home page that is needed on other pages? */
+}
+	
+/*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
+#content-wrapper.one-pages {
+	padding-top:125px;
+	padding-bottom:2em;
+}
+
+/*fixing the admin page content-wrapper not sure if its affecting other pages*/
+#content-wrapper.container-fluid {
+	padding-top:125px; 
+}
+
+/*fixing the admin page content-wrapper not sure if its affecting other pages*/
+#content-wrapper[role=main] {
+	padding-top:110px;
+}
+
+
+
+.hero-fullscreen-bg {
+	background-image: image-url('ATLA-hero-new.jpg');
+	background-repeat: repeat; /*changed from no repeat for very wide screens so that it doesnt show the grey*/
+	background-position: top;
+	position: relative;
+	z-index: 1;
+}
+
+.hero-fullscreen-bg {
+	height: 60%; /*was 100%*/
+}
+
+.hero-fullscreen-bg .heading {
+	font-size: 2.5em;
+	font-weight:normal;
+  }
+
+
+.home_marketing_text {
+	display:none;
+}
+
+#announcement {
+	display:none;
+}
+
+
+
+
+/*** Custom Thumbnails ***/
+
+.thumbnail-custom p {
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	transition: all 200ms ease-out;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
+}
+
+.thumbnail-custom a {
+	color: #db9e36;
+}
+
+.thumbnail-custom a:hover {
+	color: #0b3c42;
+}
+
+.feature-image {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.thumbnail-custom .overlay {
+	background-color:rgba(197, 196, 196, 0.6);
+}
+
+
+/*making thumbnail titles entire area clickable as link*/
+.thumbnail-custom .thumbnail-heading {
+	padding: 0px;
+}
+.thumbnail-heading a {
+	padding:15px;
+	display:block;
+}
+
+
+
+/*** MASONRY GRID for featured and collecitons spacing***/
+.grid-item {
+    padding-left:1em;
+    padding-right:1em;
+}
+
+
+
+
+/*** Buttons and Links ***/
+
+a, .btn-link {
+	color: #db9e36;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span {
+	background-color: #105b63;
+	border-color: #0b3c42;
+}
+
+footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus {
+	background-color: #0b3c42;
+	border-color: #0b3c42;
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	background-color: #0b3c42;
+	border-color: #07282c;
+}
+
+a:hover, a:focus, .btn-link:hover, .btn-link:focus {
+	color: #c38822;
+}
+
+.btn-danger, .label-danger {
+	background-color: #bd4932;
+	border-color: #a13f2b;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
+	background-color: #a13f2b;
+	border-color: #792f20;
+}
+.multi_value .btn.add {
+	text-decoration: none;
+	padding: 5px 10px;
+	width: auto;
+	color: white;
+}
+
+
+/*pager prev next and numbers*/
+
+.pager a {
+	border: 1px solid #ddd;
+	padding: .4em .8em;
+	line-height: 2.5em;
+	}
+
+.pager a:hover {
+	background-color:#1c636b;
+	color:white;
+	}
+	
+.pager a.disabled {
+	background-color:#1c636b;
+	color:white;
+	}
+
+.pager a.disabled[rel~="prev"] {
+	background-color:white;
+	color:#db9e36;
+	}
+	
+.pager a.disabled[rel~="next"] {
+	background-color:white;
+	color:#db9e36;
+	}
+	
+.pagination a {
+	border: 1px solid #ddd;
+	padding: .4em .8em;
+	line-height:2.5em;
+}
+
+.pagination a:hover {
+	background-color:#1c636b;
+	color:white;
+}
+
+.pagination a.disabled {
+	background-color:#1c636b;
+	color:white;
+	}
+	
+.pagination a.disabled[rel~="prev"]{
+	background-color:white;
+	color:#db9e36;
+}
+.pagination a.disabled[rel~="next"]{
+	background-color:white;
+	color:#db9e36;
+}
+
+/* -------- Explore Collections and Featured -------*/
+
+.explore-section, .featured-section {
+	padding-top:1em;
+	padding-bottom:0px;
+}
+.list-inline.collection-highlights-list {
+	margin-left:0;
+	text-align:center;
+	padding-bottom:2em;
+	padding-top:1.5em;
+}
+.list-inline.collection-highlights-list li a {
+	font-size:1.5em;
+}   
+
+/*making the orange tab text a little bigger in admin page*/
+.nav-tabs > li > a {
+	font-size:1em;
+}
+
+/*this is sizing the explore and featured text tabs on home */
+.home-content .nav-tabs > li > a {
+	font-size: 2em;
+}
+
+.home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
+	background-color:transparent;
+	border: 1px solid transparent;
+	color:#db9e36;
+}
+
+ul.collection-highlights-list {
+	clear:both;
+	}
+
+
+
+
+
+/* -------- FOOTER STYLES -------- */
+
+
+.footer-info {
+    padding:1em;
+}
+
+
+.footer-info p {
+	line-height:1.3em;
+}
+
+.footer-name-one, .footer-name-two {
+	font-size:1em;
+	font-weight:800;
+	color:antiquewhite;
+}
+
+.footer-terms {
+    padding:1em;
+}
+
+.footer-search {
+    padding:1em;
+}
+
+footer.navbar.navbar-inverse {
+	background-color: #105b63;
+	border-color: #0b3c42;
+}
+
+footer.navbar {
+	padding: 1.5em 0;
+}
+
+footer .container {
+	padding:0;
+}
+
+footer.navbar.navbar-inverse img {
+	margin: 0 auto 15px auto;
+}
+
+footer .navbar-text {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.footer-links a {
+	color: #9d9d9d;
+}
+
+.footer-links {
+	color: #d9d9d9;
+}
+
+ul.footer-links {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
+	color: #d9d9d9;
+}
+
+
+
+
+/* -------- Dashboard Styles -------- */
+
+div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
+	background: #ffd34e;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
+.container.dashboard {
+	margin-top: 100px;
+	margin-right: 15px;
+	margin-left: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.container.dashboard>h1 {
+	margin-top: -75px;
+}
+
+
+.main-header {
+	margin-top:0;
+	/*margin-left: 15px;
+	padding-left: 15px;*/
+}
+
+/*
+.main-header>h1 {
+	margin-bottom:-75px;
+}
+*/
+
+.facet_limit-active > .panel-heading {
+	color: #105b63;
+	background-color: #fffce6;
+	border-color: #fffad5;
+}
+
+.facet_limit-active {
+	border-color: #fffad5;
+}
+
+.facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #fffad5;
+}
+
+#my_nav {
+	margin-top:10px;
+    }
+
+
+
+
+
+/* -------- Search Styles -------- */
+
+.panel-heading.collapse-toggle .panel-title:after {
+	margin-top: -20px;
+}
+
+#appliedParams.constraints-container {
+	margin-bottom: 10px;
+}
+
+.search-results {
+	padding:1em;
+}
+
+.search-results h2{
+	color:#105b63;
+	margin-top:0;
+}
+
+ol.catalog h2 {font-size:1.6em;}
+
+ol.catalog {padding-left:15px;}
+
+ol.catalog li div h2 {margin-top:0;}
+#sortAndPerPage {margin-bottom:1.5em;}
+
+/*removes second dropdown carat symbol on facets*/
+.collapse-toggle::after {
+	display:none;
+	}
+
+
+/* metadata facets on search results, more ... panel */
+.modal-content {margin-top:115px;}
+
+
+/* -------- Admin Page -------- */
+
+.page-container {
+	background-color: #157984 !important;
+}
+
+.page-container .page-content .page-content-wrap {
+	background-color: #f5f5f5;
+}
+
+.x-navigation {
+	background-color: #105b63 !important;
+}
+
+.x-navigation li > a {
+	border-bottom: 1px solid #0b3c42 !important;
+	color: #db9e36;
+}
+
+.x-navigation > li.xn-logo > a:first-child {
+	background: #0b3c42 !important;
+}
+
+.x-navigation.x-navigation-horizontal {
+    height: 41px !important;
+    background: #0b3c42 !important;
+}
+
+.x-navigation > li > a:hover {
+	background: #198d9a !important;
+}
+
+
+
+
+/* -------- Navbar -------- */
+
+.nav {font-family: 'Open Sans', sans-serif;}
+
+/*removing padding on right side of logo so admin menu can fit on wider screens*/
+.navbar-brand {
+  padding-right:0;
+  height: auto;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+	color: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	line-height: 1;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
+	color: #db9e36;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color: #db9e36;
+}
+.navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
+	color: #db9e36;
+}
+
+.main-navbar-nav li > .dropdown-menu {
+	border-top: 2px solid #db9e36;
+}
+
+.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus, {
+	color: #db9e36;
+}
+
+.navbar-light-font {
+	background-color: rgba(16, 91, 99, 0.95)
+}
+
+.main-navbar-nav > li > a {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	line-height: 1;
+}
+
+.image-background {
+	background-image: image-url('ATLA-hero-new.jpg')!important;
+	background-repeat: no-repeat;
+	background-position: top !important;
+	max-height: 110px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-size: 1em; /*changed from 11px*/
+}
+
+.nav > li > a {
+	padding: 10px 10px;
+}
+
+.navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
+	background: rgba(16,91,99, 0.95) !important;
+}
+
+/* set minimum width to prevent reflow after login button was removed from navbar */
+ul.nav.navbar-nav {
+	min-width: 15px;
+}
+
+/*DROPDOWN*/
+.dropdown-menu > li > a {
+	padding:1em;
+}
+
+.dropdown-menu {
+	font-size:1em;
+}
+
+.navbar-nav .open .dropdown-menu > li > a {
+	line-height:1.5em;
+	padding:1em;
+}
+
+
+
+
+
+
+
+/* -------- Terms Page -------- */
+
+ol.terms-page li {
+	margin-bottom:.8em;
+}
+
+
+
+
+/* -------- Contact Page Styles -------- */
+
+.form-horizontal .form-group {
+	margin-right:0;
+}
+
+/* Forms and Devise Views */
+
+input {
+	margin-bottom: 10px;
+}
+
+.form-control {
+	color: #555555;
+}
+
+.label-info::before {
+	content: "*";
+	color: #bd4932;
+}
+.label-info {
+	background-color: #fff;
+	color: #fff;
+}
+
+.required-key {
+	color: #bd4932;
+	padding-left: 16px;
+	font-size: 14px;
+}
+
+.checkbox input[type="checkbox"] {
+	position: relative;
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+/* Remove padding for required-key field on collection pages */
+.no-left-padding {
+	padding-left: 0;
+}
+
+
+
+
+/* -------- Helper Styles -------- */
+/*
+.margin-bottom-100 {
+	margin-bottom: 100px;
+}
+
+*/
+
+
+/* -------- Breadcrumbs -------- */
+
+.breadcrumb > li.active {
+	color: #105b63;
+}
+
+.breadcrumb a:hover, .breadcrumb a:focus {
+	color: #105b63;
+}
+
+.breadcrumb.link-accent a {
+	color: #105b63;
+}
+
+.breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
+	text-decoration: none;
+	color: #0b3c42;
+}
+
+
+
+
+/* -------- User Notifications -------- */
+
+.container.dashboard a.btn.btn-danger.pull-right {
+	margin-right: 30px;
+}
+
+/*
+.alert {
+	margin-top: 150px;
+	margin-bottom: -125px;
+}
+*/
+
+/* -------- Progress bars -------- */
+
+.progress-bar {
+	background-color: #105b63;
+}
+
+.progress-bar-warning {
+	background-color: #db9e36;
+}
+
+.progress-bar-danger {
+	background-color: #bd4932;
+}
+
+.progress-bar-success {
+	background-color: #105b63;
+}
+
+.progress-bar-info {
+	background-color: #198d9a;
+}
+
+/* Removing divider to prevent console error */
+
+.section-heading:after {
+	background-image: none;
+}
+
+
+
+
+/* -------- ITEM PAGE --------*/
+
+/*putting space above and below metadata on item page when headings are removed*/
+.meta-table {
+	margin-top:1em;
+	margin-bottom:0;
+}
+
+/*putting table border to bottom instead of top*/
+.table tbody tr td, .table tbody tr th, .table thead tr th {
+	border-top:0; 
+	border-bottom: 1px solid #ddd;
+}
+
+li.URL {word-break:break-all;}
+li.Rights a {word-break:break-all;}
+
+/*this hides border under In Collection metadata*/
+.relationships.table tbody tr td, .relationships.table tbody tr th {
+	border-bottom: 0px solid #ddd;
+}
+
+
+/*adjusting padding under the value content*/
+ul.tabular {
+	margin-bottom:0px;
+}
+
+/*adjusting attribute font*/
+.meta-table tbody tr th, .relationships tbody tr th, .related-files thead tr th {
+	font-weight:600;
+  }
+
+/*sidebar show-actions*/
+.show-actions{
+	padding-left:0px;
+}
+
+/*making table responsive*/
+.table-overflow {overflow-x:auto;}
+
+.social-media{
+	padding-right:0px;
+	padding-left:0px;
+}
+
+.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
+
+
+.rep-sharing-button-tumblr {display:none;}
+a[title="Tumblr"] {display:none;}
+.resp-sharing-button__link {margin:.1em;}
+.resp-sharing-button {
+	padding: .5em .65em .3em .65em;
+	}
+
+
+
+/* -------- COLLECTION PAGE -------- */
+
+/*adjusting attribute font*/
+.doc-list thead tr th {
+	font-weight:600;
+}
+
+/*when logged in, remove space on left of edit buttons*/
+.actions-controls-collections {
+	margin-left:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
+
+@media screen and (min-width:768px) {
+
+	.navbar-right {margin-right:0px;}/*fix/remove scrollbar showing in mobile menu */
+	
+	.fixedsticky-on {padding-top:125px;}
+
+	.navbar-nav {float:none;}
+	
+	.navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
+
+	
+
+	
+/* -------- FOOTER STYLES -------- */
+	.footer-info {
+		float:left;
+		padding-left:2em;
+		width:40%;
+	}
+
+	.footer-terms {
+		width:20%;
+		float:left;
+	}
+
+	.footer-search {
+		width:40%;
+		float:left;
+	}
+
+
+	
+
+}
+
+@media screen and (min-width: 992px){
+	.navbar-nav {float:left;}
+		.navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
+}
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES (not mobile first-so stylying mobile and tablet) */
+
+@media screen and (max-width: 992px) {
+
+	/* Home Page items */
+
+	.hero-fullscreen-bg {
+		height: auto;
+		padding-top: 150px;
+	}
+
+	.hero-fullscreen-bg .heading {
+		font-size: 2em; /*making font smaller for mobile*/
+	}
+
+
+	#search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
+		display: none;
+	}
+
+	#search-submit-header.btn.btn-primary {
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border: none;
+	}
+
+	button#search-option-toggle.btn.btn-default.dropdown-toggle {
+		display: none;
+	}
+
+/* Navigation items */
+
+	.navbar-no-background {
+		position: absolute;
+		background: rgba(16, 91, 99, 0.95) !important;
+		background-image: none !important;
+	}
+
+	.navbar-no-background.image-background {
+		background-image: none !important;
+	}
+
+  
+	.navbar-no-background .main-navbar-nav .dropdown > .dropdown-menu {
+		background-color:#f5f5f5;
+	}
+	.navbar .container {
+		z-index:2;
+	}
+
+	.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+		color: #3b3b3b;
+	}
+
+	.navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
+		background-color: #f5f5f5;
+	}
+
+/*adding border to the main site menu dropdown to be consistent with admin dropdown and make it look more like the whole area is clickable*/
+	.navbar-nav > li{
+		border-bottom: 1px solid #424242;
+		padding-left:1em;
+	}
+	.navbar-nav.main-navbar-nav {
+		border-top:1px solid #424242;
+	}
+	.navbar-nav {
+		margin:0;
+	}
+
+	/*dropdown menu colors*/
+	.navbar-light-font .open .dropdown-menu > li > a {
+	   color:#3b3b3b !important;
+	}
+	.navbar-light-font .open dropdown-menu > li > a:hover {
+	   color:#db9e36 !important;
+	   background-color:#f5f5f5 !important;
+	}
+
+	.dropdown-menu {
+		box-shadow: none;
+		position: relative;
+		width: 100%;
+		float:none;
+		}
+	.dropdown.open {
+		padding-left:0;
+		}
+	
+
+	
+
+
+
+
+	  /* Admin Page */
+	.page-container .page-sidebar {
+		width: 150px;
+	  }
+
+	.page-container .page-content {
+		margin-left: 150px;
+	  }
+
+	.dropdown-menu .divider {
+		margin: 0;
+	  }
+
+	  /* Forms */
+	.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
+		padding: 10px 10px;
+	  
+	}
+
+
+
+
+  /* Dashboard and other secondary pages */
+/*
+#my_nav {
+    margin-top: 120px;
+  }
+*/
+/*
+  .search-margin-top {
+    margin-top: 100px;
+  }
+*/
+/* 
+#content-wrapper {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+*/
+
+
+
+	.container.dashboard {
+		padding-right: 30px;
+	  }
+
+	.container.dashboard>h1 {
+		  margin-top: 50px;
+	  }
+
+	.container.dashboard h2.non.lower small {
+		font-size: 50%;
+	  }
+
+	.heading-tile {
+		font-size: large;
+	  }
+
+	.container.dashboard a.btn.btn-danger.pull-right {
+		float:left !important;
+	  }
+
+	.pull-right.no-pull-sm {
+		float: none !important;
+		margin-bottom: 5px;
+	  }
+
+/* not needed
+	.main-header {
+		margin-top:100px;
+  }
+*/
+
+	.profile {
+		margin-top: 20px;
+	  }
+
+	  /* Make images responsive */
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	  }
+
+	img.file_listing_thumbnail {
+		max-width: initial;
+	  }
+
+ 
+}
+
+
+@media screen and (min-width:993px) and (max-width: 1199px) {
+
+/*admin logged-in menu changed font size so it will fit in header without breaking layout*/
+
+	.main-navbar-nav {
+	   font-size:.7em;
+	}
+
+}
+
+/*updates / overrides for Hyrax upgrade*/
+
+.navbar-transparent {
+  background-color: transparent;
+}

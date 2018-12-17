@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.active_job.queue_adapter = :delayed_job
 
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 
