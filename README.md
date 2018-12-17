@@ -4,7 +4,7 @@ ATLA staff use this repository as their digital library.
 
 ## Versions
 
-  - Ruby 2.5.1
+  - Ruby 2.5.3
   - Rails 5.1.6
   - Hyrax 2.3.3
 
