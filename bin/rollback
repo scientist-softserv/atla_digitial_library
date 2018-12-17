@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+__DIR__ = File.expand_path(File.dirname(__FILE__) + "/../ops")
+
+command = "cd #{__DIR__} && ansible-playbook -i ec2.py -l tag_Type_web --private-key ./keys/hydra.pem rollback.yml --extra-vars \"hosts=web\""
+puts command
+exec command
