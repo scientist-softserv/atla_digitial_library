@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  
+  mount HealthMonitor::Engine, at: '/'
+  authenticate :user, lambda { |u| u.admin_area? } do
+    mount DelayedJobWeb, at: "/delayed_job"
+  end
+ 
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
-  
+
     concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do

@@ -12,6 +12,7 @@ gem 'delayed_job_web' # mount this somewhere!
 gem 'devise', '~> 4.5'
 gem 'devise-guests', '~> 0.6'
 gem 'fcrepo_wrapper', group: %i[development test]
+gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
 gem 'hyrax', '~> 2.3.3'
 gem 'hyrax-spec', group: %i[development test]
 gem 'jbuilder', '~> 2.5'
@@ -24,6 +25,7 @@ gem 'rsolr', '~> 2.2'
 gem 'rspec-rails', group: %i[development test]
 gem 'sass-rails', '~> 5.0'
 gem 'selenium-webdriver', group: %i[development test]
+gem 'sentry-raven'
 gem 'solr_wrapper', '>= 0.3', group: %i[development test]
 gem 'spring', group: [:development]
 gem 'spring-watcher-listen', '~> 2.0.0', group: [:development]
