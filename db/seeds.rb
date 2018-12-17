@@ -1,13 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
 User.where(email: 'rob@notch8.com').first_or_create do |f|
   f.password = 'testing123'
-  f.admin_area = true
 end
 
 if Rails.env.development?
@@ -23,20 +22,14 @@ end
 
 User.where(email: 'ckarpinski@atla.com').first_or_create do |f|
   f.password = 'Ka55ttp72'
-  f.admin_area = true
 end
 
 User.where(email: 'jbutler@atla.com').first_or_create do |f|
   f.password = 'Ka55ttp72'
-  f.admin_area = true
 end
 
-#Rake::Task['hyrax:default_collection_types:create'].invoke
-#Rake::Task['hyrax:default_admin_set:create'].invoke
-Rake::Task['sufia:default_admin_set:create'].invoke
-Rake::Task['curation_concerns:workflow:load'].invoke
-Rake::Task['sufia:migrate:move_all_works_to_admin_set']
-# Rake::Task['import:import_ptc_oia'].invoke('rob@notch8.com', 'true') if Rails.env.development?
+Rake::Task['hyrax:default_collection_types:create'].invoke
+Rake::Task['hyrax:default_admin_set:create'].invoke
 
 if Rails.env.development?
   Harvester.create!(
@@ -54,5 +47,4 @@ if Rails.env.development?
     metadata_prefix: 'oai_dc'
   )
 end
-
-ActiveFedora::Base.reindex_everything if Rails.env.development?
+end

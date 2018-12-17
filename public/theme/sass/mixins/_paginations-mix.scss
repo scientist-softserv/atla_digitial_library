@@ -1,8 +1,0 @@
-@mixin pagination-button-color($accent-color) {
-	> a:hover, > span:hover,
-	> a:focus, > span:focus {
-		background-color: lighten($accent-color, 8%);
-		border-color: $accent-color;
-		color: #fff;
-	}
-}

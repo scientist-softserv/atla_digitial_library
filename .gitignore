@@ -31,7 +31,6 @@ db/*.sqlite3
 invoke.ini
 /config/application.yml
 /config/config.yml
-/config/database.yml
 /coverage.data
 /coverage/
 /db/*.javadb/

@@ -1,35 +1,31 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.5.1'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.1.6'
 
-gem 'blacklight_advanced_search', '~> 6.0'
+gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]
-gem 'coffee-rails', '~> 4.1.0'
-gem 'delayed_job_active_record'
-gem 'delayed_job_web'
-gem 'devise'
-gem 'devise-guests', '~> 0.5'
+gem 'capybara', '~> 2.13', group: %i[development test]
+gem 'coffee-rails', '~> 4.2'
+gem 'delayed_job'
+gem 'delayed_job_web' # mount this somewhere!
+gem 'devise', '~> 4.5'
+gem 'devise-guests', '~> 0.6'
 gem 'fcrepo_wrapper', group: %i[development test]
-gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
-gem 'hydra-head', '>= 10.2.0'
-gem 'iso8601', '~> 0.9.0'
-gem 'jbuilder', '~> 2.0'
+gem 'hyrax', '~> 2.3.3'
+gem 'hyrax-spec', group: %i[development test]
+gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'language_list', '~> 1.2', '>= 1.2.1'
-gem 'libxml-ruby'
-gem 'oai'
-gem 'pg', '~> 0.15'
-gem 'progress_bar'
-gem 'pry-rails', group: [:development]
-gem 'rsolr', '~> 1.0'
+gem 'listen', '>= 3.0.5', '< 3.2', group: [:development]
+gem 'pg'
+gem 'puma', '~> 3.7'
+gem 'riiif', '~> 1.1'
+gem 'rsolr', '~> 2.2'
 gem 'rspec-rails', group: %i[development test]
 gem 'sass-rails', '~> 5.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'sentry-raven'
+gem 'selenium-webdriver', group: %i[development test]
 gem 'solr_wrapper', '>= 0.3', group: %i[development test]
 gem 'spring', group: [:development]
-gem 'sufia', git: 'https://github.com/projecthydra/sufia.git', tag: 'v7.4.1'
-gem 'turbolinks'
+gem 'spring-watcher-listen', '~> 2.0.0', group: [:development]
+gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'web-console', '~> 2.0', group: [:development]
