@@ -1014,3 +1014,11 @@ a[title="Tumblr"] {display:none;}
 .navbar-transparent {
   background-color: transparent;
 }
+
+.dashboard .navbar-background-color {
+  background-color: #505050;
+}
+
+.dashboard #content-wrapper[role=main] {
+  padding-top: 60px;
+}
