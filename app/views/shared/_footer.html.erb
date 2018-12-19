@@ -1,8 +1,8 @@
 <footer class="navbar navbar-inverse">
   <div class="container">
     <div class="footer-terms">
-      <p><a href="/about/">About</a></p>
-      <p><a href="/help/">Help</a></p>
+      <p><%= link_to 'About', hyrax.about_path %></p>
+      <p><%= link_to 'Help', hyrax.help_path %></p>
     </div>
 
     <div class="footer-search"><%= render partial: 'catalog/search_form' %></div>

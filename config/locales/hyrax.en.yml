@@ -57,6 +57,10 @@ en:
     product_name: Hyrax
     product_twitter_handle: "@SamveraRepo"
     search:
+      form:
+        q:
+          label:          "Search ATLA Digital Library"
+          placeholder:    "Enter search terms ..."
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
         text: Search
