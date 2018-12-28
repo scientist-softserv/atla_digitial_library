@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/institutions' => 'hyrax/static#institutions'
+
   authenticate :user, lambda { |u| u.admin_area? } do
     mount DelayedJobWeb, at: "/delayed_job"
   end
