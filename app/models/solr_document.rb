@@ -5,6 +5,16 @@ class SolrDocument
 
   # Adds Hyrax behaviors to the SolrDocument.
   include Hyrax::SolrDocumentBehavior
+  attribute :date, Solr::Date, solr_name('date', :stored_sortable, type: :date)
+  attribute :contributing_institution, Solr::Array, solr_name('contributing_institution')
+  attribute :place, Solr::Array, solr_name('place')
+  attribute :extent, Solr::Array, solr_name('extent')
+  attribute :format_original, Solr::Array, solr_name('format_original')
+  attribute :alternative_title, Solr::Array, solr_name('alternative_title')
+  attribute :time_period, Solr::Array, solr_name('time_period')
+  attribute :format_digital, Solr::Array, solr_name('format_digital')
+  attribute :types, Solr::Array, solr_name('types')
+
 
 
   # self.unique_key = 'id'
