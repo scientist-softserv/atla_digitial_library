@@ -3,6 +3,8 @@ ruby '2.5.3'
 
 gem 'rails', '5.1.6'
 
+#gem 'bulkrax', path: './vendor/engines/bulkrax'
+gem 'bulkrax', git: 'https://github.com/notch8/bulkrax.git'
 gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]
 gem 'capybara', '~> 2.13', group: %i[development test]
@@ -32,3 +34,4 @@ gem 'spring', group: [:development]
 gem 'spring-watcher-listen', '~> 2.0.0', group: [:development]
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'web-console', '>= 3.3.0', group: [:development]

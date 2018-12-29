@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.active_job.queue_adapter = :delayed_job
-
+  config.web_console.whitelisted_ips = ['172.16.0.0/12', '192.168.0.0/16', '127.0.0.1']
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 
   # In the development environment your application's code is reloaded on

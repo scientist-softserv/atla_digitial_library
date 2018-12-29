@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181003223842) do
+ActiveRecord::Schema.define(version: 20181228183333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,32 @@ ActiveRecord::Schema.define(version: 20181003223842) do
     t.datetime "updated_at", null: false
     t.index ["document_id"], name: "index_bookmarks_on_document_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "bulkrax_importer_runs", force: :cascade do |t|
+    t.bigint "bulkrax_importer_id"
+    t.integer "total_records", default: 0
+    t.integer "enqueued_records", default: 0
+    t.integer "processed_records", default: 0
+    t.integer "deleted_records", default: 0
+    t.integer "failed_records", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bulkrax_importer_id"], name: "index_bulkrax_importer_runs_on_bulkrax_importer_id"
+  end
+
+  create_table "bulkrax_importers", force: :cascade do |t|
+    t.string "name"
+    t.string "admin_set_id"
+    t.bigint "user_id"
+    t.string "frequency"
+    t.string "parser_klass"
+    t.integer "limit"
+    t.text "parser_fields"
+    t.text "field_mapping"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bulkrax_importers_on_user_id"
   end
 
   create_table "checksum_audit_logs", force: :cascade do |t|
@@ -89,6 +115,21 @@ ActiveRecord::Schema.define(version: 20181003223842) do
     t.index ["parent_id"], name: "index_curation_concerns_operations_on_parent_id"
     t.index ["rgt"], name: "index_curation_concerns_operations_on_rgt"
     t.index ["user_id"], name: "index_curation_concerns_operations_on_user_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "featured_works", force: :cascade do |t|
@@ -552,6 +593,8 @@ ActiveRecord::Schema.define(version: 20181003223842) do
     t.index ["work_id"], name: "index_work_view_stats_on_work_id"
   end
 
+  add_foreign_key "bulkrax_importer_runs", "bulkrax_importers"
+  add_foreign_key "bulkrax_importers", "users"
   add_foreign_key "collection_type_participants", "hyrax_collection_types"
   add_foreign_key "curation_concerns_operations", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"

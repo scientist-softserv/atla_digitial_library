@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Bulkrax::Engine, at: '/'
+
   mount HealthMonitor::Engine, at: '/'
 
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
