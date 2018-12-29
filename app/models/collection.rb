@@ -12,6 +12,10 @@ class Collection < ActiveFedora::Base
     0
   end
 
+  def reindex_extent
+    @reindex_extent ||= Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
+  end
+
   apply_schema Schemas::CollectionMetadata,
                Schemas::GeneratedResourceSchemaStrategy.new
 end
