@@ -21,7 +21,12 @@ en:
           date_uploaded_dtsi: Date Uploaded
           description_tesim: Description
           file_format_tesim: File Format
-          identifier_tesim: Identifier
+          identifier_tesim: URL
+          contributing_institution: Contributing Institution
+          identifier: URL
+          types: Type
+          format_digital: Format (Digital)
+          format_original: Format (Original)
           keyword_tesim: Keyword
           language_tesim: Language
           license_tesim: License
@@ -37,7 +42,12 @@ en:
           date_uploaded_dtsi: Date Uploaded
           description_tesim: Description
           file_format_tesim: File Format
-          identifier_tesim: Identifier
+          identifier_tesim: URL
+          contributing_institution: Contributing Institution
+          identifier: URL
+          types: Type
+          format_digital: Format (Digital)
+          format_original: Format (Original)
           keyword_tesim: Keyword
           language_tesim: Language
           license_tesim: License
