@@ -1,49 +1,21 @@
 - name: Permissions and folders
-  hosts: "tag_Type_web"
-  user: ubuntu
-  tasks:
-    - name: make shared root config directory
-      become: yes
-      file:
-        path: "{{ ansistrano_deploy_to }}/releases"
-        recurse: true
-        state: directory
-        owner: ubuntu
-        mode: 0755
-
-- name: Permissions and folders
-  hosts: "tag_Type_web"
-  user: ubuntu
-  tasks:
-    - name: make shared root config directory
-      become: yes
-      file:
-        path: "{{ ansistrano_deploy_to }}/shared"
-        recurse: true
-        state: directory
-        owner: ubuntu
-        mode: 0755
-
-- name: Permissions and folders
-  hosts: "tag_Type_web"
-  user: ubuntu
-  tasks:
-    - name: make shared root config directory
-      become: yes
-      file:
-        path: "{{ ansistrano_deploy_to }}"
-        recurse: true
-        state: directory
-        owner: ubuntu
-        mode: 0755
-
+ hosts: "tag_Type_web"
+ user: ubuntu
+ tasks:
+   - name: fix key permissions 
+     become: yes
+     file:
+       path: "{{ ansistrano_deploy_to }}/git_identity_key"
+       state: present
+       owner: ubuntu
+       mode: 0600
 
 
 - name: Deploy Rails App
   hosts: "tag_Type_web"
   user: ubuntu
   roles:
-    - { role: carlosbuenosvinos.ansistrano-deploy }
+    - { role: ansistrano.deploy }
 
 - name: Restart Delayed Job
   hosts: "tag_Type_web"

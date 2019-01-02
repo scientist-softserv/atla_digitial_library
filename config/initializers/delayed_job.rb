@@ -3,3 +3,4 @@ Delayed::Worker.queue_attributes = {
   events: { priority: 0 },
   import: { priority: 20}
 }
+Delayed::Worker.destroy_failed_jobs = false

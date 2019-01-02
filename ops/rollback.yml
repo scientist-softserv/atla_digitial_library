@@ -2,4 +2,4 @@
   hosts: "tag_Type_web"
   user: ubuntu
   roles:
-    - { role: carlosbuenosvinos.ansistrano-rollback }
+    - { role: ansistrano.rollback }
