@@ -17,7 +17,7 @@
           <%# TODO: fix collections link & styling %>
           <ul class="dropdown-menu">
             <%-# `root_path` originally `main_app.collections_path` -%>
-            <li <%= 'class=active dropdown' if current_page?(root_path) %>>
+            <li <%= 'class=active dropdown' if current_page?(main_app.root_path) %>>
               <%-# main_app.collections_path -%>
               <%= link_to "Collections", '#', :'data-no-turbolink'=>"true" %>
             </li>

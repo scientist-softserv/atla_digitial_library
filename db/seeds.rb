@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.where(email: 'rob@notch8.com').first_or_create do |f|
   f.password = 'testing123'
+  f.admin_area = true
 end
 
 if Rails.env.development?
@@ -22,10 +23,12 @@ end
 
 User.where(email: 'ckarpinski@atla.com').first_or_create do |f|
   f.password = 'Ka55ttp72'
+  f.admin_area = true
 end
 
 User.where(email: 'jbutler@atla.com').first_or_create do |f|
   f.password = 'Ka55ttp72'
+  f.admin_area = true
 end
 
 Rake::Task['hyrax:default_collection_types:create'].invoke
