@@ -1,8 +1,14 @@
+<!-- link around image -->
 <% if presenter.representative_id.present? && presenter.representative_presenter.present? %>
   <% if defined?(viewer) && viewer %>
-    <%= iiif_viewer_display presenter %>
+    <%= PulUvRails::UniversalViewer.script_tag %>
+    <div class="viewer-wrapper">
+      <div class="uv viewer" data-uri="<%= main_app.polymorphic_path [main_app, :manifest, presenter], { locale: nil } %>"></div>
+    </div>
   <% else %>
-    <%= media_display presenter.representative_presenter %>
+    <%= link_to presenter.identifier.first, target: '_blank', rel: "nofollow" do %>
+      <%= media_display presenter.representative_presenter %>
+      <% end %>
   <% end %>
 <% else %>
   <%= image_tag 'default.png', class: "canonical-image" %>

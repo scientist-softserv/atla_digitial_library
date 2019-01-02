@@ -5,7 +5,7 @@ module Hyrax
 
       def li_value(value)
         auto_link(value) do |link|
-          "<span class='glyphicon glyphicon-new-window'></span>&nbsp;#{link}"
+          "#{link}&nbsp;<span class='glyphicon glyphicon-new-window'></span>"
         end
       end
     end
