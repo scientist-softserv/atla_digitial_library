@@ -5,6 +5,12 @@ class CatalogController < ApplicationController
   # This filter applies the hydra access controls
   before_action :enforce_show_permissions, only: :show
 
+  def collections_index
+    @collections_index = main_app.root_url
+    @collections_index.sub! '/?locale=en', '/catalog?f%5Bhuman_readable_type_sim%5D%5B%5D=Collection&locale=en'
+    redirect_to @collections_index
+  end
+
   def self.uploaded_field
     solr_name('system_create', :stored_sortable, type: :date)
   end

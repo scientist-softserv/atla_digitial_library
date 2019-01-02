@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get '/institutions' => 'hyrax/static#institutions'
 
+  get '/collections', to: 'catalog#collections_index', as: 'collections'
+
   authenticate :user, lambda { |u| u.admin_area? } do
     mount DelayedJobWeb, at: "/delayed_job"
   end
