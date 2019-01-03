@@ -69,13 +69,6 @@
     </div>
   <% end %>
 
-  <!-- Search bar -->
-  <div class="hyc-blacklight hyc-bl-search hyc-body row">
-    <div class="col-sm-8">
-      <%= render 'search_form', presenter: @presenter, url: hyrax.collection_path(@presenter.id) %>
-    </div>
-  </div>
-
   <!-- Subcollections -->
   <% if @presenter.collection_type_is_nestable? && @subcollection_count > 0 %>
       <div class="hyc-blacklight hyc-bl-title">
@@ -88,9 +81,19 @@
 
   <!-- Works -->
   <% if @members_count > 0 %>
-      <div class="hyc-blacklight hyc-bl-title">
-        <h4><%= t('.works_in_collection') %></h4>
+    <div class='row'>
+      <div class='col-sm-4'>
+        <div class="hyc-blacklight hyc-bl-title">
+          <h2><%= t('.works_in_collection') %></h2>
+        </div>
       </div>
+      <!-- Search bar -->
+      <div class="col-sm-8">
+        <div class="hyc-blacklight hyc-bl-search hyc-body row">
+          <%= render 'search_form', presenter: @presenter, url: hyrax.collection_path(@presenter.id) %>
+        </div>
+      </div>
+    </div>
 
       <div class="hyc-blacklight hyc-bl-sort">
         <%= render 'sort_and_per_page', collection: @presenter %>

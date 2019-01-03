@@ -1,21 +1,24 @@
-version: '2.0'
+version: '2.2'
 services:
   main:
     build: .
-    image: registry.gitlab.com/notch8/atla_digital_library
+    image: registry.gitlab.com/notch8/atla_digital_library:latest
     env_file:
       - .env.development
       - .env
+    stdin_open: true
+    tty: true
     volumes:
       - .:/data
 
-  delayed_job:
+  dj:
     extends: main
-    command: ./bin/delayed_job run
+    command: rails jobs:work
     depends_on:
       - solr
       - fcrepo
       - postgres
+      - redis
 
   web:
     extends: main
@@ -26,7 +29,7 @@ services:
     ports:
       - "${DEV_PORT}"
     depends_on:
-      - delayed_job
+      - dj
       - redis
       - solr
       - fcrepo
