@@ -50,6 +50,10 @@ zh:
     collections:
       show:
         works_in_collection: 此集合中的项目
+    dashboard:
+      collections:
+        show:
+          metadata_header: 收集细节
     directory:
       suffix: "@example.org"
     footer:

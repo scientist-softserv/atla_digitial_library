@@ -50,6 +50,10 @@ pt-BR:
     collections:
       show:
         works_in_collection: Itens nesta coleção
+    dashboard:
+      collections:
+        show:
+          metadata_header: Detalhes da coleção
     directory:
       suffix: "@ Example.org"
     footer:
