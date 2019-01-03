@@ -47,6 +47,9 @@ fr:
           title_tesim: Titre
   hyrax:
     account_name: L'ID de compte de mon établissement
+    collections:
+      show:
+        works_in_collection: Articles de cette collection
     directory:
       suffix: "@ Example.org"
     footer:
