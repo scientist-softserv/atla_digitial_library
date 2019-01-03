@@ -1,4 +1,5 @@
-image: registry.gitlab.com/citygro/docker-and-compose
+image: registry.gitlab.com/notch8/scripts/builder:latest
+#image: registry.gitlab.com/citygro/docker-and-compose
 
 services:
   - docker:dind
