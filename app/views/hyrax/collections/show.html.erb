@@ -1,3 +1,4 @@
+<%# Override file to remove unwanted labels from header and customize layout of view %>
 <% provide :page_title, construct_page_title(@presenter.title) %>
 <div class="hyc-container" itemscope itemtype="http://schema.org/CollectionPage">
   <div class="row hyc-header">
@@ -28,6 +29,8 @@
             <% end %>
           </div>
       <% end %>
+
+      <%# Removed labels (item count, created by, and last updated) from header %>
 
       </header>
 
@@ -79,6 +82,7 @@
       </div>
   <% end %>
 
+  <%# Move search bar down to be inline with 'Works in Collection' h2 %>
   <!-- Works -->
   <% if @members_count > 0 %>
     <div class='row'>

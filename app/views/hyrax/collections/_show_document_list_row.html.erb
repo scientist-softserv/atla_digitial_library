@@ -1,3 +1,4 @@
+<%# Override file to remove unneeded table columns and links to the parent collection %>
 <% id = document.id %>
 <tr id="document_<%= id %>">
   <td>&nbsp;
@@ -14,7 +15,10 @@
         <p class="media-heading">
           <strong><%= link_to document.title_or_label, [main_app, document], id: "src_copy_link#{id}", class: "#{'document-title' if document.title_or_label == document.label}" %></strong>
         </p>
+        <%# Removed call for `render_other_collection_links` method %>
       </div>
     </div>
   </td>
+  <%# Removed date_uploaded <td> %>
+  <%# Removed visibility label <td> %>
 </tr>
