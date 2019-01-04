@@ -1,0 +1,9 @@
+<%# Override file to allow for styling control using existing theme classes %>
+<% solr_response ||= @response %>
+<% page_param_name ||= :page %>
+<% if solr_response.total_pages > 1 %>
+    <%# Added `pager` class %>
+    <div class="row record-padding col-md-9 pager">
+      <%= paginate solr_response, outer_window: 2, theme: 'blacklight', param_name: page_param_name %>
+    </div><!-- /pager -->
+<% end %>

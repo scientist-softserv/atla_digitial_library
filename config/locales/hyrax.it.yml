@@ -47,6 +47,13 @@ it:
           title_tesim: Titolo
   hyrax:
     account_name: ID del mio istituto dell'istituto
+    collections:
+      show:
+        works_in_collection: Articoli in questa raccolta
+    dashboard:
+      collections:
+        show:
+          metadata_header: Dettagli della collezione
     directory:
       suffix: "@ example.org"
     footer:

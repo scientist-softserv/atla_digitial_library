@@ -171,53 +171,62 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 
 /*pager prev next and numbers*/
 
-.pager a {
-	border: 1px solid #ddd;
-	padding: .4em .8em;
-	line-height: 2.5em;
-	}
-
-.pager a:hover {
-	background-color:#1c636b;
-	color:white;
-	}
-	
-.pager a.disabled {
-	background-color:#1c636b;
-	color:white;
-	}
-
-.pager a.disabled[rel~="prev"] {
-	background-color:white;
-	color:#db9e36;
-	}
-	
-.pager a.disabled[rel~="next"] {
-	background-color:white;
-	color:#db9e36;
-	}
-	
-.pagination a {
-	border: 1px solid #ddd;
-	padding: .4em .8em;
-	line-height:2.5em;
+.hyc-bl-pager .pagination li a, .hyc-bl-pager .pagination .active span {
+  border-radius: 0;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 0.5em 0.75em;
+  line-height: 1em;
+  margin-right: 5px;
 }
 
-.pagination a:hover {
+.pager li > a:hover {
 	background-color:#1c636b;
 	color:white;
 }
 
-.pagination a.disabled {
+.pager li > a.disabled {
 	background-color:#1c636b;
 	color:white;
 	}
-	
-.pagination a.disabled[rel~="prev"]{
+
+.pager li > a.disabled[rel~="prev"] {
+	background-color:white;
+	color:#db9e36;
+	}
+
+.pager li > a.disabled[rel~="next"] {
+	background-color:white;
+	color:#db9e36;
+	}
+
+.pagination > li > a, .pagination > li > span {
+  border-radius: 0;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 0.5em 0.75em;
+  line-height: 1em;
+  margin-right: 5px;
+  color: #db9e36;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover {
+	background-color:#1c636b;
+  border: 1px solid #ddd;
+	color:white;
+}
+
+.pagination > li > a.disabled, .pagination > li > span.disabled {
+	background-color:#1c636b;
+	color:white;
+}
+
+.pagination > li > a.disabled[rel~="prev"], .pagination > li > span.disabled[rel~="prev"] {
 	background-color:white;
 	color:#db9e36;
 }
-.pagination a.disabled[rel~="next"]{
+
+.pagination > li > a.disabled[rel~="next"], .pagination > li > span.disabled[rel~="next"] {
 	background-color:white;
 	color:#db9e36;
 }
@@ -1025,4 +1034,9 @@ a[title="Tumblr"] {display:none;}
 
 .search-result-title {
   font-size: 1.6em;
+}
+.search-result-wrapper{
+  span.label {
+    display: none;
+  }
 }

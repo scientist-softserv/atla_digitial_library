@@ -47,6 +47,13 @@ zh:
           title_tesim: 标题
   hyrax:
     account_name: 我的机构帐户标识符
+    collections:
+      show:
+        works_in_collection: 此集合中的项目
+    dashboard:
+      collections:
+        show:
+          metadata_header: 收集细节
     directory:
       suffix: "@example.org"
     footer:
