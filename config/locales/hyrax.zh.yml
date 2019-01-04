@@ -67,3 +67,9 @@ zh:
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 搜索
         text: 搜索
+  simple_form:
+    labels:
+      defaults:
+        description: 描述
+      work:
+        identifier: 网址

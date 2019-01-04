@@ -67,3 +67,9 @@ es:
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
         text: Buscar
+  simple_form:
+    labels:
+      defaults:
+        description: Descripción
+      work:
+        identifier: URL

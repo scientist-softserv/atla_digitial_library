@@ -67,3 +67,9 @@ pt-BR:
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Procurar
         text: Procurar
+  simple_form:
+    labels:
+      defaults:
+        description: Descrição
+      work:
+        identifier: URL
