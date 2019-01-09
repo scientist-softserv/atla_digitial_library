@@ -23,7 +23,7 @@ The app should now be available at http://localhost:3000.
 On the first run, you may need to do setup Solr and run database migrations:
 
 ```sh
-sc exec -s solr bin/solr create -c development -d /opt/config`
+sc exec -s solr bin/solr create -c development -d /opt/config
 sc be rake db:schema:load db:migrate
 ```
 
@@ -37,3 +37,15 @@ Then run the test suite with:
 bundle; bundle exec rake hydra:test_server
 bundle exec rake spec
 ```
+
+## Troubleshooting
+
+If an `Ldp::Conflict, "Can't call create on an existing resource"` error is encountered when attempting to create a Work, Collection, etc., run the following command in a rails console:
+
+```
+[::Noid::Rails::Service.new.minter.mint, ::Noid::Rails::Service.new.minter.mint]
+```
+
+Upon resubmission of the form, the resource should be created successfully.
+
+This is currently a known bug in Hyrax. See here for more details: https://github.com/samvera/hyrax/issues/3128

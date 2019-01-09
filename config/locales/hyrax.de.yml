@@ -57,9 +57,32 @@ de:
     directory:
       suffix: "@ Example.org"
     footer:
-      copyright_html: "<strong>Copyright © 2017 Samvera lizenziert</strong> unter der Apache Lizenz, Version 2.0"
+      copyright_html: "<strong>Copyright © 2019 Samvera lizenziert</strong> unter der Apache Lizenz, Version 2.0"
       service_html: Ein Dienst von <a href="http://samvera.org/" class="navbar-link" target="_blank">Samvera</a> .
     institution_name: Institution
     institution_name_full: Name des Instituts
     product_name: Hyrax
     product_twitter_handle: "@SamveraRepo"
+  simple_form:
+    labels:
+      defaults:
+        description: Beschreibung
+      work:
+        alternative_title: Alternativer Titel
+        contributing_institution: Beitragende institution
+        contributor: Mitwirkender
+        date: Datum
+        extent: Umfang
+        format_digital: Digital formatieren
+        format_original: Original formatieren
+        identifier: URL
+        language: Sprache
+        place: Platz
+        publisher: Herausgeber
+        relation: Beziehung
+        resource_type: Ressourcentyp
+        rights_holder: Rechteinhaber
+        source: Quelle
+        subject: Gegenstand
+        time_period: Zeitperiode
+        types: Typen
