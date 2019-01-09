@@ -68,4 +68,21 @@ de:
       defaults:
         description: Beschreibung
       work:
+        alternative_title: Alternativer Titel
+        contributing_institution: Beitragende institution
+        contributor: Mitwirkender
+        date: Datum
+        extent: Umfang
+        format_digital: Digital formatieren
+        format_original: Original formatieren
         identifier: URL
+        language: Sprache
+        place: Platz
+        publisher: Herausgeber
+        relation: Beziehung
+        resource_type: Ressourcentyp
+        rights_holder: Rechteinhaber
+        source: Quelle
+        subject: Gegenstand
+        time_period: Zeitperiode
+        types: Typen
