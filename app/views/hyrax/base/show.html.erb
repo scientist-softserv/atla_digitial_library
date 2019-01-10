@@ -21,12 +21,13 @@
           <% end %>
           <div class="col-sm-3 text-center mobile-media">
             <%= render 'representative_media', presenter: @presenter, viewer: false unless @presenter.universal_viewer? %>
+            <%= link_to "View Full Item", @presenter.identifier.first, class: 'btn btn-default', target: '_blank', rel: "nofollow" %>
             <%= render 'social_media' %>
           </div>
           <div class="col-sm-9">
-           <%= render 'metadata', presenter: @presenter %>
+            <%= render 'metadata', presenter: @presenter %>
           </div>
-       </div>
+        </div>
       </div>
     </div>
   </div>
