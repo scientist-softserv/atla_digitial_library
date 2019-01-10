@@ -1128,8 +1128,10 @@ p.media-heading {
 
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
-/*On mobile layout the share icons are the only thing centered to undo that add:*/
-.text-center {text-align:left;}
-
 /*Need space between social media and metadata can add for mobile */
-.social-media {margin-bottom:1em;}
+@media screen and (max-width: 768px) {
+  .mobile-media {
+    text-align: left;
+    margin-bottom: 1em;
+  }
+}

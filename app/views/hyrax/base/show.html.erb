@@ -19,7 +19,7 @@
               <%= render 'representative_media', presenter: @presenter, viewer: true %>
             </div>
           <% end %>
-          <div class="col-sm-3 text-center">
+          <div class="col-sm-3 text-center mobile-media">
             <%= render 'representative_media', presenter: @presenter, viewer: false unless @presenter.universal_viewer? %>
             <%= render 'social_media' %>
           </div>
