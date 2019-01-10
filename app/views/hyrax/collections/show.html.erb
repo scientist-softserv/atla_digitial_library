@@ -38,7 +38,7 @@
   </div>
 
   <div class="row hyc-body">
-    <div class="col-md-8 hyc-description">
+    <div class="col-md-12 hyc-description">
       <%= render 'collection_description', presenter: @presenter %>
 
       <% if @presenter.collection_type_is_nestable? && @presenter.total_parent_collections > 0 %>
@@ -53,7 +53,7 @@
       <% end %>
 
     </div>
-    <div class="col-md-4 hyc-metadata">
+    <div class="col-md-12 hyc-metadata">
       <% unless has_collection_search_parameters? %>
           <h2><%= t('hyrax.dashboard.collections.show.metadata_header') %></h2>
           <%= render 'show_descriptions' %>
@@ -86,13 +86,13 @@
   <!-- Works -->
   <% if @members_count > 0 %>
     <div class='row'>
-      <div class='col-sm-4'>
+      <div class='col-sm-6'>
         <div class="hyc-blacklight hyc-bl-title">
           <h2><%= t('.works_in_collection') %></h2>
         </div>
       </div>
       <!-- Search bar -->
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <div class="hyc-blacklight hyc-bl-search hyc-body row">
           <%= render 'search_form', presenter: @presenter, url: hyrax.collection_path(@presenter.id) %>
         </div>
