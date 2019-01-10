@@ -1054,7 +1054,7 @@ a[title="Tumblr"] {display:none;}
 .work-show dt, .work-show dd { padding: 0;}
 
 /*Remove "work" heading at top of item pages*/
-.work-type-tag h1 {display:none;}
+h1.work-type-tag {display:none;}
 
 /*Remove border around item record*/
 .panel {
@@ -1102,7 +1102,7 @@ a[title="Tumblr"] {display:none;}
 .hyc-metadata div {border-bottom:0px;}
 
 .hyc-metadata div dt {
-  color:#636363;
+  color:#636363; /* changed from #333 for consistency */
   font-size: .9em;
   line-height:1;
 }
