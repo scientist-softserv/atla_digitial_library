@@ -15,5 +15,5 @@
  *= require 'openseadragon'
  *= require 'hyrax'
  *= require 'main'
- *= require '_home'
+ *= require '_overrides'
  */
