@@ -1069,7 +1069,7 @@ a[title="Tumblr"] {display:none;}
 h1.work-type-tag {display:none;}
 
 /*Remove border around item record*/
-.panel {
+.work-type .panel {
   border:0px;
   box-shadow:0 0px 0px rgba(0,0,0,0.00)
 }
@@ -1082,7 +1082,7 @@ h1.work-type-tag {display:none;}
 }
 
 /*Remove background color from titles on Item pages*/
-.panel-default>.panel-heading {
+.work-type .panel-default>.panel-heading {
   background-color:transparent;
 }
 
@@ -1093,6 +1093,11 @@ h1.work-type-tag {display:none;}
 }
 
 .panel-heading h2 { margin:0;}
+
+h2.facets-heading {
+  font-weight: 700 !important;
+  color: #636363 !important;
+}
 
 /*Adjust bolding and color of metadata labels*/
 .work-show dt {
