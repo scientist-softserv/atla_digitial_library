@@ -186,6 +186,10 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
   margin-right: 5px;
 }
 
+.hyc-bl-pager .pagination {
+  display: inline-block; /* center pagination on collections show page */
+}
+
 .pager li > a:hover {
 	background-color:#1c636b;
 	color:white;
