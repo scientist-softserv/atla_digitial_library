@@ -49,7 +49,7 @@ section.section-gray {
 
 
 .hero-fullscreen-bg {
-	background-image: image-url('ATLA-hero-new.jpg');
+	background-image: image-url('ATLA-hero-dark.jpg');
 	background-repeat: repeat; /*changed from no repeat for very wide screens so that it doesnt show the grey*/
 	background-position: top;
 	position: relative;
@@ -58,6 +58,10 @@ section.section-gray {
 
 .hero-fullscreen-bg {
 	height: 60%; /*was 100%*/
+}
+
+.hero-fullscreen-bg .overlay {
+  background-color: rgba(0,0,0,0);
 }
 
 .hero-fullscreen-bg .heading {
@@ -518,7 +522,7 @@ ol.catalog li div h2 {margin-top:0;}
 }
 
 .image-background {
-	background-image: image-url('ATLA-hero-new.jpg')!important;
+	background-image: image-url('ATLA-hero-dark.jpg')!important;
 	background-repeat: no-repeat;
 	background-position: top !important;
 	max-height: 110px;
@@ -1023,7 +1027,7 @@ a[title="Tumblr"] {display:none;}
 /*updates / overrides for Hyrax upgrade*/
 
 #no-home .navbar-transparent {
-  background-image: image-url('ATLA-hero-new.jpg');
+  background-image: image-url('ATLA-hero-dark.jpg');
 }
 
 #wrapper .navbar-transparent {
