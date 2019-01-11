@@ -1042,3 +1042,94 @@ a[title="Tumblr"] {display:none;}
     display: none;
   }
 }
+
+/* updates for show pages */
+/*WORKS PAGES*/
+
+/*Removes indent from metadata value lines and adjusts spacing*/
+.work-show ul.tabular {padding:0;}
+
+.work-show dd {margin: 0 0 1em 0;}
+
+.work-show dt, .work-show dd { padding: 0;}
+
+/*Remove "work" heading at top of item pages*/
+.work-type-tag h1 {display:none;}
+
+/*Remove border around item record*/
+.panel {
+  border:0px;
+  box-shadow:0 0px 0px rgba(0,0,0,0.00)
+}
+
+/*Remove border around breadcrumbs and adjust spacing */
+.breadcrumb {
+  border:0px;
+  margin-top:0px;
+  padding:0;
+}
+
+/*Remove background color from titles on Item pages*/
+.panel-default>.panel-heading {
+  background-color:transparent;
+}
+
+/* Remove space above title heading and border under it*/
+.panel-heading {
+  border-bottom: 0px;
+  padding-top:0;
+}
+
+.panel-heading h2 { margin:0;}
+
+/*Adjust bolding and color of metadata labels*/
+.work-show dt {
+  font-weight:600;
+  color:#636363;
+}
+
+
+/*COLLECTION PAGES*/
+
+/*Get rid of striped rows look*/
+.table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
+
+/*Collection info text under collection name and description - make smaller, darker labels and less space between lines, hide "collection details"text*/
+.hyc-metadata h2 {display:none;}
+
+.hyc-metadata dl {border-top:0px;}
+
+.hyc-metadata div {border-bottom:0px;}
+
+.hyc-metadata div dt {
+  color:#636363;
+  font-size: .9em;
+  line-height:1;
+}
+
+.hyc-metadata div dd{
+  font-size: .9em;
+  line-height:1;
+}
+
+/*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
+
+p.media-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size:1.2em;
+}
+
+/*Top section of collection page layout adjustment*/
+
+.hyc-description {padding:0 0 1em 1em;}
+
+.hyc-header {margin-bottom:1em;}
+
+
+/*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
+
+/*On mobile layout the share icons are the only thing centered to undo that add:*/
+.text-center {text-align:left;}
+
+/*Need space between social media and metadata can add for mobile */
+.social-media {margin-bottom:1em;}
