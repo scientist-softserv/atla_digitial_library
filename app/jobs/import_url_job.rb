@@ -112,6 +112,8 @@ class ImportUrlJob < Hyrax::ApplicationJob
       end
     end
 
+    # Make sure the file we write has a usable name
+    # @param uri [URI] the uri of the file to download
     def safe_filename(uri)
       filename = File.basename(uri.path)
       filename.gsub!('/', '')
