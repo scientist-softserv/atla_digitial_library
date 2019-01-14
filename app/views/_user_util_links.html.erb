@@ -1,5 +1,4 @@
 <ul id="user_utility_links" class="nav navbar-nav">
-  <%= render 'shared/locale_picker' if available_translations.size > 1 %>
   <% if user_signed_in? %>
     <li>
       <%= render_notifications(user: current_user) %>
@@ -19,11 +18,5 @@
         <li><%= link_to t("hyrax.toolbar.profile.logout"), main_app.destroy_user_session_path %></li>
       </ul>
     </li><!-- /.btn-group -->
-  <% else %>
-    <li>
-      <%= link_to main_app.new_user_session_path do %>
-        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <%= t("hyrax.toolbar.profile.login") %>
-      <% end %>
-    </li>
   <% end %>
 </ul>
