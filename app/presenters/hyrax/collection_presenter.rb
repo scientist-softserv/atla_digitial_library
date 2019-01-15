@@ -43,7 +43,7 @@ module Hyrax
     # app/views/collections/_show_descriptions.html.erb
     # removed :identifier from terms
     def self.terms
-      [:total_items, :size, :resource_type, :creator, :contributor, :keyword, :license, :publisher, :date_created, :subject,
+      [:total_items, :resource_type, :creator, :contributor, :keyword, :license, :publisher, :date_created, :subject,
        :language, :based_near, :related_url]
     end
 
