@@ -1,6 +1,6 @@
 
 desc 'Fixes mp3 facet duplications and properly set to MPEG'
-task :fix_format_digital => [:environment] do
+task :repair_format_digital => [:environment] do
   Work.find_each do |w|
     if w.format_digital&.first.downcase =~ /mp3/
       w.format_digital = ["MPEG"]
