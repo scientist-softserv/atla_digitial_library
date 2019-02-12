@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'pages#show', key: 'about'
-  get 'participate' => 'pages#show', key: 'participate'
+  get 'participate' => 'hyrax/pages#show', key: 'participate', as: 'participate'
   get 'help' => 'pages#show', key: 'help'
   get 'terms' => 'pages#show', key: 'terms'
   get 'agreement' => 'pages#show', key: 'agreement'
