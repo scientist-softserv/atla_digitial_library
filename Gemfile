@@ -3,7 +3,7 @@ ruby '2.5.3'
 
 gem 'rails', '5.1.6'
 
-#gem 'bulkrax', path: './vendor/engines/bulkrax'
+# gem 'bulkrax', path: './vendor/engines/bulkrax'
 gem 'bulkrax', git: 'https://github.com/notch8/bulkrax.git'
 gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]
@@ -20,6 +20,7 @@ gem 'hyrax-spec', group: %i[development test]
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'listen', '>= 3.0.5', '< 3.2', group: [:development]
+gem 'pry-rails'
 gem 'pg'
 gem 'progress_bar'
 gem 'puma', '~> 3.7'
