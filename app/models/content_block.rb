@@ -1,3 +1,5 @@
+# This file was moved over from hyrax to allow a "participate" page.
+# Lines/blocks that differ from original source are commented with a prefix of "UPGRADE NOTE"
 class ContentBlock < ActiveRecord::Base
   # The keys in this registry are "public" names for collaborator
   # objects, and the values are reserved names of ContentBlock
@@ -20,6 +22,7 @@ class ContentBlock < ActiveRecord::Base
   def self.for(key)
     key = key.respond_to?(:to_sym) ? key.to_sym : key
     raise ArgumentError, "#{key} is not a ContentBlock name" unless whitelisted?(key)
+
     ContentBlock.public_send(NAME_REGISTRY[key])
   end
 
@@ -60,6 +63,7 @@ class ContentBlock < ActiveRecord::Base
       about_page.update(value: value)
     end
 
+    # UPGRADE NOTE: these methods differ from original source. Changed to allow for a "participate" page.
     def participate_page
       find_or_create_by(name: 'participate_page')
     end
@@ -67,6 +71,7 @@ class ContentBlock < ActiveRecord::Base
     def participate_page=(value)
       participate_page.update(value: value)
     end
+    # END UPGRADE NOTE
 
     def agreement_page
       find_by(name: 'agreement_page') ||

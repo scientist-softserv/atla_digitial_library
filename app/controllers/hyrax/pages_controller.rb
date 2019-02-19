@@ -1,4 +1,6 @@
 # Shows the about and help page
+# This has been moved over from hyrax to extend the functionality to include the "participate" page
+# Lines/blocks that differ from original source are commented with a prefix of "UPGRADE NOTE"
 class Hyrax::PagesController < ApplicationController
   load_and_authorize_resource class: ContentBlock, except: :show
   layout :pages_layout
@@ -31,7 +33,7 @@ class Hyrax::PagesController < ApplicationController
 
   def permitted_params
     params.require(:content_block).permit(:about,
-                                          :participate,
+                                          :participate, # UPGRADE NOTE: this line differs from original source. Changed to allow for a "participate" page.
                                           :agreement,
                                           :help,
                                           :terms)
