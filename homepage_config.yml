@@ -3,40 +3,35 @@ homepage:
   collections:
     - id: 1
       anchor_text: Latin America Collection - Princeton Theological Seminary
-      url: /collections/h989r4234 #PATH TO COLLECTION
+      url: /collections/w9505163c #PATH TO COLLECTION
       image:
-        path_to_file: /img/latin_america.PNG #DESIRED THUMBNAIL NAME
+        path_to_file: /img/latin_america.png #DESIRED THUMBNAIL NAME
     - id: 2
       anchor_text: Moffett Korea Collection - Princeton Theological Seminary
-      url: /collections/j6731476f #PATH TO COLLECTION
+      url: /collections/1831cm01x #PATH TO COLLECTION
       image:
-        path_to_file: /img/moffett_korea.PNG #DESIRED THUMBNAIL NAME
+        path_to_file: /img/moffett_korea.png #DESIRED THUMBNAIL NAME
     - id: 3
-      anchor_text: Missionary Research Library Pamphlets - Princeton Theological Seminary
-      url: /collections/qb98mg29d #PATH TO COLLECTION
-      image:
-        path_to_file: /img/missionary_research.PNG #DESIRED THUMBNAIL NAME
-    - id: 4
       anchor_text: T.F. Torrance Collection of Antiquarian Books - Princeton Theological Seminary
-      url: /collections/pn89d7598 #PATH TO COLLECTION
+      url: /collections/hm50tt05r #PATH TO COLLECTION
       image:
-        path_to_file: /img/tf_torrance.PNG #DESIRED THUMBNAIL NAME
-    - id: 5
+        path_to_file: /img/tf_torrance.png #DESIRED THUMBNAIL NAME
+    - id: 4
       anchor_text: The W. H. Dub Jackson Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
-      url: /collections/76537649g #PATH TO COLLECTION
+      url: /collections/9019s3627 #PATH TO COLLECTION
       image:
-        path_to_file: /img/whdub.PNG #DESIRED THUMBNAIL NAME
-    - id: 6
+        path_to_file: /img/whdub.png #DESIRED THUMBNAIL NAME
+    - id: 5
       anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
-      url: /collections/8w32rb49z #PATH TO COLLECTION
+      url: /collections/ft848r32p #PATH TO COLLECTION
       image:
-        path_to_file: /img/lrscarborough.PNG #DESIRED THUMBNAIL NAME
-    - id: 7
+        path_to_file: /img/lrscarborough.png #DESIRED THUMBNAIL NAME
+    - id: 6
       anchor_text: Robert Hamill Nassau Manuscript Collection - Princeton Theological Seminary
-      url: /collections/gb19f682g #PATH TO COLLECTION
+      url: /collections/9s1617330 #PATH TO COLLECTION
       image:
-        path_to_file: /img/robert_hamill.PNG #DESIRED THUMBNAIL NAME
-    - id: 8
+        path_to_file: /img/robert_hamill.png #DESIRED THUMBNAIL NAME
+    - id: 7
       anchor_text: Cooperative Digital Resources Initiative
       url: /collections/hm50tr96s #PATH TO COLLECTION
       image:
