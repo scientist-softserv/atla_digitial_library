@@ -40,11 +40,7 @@ Rails.application.routes.draw do
     mount DelayedJobWeb, at: "/delayed_job"
   end
 
-  get 'about' => 'pages#show', key: 'about'
-  get 'participate' => 'hyrax/pages#show', key: 'participate', as: 'participate'
-  get 'help' => 'pages#show', key: 'help'
-  get 'terms' => 'pages#show', key: 'terms'
-  get 'agreement' => 'pages#show', key: 'agreement'
+  get 'participate' => 'hyrax/pages#show', key: 'participate'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
