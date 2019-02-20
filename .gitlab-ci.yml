@@ -3,10 +3,6 @@ image: registry.gitlab.com/notch8/scripts/builder:latest
 
 services:
   - docker:dind
-  - redis:3
-  - postgres
-  - solr:5.5
-  - botimer/fcrepo:4.5.1
 
 variables:
   DOCKER_DRIVER: overlay
@@ -41,11 +37,17 @@ test:
 #    - docker-compose run web bundle exec rake assets:precompile
   after_script:
     - docker-compose stop
+  services:
+    - redis:3
+    - postgres
+    - solr:5.5
+    - botimer/fcrepo:4.5.1
 
 staging:
   image: registry.gitlab.com/notch8/scripts/builder:latest
   type: deploy
   script:
+    - export ANSIBLE_HOST_KEY_CHECKING=False
     # Set ssh key
     - echo $SSH_DEPLOY_KEY | base64 -d > $CI_PROJECT_DIR/ops/keys/deploy
     - chmod 600 $CI_PROJECT_DIR/ops/keys/deploy
@@ -64,6 +66,7 @@ production:
   image: registry.gitlab.com/notch8/scripts/builder:latest
   type: deploy
   script:
+    - export ANSIBLE_HOST_KEY_CHECKING=False
     # Set ssh key
     - echo $SSH_DEPLOY_KEY | base64 -d > $CI_PROJECT_DIR/ops/keys/deploy
     - chmod 600 $CI_PROJECT_DIR/ops/keys/deploy
@@ -76,3 +79,6 @@ production:
     - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
     - ./bin/deploy production
   when: manual
+  only:
+    - master
+

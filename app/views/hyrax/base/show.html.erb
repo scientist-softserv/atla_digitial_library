@@ -21,9 +21,11 @@
           <% end %>
           <div class="col-sm-3 mobile-media">
             <%= render 'representative_media', presenter: @presenter, viewer: false unless @presenter.universal_viewer? %>
-            <%= link_to @presenter.identifier.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
-              View Full Item
-              <span class="glyphicon glyphicon-new-window"></span>
+            <% if @presenter.identifier.present? %>
+              <%= link_to @presenter.identifier.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
+                View Full Item
+                <span class="glyphicon glyphicon-new-window"></span>
+              <% end %>
             <% end %>
             <%= render 'social_media' %>
           </div>
