@@ -79,3 +79,6 @@ production:
     - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
     - ./bin/deploy production
   when: manual
+  only:
+    - master
+
