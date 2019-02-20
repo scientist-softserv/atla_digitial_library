@@ -9,14 +9,14 @@
     <div id="main-nav-collapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li <%= 'class=active' if current_page?(hyrax.root_path) %>>
-          <%= link_to t(:'hyrax.controls.home'), hyrax.root_path, :'data-no-turbolink'=>"true" %>
+          <%= link_to t(:'hyrax.controls.home'), hyrax.root_path, 'data-no-turbolink': "true" %>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expaned="false">
             Explore <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li <%= 'class=active dropdown' if request.fullpath.include?('=Collection&locale=en') %>>
-              <%= link_to "Collections", main_app.collections_path, :'data-no-turbolink'=>"true" %>
+              <%= link_to "Collections", main_app.collections_path, 'data-no-turbolink': "true" %>
             </li>
             <li <%= 'class=active dropdown' if current_page?(main_app.institutions_path) %>>
               <%= link_to 'Institutions', main_app.institutions_path %>
@@ -26,7 +26,10 @@
 
 
         <li <%= 'class=active' if current_page?(hyrax.about_path) %>>
-          <%= link_to t(:'hyrax.controls.about'), hyrax.about_path, :'data-no-turbolink'=>"true" %>
+          <%= link_to t(:'hyrax.controls.about'), hyrax.about_path, 'data-no-turbolink': "true" %>
+        </li>
+        <li <%= 'class=active' if current_page?(main_app.participate_path) %>>
+          <%= link_to t(:'hyrax.controls.participate') || 'Participate', main_app.participate_path, 'data-no-turbolink': "true" %>
         </li>
         <li <%= 'class=active' if current_page?(hyrax.help_path) %>>
           <%= link_to t(:'hyrax.controls.help'), hyrax.help_path %>
