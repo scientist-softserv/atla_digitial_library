@@ -5,10 +5,27 @@ class CatalogController < ApplicationController
   # This filter applies the hydra access controls
   before_action :enforce_show_permissions, only: :show
 
+  ## UPGRADE NOTE
+  # This method serves as a collections index page by using Blacklight search functionality and
+  # filtering by type Collection. See here in the Blacklight gem for location of original method:
+  # app/controllers/concerns/blacklight/catalog.rb#L24
   def collections_index
-    @collections_index = main_app.root_url
-    @collections_index.sub! '/?locale=en', '/catalog?f%5Bhuman_readable_type_sim%5D%5B%5D=Collection&locale=en'
-    redirect_to @collections_index
+    (@response, @document_list) = search_results({"f"=>{"human_readable_type_sim"=>["Collection"]}}.with_indifferent_access)
+
+    respond_to do |format|
+      format.html { store_preferred_view }
+      format.rss  { render :layout => false }
+      format.atom { render :layout => false }
+      format.json do
+        @presenter = Blacklight::JsonPresenter.new(@response,
+                                                   @document_list,
+                                                   facets_from_request,
+                                                   blacklight_config)
+      end
+      additional_response_formats(format)
+      document_export_formats(format)
+      render "catalog/index.html.erb"
+    end
   end
 
   def self.uploaded_field
