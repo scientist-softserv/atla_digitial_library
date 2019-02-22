@@ -1149,6 +1149,16 @@ p.media-heading {
 
 .hyc-header {margin-bottom:1em;}
 
+.featured-item {
+  border: none;
+  padding: 0;
+}
+
+.featured-item img {
+  width: 100%;
+  float: none;
+  padding-right: 0;
+}
 
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
