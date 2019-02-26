@@ -1161,6 +1161,11 @@ p.media-heading {
   padding-right: 0;
 }
 
+// Dashboard/Collection/Form "slug" field
+#collection_slug {
+	max-width: 540px;
+}
+
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
 /*Need space between social media and metadata can add for mobile */
