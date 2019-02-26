@@ -1,0 +1,8 @@
+<h4 class="thumbnail-heading">
+  <span class="sr-only">Title</span>
+  <%= link_to truncate(featured_work_title(featured.id), length: 28, separator: ' '), main_app.hyrax_work_path(id: featured.id) %>
+</h4>
+
+<%= link_to main_app.hyrax_work_path(id: featured.id) do %>
+  <%= content_tag :div, '', class: 'overlay' %>
+<% end%>
