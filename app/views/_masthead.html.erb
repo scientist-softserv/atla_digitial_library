@@ -15,7 +15,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expaned="false">
             Explore <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li <%= 'class=active dropdown' if request.fullpath.include?('=Collection&locale=en') %>>
+            <li <%= 'class=active dropdown' if current_page?(main_app.collections_path) %>>
               <%= link_to "Collections", main_app.collections_path, 'data-no-turbolink': "true" %>
             </li>
             <li <%= 'class=active dropdown' if current_page?(main_app.institutions_path) %>>

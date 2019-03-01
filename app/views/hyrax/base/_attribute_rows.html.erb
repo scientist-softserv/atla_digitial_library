@@ -19,7 +19,9 @@
 <% end %>
 <%= presenter.attribute_to_html(:format_digital, render_as: :faceted, html_dl: true) %>
 <%= presenter.attribute_to_html(:types, render_as: :faceted, html_dl: true) %>
-<%= presenter.attribute_to_html(:identifier, render_as: :external_link, search_field: 'identifier_tesim', html_dl: true) %>
+<% if presenter.identifier.present? && presenter.identifier.first.match("http") %>
+  <%= presenter.attribute_to_html(:identifier, render_as: :external_link, search_field: 'identifier_tesim', html_dl: true) %>
+<% end %>
 <%= presenter.attribute_to_html(:related_url, render_as: :external_link, html_dl: true) %>
 <%= presenter.attribute_to_html(:rights_statement, render_as: :rights_statement, label: 'Rights', html_dl: true) %>
 <%= presenter.attribute_to_html(:rights_holder, render_as: :faceted, html_dl: true) %>
