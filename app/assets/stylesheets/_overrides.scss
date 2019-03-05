@@ -1149,7 +1149,10 @@ p.media-heading {
 
 .hyc-header {margin-bottom:1em;}
 
-.featured-item {border:none;}
+.featured-item {
+  border: none;
+  min-height: 135px;
+}
 
 .featured-section {padding-bottom:0;}
 
