@@ -1151,14 +1151,15 @@ p.media-heading {
 
 .featured-item {
   border: none;
-  padding: 0;
-  min-height: auto;
+  min-height: 135px;
 }
 
+.featured-section {padding-bottom:0;}
+
 .featured-item img {
-  width: 100%;
-  float: none;
   padding-right: 0;
+  margin-right: 1em;
+  max-width: 100%;
 }
 
 // Dashboard/Collection/Form "slug" field

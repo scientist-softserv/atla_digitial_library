@@ -14,6 +14,7 @@ class SolrDocument
   attribute :time_period, Solr::Array, solr_name('time_period')
   attribute :format_digital, Solr::Array, solr_name('format_digital')
   attribute :types, Solr::Array, solr_name('types')
+  attribute :remote_manifest_url, Solr::Array, solr_name('remote_manifest_url')
 
 
 

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/notch8/bulkrax.git
-  revision: 0fc541b2b5af3b5e06d0f50ad10edaf2e6df853e
+  revision: 2de6e1b37fd53bf629d27878d0ed23940aaa3e5e
   specs:
     bulkrax (0.1.0)
       iso8601 (~> 0.9.0)
@@ -381,7 +381,7 @@ GEM
       tinymce-rails (~> 4.1)
     hyrax-spec (0.3.2)
       rspec (~> 3.6)
-    i18n (1.5.3)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     iiif_manifest (0.5.0)
