@@ -10,6 +10,6 @@ class RightsStatementLookup
   def self.description_for(id)
     subauthority_hash['terms'].detect { |statement|
       statement["id"] == id
-    }["description"].to_s.html_safe
+    }&.[]("description")&.to_s&.html_safe
   end
 end
