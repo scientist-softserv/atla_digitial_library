@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= 
+//= require float-panel
 //
 // Required by Blacklight
 //= require jquery
