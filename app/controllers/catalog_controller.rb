@@ -10,7 +10,7 @@ class CatalogController < ApplicationController
   # filtering by type Collection. See here in the Blacklight gem for location of original method:
   # app/controllers/concerns/blacklight/catalog.rb#L24
   def collections_index
-    (@response, @document_list) = search_results({"f"=>{"human_readable_type_sim"=>["Collection"]}}.with_indifferent_access)
+    (@response, @document_list) = search_results(params.merge({"f": {"human_readable_type_sim": ["Collection"]}}))
 
     respond_to do |format|
       format.html { store_preferred_view }
