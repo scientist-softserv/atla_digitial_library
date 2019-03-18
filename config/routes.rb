@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/institutions' => 'hyrax/static#institutions'
+  get '/institutions' => 'hyrax/pages#show', key: 'institutions'
 
   get '/collections', to: 'catalog#collections_index', as: 'collections'
 
