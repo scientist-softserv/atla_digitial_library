@@ -1,4 +1,4 @@
-# This file was moved over from hyrax to allow a "participate" page.
+# This file was moved over from hyrax to allow for "participate" and "institutions" pages.
 # Lines/blocks that differ from original source are commented with a prefix of "UPGRADE NOTE"
 class ContentBlock < ActiveRecord::Base
   # The keys in this registry are "public" names for collaborator
@@ -13,6 +13,7 @@ class ContentBlock < ActiveRecord::Base
     about: :about_page,
     participate: :participate_page,
     help: :help_page,
+    institutions: :institutions_page,
     terms: :terms_page,
     agreement: :agreement_page
   }.freeze
@@ -89,6 +90,16 @@ class ContentBlock < ActiveRecord::Base
     def help_page=(value)
       help_page.update(value: value)
     end
+
+    # UPGRADE NOTE: these methods differ from original source. Changed to allow for an "institutions" page.
+    def institutions_page
+      find_or_create_by(name: 'institutions_page')
+    end
+
+    def institutions_page=(value)
+      institutions_page.update(value: value)
+    end
+    # END UPGRADE NOTE
 
     def terms_page
       find_by(name: 'terms_page') ||
