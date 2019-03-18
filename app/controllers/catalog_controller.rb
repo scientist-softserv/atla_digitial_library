@@ -24,7 +24,6 @@ class CatalogController < ApplicationController
       end
       additional_response_formats(format)
       document_export_formats(format)
-      render "catalog/index.html.erb"
     end
   end
 
