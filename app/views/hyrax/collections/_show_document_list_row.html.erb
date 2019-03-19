@@ -7,13 +7,14 @@
     <% end %>
   </td>
   <td>
+    <% document_url = document.slug.present? ? hyrax.collection_path(document) : [main_app, document]  %>
     <div class="media">
-      <%= link_to hyrax.collection_path(id), class: "media-left" do %>
-        <%= image_tag Hyrax::CollectionThumbnailPathService.default_image, class: "hidden-xs file_listing_thumbnail", suppress_link: true %>
+      <%= link_to document_url, class: "media-left" do %>
+        <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
       <% end %>
       <div class="media-body">
         <p class="media-heading">
-          <strong><%= link_to document.title_or_label, hyrax.collection_path(id), id: "src_copy_link#{id}" %></strong>
+          <strong><%= link_to document.title_or_label, document_url, id: "src_copy_link#{id}" %></strong>
         </p>
         <%# Removed call for `render_other_collection_links` method %>
       </div>

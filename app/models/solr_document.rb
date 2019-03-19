@@ -15,7 +15,7 @@ class SolrDocument
   attribute :format_digital, Solr::Array, solr_name('format_digital')
   attribute :types, Solr::Array, solr_name('types')
   attribute :remote_manifest_url, Solr::Array, solr_name('remote_manifest_url')
-
+  attribute :slug, Solr::Array, solr_name('slug')
 
 
   # self.unique_key = 'id'
@@ -33,7 +33,11 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
-  # Do content negotiation for AF models. 
+
+  # Do content negotiation for AF models.
+  def to_param
+    self.slug&.first || self.id
+  end
 
   use_extension( Hydra::ContentNegotiation )
 end
