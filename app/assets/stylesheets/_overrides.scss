@@ -1198,14 +1198,17 @@ p.media-heading {
 
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
-/*Need space between social media and metadata can add for mobile */
+#per_page-dropdown .dropdown-toggle {
+  color: #c38822;
+}
+
 @media screen and (max-width: 768px) {
+  /*Need space between social media and metadata can add for mobile */
   .mobile-media {
     text-align: left;
     margin-bottom: 1em;
   }
-}
-
-#per_page-dropdown .dropdown-toggle {
-  color: #c38822;
+  .col-xs-12 {
+    padding: 0;
+  }
 }
