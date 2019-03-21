@@ -60,6 +60,10 @@ en:
     collections:
       show:
         works_in_collection: Items in this Collection
+    controls:
+      collections: Collections
+      institutions: Institutions
+      participate: Participate
     dashboard:
       collections:
         show:
