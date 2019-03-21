@@ -7,7 +7,6 @@ class EnsureAllCollectionsHaveSlugs < ActiveRecord::Migration[5.1]
       end
     end
   end
-
   def down
   end
 end
