@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= 
-//= require turbolinks
+//= require float-panel
 //
 // Required by Blacklight
 //= require jquery

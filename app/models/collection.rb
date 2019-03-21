@@ -5,6 +5,12 @@ class Collection < ActiveFedora::Base
 
   include ::Hyrax::CollectionBehavior
 
+  self.indexer = CollectionIndexer
+
+  def to_param
+    self.slug || self.id
+  end
+
   # def self.find(id_or_slug)
   #   results = where(slug: id_or_slug).first
   #   results = ActiveFedora::Base.find(id_or_slug) unless results.present?

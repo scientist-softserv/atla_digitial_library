@@ -33,6 +33,5 @@ gem 'sentry-raven'
 gem 'solr_wrapper', '>= 0.3', group: %i[development test]
 gem 'spring', group: [:development]
 gem 'spring-watcher-listen', '~> 2.0.0', group: [:development]
-gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '>= 3.3.0', group: [:development]
