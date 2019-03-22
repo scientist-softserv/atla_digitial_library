@@ -11,12 +11,12 @@ class Collection < ActiveFedora::Base
     self.slug || self.id
   end
 
-  # def self.find(id_or_slug)
-  #   results = where(slug: id_or_slug).first
-  #   results = ActiveFedora::Base.find(id_or_slug) unless results.present?
+  def self.find(id_or_slug)
+    results = where(slug: id_or_slug).first
+    results = ActiveFedora::Base.find(id_or_slug) unless results.present?
 
-  #   results
-  # end
+    results
+  end
 
   def set_slug
     self.slug = title.first if slug.blank?
