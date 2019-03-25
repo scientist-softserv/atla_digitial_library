@@ -33,6 +33,6 @@ homepage:
         path_to_file: /img/robert_hamill.png #DESIRED THUMBNAIL NAME
     - id: 7
       anchor_text: Cooperative Digital Resources Initiative
-      url: /collections/cdri #PATH TO COLLECTION
+      url: /collections/cooperative-digital-resources-initiative-cdri #PATH TO COLLECTION
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
