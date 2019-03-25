@@ -1,13 +1,26 @@
 <% if @subcollection_docs.nil? || @subcollection_docs.empty? %>
   <div class="alert alert-warning" role="alert"><%= t('hyrax.collections.show.no_visible_subcollections') %></div>
 <% else %>
-<% @subcollection_docs.each do |document| %>
-  <ul>
-   <li>
-      <% id = document.id %>
-      <strong><%= link_to document.title_or_label, [hyrax, document], id: "src_copy_link_#{id}" %></strong>
-    </li>
-  </ul>
+  <table class="table table-striped">
+    <tbody>
+      <% @subcollection_docs.each do |document| %>
+        <tr>
+          <% id = document.id %>
+          <td>
+            <div class="media">
+              <%= link_to [hyrax, document], class: "media-left" do %>
+                <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
+              <% end %>
+              <div class="media-body">
+                <div class="media-heading">
+                  <strong><%= link_to document.title_or_label, [hyrax, document], id: "src_copy_link_#{id}" %></strong>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
 <%= render 'hyrax/collections/paginate', solr_response: @subcollection_solr_response, page_param_name: :sub_collection_page  %>
-<% end %>
