@@ -75,7 +75,7 @@
   <!-- Subcollections -->
   <% if @presenter.collection_type_is_nestable? && @subcollection_count > 0 %>
       <div class="hyc-blacklight hyc-bl-title">
-        <h4><%= t('.subcollection_count') %> (<%= @subcollection_count %>)</h4>
+        <h4><%= t('hyrax.base.collections.show.subcollection_count') %> (<%= @subcollection_count %>)</h4>
       </div>
       <div class="hyc-blacklight hyc-bl-results">
         <%= render 'subcollection_list', collection: @subcollection_docs %>
