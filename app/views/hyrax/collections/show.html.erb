@@ -11,8 +11,8 @@
       <% end %>
 
       <div class="row">
-        <div class="col-md-2">
-          <% unless @presenter.logo_record.blank? %>
+        <div class="col-sm-2">
+          <% if @presenter.logo_record.present? %>
             <div class="hyc-logos collection-logo">
               <% @presenter.logo_record.each_with_index  do |lr, i| %>
 
@@ -26,9 +26,11 @@
 
               <% end %>
             </div>
+          <% else %>
+            <%= render_thumbnail_tag @presenter.solr_document, { class: "hyc-logos collection-logo" } %>
           <% end %>
         </div>
-        <div class="col-md-9 col-md-offset-1">
+        <div class="col-sm-9 col-sm-offset-1">
           <div class="hyc-title">
             <h1><%= @presenter.title.first %></h1>
             <%= render 'collection_description', presenter: @presenter %>
