@@ -20,4 +20,13 @@ module ApplicationHelper
   def featured_work_title(work_id)
     Work.find(work_id).title.first
   end
+
+  # return the path of a given collection's logo if it exists, else return nil
+  def collection_logo_path(collection_id)
+    cbi = CollectionBrandingInfo.where(collection_id: collection_id).where(role: 'logo').first
+    return if cbi.blank?
+    if cbi.local_path.present?
+      cbi.local_path.sub('/data/public','')
+    end
+  end
 end
