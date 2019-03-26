@@ -1202,6 +1202,11 @@ p.media-heading {
   color: #c38822;
 }
 
+.hyc-generic .hyc-logos.collection-logo img {
+  height: auto;
+  padding: 0;
+}
+
 @media screen and (max-width: 768px) {
   /*Need space between social media and metadata can add for mobile */
   .mobile-media {

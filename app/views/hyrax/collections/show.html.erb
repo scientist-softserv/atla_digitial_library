@@ -10,25 +10,31 @@
           <header class="hyc-generic">
       <% end %>
 
-      <div class="hyc-title">
-        <h1><%= @presenter.title.first %></h1>
-      </div>
-
-      <% unless @presenter.logo_record.blank? %>
-          <div class="hyc-logos">
-            <% @presenter.logo_record.each_with_index  do |lr, i| %>
+      <div class="row">
+        <div class="col-md-2">
+          <% unless @presenter.logo_record.blank? %>
+            <div class="hyc-logos collection-logo">
+              <% @presenter.logo_record.each_with_index  do |lr, i| %>
 
                 <% if lr[:linkurl].blank? %>
-                    <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
+                  <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>", class="img-responsive" />
                 <% else %>
-                    <a href="<%= lr[:linkurl] %>">
-                      <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
-                    </a>
+                  <a href="<%= lr[:linkurl] %>">
+                    <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>", class="img-responsive" />
+                  </a>
                 <% end %>
 
-            <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-9 col-md-offset-1">
+          <div class="hyc-title">
+            <h1><%= @presenter.title.first %></h1>
+            <%= render 'collection_description', presenter: @presenter %>
           </div>
-      <% end %>
+        </div>
+      </div>
 
       <%# Removed labels (item count, created by, and last updated) from header %>
 
@@ -39,7 +45,6 @@
 
   <div class="row hyc-body">
     <div class="col-md-12 hyc-description">
-      <%= render 'collection_description', presenter: @presenter %>
 
       <% if @presenter.collection_type_is_nestable? && @presenter.total_parent_collections > 0 %>
           <div class="hyc-blacklight hyc-bl-title">
