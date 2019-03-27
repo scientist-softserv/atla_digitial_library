@@ -21,12 +21,22 @@ module ApplicationHelper
     Work.find(work_id).title.first
   end
 
-  # return the path of a given collection's logo if it exists, else return nil
-  def collection_logo_path(collection_id)
-    cbi = CollectionBrandingInfo.where(collection_id: collection_id).where(role: 'logo').first
-    return if cbi.blank?
-    if cbi.local_path.present?
-      cbi.local_path.sub('/data/public','')
+  # Taken from logo_record method in app/presenters/hyrax/collection_presenter.rb,
+  # except available everywhere and with a few tweaks to alttext
+  # return the info of a given collection's logo if it exists, else return nil
+  def collection_logo_info(collection_id)
+    logo_info = []
+    # Find Logo filename, alttext, linktext
+    cbi = CollectionBrandingInfo.where(collection_id: collection_id).where(role: 'logo')
+    return if cbi.empty?
+    cbi.each do |coll_info|
+      logo_file = File.split(coll_info.local_path).last
+      file_location = "/" + coll_info.local_path.split("/")[-4..-1].join("/") unless logo_file.empty?
+      # fallback on file name for alt tag
+      alttext = coll_info.alt_text.present? ? coll_info.alt_text : logo_file
+      linkurl = coll_info.target_url
+      logo_info << { file: logo_file, file_location: file_location, alttext: alttext, linkurl: linkurl }
     end
+    logo_info
   end
 end
