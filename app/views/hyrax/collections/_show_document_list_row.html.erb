@@ -9,8 +9,14 @@
   <td>
     <% document_url = document.slug.present? ? hyrax.collection_path(document) : [main_app, document]  %>
     <div class="media">
-      <%= link_to document_url, class: "media-left" do %>
-        <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
+      <% if collection_logo_path(id).present? %>
+        <%= link_to [hyrax, document], class: "media-left" do %>
+          <%= image_tag collection_logo_path(id), class: "hidden-xs file_listing_thumbnail" %>
+        <% end %>
+      <% else %>
+        <%= link_to [hyrax, document], class: "media-left" do %>
+          <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
+        <% end %>
       <% end %>
       <div class="media-body">
         <p class="media-heading">
