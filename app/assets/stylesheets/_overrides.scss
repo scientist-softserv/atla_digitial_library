@@ -3,6 +3,9 @@
 body {
 	margin-bottom:0px;
 	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	background-color: #fff;
 }
 
 img.representative-media {max-width:100%;}
@@ -11,8 +14,8 @@ video {
   height: auto   !important;
 }
 
-h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
-	font-family: 'Montserrat', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+	color:#000000;
 }
 
 .attribute-label.h4 {font-size:1em;}
@@ -32,7 +35,7 @@ section.section-gray {
 
 /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
 #content-wrapper.one-pages {
-	padding-top:125px;
+	padding-top:90px;
 	padding-bottom:2em;
 }
 
@@ -133,45 +136,26 @@ section.section-gray {
 
 /*** Buttons and Links ***/
 
-a, .btn-link {
-	color: #db9e36;
+
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span, footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus, .btn-link:focus, .btn-link, .btn-danger, .label-danger {
+	background-color: #E65A3A;
+	border-color: #E65A3A;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span {
-	background-color: #105b63;
-	border-color: #0b3c42;
+.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .btn-link:hover, .btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
+	background-color: #E65A3A;
+	border-color: #E65A3A;
+	text-decoration:underline;
 }
 
-footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus {
-	background-color: #0b3c42;
-	border-color: #0b3c42;
-}
 
-.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-	background-color: #0b3c42;
-	border-color: #07282c;
-}
-
-a:hover, a:focus, .btn-link:hover, .btn-link:focus {
-	color: #c38822;
-}
-
-.btn-danger, .label-danger {
-	background-color: #bd4932;
-	border-color: #a13f2b;
-}
-
-.btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
-	background-color: #a13f2b;
-	border-color: #792f20;
-}
 .multi_value .btn.add {
   text-decoration: none;
   padding: 5px 10px;
   width: auto;
   color: white;
-  background-color: #105b63;
-  border-color: #0b3c42;
+  background-color: #E65A3A;
+	border-color: #E65A3A;
 }
 
 
@@ -191,23 +175,23 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 }
 
 .pager li > a:hover {
-	background-color:#1c636b;
+	background-color:#E65A3A;
 	color:white;
 }
 
 .pager li > a.disabled {
-	background-color:#1c636b;
+	background-color:#E65A3A;
 	color:white;
 	}
 
 .pager li > a.disabled[rel~="prev"] {
 	background-color:white;
-	color:#db9e36;
+	color:#258fce;
 	}
 
 .pager li > a.disabled[rel~="next"] {
 	background-color:white;
-	color:#db9e36;
+	color:#E65A3A;
 	}
 
 .pagination > li > a, .pagination > li > span {
@@ -217,28 +201,29 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
   padding: 0.5em 0.75em;
   line-height: 1em;
   margin-right: 5px;
-  color: #db9e36;
+  color: #E65A3A;
 }
 
 .pagination > li > a:hover, .pagination > li > span:hover {
-	background-color:#1c636b;
+	background-color:#E65A3A;
   border: 1px solid #ddd;
 	color:white;
+	text-decoration:underline;
 }
 
 .pagination > li > a.disabled, .pagination > li > span.disabled {
-	background-color:#1c636b;
+	background-color:#E65A3A;
 	color:white;
 }
 
 .pagination > li > a.disabled[rel~="prev"], .pagination > li > span.disabled[rel~="prev"] {
 	background-color:white;
-	color:#db9e36;
+	color:#E65A3A;
 }
 
 .pagination > li > a.disabled[rel~="next"], .pagination > li > span.disabled[rel~="next"] {
 	background-color:white;
-	color:#db9e36;
+	color:#E65A3A;
 }
 
 /* -------- Explore Collections and Featured -------*/
@@ -270,7 +255,9 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 .home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
 	background-color:transparent;
 	border: 1px solid transparent;
-	color:#db9e36;
+	color:#000000;
+	font-weight:700;
+	font-family: 'PT Serif', serif;
 }
 
 ul.collection-highlights-list {
@@ -293,13 +280,13 @@ ul.collection-highlights-list {
 	line-height:1.3em;
 }
 
-.footer-name-one, .footer-name-two {
+.footer-name-one {
 	font-size:1em;
 	font-weight:800;
-	color:antiquewhite;
+	color:#ffffff;
 }
 
-.footer-terms {
+.footer-menu {
     padding:1em;
 }
 
@@ -308,8 +295,8 @@ ul.collection-highlights-list {
 }
 
 footer.navbar.navbar-inverse {
-	background-color: #105b63;
-	border-color: #0b3c42;
+	background-color: #258fce;
+	border-color: #258fce;
 }
 
 footer.navbar {
@@ -327,23 +314,6 @@ footer.navbar.navbar-inverse img {
 footer .navbar-text {
 	margin-left: 0;
 	margin-right: 0;
-}
-
-.footer-links a {
-	color: #9d9d9d;
-}
-
-.footer-links {
-	color: #d9d9d9;
-}
-
-ul.footer-links {
-	list-style-type: none;
-	padding-left: 0;
-}
-
-.navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
-	color: #d9d9d9;
 }
 
 
@@ -423,7 +393,6 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .search-results h2{
-	color:#105b63;
 	margin-top:0;
 }
 
@@ -481,30 +450,33 @@ ol.catalog li div h2 {margin-top:0;}
 
 /* -------- Navbar -------- */
 
-.nav {font-family: 'Open Sans', sans-serif;}
+.nav {font-family: 'Muli', sans-serif;}
 
 /*removing padding on right side of logo so admin menu can fit on wider screens*/
 .navbar-brand {
-  padding-right:0;
+  padding:0;
   height: auto;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
 	color: #fff;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	line-height: 1;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
-	color: #db9e36;
+	color: #fff;
+	text-decoration:underline;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-	color: #db9e36;
+	color: #fff;
+	text-decoration:underline;
 }
 .navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
-	color: #db9e36;
+	color: #fff;
+	text-decoration:underline;
 }
 
 .main-navbar-nav li > .dropdown-menu {
@@ -516,7 +488,7 @@ ol.catalog li div h2 {margin-top:0;}
 }
 
 .navbar-light-font {
-	background-color: rgba(16, 91, 99, 0.95)
+	background-color: rgba(37, 143, 206, 0.95)
 }
 
 .main-navbar-nav > li > a {
@@ -541,7 +513,7 @@ ol.catalog li div h2 {margin-top:0;}
 }
 
 .navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
-	background: rgba(16,91,99, 0.95) !important;
+	background: rgba(37, 143, 206, 0.95) !important;
 }
 
 /* set minimum width to prevent reflow after login button was removed from navbar */
@@ -596,7 +568,7 @@ input {
 
 .label-info::before {
 	content: "*";
-	color: #bd4932;
+	color: #e65a3a;
 }
 .label-info {
 	background-color: #fff;
@@ -635,20 +607,21 @@ input {
 /* -------- Breadcrumbs -------- */
 
 .breadcrumb > li.active {
-	color: #105b63;
+	color: #258fce;
 }
 
 .breadcrumb a:hover, .breadcrumb a:focus {
-	color: #105b63;
+	color: #258fce;
 }
 
 .breadcrumb.link-accent a {
-	color: #105b63;
+	color: #258fce;
 }
 
 .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
 	text-decoration: none;
-	color: #0b3c42;
+	color: #258fce;
+	text-decoration:underline;
 }
 
 
@@ -797,19 +770,7 @@ a[title="Tumblr"] {display:none;}
 
 /* -------- FOOTER STYLES -------- */
 	.footer-info {
-		float:left;
 		padding-left:2em;
-		width:40%;
-	}
-
-	.footer-terms {
-		width:20%;
-		float:left;
-	}
-
-	.footer-search {
-		width:40%;
-		float:left;
 	}
 
 
@@ -1113,6 +1074,24 @@ h2.facets-heading {
   width: auto;
 }
 
+/*Small changes to make the view area 15px bigger in all directions to help UV have more room*/
+.panel-body {padding:0;}
+
+dl.work-show.work {padding-top:15px;}
+
+img.representative-media {padding-top:15px;}
+
+/*put space at the bottom of the universal viewer*/
+.viewer {padding:10px 0 10px 0;}
+
+
+
+
+
+
+
+
+
 /*COLLECTION PAGES*/
 
 /*Get rid of striped rows look*/
@@ -1211,4 +1190,16 @@ p.media-heading {
   .col-xs-12 {
     padding: 0;
   }
+  
+	/*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+	.navbar-default .navbar-collapse {margin-bottom:20px;)
+  
 }
+
+@Media (min-width: 768px) {
+	/*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+	.navbar-default .navbar-collapse {padding-top:15px;)
+}
+
+
+
