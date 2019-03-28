@@ -1145,7 +1145,7 @@ p.media-heading {
 
 /*Top section of collection page layout adjustment*/
 
-.hyc-description {padding:0 0 1em 1em;}
+.hyc-description {padding:0;}
 
 .hyc-header {margin-bottom:1em;}
 
@@ -1204,6 +1204,11 @@ p.media-heading {
 
 #per_page-dropdown .dropdown-toggle {
   color: #c38822;
+}
+
+.hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
+  height: auto;
+  padding: 0;
 }
 
 @media screen and (max-width: 768px) {
