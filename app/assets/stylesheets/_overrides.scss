@@ -1014,7 +1014,7 @@ a[title="Tumblr"] {display:none;}
   span.label {
     display: none;
   }
-
+}
 
 /* updates for show pages */
 /*WORKS PAGES*/
@@ -1190,16 +1190,13 @@ p.media-heading {
   .col-xs-12 {
     padding: 0;
   }
-  
-	/*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-	.navbar-default .navbar-collapse {margin-bottom:20px;}
-  
+
+  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+  .navbar-default .navbar-collapse {margin-bottom:20px;}
+
 }
 
 @media (min-width: 768px) {
-	/*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-	.navbar-default .navbar-collapse {padding-top:15px;}
+  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+  .navbar-default .navbar-collapse {padding-top:15px;}
 }
-
-
-
