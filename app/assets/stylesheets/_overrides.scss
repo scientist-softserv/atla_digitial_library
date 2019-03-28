@@ -2,7 +2,7 @@
 
 body {
 	margin-bottom:0px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Muli', sans-serif;
 	font-size: 16px;
 	line-height: 1.6;
 	background-color: #fff;
@@ -483,7 +483,7 @@ ol.catalog li div h2 {margin-top:0;}
 	border-top: 2px solid #db9e36;
 }
 
-.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus, {
+.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus {
 	color: #db9e36;
 }
 
@@ -1014,7 +1014,7 @@ a[title="Tumblr"] {display:none;}
   span.label {
     display: none;
   }
-}
+
 
 /* updates for show pages */
 /*WORKS PAGES*/
@@ -1118,7 +1118,6 @@ img.representative-media {padding-top:15px;}
 /*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
 
 p.media-heading {
-  font-family: 'Montserrat', sans-serif;
   font-size:1.2em;
 }
 
@@ -1141,7 +1140,8 @@ p.media-heading {
   max-width: 100%;
 }
 
-// Dashboard/Collection/Form "slug" field
+/* Dashboard/Collection/Form "slug" field*/
+
 #collection_slug {
   max-width: 540px;
 }
@@ -1192,13 +1192,13 @@ p.media-heading {
   }
   
 	/*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-	.navbar-default .navbar-collapse {margin-bottom:20px;)
+	.navbar-default .navbar-collapse {margin-bottom:20px;}
   
 }
 
-@Media (min-width: 768px) {
+@media (min-width: 768px) {
 	/*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-	.navbar-default .navbar-collapse {padding-top:15px;)
+	.navbar-default .navbar-collapse {padding-top:15px;}
 }
 
 
