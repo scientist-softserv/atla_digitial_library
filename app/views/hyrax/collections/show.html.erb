@@ -12,23 +12,18 @@
 
       <div class="row">
         <div class="col-sm-2">
+
           <% if @presenter.logo_record.present? %>
             <div class="hyc-logos collection-logo">
               <% @presenter.logo_record.each_with_index do |lr, i| %>
-
-                <% if lr[:linkurl].blank? %>
-                  <img alt="<%= (lr[:alttext].present? ? lr[:alttext] : lr[:file]) %>" src="<%= lr[:file_location] %>", class="img-responsive" />
-                <% else %>
-                  <a href="<%= lr[:linkurl] %>">
-                    <img alt="<%= (lr[:alttext].present? ? lr[:alttext] : lr[:file]) %>" src="<%= lr[:file_location] %>", class="img-responsive" />
-                  </a>
-                <% end %>
-
+                <%# remove unnecessary link to [:linkurl] %>
+                <img alt="<%= (lr[:alttext].present? ? lr[:alttext] : lr[:file]) %>" src="<%= lr[:file_location] %>", class="img-responsive" />
               <% end %>
             </div>
           <% else %>
             <%= render_thumbnail_tag @presenter.solr_document, { class: "hyc-logos collection-logo img-responsive" }, { suppress_link: true } %>
           <% end %>
+
         </div>
         <div class="col-sm-9 col-sm-offset-1">
           <div class="hyc-title title-custom-size">
