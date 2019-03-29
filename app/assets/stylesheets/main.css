@@ -14,13 +14,6 @@
 /* ---------------
  * Global Styles
  * --------------- */
-body {
-  font-family: Raleway, sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #8c8c8c;
-  background-color: #fff;
-}
 
 section {
   padding: 40px 0;
@@ -69,18 +62,17 @@ section {
  * Typography
  * -------------*/
 h1, h2, h3, h4, h5, h6 {
-  font-family: Raleway, sans-serif;
-  color: #636363;
+  color: #313133;
   font-weight: 700;
 }
 
 a {
-  color: #69B417;
+  color: #E65A3A;
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: #5c9d14;
-  text-decoration: none;
+  color: #E65A3A;
+  text-decoration: underline;
 }
 
 .section-dark {
@@ -6685,7 +6677,6 @@ img.mfp-img {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  font-family: Raleway, sans-serif;
   font-weight: 500;
 }
 .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
@@ -8456,7 +8447,6 @@ div[class*="col-"] .icon-info {
 }
 
 .icon-info .title {
-  font-family: Raleway, sans-serif;
   font-size: 18px;
   font-weight: 500;
   margin-top: 0;
@@ -8881,7 +8871,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 .portfolio-simple .info .title {
   margin-top: 0;
   margin-bottom: 3px;
-  font-family: Raleway, sans-serif;
   font-size: 14px;
   color: #fff;
 }
@@ -9009,7 +8998,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 }
 
 .portfolio-single-info .section-heading {
-  font-family: Raleway, sans-serif;
   font-size: 24px;
   font-weight: 700;
 }
@@ -9021,7 +9009,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 
 .portfolio-single-detail .section-heading {
   margin-bottom: 15px;
-  font-family: Raleway, sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -9175,7 +9162,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
   padding: 90px 0;
 }
 .cta .heading {
-  font-family: Lato, sans-serif;
   font-size: 40px;
   font-weight: 300;
   color: #fff;
@@ -9337,7 +9323,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
   text-align: center;
 }
 .cta-clean .heading {
-  font-family: Lato, sans-serif;
   font-weight: 500;
   color: #636363;
 }
@@ -9357,7 +9342,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
   color: #cacaca;
 }
 .cta-center .heading {
-  font-family: Lato, sans-serif;
   font-size: 36px;
   font-weight: 500;
   margin-bottom: 0;
@@ -9490,7 +9474,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 .testimonial-rating .name {
   display: block;
   margin-bottom: 5px;
-  font-family: Raleway, sans-serif;
   font-size: 18px;
 }
 .testimonial-rating .rating {
@@ -9691,7 +9674,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 }
 .latest-news-footer .title {
   margin-bottom: 3px;
-  font-family: Lato, sans-serif;
   font-weight: 500;
 }
 .latest-news-footer .title a {
@@ -10239,7 +10221,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 
 .nav-tabs.nav,
 .nav-pills.nav {
-  font-family: Lato, sans-serif;
 }
 .nav-tabs > li > a:focus,
 .nav-pills > li > a:focus {
@@ -10254,7 +10235,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 }
 
 .nav-stacked {
-  font-family: Lato, sans-serif;
 }
 .nav-stacked i {
   position: relative;
@@ -10267,9 +10247,7 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 .custom-tabs-line {
   text-align: center;
 }
-.custom-tabs-line .nav {
-  font-family: Lato, sans-serif;
-}
+
 .custom-tabs-line ul {
   display: inline-block;
   vertical-align: middle;
@@ -10338,9 +10316,7 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
 .custom-tabs-circle {
   text-align: center;
 }
-.custom-tabs-circle .nav {
-  font-family: Lato, sans-serif;
-}
+
 .custom-tabs-circle ul {
   display: inline-block;
   vertical-align: middle;
@@ -10360,7 +10336,6 @@ div[class*="col-"] .icon-info-center, div[class*="col-"] .icon-info-border {
   height: 60px;
   padding: 0;
   color: #d4d4d4;
-  font-family: Lato, sans-serif;
   line-height: 60px;
   background-color: #fff;
   border: 1px solid #e6e6e6;
@@ -10852,7 +10827,6 @@ html.fullscreen-bg #wrapper {
 .pricing-table .top .pricing {
   position: relative;
   z-index: 1;
-  font-family: Raleway, sans-serif;
   color: #fff;
 }
 .pricing-table .top .heading {
@@ -11094,7 +11068,6 @@ html.fullscreen-bg #wrapper {
 }
 .shopping-cart-widget .cart-item .info {
   padding-left: 50px;
-  font-family: Lato, sans-serif;
 }
 .shopping-cart-widget .cart-item .info .product-title {
   font-size: 13px;
@@ -11114,7 +11087,6 @@ html.fullscreen-bg #wrapper {
   padding-bottom: 15px;
 }
 .shopping-cart-widget .cart-footer .total {
-  font-family: Lato, sans-serif;
   font-size: 16px;
   line-height: 2;
 }
@@ -11414,7 +11386,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .panel-group .panel .panel-title {
   font-size: 14px;
-  font-family: Lato, sans-serif;
 }
 .panel-group .panel .panel-title > a {
   display: block;
@@ -12323,7 +12294,6 @@ html, body {
   text-align: center;
   line-height: 25px;
   background-color: #69B417;
-  font-family: Lato, sans-serif;
   color: #fff;
 }
 .secondary-navbar-nav .dropdown-cart {
@@ -12376,7 +12346,6 @@ html, body {
  * Nav
  * -------*/
 .nav {
-  font-family: Raleway, sans-serif;
   font-weight: 700;
 }
 
@@ -12532,7 +12501,7 @@ html, body {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   position: relative;
-  font-family: Lato, sans-serif;
+  
 }
 .nav-pills.sidebar-nav:after {
   content: ' ';
@@ -12642,7 +12611,6 @@ html, body {
 }
 .page-header .page-title {
   margin: 20px 0;
-  font-family: Raleway, sans-serif;
   font-size: 18px;
   font-weight: 500;
 }
