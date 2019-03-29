@@ -1,8 +1,12 @@
 /* Home Page and General Styles */
 
 body {
-	margin-bottom:0px;
-	font-family: 'Open Sans', sans-serif;
+  margin-bottom:0px;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #fff;
+  font-weight: 400;
 }
 
 img.representative-media {max-width:100%;}
@@ -11,29 +15,34 @@ video {
   height: auto   !important;
 }
 
-h1, h2, .modal-title, h3, h4, .facets .facets-heading, h5, #documents .document .document-title-heading, h6, .btn, .facets-toggle {
-	font-family: 'Montserrat', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+	color:#000000;
 }
 
 .attribute-label.h4 {font-size:1em;}
 
 h1 {font-size: 1.6em;}
 
-#content-wrapper {
-	margin-top: 0px;/*needed for all pages except home which uses section-gray class*
-	/*margin-bottom: 150px;*/
-	padding-bottom:2em;
+h3.panel-title.facet-field-heading {
+  font-weight:600;
 }
 
-section.section-gray {
-	margin-bottom: 0px; /*was 100px*/
-	margin-top:0px; /*remove margin on home page that is needed on other pages? */
+#content-wrapper {
+  margin-top: 0px;/*needed for all pages except home which uses section-white class*
+  /*margin-bottom: 150px;*/
+  padding-bottom:2em;
+}
+
+section.section-white {
+  margin-bottom: 0px; /*was 100px*/
+  margin-top:0px; /*remove margin on home page that is needed on other pages? */
+  background-color: #fff;
 }
 
 /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
 #content-wrapper.one-pages {
-	padding-top:125px;
-	padding-bottom:2em;
+  padding-top:115px;
+  padding-bottom:2em;
 }
 
 /*fixing the admin page content-wrapper not sure if its affecting other pages*/
@@ -79,25 +88,35 @@ section.section-gray {
 }
 
 
+/* links */
+a {
+  color: #E65A3A;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #E65A3A;
+  text-decoration: underline;
+}
 
 
 /*** Custom Thumbnails ***/
 
 .thumbnail-custom p {
-	-moz-transition: all 200ms ease-out;
-	-o-transition: all 200ms ease-out;
-	-webkit-transition: all 200ms ease-out;
-	transition: all 200ms ease-out;
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-	opacity: 0;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
 
-.thumbnail-custom a {
-	color: #db9e36;
+.thumbnail-custom a, .thumbnail-custom a:focus {
+  color: #e65a3a;
 }
 
 .thumbnail-custom a:hover {
-	color: #0b3c42;
+  color: #e65a3a;
+  text-decoration: underline;
 }
 
 .feature-image {
@@ -133,45 +152,57 @@ section.section-gray {
 
 /*** Buttons and Links ***/
 
-a, .btn-link {
-	color: #db9e36;
+
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span, footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus, .btn-link:focus, .btn-link, .btn-danger, .label-danger {
+	background-color: #E65A3A;
+	border-color: #E65A3A;
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span {
-	background-color: #105b63;
-	border-color: #0b3c42;
+.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .btn-link:hover, .btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
+	background-color: #E65A3A;
+	border-color: #E65A3A;
+	text-decoration:underline;
 }
 
-footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus {
-	background-color: #0b3c42;
-	border-color: #0b3c42;
+.btn-default {
+  color:#E05C3F;
+  background-color:white;
 }
 
-.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-	background-color: #0b3c42;
-	border-color: #07282c;
+.btn-default:hover {
+  background-color:white;
+  border-color:#E05C3F;
+  color:#E05C3F;
+  text-decoration:underline;
 }
 
-a:hover, a:focus, .btn-link:hover, .btn-link:focus {
-	color: #c38822;
+.btn-default:active {background-color:white;}
+
+/* homepage btn */
+.collection-highlights-list .btn-default {
+  color:white;
+  background-color:#E05C3F;
+  border-color:#E05C3F;
+  text-transform:uppercase;
 }
 
-.btn-danger, .label-danger {
-	background-color: #bd4932;
-	border-color: #a13f2b;
+.collection-highlights-list .btn-default:hover {
+  background-color:white;
+  border-color:#E05C3F;
+  color:#E05C3F;
 }
 
-.btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
-	background-color: #a13f2b;
-	border-color: #792f20;
+.collection-highlights-list .btn-default:active {
+  background-color:white;
 }
+
 .multi_value .btn.add {
   text-decoration: none;
   padding: 5px 10px;
   width: auto;
   color: white;
-  background-color: #105b63;
-  border-color: #0b3c42;
+  background-color: #E65A3A;
+	border-color: #E65A3A;
 }
 
 
@@ -191,23 +222,23 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 }
 
 .pager li > a:hover {
-	background-color:#1c636b;
+	background-color:#E65A3A;
 	color:white;
 }
 
 .pager li > a.disabled {
-	background-color:#1c636b;
+	background-color:#E65A3A;
 	color:white;
 	}
 
 .pager li > a.disabled[rel~="prev"] {
 	background-color:white;
-	color:#db9e36;
+	color:#258fce;
 	}
 
 .pager li > a.disabled[rel~="next"] {
 	background-color:white;
-	color:#db9e36;
+	color:#E65A3A;
 	}
 
 .pagination > li > a, .pagination > li > span {
@@ -217,28 +248,29 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
   padding: 0.5em 0.75em;
   line-height: 1em;
   margin-right: 5px;
-  color: #db9e36;
+  color: #E65A3A;
 }
 
 .pagination > li > a:hover, .pagination > li > span:hover {
-	background-color:#1c636b;
+	background-color:#E65A3A;
   border: 1px solid #ddd;
 	color:white;
+	text-decoration:underline;
 }
 
 .pagination > li > a.disabled, .pagination > li > span.disabled {
-	background-color:#1c636b;
+	background-color:#E65A3A;
 	color:white;
 }
 
 .pagination > li > a.disabled[rel~="prev"], .pagination > li > span.disabled[rel~="prev"] {
 	background-color:white;
-	color:#db9e36;
+	color:#E65A3A;
 }
 
 .pagination > li > a.disabled[rel~="next"], .pagination > li > span.disabled[rel~="next"] {
 	background-color:white;
-	color:#db9e36;
+	color:#E65A3A;
 }
 
 /* -------- Explore Collections and Featured -------*/
@@ -270,7 +302,9 @@ a:hover, a:focus, .btn-link:hover, .btn-link:focus {
 .home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
 	background-color:transparent;
 	border: 1px solid transparent;
-	color:#db9e36;
+	color:#000000;
+	font-weight:700;
+	font-family: 'PT Serif', serif;
 }
 
 ul.collection-highlights-list {
@@ -293,13 +327,13 @@ ul.collection-highlights-list {
 	line-height:1.3em;
 }
 
-.footer-name-one, .footer-name-two {
-	font-size:1em;
+.footer-name-one {
+	font-size:1.5em;
 	font-weight:800;
-	color:antiquewhite;
+	color:#ffffff;
 }
 
-.footer-terms {
+.footer-menu {
     padding:1em;
 }
 
@@ -308,8 +342,8 @@ ul.collection-highlights-list {
 }
 
 footer.navbar.navbar-inverse {
-	background-color: #105b63;
-	border-color: #0b3c42;
+	background-color: #258fce;
+	border-color: #258fce;
 }
 
 footer.navbar {
@@ -329,24 +363,18 @@ footer .navbar-text {
 	margin-right: 0;
 }
 
-.footer-links a {
-	color: #9d9d9d;
+footer {
+  color: white;
 }
 
-.footer-links {
-	color: #d9d9d9;
+footer a {
+  color:white;
 }
 
-ul.footer-links {
-	list-style-type: none;
-	padding-left: 0;
+footer a:hover, footer a:focus {
+  color:white;
+  text-decoration:underline
 }
-
-.navbar-inverse .navbar-text.text-right, .navbar-inverse .navbar-text.text-left {
-	color: #d9d9d9;
-}
-
-
 
 
 /* -------- Dashboard Styles -------- */
@@ -419,12 +447,12 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .search-results {
-	padding:1em;
+  padding:1em;
 }
 
 .search-results h2{
-	color:#105b63;
-	margin-top:0;
+  margin-top:0;
+  font-family: 'PT Serif', serif;
 }
 
 ol.catalog h2 {font-size:1.6em;}
@@ -443,6 +471,9 @@ ol.catalog li div h2 {margin-top:0;}
 /* metadata facets on search results, more ... panel */
 .modal-content {margin-top:115px;}
 
+.facet-values {padding: .5em;}
+
+.panel-heading.collapse-toggle .panel-title:after {padding-right: .25em;}
 
 /* -------- Admin Page -------- */
 
@@ -481,42 +512,45 @@ ol.catalog li div h2 {margin-top:0;}
 
 /* -------- Navbar -------- */
 
-.nav {font-family: 'Open Sans', sans-serif;}
+.nav {font-family: 'Muli', sans-serif;}
 
 /*removing padding on right side of logo so admin menu can fit on wider screens*/
 .navbar-brand {
-  padding-right:0;
+  padding:0;
   height: auto;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
 	color: #fff;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	line-height: 1;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
-	color: #db9e36;
+	color: #fff;
+	text-decoration:underline;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-	color: #db9e36;
+	color: #fff;
+	text-decoration:underline;
 }
 .navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
-	color: #db9e36;
+	color: #fff;
+	text-decoration:underline;
 }
 
 .main-navbar-nav li > .dropdown-menu {
 	border-top: 2px solid #db9e36;
 }
 
-.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus, {
+.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus {
 	color: #db9e36;
 }
 
 .navbar-light-font {
-	background-color: rgba(16, 91, 99, 0.95)
+	background-color: rgba(37, 143, 206, 0.95)
 }
 
 .main-navbar-nav > li > a {
@@ -533,7 +567,8 @@ ol.catalog li div h2 {margin-top:0;}
 }
 
 .navbar-default .navbar-nav > li > a {
-	font-size: 1em; /*changed from 11px*/
+  font-size: 17px; /*changed from 11px*/
+  font-weight: 600;
 }
 
 .nav > li > a {
@@ -541,7 +576,7 @@ ol.catalog li div h2 {margin-top:0;}
 }
 
 .navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
-	background: rgba(16,91,99, 0.95) !important;
+	background: rgba(37, 143, 206, 0.95) !important;
 }
 
 /* set minimum width to prevent reflow after login button was removed from navbar */
@@ -559,11 +594,23 @@ ul.nav.navbar-nav {
 }
 
 .navbar-nav .open .dropdown-menu > li > a {
-	line-height:1.5em;
-	padding:1em;
+  line-height:1.5em;
+  padding:1em;
 }
 
+.navbar-default .navbar-nav .open .dropdown-menu a {
+  color: #333333;
+}
 
+.navbar-default .navbar-nav .open .dropdown-menu .active a, .navbar-default .navbar-nav .open .dropdown-menu .active a:hover, .navbar-default .navbar-nav .open .dropdown-menu .active a:focus {
+  color: #E65A3A;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin-left:0;
+  padding-top:.5em;
+  padding-bottom:.5em;
+}
 
 
 
@@ -596,7 +643,7 @@ input {
 
 .label-info::before {
 	content: "*";
-	color: #bd4932;
+	color: #e65a3a;
 }
 .label-info {
 	background-color: #fff;
@@ -635,20 +682,21 @@ input {
 /* -------- Breadcrumbs -------- */
 
 .breadcrumb > li.active {
-	color: #105b63;
+  color: #E65A3A;
 }
 
 .breadcrumb a:hover, .breadcrumb a:focus {
-	color: #105b63;
+  color: #E65A3A;
 }
 
 .breadcrumb.link-accent a {
-	color: #105b63;
+  color: #258fce;
 }
 
 .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
-	text-decoration: none;
-	color: #0b3c42;
+  text-decoration: none;
+  color: #E65A3A;
+  text-decoration:underline;
 }
 
 
@@ -797,19 +845,7 @@ a[title="Tumblr"] {display:none;}
 
 /* -------- FOOTER STYLES -------- */
 	.footer-info {
-		float:left;
 		padding-left:2em;
-		width:40%;
-	}
-
-	.footer-terms {
-		width:20%;
-		float:left;
-	}
-
-	.footer-search {
-		width:40%;
-		float:left;
 	}
 
 
@@ -1113,6 +1149,24 @@ h2.facets-heading {
   width: auto;
 }
 
+/*Small changes to make the view area 15px bigger in all directions to help UV have more room*/
+.panel-body {padding:0;}
+
+dl.work-show.work {padding-top:15px;}
+
+img.representative-media {padding-top:15px;}
+
+/*put space at the bottom of the universal viewer*/
+.viewer {padding:10px 0 10px 0;}
+
+
+
+
+
+
+
+
+
 /*COLLECTION PAGES*/
 
 /*Get rid of striped rows look*/
@@ -1139,7 +1193,6 @@ h2.facets-heading {
 /*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
 
 p.media-heading {
-  font-family: 'Montserrat', sans-serif;
   font-size:1.2em;
 }
 
@@ -1162,7 +1215,8 @@ p.media-heading {
   max-width: 100%;
 }
 
-// Dashboard/Collection/Form "slug" field
+/* Dashboard/Collection/Form "slug" field*/
+
 #collection_slug {
   max-width: 540px;
 }
@@ -1177,12 +1231,13 @@ p.media-heading {
   overflow:hidden;
   color:#fff;
   text-align:center;
-  background-color:rgba(11,60,66,0.84);
+  background-color: rgba(230,90,58,1);
   height:40px;
   width:40px;
   line-height:40px;
   font-size:14px;
   border-radius:2px;
+  border: 1px solid #E05C3F;
   cursor:pointer;
   transition:all 0.3s linear;
   z-index:999999;
@@ -1190,7 +1245,8 @@ p.media-heading {
   display:none;
 }
 #backtop:hover {
-  background-color:#db9e36;
+  background-color: rgba(255,255,255,0.84);
+  color:#E05C3F;
 }
 #backtop.mcOut {
   opacity:0;
@@ -1199,7 +1255,7 @@ p.media-heading {
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
 #per_page-dropdown .dropdown-toggle {
-  color: #c38822;
+  color: #E65A3A;
 }
 
 .hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
@@ -1216,4 +1272,13 @@ p.media-heading {
   .col-xs-12 {
     padding: 0;
   }
+
+  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+  .navbar-default .navbar-collapse {margin-bottom:20px;}
+
+}
+
+@media (min-width: 768px) {
+  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+  .navbar-default .navbar-collapse {padding-top:45px;}
 }
