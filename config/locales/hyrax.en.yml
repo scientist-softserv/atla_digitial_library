@@ -57,6 +57,10 @@ en:
           title_tesim: Title
   hyrax:
     account_name: My Institution Account Id
+    base:
+      collections:
+        show:
+          subcollection_count: Collections in this Collection
     collections:
       show:
         works_in_collection: Items in this Collection
