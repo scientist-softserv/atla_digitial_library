@@ -1,11 +1,12 @@
 /* Home Page and General Styles */
 
 body {
-	margin-bottom:0px;
-	font-family: 'Muli', sans-serif;
-	font-size: 16px;
-	line-height: 1.6;
-	background-color: #fff;
+  margin-bottom:0px;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #fff;
+  font-weight: 400;
 }
 
 img.representative-media {max-width:100%;}
@@ -22,21 +23,26 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {font-size: 1.6em;}
 
-#content-wrapper {
-	margin-top: 0px;/*needed for all pages except home which uses section-gray class*
-	/*margin-bottom: 150px;*/
-	padding-bottom:2em;
+h3.panel-title.facet-field-heading {
+  font-weight:600;
 }
 
-section.section-gray {
-	margin-bottom: 0px; /*was 100px*/
-	margin-top:0px; /*remove margin on home page that is needed on other pages? */
+#content-wrapper {
+  margin-top: 0px;/*needed for all pages except home which uses section-white class*
+  /*margin-bottom: 150px;*/
+  padding-bottom:2em;
+}
+
+section.section-white {
+  margin-bottom: 0px; /*was 100px*/
+  margin-top:0px; /*remove margin on home page that is needed on other pages? */
+  background-color: #fff;
 }
 
 /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
 #content-wrapper.one-pages {
-	padding-top:90px;
-	padding-bottom:2em;
+  padding-top:115px;
+  padding-bottom:2em;
 }
 
 /*fixing the admin page content-wrapper not sure if its affecting other pages*/
@@ -82,25 +88,35 @@ section.section-gray {
 }
 
 
+/* links */
+a {
+  color: #E65A3A;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #E65A3A;
+  text-decoration: underline;
+}
 
 
 /*** Custom Thumbnails ***/
 
 .thumbnail-custom p {
-	-moz-transition: all 200ms ease-out;
-	-o-transition: all 200ms ease-out;
-	-webkit-transition: all 200ms ease-out;
-	transition: all 200ms ease-out;
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-	opacity: 0;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
 
-.thumbnail-custom a {
-	color: #db9e36;
+.thumbnail-custom a, .thumbnail-custom a:focus {
+  color: #e65a3a;
 }
 
 .thumbnail-custom a:hover {
-	color: #0b3c42;
+  color: #e65a3a;
+  text-decoration: underline;
 }
 
 .feature-image {
@@ -148,6 +164,37 @@ section.section-gray {
 	text-decoration:underline;
 }
 
+.btn-default {
+  color:#E05C3F;
+  background-color:white;
+}
+
+.btn-default:hover {
+  background-color:white;
+  border-color:#E05C3F;
+  color:#E05C3F;
+  text-decoration:underline;
+}
+
+.btn-default:active {background-color:white;}
+
+/* homepage btn */
+.collection-highlights-list .btn-default {
+  color:white;
+  background-color:#E05C3F;
+  border-color:#E05C3F;
+  text-transform:uppercase;
+}
+
+.collection-highlights-list .btn-default:hover {
+  background-color:white;
+  border-color:#E05C3F;
+  color:#E05C3F;
+}
+
+.collection-highlights-list .btn-default:active {
+  background-color:white;
+}
 
 .multi_value .btn.add {
   text-decoration: none;
@@ -281,7 +328,7 @@ ul.collection-highlights-list {
 }
 
 .footer-name-one {
-	font-size:1em;
+	font-size:1.5em;
 	font-weight:800;
 	color:#ffffff;
 }
@@ -316,7 +363,18 @@ footer .navbar-text {
 	margin-right: 0;
 }
 
+footer {
+  color: white;
+}
 
+footer a {
+  color:white;
+}
+
+footer a:hover, footer a:focus {
+  color:white;
+  text-decoration:underline
+}
 
 
 /* -------- Dashboard Styles -------- */
@@ -389,11 +447,12 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 }
 
 .search-results {
-	padding:1em;
+  padding:1em;
 }
 
 .search-results h2{
-	margin-top:0;
+  margin-top:0;
+  font-family: 'PT Serif', serif;
 }
 
 ol.catalog h2 {font-size:1.6em;}
@@ -412,6 +471,9 @@ ol.catalog li div h2 {margin-top:0;}
 /* metadata facets on search results, more ... panel */
 .modal-content {margin-top:115px;}
 
+.facet-values {padding: .5em;}
+
+.panel-heading.collapse-toggle .panel-title:after {padding-right: .25em;}
 
 /* -------- Admin Page -------- */
 
@@ -505,7 +567,8 @@ ol.catalog li div h2 {margin-top:0;}
 }
 
 .navbar-default .navbar-nav > li > a {
-	font-size: 1em; /*changed from 11px*/
+  font-size: 17px; /*changed from 11px*/
+  font-weight: 600;
 }
 
 .nav > li > a {
@@ -531,11 +594,23 @@ ul.nav.navbar-nav {
 }
 
 .navbar-nav .open .dropdown-menu > li > a {
-	line-height:1.5em;
-	padding:1em;
+  line-height:1.5em;
+  padding:1em;
 }
 
+.navbar-default .navbar-nav .open .dropdown-menu a {
+  color: #333333;
+}
 
+.navbar-default .navbar-nav .open .dropdown-menu .active a, .navbar-default .navbar-nav .open .dropdown-menu .active a:hover, .navbar-default .navbar-nav .open .dropdown-menu .active a:focus {
+  color: #E65A3A;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin-left:0;
+  padding-top:.5em;
+  padding-bottom:.5em;
+}
 
 
 
@@ -607,21 +682,21 @@ input {
 /* -------- Breadcrumbs -------- */
 
 .breadcrumb > li.active {
-	color: #258fce;
+  color: #E65A3A;
 }
 
 .breadcrumb a:hover, .breadcrumb a:focus {
-	color: #258fce;
+  color: #E65A3A;
 }
 
 .breadcrumb.link-accent a {
-	color: #258fce;
+  color: #258fce;
 }
 
 .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
-	text-decoration: none;
-	color: #258fce;
-	text-decoration:underline;
+  text-decoration: none;
+  color: #E65A3A;
+  text-decoration:underline;
 }
 
 
@@ -1156,12 +1231,13 @@ p.media-heading {
   overflow:hidden;
   color:#fff;
   text-align:center;
-  background-color:rgba(11,60,66,0.84);
+  background-color: rgba(230,90,58,1);
   height:40px;
   width:40px;
   line-height:40px;
   font-size:14px;
   border-radius:2px;
+  border: 1px solid #E05C3F;
   cursor:pointer;
   transition:all 0.3s linear;
   z-index:999999;
@@ -1169,7 +1245,8 @@ p.media-heading {
   display:none;
 }
 #backtop:hover {
-  background-color:#db9e36;
+  background-color: rgba(255,255,255,0.84);
+  color:#E05C3F;
 }
 #backtop.mcOut {
   opacity:0;
@@ -1178,7 +1255,7 @@ p.media-heading {
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
 #per_page-dropdown .dropdown-toggle {
-  color: #c38822;
+  color: #E65A3A;
 }
 
 .hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
@@ -1203,5 +1280,5 @@ p.media-heading {
 
 @media (min-width: 768px) {
   /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-  .navbar-default .navbar-collapse {padding-top:15px;}
+  .navbar-default .navbar-collapse {padding-top:45px;}
 }
