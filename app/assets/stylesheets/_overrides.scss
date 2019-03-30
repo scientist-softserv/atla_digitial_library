@@ -910,7 +910,7 @@ a[title="Tumblr"] {display:none;}
 
   .navbar-no-background {
     position: absolute;
-    background: rgba(16, 91, 99, 0.95) !important;
+    background: rgba(37,143,206,0.95) !important;
     background-image: none !important;
   }
 
@@ -928,6 +928,20 @@ a[title="Tumblr"] {display:none;}
 
   .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
     color: #3b3b3b;
+    padding: 1.5em 0;
+  }
+
+  .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-brand, .navbar-default .navbar-nav > li.active > a {
+    color: #e65a3a;
+  }
+
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #e65a3a;
+    padding-left: 16px;
+  }
+
+  .navbar-light-font .open .dropdown-menu > .active > a, .navbar-light-font .open .dropdown-menu > .active > a:hover, .navbar-light-font .open .dropdown-menu > .active > a:focus {
+    background-color: #313133 !important;
   }
 
   .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
