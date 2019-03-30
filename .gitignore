@@ -90,3 +90,4 @@ ops/group_vars/all
 vendor/engines
 .byebug_history
 .env.development
+public/branding/

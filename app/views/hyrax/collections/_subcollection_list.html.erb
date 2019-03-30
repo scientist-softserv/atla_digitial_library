@@ -14,18 +14,12 @@
           <td>
             <% document_url = document.slug.present? ? hyrax.collection_path(document) : [main_app, document]  %>
             <div class="media">
+
               <% if collection_logo_info(id).present? %>
                 <%= link_to document_url, class: "media-left" do %>
                   <% collection_logo_info(id).each_with_index do |lr, i| %>
-
-                    <% if lr[:linkurl].blank? %>
-                      <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>", class="hidden-xs file_listing_thumbnail" />
-                    <% else %>
-                      <a href="<%= lr[:linkurl] %>">
-                        <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>", class="hidden-xs file_listing_thumbnail" />
-                      </a>
-                    <% end %>
-
+                    <%# remove unnecessary link to [:linkurl] %>
+                    <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>", class="hidden-xs file_listing_thumbnail" />
                   <% end %>
                 <% end %>
               <% else %>
@@ -33,6 +27,7 @@
                   <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
                 <% end %>
               <% end %>
+
               <div class="media-body">
                 <div class="media-heading">
                   <strong><%= link_to document.title_or_label, document_url, id: "src_copy_link_#{id}" %></strong>
