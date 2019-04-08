@@ -1,0 +1,38 @@
+ <section class="hero-fullscreen-bg text-center">
+	<div class="container">
+		<h2 class="heading">Explore Our Religion & Theology Collections</h2>
+		<div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+			<%= render partial: 'catalog/search_form' %>
+		</div>
+		<div class="col-sm-12 browse-all-home">
+			<%= link_to "Browse all items", main_app.search_catalog_path %>
+		</div>
+	</div>
+	<!-- <div class="scroll-down down-arrow internal-links">
+			<a href="#specials"><i class="fa fa-angle-down"></i></a>
+		</div> -->
+	</section>
+	<section class="intro">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-5 intro-text slideInLeft">
+					<h3>We are curators, disseminators, and aggregators</h3>
+					<p>The Atla Digital Library connects students, scholars, and researchers with scholarly religion and theology content.</p>
+					<p class="learn-more">
+						<%= link_to "Learn more ", hyrax.about_path %>
+					</p>
+
+				</div>
+				<div class="col-sm-12 col-md-7 browse-box slideInRight">
+					<div class="col-xm-12 col-sm-6">
+						<img src="/img/collections.jpg">
+						<p><%= link_to "Browse by Collection", main_app.collections_path %></p>
+					</div>
+					<div class="col-xm-12 col-sm-6">
+						<img src="/img/institutions.png">
+						<p><%= link_to "Browse by Institution", main_app.institutions_path %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

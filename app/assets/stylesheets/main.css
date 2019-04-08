@@ -15,9 +15,6 @@
  * Global Styles
  * --------------- */
 
-section {
-  padding: 40px 0;
-}
 @media screen and (max-width: 768px) {
   section div.row > div {
     margin-bottom: 50px;
@@ -12501,7 +12498,7 @@ html, body {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   position: relative;
-  
+
 }
 .nav-pills.sidebar-nav:after {
   content: ' ';
