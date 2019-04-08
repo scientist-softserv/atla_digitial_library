@@ -91,3 +91,4 @@ vendor/engines
 .byebug_history
 .env.development
 public/branding/
+fits.log
