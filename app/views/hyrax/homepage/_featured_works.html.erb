@@ -1,9 +1,7 @@
 
 <h2 class="sr-only"><%= t('hyrax.homepage.featured_works.title') %></h2>
 <section class="featured-section">
-  <div class="blog-masonry clearfix"><!--removed class container-->
-    <div class="grid-sizer"></div>
-
+  <div class="clearfix"><!--removed class container-->
     <% if @featured_work_list.empty? %>
       <p><%= t('hyrax.homepage.featured_works.no_works') %></p>
     <% elsif can? :update, FeaturedWork %>

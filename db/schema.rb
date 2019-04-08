@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190213223226) do
+ActiveRecord::Schema.define(version: 20190326032111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20190213223226) do
     t.datetime "updated_at", null: false
     t.index ["document_id"], name: "index_bookmarks_on_document_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "bulkrax_entries", force: :cascade do |t|
+    t.string "identifier"
+    t.string "collection_id"
+    t.string "type"
+    t.bigint "importer_id"
+    t.text "raw_metadata"
+    t.text "parsed_metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["importer_id"], name: "index_bulkrax_entries_on_importer_id"
   end
 
   create_table "bulkrax_importer_runs", force: :cascade do |t|
@@ -593,6 +605,7 @@ ActiveRecord::Schema.define(version: 20190213223226) do
     t.index ["work_id"], name: "index_work_view_stats_on_work_id"
   end
 
+  add_foreign_key "bulkrax_entries", "bulkrax_importers", column: "importer_id"
   add_foreign_key "bulkrax_importer_runs", "bulkrax_importers"
   add_foreign_key "bulkrax_importers", "users"
   add_foreign_key "collection_type_participants", "hyrax_collection_types"

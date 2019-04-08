@@ -1,0 +1,17 @@
+<div class="search-margin-top margin-bottom-100">
+  <div class="row search-results">
+    <div class="col-sm-8">
+      <h2>Collections</h2>
+    </div>
+    <div class="col-sm-4">
+      <%= render partial: 'catalog/search_form' %>
+    </div>
+  </div>
+  <div id="sidebar" class="col-md-3 col-sm-4">
+    <%= render 'search_sidebar' %>
+  </div>
+
+  <div id="content" class="col-md-9 col-sm-8">
+      <%= render 'collection_results' %>
+  </div>
+</div>

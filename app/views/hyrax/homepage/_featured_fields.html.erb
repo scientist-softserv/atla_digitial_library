@@ -1,8 +1,10 @@
-<h4 class="thumbnail-heading">
-  <span class="sr-only">Title</span>
-  <%= link_to truncate(featured_work_title(featured.id), length: 28, separator: ' '), main_app.hyrax_work_path(id: featured.id) %>
-</h4>
-
-<%= link_to main_app.hyrax_work_path(id: featured.id) do %>
-  <%= content_tag :div, '', class: 'overlay' %>
-<% end%>
+<div>
+  <div class="featured-item-title">
+    <span class="sr-only"><%= t('hyrax.homepage.featured_works.document.title_label') %></span>
+    <h3>
+      <%= link_to [main_app, featured] do %>
+        <%= render_thumbnail_tag(featured, {width: 90}, {suppress_link: true}) + truncate(featured.title.first, length: 56, separator: ' ') %>
+      <% end %>
+    </h3>
+  </div><!--removed item depositor and keywords-->
+</div>

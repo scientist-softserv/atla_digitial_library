@@ -34,6 +34,25 @@ end
 Rake::Task['hyrax:default_collection_types:create'].invoke
 Rake::Task['hyrax:default_admin_set:create'].invoke
 
+if Rails.env.development?
+  Bulkrax::Importer.create(
+    name: "Trinity International University -  Evangelical Beacon",
+    admin_set_id: "admin_set/default",
+    user_id: 1,
+    frequency: "PT0S",
+    parser_klass: "Bulkrax::OaiDcParser",
+    limit: 10,
+    parser_fields:
+      {"base_url"=>"http://collections.carli.illinois.edu/oai/oai.php",
+       "metadata_prefix"=>"oai_dc",
+       "set"=>"tiu_beacon",
+       "institution_name"=>"Trinity International University Rolfing Library",
+       "rights_statement"=>"http://rightsstatements.org/vocab/UND/1.0/",
+       "override_rights_statement"=>"1",
+       "thumbnail_url"=>"http://collections.carli.illinois.edu/utils/getthumbnail/collection/tiu_beacon/id/<%= identifier.split('/').last %>"},
+    field_mapping: nil
+  )
+end
 # if Rails.env.development?
 #   Harvester.create!(
 #     name: "Princeton Theological Commons - Benson",

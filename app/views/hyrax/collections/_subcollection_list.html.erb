@@ -1,0 +1,43 @@
+<% if @subcollection_docs.nil? || @subcollection_docs.empty? %>
+  <div class="alert alert-warning" role="alert"><%= t('hyrax.collections.show.no_visible_subcollections') %></div>
+<% else %>
+  <table class="table table-striped">
+    <tbody>
+      <% @subcollection_docs.each do |document| %>
+        <tr>
+          <% id = document.id %>
+          <td>&nbsp;
+            <% if current_user and document.depositor != current_user.user_key %>
+              <i class="glyphicon glyphicon-share-alt"></i>
+            <% end %>
+          </td>
+          <td>
+            <% document_url = document.slug.present? ? hyrax.collection_path(document) : [main_app, document]  %>
+            <div class="media">
+
+              <% if collection_logo_info(id).present? %>
+                <%= link_to document_url, class: "media-left" do %>
+                  <% collection_logo_info(id).each_with_index do |lr, i| %>
+                    <%# remove unnecessary link to [:linkurl] %>
+                    <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>", class="hidden-xs file_listing_thumbnail" />
+                  <% end %>
+                <% end %>
+              <% else %>
+                <%= link_to document_url, class: "media-left" do %>
+                  <%= render_thumbnail_tag document, { class: "hidden-xs file_listing_thumbnail" }, { suppress_link: true } %>
+                <% end %>
+              <% end %>
+
+              <div class="media-body">
+                <div class="media-heading">
+                  <strong><%= link_to document.title_or_label, document_url, id: "src_copy_link_#{id}" %></strong>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<%= render 'hyrax/collections/paginate', solr_response: @subcollection_solr_response, page_param_name: :sub_collection_page  %>

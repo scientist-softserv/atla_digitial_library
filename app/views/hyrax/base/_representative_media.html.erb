@@ -1,9 +1,10 @@
 <!-- link around image -->
+<% data_uri = presenter.remote_manifest_url.present? ? presenter.remote_manifest_url.first : main_app.polymorphic_path([main_app, :manifest, presenter], { locale: nil }) %>
 <% if presenter.representative_id.present? && presenter.representative_presenter.present? %>
   <% if defined?(viewer) && viewer %>
     <%= PulUvRails::UniversalViewer.script_tag %>
     <div class="viewer-wrapper">
-      <div class="uv viewer" data-uri="<%= main_app.polymorphic_path [main_app, :manifest, presenter], { locale: nil } %>"></div>
+      <div class="uv viewer" data-uri="<%= data_uri %>"></div>
     </div>
   <% elsif presenter.identifier.present? && presenter.identifier.first.match("http") %>
     <%= link_to presenter.identifier.first, target: '_blank', rel: "nofollow" do %>

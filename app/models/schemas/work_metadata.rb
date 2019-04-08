@@ -12,6 +12,7 @@ module Schemas
     property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder
     property :time_period, predicate: ::RDF::Vocab::DC.temporal
     property :thumbnail_url, predicate: ::RDF::Vocab::DC.hasVersion
+    property :remote_manifest_url, predicate: ::RDF::Vocab::DC.hasFormat
     property :types, predicate: ::RDF::Vocab::DC11.type
   end
 end

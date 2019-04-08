@@ -5,12 +5,18 @@ class Collection < ActiveFedora::Base
 
   include ::Hyrax::CollectionBehavior
 
-  # def self.find(id_or_slug)
-  #   results = where(slug: id_or_slug).first
-  #   results = ActiveFedora::Base.find(id_or_slug) unless results.present?
+  self.indexer = CollectionIndexer
 
-  #   results
-  # end
+  def to_param
+    self.slug || self.id
+  end
+
+  def self.find(id_or_slug)
+    results = where(slug: id_or_slug).first
+    results = ActiveFedora::Base.find(id_or_slug) unless results.present?
+
+    results
+  end
 
   def set_slug
     self.slug = title.first if slug.blank?

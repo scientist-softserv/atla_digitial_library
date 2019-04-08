@@ -56,7 +56,7 @@ services:
   solr:
     image: solr:5.5
     ports:
-      - "8983:8983"
+      - "8983"
     volumes:
       - './solr/config:/opt/config'
 
@@ -65,7 +65,7 @@ services:
     volumes:
       - 'fcrepo:/opt/data'
     ports:
-      - "8984:8080"
+      - "8080"
 
 volumes:
   fcrepo:

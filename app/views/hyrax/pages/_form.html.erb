@@ -10,6 +10,9 @@
       <a href="#help" role="tab" data-toggle="tab"><%= t(:'hyrax.pages.tabs.help_page') %></a>
     </li>
     <li>
+      <a href="#institutions" role="tab" data-toggle="tab"><%= t(:'hyrax.pages.tabs.institutions') || 'Institutions' %></a>
+    </li>
+    <li>
       <a href="#agreement" role="tab" data-toggle="tab"><%= t(:'hyrax.pages.tabs.agreement_page') %></a>
     </li>
     <li>
@@ -56,6 +59,22 @@
             <div class="field form-group">
                 <%= f.label :help %><br />
                 <%= f.text_area :help, value: f.object.value, class: 'form-control tinymce', rows: 20, cols: 120 %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= link_to t(:'hyrax.pages.cancel'), hyrax.admin_admin_sets_path, class: 'btn btn-default pull-right' %>
+            <%= f.button :submit, class: 'btn btn-primary pull-right' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="institutions" class="tab-pane">
+      <div class="panel panel-default labels">
+        <%= simple_form_for ContentBlock.for(:institutions), url: hyrax.page_path(ContentBlock.for(:institutions)) do |f| %>
+          <div class="panel-body">
+            <div class="field form-group">
+              <%= f.label :institutions %><br />
+              <%= f.text_area :institutions, value: f.object.value, class: 'form-control tinymce', rows: 20, cols: 120 %>
             </div>
           </div>
           <div class="panel-footer">

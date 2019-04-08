@@ -10,25 +10,30 @@
           <header class="hyc-generic">
       <% end %>
 
-      <div class="hyc-title">
-        <h1><%= @presenter.title.first %></h1>
-      </div>
+      <div class="row">
+        <div class="col-sm-2">
 
-      <% unless @presenter.logo_record.blank? %>
-          <div class="hyc-logos">
-            <% @presenter.logo_record.each_with_index  do |lr, i| %>
+          <% if @presenter.logo_record.present? %>
+            <div class="hyc-logos collection-logo">
+              <% @presenter.logo_record.each_with_index do |lr, i| %>
+                <%# remove unnecessary link to [:linkurl] %>
+                <img alt="<%= (lr[:alttext].present? ? lr[:alttext] : lr[:file]) %>" src="<%= lr[:file_location] %>", class="img-responsive" />
+              <% end %>
+            </div>
+          <% else %>
+            <%= render_thumbnail_tag @presenter.solr_document, { class: "hyc-logos collection-logo img-responsive" }, { suppress_link: true } %>
+          <% end %>
 
-                <% if lr[:linkurl].blank? %>
-                    <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
-                <% else %>
-                    <a href="<%= lr[:linkurl] %>">
-                      <img alt="<%= lr[:alttext] %>" src="<%= lr[:file_location] %>" />
-                    </a>
-                <% end %>
-
-            <% end %>
+        </div>
+        <div class="col-sm-10">
+          <div class="hyc-title collection-title-size">
+            <h1><%= @presenter.title.first %></h1>
           </div>
-      <% end %>
+          <div class="hyc-description">
+            <%= render 'collection_description', presenter: @presenter %>
+          </div>
+        </div>
+      </div>
 
       <%# Removed labels (item count, created by, and last updated) from header %>
 
@@ -38,21 +43,18 @@
   </div>
 
   <div class="row hyc-body">
-    <div class="col-md-12 hyc-description">
-      <%= render 'collection_description', presenter: @presenter %>
+    <!-- Parent collections -->
+    <% if @presenter.collection_type_is_nestable? && @presenter.total_parent_collections > 0 %>
+      <div class="hyc-blacklight hyc-bl-title parent-collections-title-size">
+        <h2>
+          <%= t('.parent_collection_header') %>
+        </h2>
+      </div>
+      <div class="hyc-blacklight hyc-bl-results parent-collections-list">
+        <%= render 'show_parent_collections', presenter: @presenter %>
+      </div>
+    <% end %>
 
-      <% if @presenter.collection_type_is_nestable? && @presenter.total_parent_collections > 0 %>
-          <div class="hyc-blacklight hyc-bl-title">
-            <h2>
-              <%= t('.parent_collection_header') %> (<%= @presenter.total_parent_collections %>)
-            </h2>
-          </div>
-          <div class="hyc-blacklight hyc-bl-results">
-            <%= render 'show_parent_collections', presenter: @presenter %>
-          </div>
-      <% end %>
-
-    </div>
     <div class="col-md-12 hyc-metadata">
       <% unless has_collection_search_parameters? %>
           <h2><%= t('hyrax.dashboard.collections.show.metadata_header') %></h2>
@@ -75,7 +77,7 @@
   <!-- Subcollections -->
   <% if @presenter.collection_type_is_nestable? && @subcollection_count > 0 %>
       <div class="hyc-blacklight hyc-bl-title">
-        <h4><%= t('.subcollection_count') %> (<%= @subcollection_count %>)</h4>
+        <h4><%= t('hyrax.base.collections.show.subcollection_count') %> (<%= @subcollection_count %>)</h4>
       </div>
       <div class="hyc-blacklight hyc-bl-results">
         <%= render 'subcollection_list', collection: @subcollection_docs %>
