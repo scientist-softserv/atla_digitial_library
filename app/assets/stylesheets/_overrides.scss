@@ -1,22 +1,29 @@
 /* Home Page and General Styles */
 
+html {
+	font-size:1em;
+	}
+
 body {
   margin-bottom:0px;
   font-family: 'Muli', sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1.6;
   background-color: #fff;
   font-weight: 400;
 }
 
+/*make images and video responsive*/
 img.representative-media {max-width:100%;}
+
 video {
   width: 100%    !important;
   height: auto   !important;
 }
 
+/*----------FONTS------------*/
 h1, h2, h3, h4, h5, h6 {
-  color:#000000;
+  color:#313133;
 }
 
 .attribute-label.h4 {font-size:1em;}
@@ -32,16 +39,144 @@ b, strong {
   color:#4e4e4e;
 }
 
-#content-wrapper {
-  margin-top: 0px;/*needed for all pages except home which uses section-white class*
-  /*margin-bottom: 150px;*/
-  padding-bottom:2em;
+
+/*----------LINKS------------*/
+a {
+  color: #E65A3A;
+  text-decoration: none;
 }
+a:hover, a:focus {
+  color: #E65A3A;
+  text-decoration: underline;
+}
+
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  clear:both;
+}
+
+
+
+
+/* -------- Navbar -------- */
+
+.nav {font-family: 'Muli', sans-serif;}
+
+/*removing padding on right side of logo so admin menu can fit on wider screens*/
+.navbar-brand {
+  padding:0;
+  height: auto;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+  color: #fff;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 1;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+  text-decoration:underline;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #fff;
+  text-decoration:underline;
+}
+.navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
+  color: #fff;
+  text-decoration:underline;
+}
+
+.main-navbar-nav li > .dropdown-menu {
+  border-top: 2px solid #db9e36;
+}
+
+.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus {
+  color: #db9e36;
+}
+
+.navbar-light-font {
+  background-color: rgba(37, 143, 206, 0.95)
+}
+
+.main-navbar-nav > li > a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  line-height: 1;
+}
+/*
+.image-background {
+  background-image: image-url('ATLA-hero-dark.jpg')!important;
+  background-repeat: no-repeat;
+  background-position: top !important;
+  max-height: 110px;
+}
+*/
+.navbar-default .navbar-nav > li > a {
+  font-size: 17px; /*changed from 11px*/
+  font-weight: 600;
+}
+
+.nav > li > a {
+  padding: 10px 10px;
+}
+
+.navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
+  background: rgba(37, 143, 206, 0.95) !important;
+}
+
+/* set minimum width to prevent reflow after login button was removed from navbar */
+ul.nav.navbar-nav {
+  min-width: 15px;
+}
+
+/*DROPDOWN*/
+.dropdown-menu > li > a {
+  padding:1em;
+}
+
+.dropdown-menu {
+  font-size:1em;
+}
+
+.navbar-nav .open .dropdown-menu > li > a {
+  line-height:1.5em;
+  padding:1em;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu a {
+  color: #333333;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu .active a, .navbar-default .navbar-nav .open .dropdown-menu .active a:hover, .navbar-default .navbar-nav .open .dropdown-menu .active a:focus {
+  color: #E65A3A;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin-left:0;
+  padding-top:.5em;
+  padding-bottom:.5em;
+}
+
+
+
+
+/*---------PAGE ELEMENTS----------*/
 
 section.section-white {
   margin-bottom: 0px; /*was 100px*/
   margin-top:0px; /*remove margin on home page that is needed on other pages? */
   background-color: #fff;
+}
+
+#content-wrapper {
+  margin-top: 0px;/*needed for all pages except home which uses section-white class*
+  /*margin-bottom: 150px;*/
+  padding-bottom:2em;
 }
 
 /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
@@ -62,49 +197,135 @@ section.section-white {
 
 
 
-.hero-fullscreen-bg {
-  background-image: image-url('ATLA-hero-dark.jpg');
-  background-repeat: repeat; /*changed from no repeat for very wide screens so that it doesnt show the grey*/
-  background-position: top;
-  position: relative;
-  z-index: 1;
-}
+/*---------- HOME PAGE------------*/
 
 .hero-fullscreen-bg {
-  height: 60%; /*was 100%*/
-}
-
-.hero-fullscreen-bg .overlay {
-  background-color: rgba(0,0,0,0);
+  height: auto;/* was 60%*/
+  padding-top:150px;
+  padding-bottom:2.75em;
+  color:#313133;
 }
 
 .hero-fullscreen-bg .heading {
-  font-size: 2.5em;
-  font-weight:normal;
+  font-size: 3em;
+  font-weight:700;
+  color:#313133;
+  font-family: 'PT Serif', serif;
+  margin-bottom:.35em;
+  margin-top:.5em;
+}
+
+/* text under home page search bar */
+.browse-all-home {
+	font-size:1.25em;
+	font-weight:600;
+}
+
+/* intro section */
+section.intro {
+	background-color:#5e4375;
+	color:#fff;
+	padding-top:4.25em;
+	padding-bottom:4em;
+	}
+
+.intro-text {
+	padding-right:5em;
+	padding-top:.75em;
+	}
+
+.intro h3  {
+	color:#fff;
+	font-family: 'PT Serif', serif;
+	font-weight:700;
+	font-size: 2.125em;
+	margin-top:0;
+	}
+
+.intro a {
+	color:#fff;
+	text-decoration:underline;
+	}
+
+.intro-text p{
+	font-size:1.125em
+}
+
+.learn-more a {
+	padding:.75em 1em 1em 0;
+	position:relative;
+}
+.learn-more a::after {
+	content:'';
+	background-image:linear-gradient(transparent, transparent), url("/img/arrow-white-right.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:24px 18px;
+	height:18px;
+	width:24px;
+	top:17px;
+	left:6em;
+	position:absolute;
+}
+
+.browse-box {
+	text-align:center;
+	font-size: 1.5em;
+	}
+
+.browse-box div:first-child {
+	margin-bottom:1.5em;
+}
+
+.browse-box img {
+	border-radius:50%;
+	margin-bottom:1em;
+	margin-left:auto;
+	margin-right:auto;
+	}
+
+
+.slideInLeft {
+	animation-name: slideInLeft;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.slideInRight {
+	animation-name: slideInLeft;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
 }
 
 
-.home_marketing_text {
-  display:none;
-}
 
-#announcement {
-  display:none;
-}
-
-
-/* links */
-a {
-  color: #E65A3A;
-  text-decoration: none;
-}
-a:hover, a:focus {
-  color: #E65A3A;
-  text-decoration: underline;
-}
-
-
-/*** Custom Thumbnails ***/
+/* Custom Thumbnails Home Featured Collections & Works */
 
 .thumbnail-custom p {
   -moz-transition: all 200ms ease-out;
@@ -135,7 +356,7 @@ a:hover, a:focus {
 }
 
 
-/*making thumbnail titles entire area clickable as link*/
+/* making thumbnail titles entire area clickable as link for featured collections */
 .thumbnail-custom .thumbnail-heading {
   padding: 0px;
 }
@@ -145,18 +366,71 @@ a:hover, a:focus {
 }
 
 
-
 /*** MASONRY GRID for featured and collecitons spacing***/
 .grid-item {
   padding-left:1em;
   padding-right:1em;
 }
 
+/* -------- Featured Collections and Featured Other stuff -------*/
+.home-content {
+	padding-top:2em;
+	}
+
+.explore-section, .featured-section {
+  padding-top:1em;
+  padding-bottom:0px;
+}
+.list-inline.collection-highlights-list {
+  margin-left:0;
+  text-align:center;
+  padding-bottom:2em;
+  padding-top:1.5em;
+}
+.list-inline.collection-highlights-list li a {
+  font-size:1.5em;
+}
+
+.home-content .nav {
+	margin-bottom:1em;
+}
+
+.nav-tabs {
+	border-bottom:0px;
+}
+
+.nav-tabs > li > a {
+  font-size:1em;
+}
+
+section#featured-works{
+	padding-top:4em;
+}
+
+section#feaured-collections {
+	padding-top:2.5em
+}
 
 
+/*this is sizing the explore and featured text tabs on home */
+.home-content .nav-tabs > li > a {
+  font-size: 2.25em;
+}
 
-/*** Buttons and Links ***/
+.home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
+  background-color:transparent;
+  border: 1px solid transparent;
+  color:#000000;
+  font-weight:700;
+  font-family: 'PT Serif', serif;
+}
 
+ul.collection-highlights-list {
+  clear:both;
+}
+
+
+/*---------- Buttons and Links ----------*/
 
 .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span, footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus, .btn-link:focus, .btn-link, .btn-danger, .label-danger {
   background-color: #E65A3A;
@@ -182,6 +456,18 @@ a:hover, a:focus {
 }
 
 .btn-default:active {background-color:white;}
+
+.btn-link {
+	color:#fff;
+}
+
+button.btn.btn-primary.add-subcollection, section.works-wrapper a.btn.btn-primary {
+	margin-bottom:.5em;
+	}
+
+.multi_value .btn.remove {
+	color:white;
+	}
 
 /* homepage btn */
 .collection-highlights-list .btn-default {
@@ -209,9 +495,11 @@ a:hover, a:focus {
   background-color: #E65A3A;
   border-color: #E65A3A;
 }
+.label {
+		padding-top:.5em;
+}
 
-
-/*pager prev next and numbers*/
+/*----------PAGER prev next and numbers----------*/
 
 .hyc-bl-pager .pagination li a, .hyc-bl-pager .pagination .active span {
   border-radius: 0;
@@ -278,55 +566,17 @@ a:hover, a:focus {
   color:#E65A3A;
 }
 
-/* -------- Explore Collections and Featured -------*/
-
-.explore-section, .featured-section {
-  padding-top:1em;
-  padding-bottom:0px;
-}
-.list-inline.collection-highlights-list {
-  margin-left:0;
-  text-align:center;
-  padding-bottom:2em;
-  padding-top:1.5em;
-}
-.list-inline.collection-highlights-list li a {
-  font-size:1.5em;
-}
-
-/*making the orange tab text a little bigger in admin page*/
-.nav-tabs > li > a {
-  font-size:1em;
-}
-
-/*this is sizing the explore and featured text tabs on home */
-.home-content .nav-tabs > li > a {
-  font-size: 2em;
-}
-
-.home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
-  background-color:transparent;
-  border: 1px solid transparent;
-  color:#000000;
-  font-weight:700;
-  font-family: 'PT Serif', serif;
-}
-
-ul.collection-highlights-list {
-  clear:both;
-}
-
-
 
 
 
 /* -------- FOOTER STYLES -------- */
 
-
 .footer-info {
-  padding:1em;
+  padding:1.25em 0 1em 1em;
 }
 
+.footer-info a {padding:1em 1em 1em 0;}
+.footer-menu a {padding:.5em 1em .5em 0;}
 
 .footer-info p {
   line-height:1.3em;
@@ -382,42 +632,10 @@ footer a:hover, footer a:focus {
 }
 
 
-/* -------- Dashboard Styles -------- */
-
-div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
-  background: #ffd34e;
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-/*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
-.container.dashboard {
-  margin-top: 100px;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.container.dashboard>h1 {
-  margin-top: -75px;
-}
 
 
-.main-header {
-  margin-top:0;
-  /*margin-left: 15px;
-  padding-left: 15px;*/
-}
 
-/*
-.main-header>h1 {
-  margin-bottom:-75px;
-}
-*/
+/* -------- Search Results -------- */
 
 .facet_limit-active > .panel-heading {
   color: #E65A3A;
@@ -432,16 +650,6 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 .facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ddd;
 }
-
-#my_nav {
-  margin-top:10px;
-}
-
-
-
-
-
-/* -------- Search Styles -------- */
 
 .panel-heading.collapse-toggle .panel-title:after {
   margin-top: -20px;
@@ -484,6 +692,42 @@ ol.catalog li div h2 {margin-top:0;}
   color:#E65A3A;
 }
 
+
+
+/* -------- Dashboard Styles -------- */
+
+/*making the orange tab text a little bigger in admin page*/
+body.dashboard .panel-body {
+	padding:1em;
+}
+
+div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
+  background: #ffd34e;
+}
+
+
+
+/*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
+.container.dashboard {
+  margin-top: 100px;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container.dashboard>h1 {
+  margin-top: -75px;
+}
+
+/* collection thumbnail image in the dashboard collection page
+
+.collection .representative-media {
+		max-width:100%;
+	}
+*/
+
+
 /* -------- Admin Page -------- */
 
 .page-container {
@@ -518,111 +762,34 @@ ol.catalog li div h2 {margin-top:0;}
 
 
 
-
-/* -------- Navbar -------- */
-
-.nav {font-family: 'Muli', sans-serif;}
-
-/*removing padding on right side of logo so admin menu can fit on wider screens*/
-.navbar-brand {
-  padding:0;
-  height: auto;
+/* -------- User Notifications -------- */
+.container.dashboard a.btn.btn-danger.pull-right {
+  margin-right: 30px;
 }
 
-.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
-  color: #fff;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  line-height: 1;
+
+/*----NOT SURE WHERE THESE ARE-----*/
+.main-header {
+  margin-top:0;
 }
 
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
-  color: #fff;
-  text-decoration:underline;
-}
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #fff;
-  text-decoration:underline;
-}
-.navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
-  color: #fff;
-  text-decoration:underline;
-}
-
-.main-navbar-nav li > .dropdown-menu {
-  border-top: 2px solid #db9e36;
-}
-
-.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus {
-  color: #db9e36;
-}
-
-.navbar-light-font {
-  background-color: rgba(37, 143, 206, 0.95)
-}
-
-.main-navbar-nav > li > a {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  line-height: 1;
-}
-
-.image-background {
-  background-image: image-url('ATLA-hero-dark.jpg')!important;
-  background-repeat: no-repeat;
-  background-position: top !important;
-  max-height: 110px;
-}
-
-.navbar-default .navbar-nav > li > a {
-  font-size: 17px; /*changed from 11px*/
-  font-weight: 600;
-}
-
-.nav > li > a {
-  padding: 10px 10px;
-}
-
-.navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
-  background: rgba(37, 143, 206, 0.95) !important;
-}
-
-/* set minimum width to prevent reflow after login button was removed from navbar */
-ul.nav.navbar-nav {
-  min-width: 15px;
-}
-
-/*DROPDOWN*/
-.dropdown-menu > li > a {
-  padding:1em;
-}
-
-.dropdown-menu {
-  font-size:1em;
-}
-
-.navbar-nav .open .dropdown-menu > li > a {
-  line-height:1.5em;
-  padding:1em;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu a {
-  color: #333333;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu .active a, .navbar-default .navbar-nav .open .dropdown-menu .active a:hover, .navbar-default .navbar-nav .open .dropdown-menu .active a:focus {
-  color: #E65A3A;
-}
-
-.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-  margin-left:0;
-  padding-top:.5em;
-  padding-bottom:.5em;
+#my_nav {
+  margin-top:10px;
 }
 
 
 
+/* -------- About & Participate & Institutions pages -------- */
+
+#content_block_page {
+	margin-top:75px;
+	}
+
+.static-page-container h2{
+	font-size:3em;
+	font-family: 'PT Serif', serif;
+
+}
 
 
 /* -------- Terms Page -------- */
@@ -630,8 +797,6 @@ ul.nav.navbar-nav {
 ol.terms-page li {
   margin-bottom:.8em;
 }
-
-
 
 
 /* -------- Contact Page Styles -------- */
@@ -679,14 +844,6 @@ input {
 
 
 
-/* -------- Helper Styles -------- */
-/*
-.margin-bottom-100 {
-margin-bottom: 100px;
-}
-
- */
-
 
 /* -------- Breadcrumbs -------- */
 
@@ -711,18 +868,6 @@ margin-bottom: 100px;
 
 
 
-/* -------- User Notifications -------- */
-
-.container.dashboard a.btn.btn-danger.pull-right {
-  margin-right: 30px;
-}
-
-/*
-.alert {
-margin-top: 150px;
-margin-bottom: -125px;
-}
- */
 
 /* -------- Progress bars -------- */
 
@@ -849,25 +994,24 @@ a[title="Tumblr"] {display:none;}
 
   .navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
 
+  .footer-info {padding-left:2em;}
 
+  .browse-box {padding-top:1.5em;}
 
-
-  /* -------- FOOTER STYLES -------- */
-  .footer-info {
-    padding-left:2em;
+  .browse-box div:first-child {
+	  margin-bottom:0em;
   }
-
-
-
 
 }
 
 @media screen and (min-width: 992px){
-  .navbar-nav {float:left;}
-  .navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
+	.navbar-nav {float:left;}
+	.navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
+
+	.browse-box {padding-top:0em;}
+	.footer-info {text-align:right;}
+	.footer-info a {padding:1em 0 1em 1em;}
 }
-
-
 
 
 
@@ -881,7 +1025,6 @@ a[title="Tumblr"] {display:none;}
 @media screen and (max-width: 992px) {
 
   /* Home Page items */
-
   .hero-fullscreen-bg {
     height: auto;
     padding-top: 150px;
@@ -890,7 +1033,6 @@ a[title="Tumblr"] {display:none;}
   .hero-fullscreen-bg .heading {
     font-size: 2em; /*making font smaller for mobile*/
   }
-
 
   #search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
     display: none;
@@ -906,8 +1048,7 @@ a[title="Tumblr"] {display:none;}
     display: none;
   }
 
-  /* Navigation items */
-
+  /* -------------- Navigation items -------------- */
   .navbar-no-background {
     position: absolute;
     background: rgba(37,143,206,0.95) !important;
@@ -945,7 +1086,7 @@ a[title="Tumblr"] {display:none;}
   }
 
   .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
-    background-color: #f5f5f5;
+    background-color: #fff;
   }
 
   /*adding border to the main site menu dropdown to be consistent with admin dropdown and make it look more like the whole area is clickable*/
@@ -981,11 +1122,7 @@ a[title="Tumblr"] {display:none;}
 
 
 
-
-
-
-
-  /* Admin Page */
+  /* -------------- Admin Page -------------- */
   .page-container .page-sidebar {
     width: 150px;
   }
@@ -998,7 +1135,7 @@ a[title="Tumblr"] {display:none;}
     margin: 0;
   }
 
-  /* Forms */
+  /* -------------- Forms -------------- */
   .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
     padding: 10px 10px;
 
@@ -1007,26 +1144,7 @@ a[title="Tumblr"] {display:none;}
 
 
 
-  /* Dashboard and other secondary pages */
-  /*
-  #my_nav {
-    margin-top: 120px;
-  }
-   */
-/*
-.search-margin-top {
-margin-top: 100px;
-}
- */
-/*
-#content-wrapper {
-margin-top: 0;
-margin-bottom: 50px;
-}
- */
-
-
-
+  /* -------------- Dashboard and other secondary pages -------------- */
 .container.dashboard {
   padding-right: 30px;
 }
@@ -1051,12 +1169,6 @@ margin-bottom: 50px;
   float: none !important;
   margin-bottom: 5px;
 }
-
-/* not needed
-.main-header {
-margin-top:100px;
-}
- */
 
 .profile {
   margin-top: 20px;
@@ -1088,13 +1200,8 @@ img.file_listing_thumbnail {
 }
 
 /*updates / overrides for Hyrax upgrade*/
-
-#no-home .navbar-transparent {
-  background-image: image-url('ATLA-hero-dark.jpg');
-}
-
 #wrapper .navbar-transparent {
-  background-color: transparent;
+  background-color: rgba(37, 143, 206, 0.95);
 }
 
 .dashboard .navbar-background-color {
@@ -1115,8 +1222,7 @@ img.file_listing_thumbnail {
 }
 
 /* updates for show pages */
-/*WORKS PAGES*/
-
+/* -------------- WORKS PAGES -------------- */
 /*Removes indent from metadata value lines and adjusts spacing*/
 .work-show ul.tabular {padding:0;}
 
@@ -1190,7 +1296,7 @@ img.representative-media {padding-top:15px;}
 
 
 
-/*COLLECTION PAGES*/
+/* -------------- COLLECTION PAGES -------------- */
 
 /*Get rid of striped rows look*/
 .table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
