@@ -12,7 +12,7 @@ task repair_format_digital: [:environment] do
 end
 
 desc 'Move location on collection to contributing institution'
-task :location_to_contributing: [:environment] do
+task location_to_contributing: [:environment] do
   puts "Assigning all Collection's :contributing_institution attributes"
   puts "~~to :based_near (Location) values, then clear :based_near values:"
 
@@ -47,7 +47,7 @@ end
 
 
 desc 'find works missing from fedora but still in search index'
-task :find_missing_in_fedora: [:environment] do
+task find_missing_in_fedora: [:environment] do
   progress = ProgressBar.new(Work.count)
   Work.find_each do |w|
     begin
