@@ -162,7 +162,9 @@ ul.nav.navbar-nav {
   padding-bottom:.5em;
 }
 
-
+#wrapper .navbar-transparent {
+  background-color: rgba(37, 143, 206, 0.95);
+}
 
 
 /*---------PAGE ELEMENTS----------*/
@@ -174,8 +176,7 @@ section.section-white {
 }
 
 #content-wrapper {
-  margin-top: 0px;/*needed for all pages except home which uses section-white class*
-  /*margin-bottom: 150px;*/
+  padding-top: 108px;
   padding-bottom:2em;
 }
 
@@ -324,6 +325,15 @@ section.intro {
 }
 
 
+#featured-collections .nav>li>a {
+	padding-top:0;
+	line-height:1;
+}
+
+
+
+
+
 
 /* Custom Thumbnails Home Featured Collections & Works */
 
@@ -374,7 +384,7 @@ section.intro {
 
 /* -------- Featured Collections and Featured Other stuff -------*/
 .home-content {
-	padding-top:2em;
+	padding-top:0;
 	}
 
 .explore-section, .featured-section {
@@ -407,8 +417,8 @@ section#featured-works{
 	padding-top:4em;
 }
 
-section#feaured-collections {
-	padding-top:2.5em
+section#featured-collections {
+	padding-top:0;
 }
 
 
@@ -427,6 +437,20 @@ section#feaured-collections {
 
 ul.collection-highlights-list {
   clear:both;
+}
+
+.featured-item {
+  border: none;
+  min-height: 135px;
+}
+
+.featured-section {padding-bottom:0;}
+
+.featured-item img {
+  padding-right: 0;
+  margin-right: 1em;
+  width:auto;
+  max-width: 100%;
 }
 
 
@@ -496,7 +520,7 @@ button.btn.btn-primary.add-subcollection, section.works-wrapper a.btn.btn-primar
   border-color: #E65A3A;
 }
 .label {
-		padding-top:.5em;
+	padding-top:.5em;
 }
 
 /*----------PAGER prev next and numbers----------*/
@@ -692,6 +716,14 @@ ol.catalog li div h2 {margin-top:0;}
   color:#E65A3A;
 }
 
+.search-result-title {
+  font-size: 1.6em;
+}
+.search-result-wrapper{
+  span.label {
+    display: none;
+  }
+}
 
 
 /* -------- Dashboard Styles -------- */
@@ -705,8 +737,6 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background: #ffd34e;
 }
 
-
-
 /*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
 .container.dashboard {
   margin-top: 100px;
@@ -718,6 +748,17 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 .container.dashboard>h1 {
   margin-top: -75px;
+}
+
+/* Dashboard/Collection/Form "slug" field*/
+#collection_slug {max-width: 540px;}
+
+.dashboard .navbar-background-color {
+  background-color: #505050;
+}
+
+.dashboard #content-wrapper[role=main] {
+  padding-top: 60px;
 }
 
 /* collection thumbnail image in the dashboard collection page
@@ -780,10 +821,10 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 
 
 /* -------- About & Participate & Institutions pages -------- */
-
+/*
 #content_block_page {
-	margin-top:75px;
-	}
+	padding-top:75px;
+}*/
 
 .static-page-container h2{
 	font-size:3em;
@@ -900,7 +941,7 @@ input {
 
 
 
-/* -------- ITEM PAGE --------*/
+/* -------- ITEM/WORKS PAGES --------*/
 
 /*putting space above and below metadata on item page when headings are removed*/
 .meta-table {
@@ -957,6 +998,73 @@ a[title="Tumblr"] {display:none;}
 }
 
 
+/*Removes indent from metadata value lines and adjusts spacing*/
+.work-show ul.tabular {padding:0;}
+
+.work-show dd {margin: 0 0 1em 0;}
+
+.work-show dt, .work-show dd { padding: 0;}
+
+/*Remove "work" heading at top of item pages*/
+h1.work-type-tag {display:none;}
+
+.work-type h2 {font-size: 1.6em;}
+
+/*Remove border around item record*/
+.work-type .panel {
+  border:0px;
+  box-shadow:0 0px 0px rgba(0,0,0,0.00)
+}
+
+/*Remove border around breadcrumbs and adjust spacing */
+.breadcrumb {
+  border:0px;
+  margin-top:0px;
+  padding:0;
+}
+
+/*Remove background color from titles on Item pages*/
+.work-type .panel-default>.panel-heading {background-color:transparent;}
+
+/* Remove space above title heading and border under it*/
+.work-type .panel-heading {
+  border-bottom: 0px;
+  padding-top:0;
+}
+
+.panel-heading h2 { margin:0;}
+
+.work-type .panel-heading .col-sm-8 {
+	padding-left:0;
+}
+
+
+h2.facets-heading {
+  font-weight: 700 !important;
+  color: #636363 !important;
+}
+
+/*Adjust bolding and color of metadata labels*/
+.work-show dt {
+  font-weight:600;
+  color:#000;
+}
+
+.representative-media {width: auto;}
+
+/*Small changes to make the view area 15px bigger in all directions to help UV have more room*/
+.panel-body {padding:0;}
+
+dl.work-show.work {padding-top:15px;}
+
+img.representative-media {padding-top:15px;}
+
+/*put space at the bottom of the universal viewer*/
+.viewer {padding:10px 0 10px 0;}
+
+
+
+
 
 /* -------- COLLECTION PAGE -------- */
 
@@ -970,16 +1078,81 @@ a[title="Tumblr"] {display:none;}
   margin-left:0;
 }
 
+/*Get rid of striped rows look*/
+.table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
+
+/*Collection info text under collection name and description - make smaller, darker labels and less space between lines, hide "collection details"text*/
+.hyc-metadata h2 {display:none;}
+
+.hyc-metadata dl {border-top:0px;}
+
+.hyc-metadata div {border-bottom:0px;}
+
+.hyc-metadata div dt {
+  color:#636363; /* changed from #333 for consistency */
+  font-size: .9em;
+  line-height:1;
+}
+
+.hyc-metadata div dd{
+  font-size: .9em;
+  line-height:1;
+}
+
+/*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
+p.media-heading {font-size:1.2em;}
+
+.parent-collections-list td {border-bottom: none !important;}
+
+/*Top section of collection page layout adjustment*/
+.hyc-description {padding:0;}
+
+.hyc-header {margin-bottom:1em;}
+
+.hyc-generic .hyc-title.collection-title-size h1 {font-size: 1.8em;}
+
+.hyc-body .hyc-bl-title.parent-collections-title-size h2 {font-size: 1.2em;}
 
 
 
+#backtop {
+  position: fixed;
+  left:auto;
+  right: 20px;
+  top:auto;
+  bottom: 20px;
+  outline: none;
+  overflow:hidden;
+  color:#fff;
+  text-align:center;
+  background-color: rgba(230,90,58,1);
+  height:40px;
+  width:40px;
+  line-height:40px;
+  font-size:14px;
+  border-radius:2px;
+  border: 1px solid #E05C3F;
+  cursor:pointer;
+  transition:all 0.3s linear;
+  z-index:999999;
+  opacity:1;
+  display:none;
+}
+#backtop:hover {
+  background-color: rgba(255,255,255,0.84);
+  color:#E05C3F;
+}
+#backtop.mcOut {
+  opacity:0;
+}
 
 
 
-
-
-
-
+/*--------------------------------------------------------------------------------
+MEDIA QUERIES START HERE-------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+*/
 
 
 /* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
@@ -998,19 +1171,23 @@ a[title="Tumblr"] {display:none;}
 
   .browse-box {padding-top:1.5em;}
 
-  .browse-box div:first-child {
-	  margin-bottom:0em;
-  }
+  .browse-box div:first-child {margin-bottom:0em;}
+
+  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+  .navbar-default .navbar-collapse {padding-top:45px;}
+
+
 
 }
+
 
 @media screen and (min-width: 992px){
 	.navbar-nav {float:left;}
 	.navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
-
 	.browse-box {padding-top:0em;}
 	.footer-info {text-align:right;}
 	.footer-info a {padding:1em 0 1em 1em;}
+
 }
 
 
@@ -1023,6 +1200,8 @@ a[title="Tumblr"] {display:none;}
 /* MEDIA QUERIES (not mobile first-so stylying mobile and tablet) */
 
 @media screen and (max-width: 992px) {
+
+
 
   /* Home Page items */
   .hero-fullscreen-bg {
@@ -1059,7 +1238,6 @@ a[title="Tumblr"] {display:none;}
     background-image: none !important;
   }
 
-
   .navbar-no-background .main-navbar-nav .dropdown > .dropdown-menu {
     background-color:#f5f5f5;
   }
@@ -1094,6 +1272,12 @@ a[title="Tumblr"] {display:none;}
     border-bottom: 1px solid #424242;
     padding-left:1em;
   }
+
+.navbar-nav > li:last-child {
+	border-bottom:0px;
+}
+
+
   .navbar-nav.main-navbar-nav {
     border-top:1px solid #424242;
   }
@@ -1120,6 +1304,8 @@ a[title="Tumblr"] {display:none;}
     padding-left:0;
   }
 
+  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+  .navbar-default .navbar-collapse {margin-bottom:20px;}
 
 
   /* -------------- Admin Page -------------- */
@@ -1140,8 +1326,6 @@ a[title="Tumblr"] {display:none;}
     padding: 10px 10px;
 
   }
-
-
 
 
   /* -------------- Dashboard and other secondary pages -------------- */
@@ -1190,209 +1374,17 @@ img.file_listing_thumbnail {
 
 
 @media screen and (min-width:993px) and (max-width: 1199px) {
-
   /*admin logged-in menu changed font size so it will fit in header without breaking layout*/
-
   .main-navbar-nav {
     font-size:.7em;
   }
-
 }
 
-/*updates / overrides for Hyrax upgrade*/
-#wrapper .navbar-transparent {
-  background-color: rgba(37, 143, 206, 0.95);
-}
 
-.dashboard .navbar-background-color {
-  background-color: #505050;
-}
-
-.dashboard #content-wrapper[role=main] {
-  padding-top: 60px;
-}
-
-.search-result-title {
-  font-size: 1.6em;
-}
-.search-result-wrapper{
-  span.label {
-    display: none;
-  }
-}
-
-/* updates for show pages */
-/* -------------- WORKS PAGES -------------- */
-/*Removes indent from metadata value lines and adjusts spacing*/
-.work-show ul.tabular {padding:0;}
-
-.work-show dd {margin: 0 0 1em 0;}
-
-.work-show dt, .work-show dd { padding: 0;}
-
-/*Remove "work" heading at top of item pages*/
-h1.work-type-tag {display:none;}
-
-.work-type h2 {
-  font-size: 1.6em;
-}
-
-/*Remove border around item record*/
-.work-type .panel {
-  border:0px;
-  box-shadow:0 0px 0px rgba(0,0,0,0.00)
-}
-
-/*Remove border around breadcrumbs and adjust spacing */
-.breadcrumb {
-  border:0px;
-  margin-top:0px;
-  padding:0;
-}
-
-/*Remove background color from titles on Item pages*/
-.work-type .panel-default>.panel-heading {
-  background-color:transparent;
-}
-
-/* Remove space above title heading and border under it*/
-.work-type .panel-heading {
-  border-bottom: 0px;
-  padding-top:0;
-}
-
-.panel-heading h2 { margin:0;}
-
-h2.facets-heading {
-  font-weight: 700 !important;
-  color: #636363 !important;
-}
-
-/*Adjust bolding and color of metadata labels*/
-.work-show dt {
-  font-weight:600;
-  color:#000;
-}
-
-.representative-media {
-  width: auto;
-}
-
-/*Small changes to make the view area 15px bigger in all directions to help UV have more room*/
-.panel-body {padding:0;}
-
-dl.work-show.work {padding-top:15px;}
-
-img.representative-media {padding-top:15px;}
-
-/*put space at the bottom of the universal viewer*/
-.viewer {padding:10px 0 10px 0;}
-
-
-
-
-
-
-
-
-
-/* -------------- COLLECTION PAGES -------------- */
-
-/*Get rid of striped rows look*/
-.table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
-
-/*Collection info text under collection name and description - make smaller, darker labels and less space between lines, hide "collection details"text*/
-.hyc-metadata h2 {display:none;}
-
-.hyc-metadata dl {border-top:0px;}
-
-.hyc-metadata div {border-bottom:0px;}
-
-.hyc-metadata div dt {
-  color:#636363; /* changed from #333 for consistency */
-  font-size: .9em;
-  line-height:1;
-}
-
-.hyc-metadata div dd{
-  font-size: .9em;
-  line-height:1;
-}
-
-/*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
-
-p.media-heading {
-  font-size:1.2em;
-}
-
-.parent-collections-list td {
-  border-bottom: none !important;
-}
-
-/*Top section of collection page layout adjustment*/
-
-.hyc-description {padding:0;}
-
-.hyc-header {margin-bottom:1em;}
-
-.hyc-generic .hyc-title.collection-title-size h1 {
-  font-size: 1.8em;
-}
-
-.hyc-body .hyc-bl-title.parent-collections-title-size h2 {
-  font-size: 1.2em;
-}
-
-.featured-item {
-  border: none;
-  min-height: 135px;
-}
-
-.featured-section {padding-bottom:0;}
-
-.featured-item img {
-  padding-right: 0;
-  margin-right: 1em;
-  max-width: 100%;
-}
-
-/* Dashboard/Collection/Form "slug" field*/
-
-#collection_slug {
-  max-width: 540px;
-}
-
-#backtop {
-  position: fixed;
-  left:auto;
-  right: 20px;
-  top:auto;
-  bottom: 20px;
-  outline: none;
-  overflow:hidden;
-  color:#fff;
-  text-align:center;
-  background-color: rgba(230,90,58,1);
-  height:40px;
-  width:40px;
-  line-height:40px;
-  font-size:14px;
-  border-radius:2px;
-  border: 1px solid #E05C3F;
-  cursor:pointer;
-  transition:all 0.3s linear;
-  z-index:999999;
-  opacity:1;
-  display:none;
-}
-#backtop:hover {
-  background-color: rgba(255,255,255,0.84);
-  color:#E05C3F;
-}
-#backtop.mcOut {
-  opacity:0;
-}
-
+/*--------------------this stuff here is not in a media query, its between them-------------------------
+------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------*/
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
 #per_page-dropdown .dropdown-toggle {
@@ -1404,22 +1396,40 @@ p.media-heading {
   padding: 0;
 }
 
+/*-------------------END OF SECTION OF NON MEDIA QUERIES IN THE MIDDLE OF THE MEDIA QUERIES-----------
+-------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------*/
+
 @media screen and (max-width: 768px) {
   /*Need space between social media and metadata can add for mobile */
   .mobile-media {
     text-align: left;
     margin-bottom: 1em;
   }
-  .col-xs-12 {
-    padding: 0;
-  }
 
-  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-  .navbar-default .navbar-collapse {margin-bottom:20px;}
+  .col-xs-12 {padding: 0;}
 
 }
 
-@media (min-width: 768px) {
-  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-  .navbar-default .navbar-collapse {padding-top:45px;}
+
+
+
+
+/* for very small screesn - buttons on home page adjustment*/
+@media screen and (max-width: 320px) {
+
+	.container {
+		padding-right:.25em;
+		padding-left:.25em;
+	}
+
+	nav .container {
+		padding-right:.5em;
+		padding-left:.5em;
+	}
+
+	.list-inline.collection-highlights-list li a {
+		font-size: 1.25em;
+	}
+
 }
