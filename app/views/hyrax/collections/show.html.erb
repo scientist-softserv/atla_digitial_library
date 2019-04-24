@@ -43,6 +43,13 @@
   </div>
 
   <div class="row hyc-body">
+    <div class="col-md-12 hyc-metadata">
+      <% unless has_collection_search_parameters? %>
+          <h2><%= t('hyrax.dashboard.collections.show.metadata_header') %></h2>
+          <%= render 'show_descriptions' %>
+      <% end %>
+    </div>
+
     <!-- Parent collections -->
     <% if @presenter.collection_type_is_nestable? && @presenter.total_parent_collections > 0 %>
       <div class="hyc-blacklight hyc-bl-title parent-collections-title-size">
@@ -54,13 +61,6 @@
         <%= render 'show_parent_collections', presenter: @presenter %>
       </div>
     <% end %>
-
-    <div class="col-md-12 hyc-metadata">
-      <% unless has_collection_search_parameters? %>
-          <h2><%= t('hyrax.dashboard.collections.show.metadata_header') %></h2>
-          <%= render 'show_descriptions' %>
-      <% end %>
-    </div>
   </div>
 
   <!-- Search results label -->
