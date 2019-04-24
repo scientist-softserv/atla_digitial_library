@@ -14,5 +14,6 @@ module Schemas
     property :thumbnail_url, predicate: ::RDF::Vocab::DC.hasVersion
     property :remote_manifest_url, predicate: ::RDF::Vocab::DC.hasFormat
     property :types, predicate: ::RDF::Vocab::DC11.type
+    property :has_manifest, predicate: ::RDF::Vocab::IIIF.hasManifests, multiple: false
   end
 end

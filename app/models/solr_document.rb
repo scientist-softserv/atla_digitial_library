@@ -16,7 +16,8 @@ class SolrDocument
   attribute :types, Solr::Array, solr_name('types')
   attribute :remote_manifest_url, Solr::Array, solr_name('remote_manifest_url')
   attribute :slug, Solr::Array, solr_name('slug')
-
+  attribute :member_of_collections, Solr::Array, "member_of_collections_ssim"
+  attribute :has_manifest, Solr::Array, solr_name('has_manifest')
 
   # self.unique_key = 'id'
 

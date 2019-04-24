@@ -6,7 +6,7 @@ module Hyrax
              :creator, :contributor, :subject, :publisher, :language, :embargo_release_date,
              :lease_expiration_date, :license, :source, :rights_statement, :thumbnail_id, :representative_id,
              :rendering_ids, :member_of_collection_ids, :contributing_institution, :place, :extent, :format_original,
-             :format_digital, :time_period, :alternative_title, :types, :remote_manifest_url,
+             :format_digital, :time_period, :alternative_title, :types, :remote_manifest_url, :has_manifest,
 
              to: :solr_document
 
@@ -15,8 +15,9 @@ module Hyrax
     end
 
     def iiif_viewer?
-      return false
-      representative_id.present? &&
+      has_manifest.present? &&
+        has_manifest.first == "1" &&
+        representative_id.present? &&
         representative_presenter.present? &&
         representative_presenter.image? &&
         Hyrax.config.iiif_image_server? &&
