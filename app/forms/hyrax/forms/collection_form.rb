@@ -25,7 +25,8 @@ module Hyrax
       self.terms = [:resource_type, :title, :creator, :contributor, :description,
                     :keyword, :license, :publisher, :date_created, :subject, :language,
                     :representative_id, :thumbnail_id, :identifier, :based_near,
-                    :related_url, :visibility, :collection_type_gid, :slug] # UPGRADE NOTE: added "slug" to terms
+                    :related_url, :visibility, :collection_type_gid, :slug, # UPGRADE NOTE: added "slug" to terms
+                    :contributing_institution] # UPGRADE NOTE: added "contributing_institution" to terms
 
       self.required_fields = [:title]
 
@@ -64,6 +65,7 @@ module Hyrax
       def secondary_terms
         [:creator,
          :contributor,
+         :contributing_institution,
          :keyword,
          :license,
          :publisher,

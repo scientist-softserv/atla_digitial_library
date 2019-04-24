@@ -5,8 +5,6 @@ class Collection < ActiveFedora::Base
 
   include ::Hyrax::CollectionBehavior
 
-  self.indexer = CollectionIndexer
-
   def to_param
     self.slug || self.id
   end
@@ -44,5 +42,5 @@ class Collection < ActiveFedora::Base
   # You can replace these metadata if they're not suitable
   # moved to bottom of class to avoid issues with "slug property"
   include Hyrax::BasicMetadata
-  self.indexer = Hyrax::CollectionWithBasicMetadataIndexer
+  self.indexer = CollectionIndexer
 end
