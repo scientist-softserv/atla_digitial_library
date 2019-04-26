@@ -27,7 +27,6 @@ task location_to_contributing: [:environment] do
     if c.based_near.present?
       puts ">>> #{c.id} :contributing_institution value changed from [#{c.contributing_institution.first}] => [#{c.based_near.first}]"
       c.contributing_institution = c.based_near
-      c.based_near = []
       c.reindex_extent = Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
       c.save!
     else
