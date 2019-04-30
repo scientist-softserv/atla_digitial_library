@@ -122,11 +122,11 @@ Backup::Model.new(:{{ project_name }}, 'Backup the database and files') do
 
     mail.from                 = 'server@notch8.com'
     mail.to                   = 'rob@notch8.com' # Hipchat or dev team?
-    mail.address              = 'smtp.gmail.com'
+    mail.address              = 'email-smtp.us-east-1.amazonaws.com'
     mail.port                 = 587
     mail.domain               = 'notch8.com'
-    mail.user_name            = 'server@notch8.com'
-    mail.password             = 'DumbDatabase'
+    mail.user_name            = '{{ backup_email_user }}'
+    mail.password             = '{{ backup_email_password }}'
     mail.authentication       = 'plain'
     mail.encryption           = :starttls
   end
