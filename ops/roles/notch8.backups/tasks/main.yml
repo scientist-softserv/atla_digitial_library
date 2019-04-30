@@ -43,4 +43,4 @@
     name: "check run backup"
     minute: "5"
     hour: "0,12"
-    job: "cd {{ backup_location }} && backup perform -c /etc/backup.rb -t {{ project_name }}"
+    job: "bash -l -c 'cd {{ backup_location }} && backup perform -c /etc/backup.rb -t {{ project_name }} && curl -fsS --retry 3 {{ backup_check }} > /dev/null'"
