@@ -13,7 +13,7 @@ homepage:
         path_to_file: /img/moffett_korea.png #DESIRED THUMBNAIL NAME
     - id: 3
       anchor_text: Collection of Free Church Literature - Trinity International University Rolfing Library
-      url: /collections/tcollection-of-free-church-literature #PATH TO COLLECTION
+      url: /collections/collection-of-free-church-literature #PATH TO COLLECTION
       image:
         path_to_file: /img/free-churchliterature.jpg #DESIRED THUMBNAIL NAME
     - id: 4
@@ -25,7 +25,7 @@ homepage:
       anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
       url: /collections/the-l-r-scarborough-digital-materials-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/methodist-manuscripts.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/methodist-manuscripts-two.png #DESIRED THUMBNAIL NAME
     - id: 6
       anchor_text: The Methodist Manuscripts Collection - Garrett-Evangelical Theological Seminary Styberg Library
       url: /collections/the-methodist-manuscripts-collection #PATH TO COLLECTION
