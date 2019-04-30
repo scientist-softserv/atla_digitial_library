@@ -4,1432 +4,1250 @@ html {
 	font-size:1em;
 	}
 
-body {
+body.frontend {
   margin-bottom:0px;
   font-family: 'Muli', sans-serif;
   font-size: 1em;
   line-height: 1.6;
   background-color: #fff;
   font-weight: 400;
-}
 
-/*make images and video responsive*/
-img.representative-media {max-width:100%;}
+  /*make images and video responsive*/
+  img.representative-media {max-width:100%;}
 
-video {
-  width: 100%    !important;
-  height: auto   !important;
-}
-
-/*----------FONTS------------*/
-h1, h2, h3, h4, h5, h6 {
-  color:#313133;
-}
-
-.attribute-label.h4 {font-size:1em;}
-
-h1 {font-size: 1.6em;}
-
-h3.panel-title.facet-field-heading {
-  font-weight:600;
-}
-
-/*adjust the bold color to slightly less black*/
-b, strong {
-  color:#4e4e4e;
-}
-
-
-/*----------LINKS------------*/
-a {
-  color: #E65A3A;
-  text-decoration: none;
-}
-a:hover, a:focus {
-  color: #E65A3A;
-  text-decoration: underline;
-}
-
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-  clear:both;
-}
-
-
-
-
-/* -------- Navbar -------- */
-
-.nav {font-family: 'Muli', sans-serif;}
-
-/*removing padding on right side of logo so admin menu can fit on wider screens*/
-.navbar-brand {
-  padding:0;
-  height: auto;
-}
-
-.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
-  color: #fff;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  line-height: 1;
-}
-
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
-  color: #fff;
-  text-decoration:underline;
-}
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #fff;
-  text-decoration:underline;
-}
-.navbar-default .navbar-nav .active > a, .navbar-default .navbar-nav .active > a:hover, .navbar-default .navbar-nav .active > a:focus {
-  color: #fff;
-  text-decoration:underline;
-}
-
-.main-navbar-nav li > .dropdown-menu {
-  border-top: 2px solid #db9e36;
-}
-
-.main-navbar-nav li > .dropdown-menu > li > a:hover, .main-navbar-nav li > .dropdown-menu > li > a:focus {
-  color: #db9e36;
-}
-
-.navbar-light-font {
-  background-color: rgba(37, 143, 206, 0.95)
-}
-
-.main-navbar-nav > li > a {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  line-height: 1;
-}
-/*
-.image-background {
-  background-image: image-url('ATLA-hero-dark.jpg')!important;
-  background-repeat: no-repeat;
-  background-position: top !important;
-  max-height: 110px;
-}
-*/
-.navbar-default .navbar-nav > li > a {
-  font-size: 17px; /*changed from 11px*/
-  font-weight: 600;
-}
-
-.nav > li > a {
-  padding: 10px 10px;
-}
-
-.navbar-light-font .navbar-toggle, .navbar-light-font .facets-toggle, .navbar-light-font .navbar-toggle:hover, .navbar-light-font .facets-toggle:hover, .navbar-light-font .navbar-toggle:focus, .navbar-light-font .facets-toggle:focus {
-  background: rgba(37, 143, 206, 0.95) !important;
-}
-
-/* set minimum width to prevent reflow after login button was removed from navbar */
-ul.nav.navbar-nav {
-  min-width: 15px;
-}
-
-/*DROPDOWN*/
-.dropdown-menu > li > a {
-  padding:1em;
-}
-
-.dropdown-menu {
-  font-size:1em;
-}
-
-.navbar-nav .open .dropdown-menu > li > a {
-  line-height:1.5em;
-  padding:1em;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu a {
-  color: #333333;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu .active a, .navbar-default .navbar-nav .open .dropdown-menu .active a:hover, .navbar-default .navbar-nav .open .dropdown-menu .active a:focus {
-  color: #E65A3A;
-}
-
-.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-  margin-left:0;
-  padding-top:.5em;
-  padding-bottom:.5em;
-}
-
-#wrapper .navbar-transparent {
-  background-color: rgba(37, 143, 206, 0.95);
-}
-
-
-/*---------PAGE ELEMENTS----------*/
-
-section.section-white {
-  margin-bottom: 0px; /*was 100px*/
-  margin-top:0px; /*remove margin on home page that is needed on other pages? */
-  background-color: #fff;
-}
-
-#content-wrapper {
-  padding-top: 108px;
-  padding-bottom:2em;
-}
-
-/*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
-#content-wrapper.one-pages {
-  padding-top:115px;
-  padding-bottom:2em;
-}
-
-/*fixing the admin page content-wrapper not sure if its affecting other pages*/
-#content-wrapper.container-fluid {
-  padding-top:125px;
-}
-
-/*fixing the admin page content-wrapper not sure if its affecting other pages*/
-#content-wrapper[role=main] {
-  padding-top:110px;
-}
-
-
-
-/*---------- HOME PAGE------------*/
-
-.hero-fullscreen-bg {
-  height: auto;/* was 60%*/
-  padding-top:150px;
-  padding-bottom:2.75em;
-  color:#313133;
-}
-
-.hero-fullscreen-bg .heading {
-  font-size: 3em;
-  font-weight:700;
-  color:#313133;
-  font-family: 'PT Serif', serif;
-  margin-bottom:.35em;
-  margin-top:.5em;
-}
-
-/* text under home page search bar */
-.browse-all-home {
-	font-size:1.25em;
-	font-weight:600;
-}
-
-/* intro section */
-section.intro {
-	background-color:#5e4375;
-	color:#fff;
-	padding-top:4.25em;
-	padding-bottom:4em;
-	}
-
-.intro-text {
-	padding-right:5em;
-	padding-top:.75em;
-	}
-
-.intro h3  {
-	color:#fff;
-	font-family: 'PT Serif', serif;
-	font-weight:700;
-	font-size: 2.125em;
-	margin-top:0;
-	}
-
-.intro a {
-	color:#fff;
-	text-decoration:underline;
-	}
-
-.intro-text p{
-	font-size:1.125em
-}
-
-.learn-more a {
-	padding:.75em 1em 1em 0;
-	position:relative;
-}
-.learn-more a::after {
-	content:'';
-	background-image:linear-gradient(transparent, transparent), url("/img/arrow-white-right.svg");
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:24px 18px;
-	height:18px;
-	width:24px;
-	top:17px;
-	left:6em;
-	position:absolute;
-}
-
-.browse-box {
-	text-align:center;
-	font-size: 1.5em;
-	}
-
-.browse-box div:first-child {
-	margin-bottom:1.5em;
-}
-
-.browse-box img {
-	border-radius:50%;
-	margin-bottom:1em;
-	margin-left:auto;
-	margin-right:auto;
-	}
-
-
-.slideInLeft {
-	animation-name: slideInLeft;
-	animation-duration: 1s;
-	animation-fill-mode: both;
-}
-
-.slideInRight {
-	animation-name: slideInLeft;
-	animation-duration: 1s;
-	animation-fill-mode: both;
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translate3d(-100%, 0, 0);
-    visibility: visible;
+  video {
+    width: 100%    !important;
+    height: auto   !important;
   }
 
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translate3d(100%, 0, 0);
-    visibility: visible;
+  /*----------FONTS------------*/
+  h1, h2, h3, h4, h5, h6 {
+    color:#313133;
   }
 
-  to {
-    transform: translate3d(0, 0, 0);
+  .attribute-label.h4 {font-size:1em;}
+
+  h1 {font-size: 1.6em;}
+
+  h3.panel-title.facet-field-heading {
+    font-weight:600;
   }
-}
 
-.slideInRight {
-  animation-name: slideInRight;
-}
-
-
-#featured-collections .nav>li>a {
-	padding-top:0;
-	line-height:1;
-}
-
-
-
-
-
-
-/* Custom Thumbnails Home Featured Collections & Works */
-
-.thumbnail-custom p {
-  -moz-transition: all 200ms ease-out;
-  -o-transition: all 200ms ease-out;
-  -webkit-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-}
-
-.thumbnail-custom a, .thumbnail-custom a:focus {
-  color: #e65a3a;
-}
-
-.thumbnail-custom a:hover {
-  color: #e65a3a;
-  text-decoration: underline;
-}
-
-.feature-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.thumbnail-custom .overlay {
-  background-color:rgba(197, 196, 196, 0.6);
-}
-
-
-/* making thumbnail titles entire area clickable as link for featured collections */
-.thumbnail-custom .thumbnail-heading {
-  padding: 0px;
-}
-.thumbnail-heading a {
-  padding:15px;
-  display:block;
-}
-
-
-/*** MASONRY GRID for featured and collecitons spacing***/
-.grid-item {
-  padding-left:1em;
-  padding-right:1em;
-}
-
-/* -------- Featured Collections and Featured Other stuff -------*/
-.home-content {
-	padding-top:0;
-	}
-
-.explore-section, .featured-section {
-  padding-top:1em;
-  padding-bottom:0px;
-}
-.list-inline.collection-highlights-list {
-  margin-left:0;
-  text-align:center;
-  padding-bottom:2em;
-  padding-top:1.5em;
-}
-.list-inline.collection-highlights-list li a {
-  font-size:1.5em;
-}
-
-.home-content .nav {
-	margin-bottom:1em;
-}
-
-.nav-tabs {
-	border-bottom:0px;
-}
-
-.nav-tabs > li > a {
-  font-size:1em;
-}
-
-section#featured-works{
-	padding-top:4em;
-}
-
-section#featured-collections {
-	padding-top:0;
-}
-
-
-/*this is sizing the explore and featured text tabs on home */
-.home-content .nav-tabs > li > a {
-  font-size: 2.25em;
-}
-
-.home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
-  background-color:transparent;
-  border: 1px solid transparent;
-  color:#000000;
-  font-weight:700;
-  font-family: 'PT Serif', serif;
-}
-
-ul.collection-highlights-list {
-  clear:both;
-}
-
-.featured-item {
-  border: none;
-  min-height: 135px;
-}
-
-.featured-section {padding-bottom:0;}
-
-.featured-item img {
-  padding-right: 0;
-  margin-right: 1em;
-  width:auto;
-  max-width: 100%;
-}
-
-
-/*---------- Buttons and Links ----------*/
-
-.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span, footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus, .btn-link:focus, .btn-link, .btn-danger, .label-danger {
-  background-color: #E65A3A;
-  border-color: #E65A3A;
-}
-
-.btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .btn-link:hover, .btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
-  background-color: #E65A3A;
-  border-color: #E65A3A;
-  text-decoration:underline;
-}
-
-.btn-default {
-  color:#E05C3F;
-  background-color:white;
-}
-
-.btn-default:hover {
-  background-color:white;
-  border-color:#E05C3F;
-  color:#E05C3F;
-  text-decoration:underline;
-}
-
-.btn-default:active {background-color:white;}
-
-.btn-link {
-	color:#fff;
-}
-
-button.btn.btn-primary.add-subcollection, section.works-wrapper a.btn.btn-primary {
-	margin-bottom:.5em;
-	}
-
-.multi_value .btn.remove {
-	color:white;
-	}
-
-/* homepage btn */
-.collection-highlights-list .btn-default {
-  color:white;
-  background-color:#E05C3F;
-  border-color:#E05C3F;
-  text-transform:uppercase;
-}
-
-.collection-highlights-list .btn-default:hover {
-  background-color:white;
-  border-color:#E05C3F;
-  color:#E05C3F;
-}
-
-.collection-highlights-list .btn-default:active {
-  background-color:white;
-}
-
-.multi_value .btn.add {
-  text-decoration: none;
-  padding: 5px 10px;
-  width: auto;
-  color: white;
-  background-color: #E65A3A;
-  border-color: #E65A3A;
-}
-.label {
-	padding-top:.5em;
-}
-
-/*----------PAGER prev next and numbers----------*/
-
-.hyc-bl-pager .pagination li a, .hyc-bl-pager .pagination .active span {
-  border-radius: 0;
-  border: 1px solid #ddd;
-  border-radius: 0;
-  padding: 0.5em 0.75em;
-  line-height: 1em;
-  margin-right: 5px;
-}
-
-.hyc-bl-pager .pagination {
-  display: inline-block; /* center pagination on collections show page */
-}
-
-.pager li > a:hover {
-  background-color:#E65A3A;
-  color:white;
-}
-
-.pager li > a.disabled {
-  background-color:#E65A3A;
-  color:white;
-}
-
-.pager li > a.disabled[rel~="prev"] {
-  background-color:white;
-  color:#258fce;
-}
-
-.pager li > a.disabled[rel~="next"] {
-  background-color:white;
-  color:#E65A3A;
-}
-
-.pagination > li > a, .pagination > li > span {
-  border-radius: 0;
-  border: 1px solid #ddd;
-  border-radius: 0;
-  padding: 0.5em 0.75em;
-  line-height: 1em;
-  margin-right: 5px;
-  color: #E65A3A;
-}
-
-.pagination > li > a:hover, .pagination > li > span:hover {
-  background-color:#E65A3A;
-  border: 1px solid #ddd;
-  color:white;
-  text-decoration:underline;
-}
-
-.pagination > li > a.disabled, .pagination > li > span.disabled {
-  background-color:#E65A3A;
-  color:white;
-}
-
-.pagination > li > a.disabled[rel~="prev"], .pagination > li > span.disabled[rel~="prev"] {
-  background-color:white;
-  color:#E65A3A;
-}
-
-.pagination > li > a.disabled[rel~="next"], .pagination > li > span.disabled[rel~="next"] {
-  background-color:white;
-  color:#E65A3A;
-}
-
-
-
-
-/* -------- FOOTER STYLES -------- */
-
-.footer-info {
-  padding:1.25em 0 1em 1em;
-}
-
-.footer-info a {padding:1em 1em 1em 0;}
-.footer-menu a {padding:.5em 1em .5em 0;}
-
-.footer-info p {
-  line-height:1.3em;
-}
-
-.footer-name-one {
-  font-size:1.5em;
-  font-weight:800;
-  color:#ffffff;
-}
-
-.footer-menu {
-  padding:1em;
-}
-
-.footer-search {
-  padding:1em;
-}
-
-footer.navbar.navbar-inverse {
-  background-color: #258fce;
-  border-color: #258fce;
-}
-
-footer.navbar {
-  padding: 1.5em 0;
-}
-
-footer .container {
-  padding:0;
-}
-
-footer.navbar.navbar-inverse img {
-  margin: 0 auto 15px auto;
-}
-
-footer .navbar-text {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-footer {
-  color: white;
-}
-
-footer a {
-  color:white;
-}
-
-footer a:hover, footer a:focus {
-  color:white;
-  text-decoration:underline
-}
-
-
-
-
-
-/* -------- Search Results -------- */
-
-.facet_limit-active > .panel-heading {
-  color: #E65A3A;
-  background-color: #f5f5f5;
-  border-color: #ddd;
-}
-
-.facet_limit-active {
-  border-color: #ddd;
-}
-
-.facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #ddd;
-}
-
-.panel-heading.collapse-toggle .panel-title:after {
-  margin-top: -20px;
-}
-
-#appliedParams.constraints-container {
-  margin-bottom: 10px;
-}
-
-.search-results {
-  padding:1em;
-}
-
-.search-results h2{
-  margin-top:0;
-  font-family: 'PT Serif', serif;
-}
-
-ol.catalog h2 {font-size:1.6em;}
-
-ol.catalog {padding-left:15px;}
-
-ol.catalog li div h2 {margin-top:0;}
-#sortAndPerPage {margin-bottom:1.5em;}
-
-/*removes second dropdown carat symbol on facets*/
-.collapse-toggle::after {
-  display:none;
-}
-
-
-/* metadata facets on search results, more ... panel */
-.modal-content {margin-top:115px;}
-
-.facet-values {padding: .5em;}
-
-.panel-heading.collapse-toggle .panel-title:after {padding-right: .25em;}
-
-.facet-values li .selected {
-  color:#E65A3A;
-}
-
-.search-result-title {
-  font-size: 1.6em;
-}
-.search-result-wrapper{
-  span.label {
-    display: none;
+  /*adjust the bold color to slightly less black*/
+  b, strong {
+    color:#4e4e4e;
   }
-}
 
 
-/* -------- Dashboard Styles -------- */
+  /*----------LINKS------------*/
+  a {
+    color: #E65A3A;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    color: #E65A3A;
+    text-decoration: underline;
+  }
 
-/*making the orange tab text a little bigger in admin page*/
-body.dashboard .panel-body {
-	padding:1em;
-}
 
-div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyphicon-chevron-right-helper .chevron, .glyphicon-chevron-right-helper div.heading-tile .chevron {
-  background: #ffd34e;
-}
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+    clear:both;
+  }
 
-/*removed the uses of the dashboard class so these are likely no longer doing anything margins were messing up layout*/
-.container.dashboard {
-  margin-top: 100px;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
 
-.container.dashboard>h1 {
-  margin-top: -75px;
-}
 
-/* Dashboard/Collection/Form "slug" field*/
-#collection_slug {max-width: 540px;}
 
-.dashboard .navbar-background-color {
-  background-color: #505050;
-}
+  /*---------PAGE ELEMENTS----------*/
 
-.dashboard #content-wrapper[role=main] {
-  padding-top: 60px;
-}
+  section.section-white {
+    margin-bottom: 0px; /*was 100px*/
+    margin-top:0px; /*remove margin on home page that is needed on other pages? */
+    background-color: #fff;
+  }
 
-/* collection thumbnail image in the dashboard collection page
+  #content-wrapper {
+    padding-top: 108px;
+    padding-bottom:2em;
+  }
 
-.collection .representative-media {
-		max-width:100%;
+  /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
+  #content-wrapper.one-pages {
+    padding-top:115px;
+    padding-bottom:2em;
+  }
+
+  /*fixing the admin page content-wrapper not sure if its affecting other pages*/
+  #content-wrapper.container-fluid {
+    padding-top:125px;
+  }
+
+  /*fixing the admin page content-wrapper not sure if its affecting other pages*/
+  #content-wrapper[role=main] {
+    padding-top:110px;
+  }
+
+
+
+  /*---------- HOME PAGE------------*/
+
+  .hero-fullscreen-bg {
+    height: auto;/* was 60%*/
+    padding-top:150px;
+    padding-bottom:2.75em;
+    color:#313133;
+  }
+
+  .hero-fullscreen-bg .heading {
+    font-size: 3em;
+    font-weight:700;
+    color:#313133;
+    font-family: 'PT Serif', serif;
+    margin-bottom:.35em;
+    margin-top:.5em;
+  }
+
+  /* text under home page search bar */
+  .browse-all-home {
+	  font-size:1.25em;
+	  font-weight:600;
+  }
+
+  /* intro section */
+  section.intro {
+	  background-color:#5e4375;
+	  color:#fff;
+	  padding-top:4.25em;
+	  padding-bottom:4em;
 	}
-*/
+
+  .intro-text {
+	  padding-right:5em;
+	  padding-top:.75em;
+	}
+
+  .intro h3  {
+	  color:#fff;
+	  font-family: 'PT Serif', serif;
+	  font-weight:700;
+	  font-size: 2.125em;
+	  margin-top:0;
+	}
+
+  .intro a {
+	  color:#fff;
+	  text-decoration:underline;
+	}
+
+  .intro-text p{
+	  font-size:1.125em
+  }
+
+  .learn-more a {
+	  padding:.75em 1em 1em 0;
+	  position:relative;
+  }
+  .learn-more a::after {
+	  content:'';
+	  background-image:linear-gradient(transparent, transparent), url("/img/arrow-white-right.svg");
+	  background-position:center;
+	  background-repeat:no-repeat;
+	  background-size:24px 18px;
+	  height:18px;
+	  width:24px;
+	  top:17px;
+	  left:6em;
+	  position:absolute;
+  }
+
+  .browse-box {
+	  text-align:center;
+	  font-size: 1.5em;
+	}
+
+  .browse-box div:first-child {
+	  margin-bottom:1.5em;
+  }
+
+  .browse-box img {
+	  border-radius:50%;
+	  margin-bottom:1em;
+	  margin-left:auto;
+	  margin-right:auto;
+	}
 
 
-/* -------- Admin Page -------- */
+  .slideInLeft {
+	  animation-name: slideInLeft;
+	  animation-duration: 1s;
+	  animation-fill-mode: both;
+  }
 
-.page-container {
-  background-color: #157984 !important;
-}
+  .slideInRight {
+	  animation-name: slideInLeft;
+	  animation-duration: 1s;
+	  animation-fill-mode: both;
+  }
 
-.page-container .page-content .page-content-wrap {
-  background-color: #f5f5f5;
-}
+  @keyframes slideInLeft {
+    from {
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
 
-.x-navigation {
-  background-color: #105b63 !important;
-}
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 
-.x-navigation li > a {
-  border-bottom: 1px solid #0b3c42 !important;
-  color: #db9e36;
-}
+  @keyframes slideInRight {
+    from {
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
 
-.x-navigation > li.xn-logo > a:first-child {
-  background: #0b3c42 !important;
-}
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 
-.x-navigation.x-navigation-horizontal {
-  height: 41px !important;
-  background: #0b3c42 !important;
-}
-
-.x-navigation > li > a:hover {
-  background: #198d9a !important;
-}
-
-
-
-/* -------- User Notifications -------- */
-.container.dashboard a.btn.btn-danger.pull-right {
-  margin-right: 30px;
-}
+  .slideInRight {
+    animation-name: slideInRight;
+  }
 
 
-/*----NOT SURE WHERE THESE ARE-----*/
-.main-header {
-  margin-top:0;
-}
-
-#my_nav {
-  margin-top:10px;
-}
+  #featured-collections .nav>li>a {
+	  padding-top:0;
+	  line-height:1;
+  }
 
 
 
-/* -------- About & Participate & Institutions pages -------- */
-/*
+
+
+
+  /* Custom Thumbnails Home Featured Collections & Works */
+
+  .thumbnail-custom p {
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    -webkit-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  .thumbnail-custom a, .thumbnail-custom a:focus {
+    color: #e65a3a;
+  }
+
+  .thumbnail-custom a:hover {
+    color: #e65a3a;
+    text-decoration: underline;
+  }
+
+  .feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .thumbnail-custom .overlay {
+    background-color:rgba(197, 196, 196, 0.6);
+  }
+
+
+  /* making thumbnail titles entire area clickable as link for featured collections */
+  .thumbnail-custom .thumbnail-heading {
+    padding: 0px;
+  }
+  .thumbnail-heading a {
+    padding:15px;
+    display:block;
+  }
+
+
+  /*** MASONRY GRID for featured and collecitons spacing***/
+  .grid-item {
+    padding-left:1em;
+    padding-right:1em;
+  }
+
+  /* -------- Featured Collections and Featured Other stuff -------*/
+  .home-content {
+	  padding-top:0;
+	}
+
+  .explore-section, .featured-section {
+    padding-top:1em;
+    padding-bottom:0px;
+  }
+  .list-inline.collection-highlights-list {
+    margin-left:0;
+    text-align:center;
+    padding-bottom:2em;
+    padding-top:1.5em;
+  }
+  .list-inline.collection-highlights-list li a {
+    font-size:1.5em;
+  }
+
+  .home-content .nav {
+	  margin-bottom:1em;
+  }
+
+  .nav-tabs {
+	  border-bottom:0px;
+  }
+
+  .nav-tabs > li > a {
+    font-size:1em;
+  }
+
+  section#featured-works{
+	  padding-top:4em;
+  }
+
+  section#featured-collections {
+	  padding-top:0;
+  }
+
+
+  /*this is sizing the explore and featured text tabs on home */
+  .home-content .nav-tabs > li > a {
+    font-size: 2.25em;
+  }
+
+  .home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
+    background-color:transparent;
+    border: 1px solid transparent;
+    color:#000000;
+    font-weight:700;
+    font-family: 'PT Serif', serif;
+  }
+
+  ul.collection-highlights-list {
+    clear:both;
+  }
+
+  .featured-item {
+    border: none;
+    min-height: 135px;
+  }
+
+  .featured-section {padding-bottom:0;}
+
+  .featured-item img {
+    padding-right: 0;
+    margin-right: 1em;
+    width:auto;
+    max-width: 100%;
+  }
+
+
+  /*---------- Buttons and Links ----------*/
+
+  .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-success, .btn-success:active, .btn-success:focus, .label-success, .label-success:active, .label-success:focus, .pagination > .active > a, .pagination > .active > span, footer .btn-primary, footer .btn-primary:active, footer .btn-primary:focus, footer .btn-success, footer .btn-success:active, footer .btn-success:focus, footer .label-success, .footer label-success:active, footer .label-success:focus, .btn-link:focus, .btn-link, .btn-danger, .label-danger {
+    background-color: #E65A3A;
+    border-color: #E65A3A;
+  }
+
+  .btn-primary:hover, .btn-success:hover, .btn-primary:active:hover, .btn-success:active:hover, .label-success:hover, .label-success:active:hover, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .btn-link:hover, .btn-danger:hover, .btn-danger:focus, .btn-danger:focus, .btn-danger:active:hover, .label-danger:hover, .label-danger:focus, .label-danger:active:hover {
+    background-color: #E65A3A;
+    border-color: #E65A3A;
+    text-decoration:underline;
+  }
+
+  .btn-default {
+    color:#E05C3F;
+    background-color:white;
+  }
+
+  .btn-default:hover {
+    background-color:white;
+    border-color:#E05C3F;
+    color:#E05C3F;
+    text-decoration:underline;
+  }
+
+  .btn-default:active {background-color:white;}
+
+  .btn-link {
+	  color:#fff;
+  }
+
+  button.btn.btn-primary.add-subcollection, section.works-wrapper a.btn.btn-primary {
+	  margin-bottom:.5em;
+	}
+
+  .multi_value .btn.remove {
+	  color:white;
+	}
+
+  /* homepage btn */
+  .collection-highlights-list .btn-default {
+    color:white;
+    background-color:#E05C3F;
+    border-color:#E05C3F;
+    text-transform:uppercase;
+  }
+
+  .collection-highlights-list .btn-default:hover {
+    background-color:white;
+    border-color:#E05C3F;
+    color:#E05C3F;
+  }
+
+  .collection-highlights-list .btn-default:active {
+    background-color:white;
+  }
+
+  .multi_value .btn.add {
+    text-decoration: none;
+    padding: 5px 10px;
+    width: auto;
+    color: white;
+    background-color: #E65A3A;
+    border-color: #E65A3A;
+  }
+  .label {
+	  padding-top:.5em;
+  }
+
+  /*----------PAGER prev next and numbers----------*/
+
+  .hyc-bl-pager .pagination li a, .hyc-bl-pager .pagination .active span {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    padding: 0.5em 0.75em;
+    line-height: 1em;
+    margin-right: 5px;
+  }
+
+  .hyc-bl-pager .pagination {
+    display: inline-block; /* center pagination on collections show page */
+  }
+
+  .pager li > a:hover {
+    background-color:#E65A3A;
+    color:white;
+  }
+
+  .pager li > a.disabled {
+    background-color:#E65A3A;
+    color:white;
+  }
+
+  .pager li > a.disabled[rel~="prev"] {
+    background-color:white;
+    color:#258fce;
+  }
+
+  .pager li > a.disabled[rel~="next"] {
+    background-color:white;
+    color:#E65A3A;
+  }
+
+  .pagination > li > a, .pagination > li > span {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    padding: 0.5em 0.75em;
+    line-height: 1em;
+    margin-right: 5px;
+    color: #E65A3A;
+  }
+
+  .pagination > li > a:hover, .pagination > li > span:hover {
+    background-color:#E65A3A;
+    border: 1px solid #ddd;
+    color:white;
+    text-decoration:underline;
+  }
+
+  .pagination > li > a.disabled, .pagination > li > span.disabled {
+    background-color:#E65A3A;
+    color:white;
+  }
+
+  .pagination > li > a.disabled[rel~="prev"], .pagination > li > span.disabled[rel~="prev"] {
+    background-color:white;
+    color:#E65A3A;
+  }
+
+  .pagination > li > a.disabled[rel~="next"], .pagination > li > span.disabled[rel~="next"] {
+    background-color:white;
+    color:#E65A3A;
+  }
+
+
+
+
+  /* -------- FOOTER STYLES -------- */
+
+  .footer-info {
+    padding:1.25em 0 1em 1em;
+  }
+
+  .footer-info a {padding:1em 1em 1em 0;}
+  .footer-menu a {padding:.5em 1em .5em 0;}
+
+  .footer-info p {
+    line-height:1.3em;
+  }
+
+  .footer-name-one {
+    font-size:1.5em;
+    font-weight:800;
+    color:#ffffff;
+  }
+
+  .footer-menu {
+    padding:1em;
+  }
+
+  .footer-search {
+    padding:1em;
+  }
+
+  footer.navbar.navbar-inverse {
+    background-color: #258fce;
+    border-color: #258fce;
+  }
+
+  footer.navbar {
+    padding: 1.5em 0;
+  }
+
+  footer .container {
+    padding:0;
+  }
+
+  footer.navbar.navbar-inverse img {
+    margin: 0 auto 15px auto;
+  }
+
+  footer .navbar-text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  footer {
+    color: white;
+  }
+
+  footer a {
+    color:white;
+  }
+
+  footer a:hover, footer a:focus {
+    color:white;
+    text-decoration:underline
+  }
+
+
+
+
+
+  /* -------- Search Results -------- */
+
+  .facet_limit-active > .panel-heading {
+    color: #E65A3A;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+  }
+
+  .facet_limit-active {
+    border-color: #ddd;
+  }
+
+  .facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #ddd;
+  }
+
+  .panel-heading.collapse-toggle .panel-title:after {
+    margin-top: -20px;
+  }
+
+  #appliedParams.constraints-container {
+    margin-bottom: 10px;
+  }
+
+  .search-results {
+    padding:1em;
+  }
+
+  .search-results h2{
+    margin-top:0;
+    font-family: 'PT Serif', serif;
+  }
+
+  ol.catalog h2 {font-size:1.6em;}
+
+  ol.catalog {padding-left:15px;}
+
+  ol.catalog li div h2 {margin-top:0;}
+  #sortAndPerPage {margin-bottom:1.5em;}
+
+  /*removes second dropdown carat symbol on facets*/
+  .collapse-toggle::after {
+    display:none;
+  }
+
+
+  /* metadata facets on search results, more ... panel */
+  .modal-content {margin-top:115px;}
+
+  .facet-values {padding: .5em;}
+
+  .panel-heading.collapse-toggle .panel-title:after {padding-right: .25em;}
+
+  .facet-values li .selected {
+    color:#E65A3A;
+  }
+
+  .search-result-title {
+    font-size: 1.6em;
+  }
+  .search-result-wrapper{
+    span.label {
+      display: none;
+    }
+  }
+
+
+
+
+  /* -------- User Notifications -------- */
+  .container.dashboard a.btn.btn-danger.pull-right {
+    margin-right: 30px;
+  }
+
+
+  /*----NOT SURE WHERE THESE ARE-----*/
+  .main-header {
+    margin-top:0;
+  }
+
+  #my_nav {
+    margin-top:10px;
+  }
+
+
+
+  /* -------- About & Participate & Institutions pages -------- */
+  /*
 #content_block_page {
 	padding-top:75px;
 }*/
 
-.static-page-container h2{
-	font-size:3em;
-	font-family: 'PT Serif', serif;
+  .static-page-container h2{
+	  font-size:3em;
+	  font-family: 'PT Serif', serif;
 
-}
+  }
 
 
-/* -------- Terms Page -------- */
+  /* -------- Terms Page -------- */
 
-ol.terms-page li {
-  margin-bottom:.8em;
-}
+  ol.terms-page li {
+    margin-bottom:.8em;
+  }
 
 
-/* -------- Contact Page Styles -------- */
+  /* -------- Contact Page Styles -------- */
 
-.form-horizontal .form-group {
-  margin-right:0;
-}
+  .form-horizontal .form-group {
+    margin-right:0;
+  }
 
-/* Forms and Devise Views */
+  /* Forms and Devise Views */
 
-input {
-  margin-bottom: 10px;
-}
+  input {
+    margin-bottom: 10px;
+  }
 
-.form-control {
-  color: #555555;
-}
+  .form-control {
+    color: #555555;
+  }
 
-.label-info::before {
-  content: "*";
-  color: #e65a3a;
-}
-.label-info {
-  background-color: #fff;
-  color: #fff;
-}
+  .label-info::before {
+    content: "*";
+    color: #e65a3a;
+  }
+  .label-info {
+    background-color: #fff;
+    color: #fff;
+  }
 
-.required-key {
-  color: #bd4932;
-  padding-left: 16px;
-  font-size: 14px;
-}
+  .required-key {
+    color: #bd4932;
+    padding-left: 16px;
+    font-size: 14px;
+  }
 
-.checkbox input[type="checkbox"] {
-  position: relative;
-  margin-left: 0;
-  margin-right: 5px;
-}
+  .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+    margin-right: 5px;
+  }
 
-/* Remove padding for required-key field on collection pages */
-.no-left-padding {
-  padding-left: 0;
-}
+  /* Remove padding for required-key field on collection pages */
+  .no-left-padding {
+    padding-left: 0;
+  }
 
 
 
 
 
-/* -------- Breadcrumbs -------- */
+  /* -------- Breadcrumbs -------- */
 
-.breadcrumb > li.active {
-  color: #E65A3A;
-}
+  .breadcrumb > li.active {
+    color: #E65A3A;
+  }
 
-.breadcrumb a:hover, .breadcrumb a:focus {
-  color: #E65A3A;
-}
+  .breadcrumb a:hover, .breadcrumb a:focus {
+    color: #E65A3A;
+  }
 
-.breadcrumb.link-accent a {
-  color: #258fce;
-}
+  .breadcrumb.link-accent a {
+    color: #258fce;
+  }
 
-.breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
-  text-decoration: none;
-  color: #E65A3A;
-  text-decoration:underline;
-}
+  .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
+    text-decoration: none;
+    color: #E65A3A;
+    text-decoration:underline;
+  }
 
 
 
 
 
-/* -------- Progress bars -------- */
+  /* -------- Progress bars -------- */
 
-.progress-bar {
-  background-color: #105b63;
-}
+  .progress-bar {
+    background-color: #105b63;
+  }
 
-.progress-bar-warning {
-  background-color: #db9e36;
-}
+  .progress-bar-warning {
+    background-color: #db9e36;
+  }
 
-.progress-bar-danger {
-  background-color: #bd4932;
-}
+  .progress-bar-danger {
+    background-color: #bd4932;
+  }
 
-.progress-bar-success {
-  background-color: #105b63;
-}
+  .progress-bar-success {
+    background-color: #105b63;
+  }
 
-.progress-bar-info {
-  background-color: #198d9a;
-}
+  .progress-bar-info {
+    background-color: #198d9a;
+  }
 
-/* Removing divider to prevent console error */
+  /* Removing divider to prevent console error */
 
-.section-heading:after {
-  background-image: none;
-}
+  .section-heading:after {
+    background-image: none;
+  }
 
 
 
 
-/* -------- ITEM/WORKS PAGES --------*/
+  /* -------- ITEM/WORKS PAGES --------*/
 
-/*putting space above and below metadata on item page when headings are removed*/
-.meta-table {
-  margin-top:1em;
-  margin-bottom:0;
-}
+  /*putting space above and below metadata on item page when headings are removed*/
+  .meta-table {
+    margin-top:1em;
+    margin-bottom:0;
+  }
 
-/*putting table border to bottom instead of top*/
-.table tbody tr td, .table tbody tr th, .table thead tr th {
-  border-top:0;
-  border-bottom: 1px solid #ddd;
-}
+  /*putting table border to bottom instead of top*/
+  .table tbody tr td, .table tbody tr th, .table thead tr th {
+    border-top:0;
+    border-bottom: 1px solid #ddd;
+  }
 
-li.URL {word-break:break-all;}
-li.Rights a {word-break:break-all;}
+  li.URL {word-break:break-all;}
+  li.Rights a {word-break:break-all;}
 
-/*this hides border under In Collection metadata*/
-.relationships.table tbody tr td, .relationships.table tbody tr th {
-  border-bottom: 0px solid #ddd;
-}
+  /*this hides border under In Collection metadata*/
+  .relationships.table tbody tr td, .relationships.table tbody tr th {
+    border-bottom: 0px solid #ddd;
+  }
 
 
-/*adjusting padding under the value content*/
-ul.tabular {
-  margin-bottom:0px;
-}
+  /*adjusting padding under the value content*/
+  ul.tabular {
+    margin-bottom:0px;
+  }
 
-/*adjusting attribute font*/
-.meta-table tbody tr th, .relationships tbody tr th, .related-files thead tr th {
-  font-weight:600;
-}
+  /*adjusting attribute font*/
+  .meta-table tbody tr th, .relationships tbody tr th, .related-files thead tr th {
+    font-weight:600;
+  }
 
-/*sidebar show-actions*/
-.show-actions{
-  padding-left:0px;
-}
+  /*sidebar show-actions*/
+  .show-actions{
+    padding-left:0px;
+  }
 
-/*making table responsive*/
-.table-overflow {overflow-x:auto;}
+  /*making table responsive*/
+  .table-overflow {overflow-x:auto;}
 
-.social-media{
-  padding-right:0px;
-  padding-left:0px;
-}
+  .social-media{
+    padding-right:0px;
+    padding-left:0px;
+  }
 
-.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
+  .show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
 
 
-.rep-sharing-button-tumblr {display:none;}
-a[title="Tumblr"] {display:none;}
-.resp-sharing-button__link {margin:.1em;}
-.resp-sharing-button {
-  padding: .5em .65em .3em .65em;
-}
+  .rep-sharing-button-tumblr {display:none;}
+  a[title="Tumblr"] {display:none;}
+  .resp-sharing-button__link {margin:.1em;}
+  .resp-sharing-button {
+    padding: .5em .65em .3em .65em;
+  }
 
 
-/*Removes indent from metadata value lines and adjusts spacing*/
-.work-show ul.tabular {padding:0;}
+  /*Removes indent from metadata value lines and adjusts spacing*/
+  .work-show ul.tabular {padding:0;}
 
-.work-show dd {margin: 0 0 1em 0;}
+  .work-show dd {margin: 0 0 1em 0;}
 
-.work-show dt, .work-show dd { padding: 0;}
+  .work-show dt, .work-show dd { padding: 0;}
 
-/*Remove "work" heading at top of item pages*/
-h1.work-type-tag {display:none;}
+  /*Remove "work" heading at top of item pages*/
+  h1.work-type-tag {display:none;}
 
-.work-type h2 {font-size: 1.6em;}
+  .work-type h2 {font-size: 1.6em;}
 
-/*Remove border around item record*/
-.work-type .panel {
-  border:0px;
-  box-shadow:0 0px 0px rgba(0,0,0,0.00)
-}
+  /*Remove border around item record*/
+  .work-type .panel {
+    border:0px;
+    box-shadow:0 0px 0px rgba(0,0,0,0.00)
+  }
 
-/*Remove border around breadcrumbs and adjust spacing */
-.breadcrumb {
-  border:0px;
-  margin-top:0px;
-  padding:0;
-}
+  /*Remove border around breadcrumbs and adjust spacing */
+  .breadcrumb {
+    border:0px;
+    margin-top:0px;
+    padding:0;
+  }
 
-/*Remove background color from titles on Item pages*/
-.work-type .panel-default>.panel-heading {background-color:transparent;}
+  /*Remove background color from titles on Item pages*/
+  .work-type .panel-default>.panel-heading {background-color:transparent;}
 
-/* Remove space above title heading and border under it*/
-.work-type .panel-heading {
-  border-bottom: 0px;
-  padding-top:0;
-}
+  /* Remove space above title heading and border under it*/
+  .work-type .panel-heading {
+    border-bottom: 0px;
+    padding-top:0;
+  }
 
-.panel-heading h2 { margin:0;}
+  .panel-heading h2 { margin:0;}
 
-.work-type .panel-heading .col-sm-8 {
-	padding-left:0;
-}
+  .work-type .panel-heading .col-sm-8 {
+	  padding-left:0;
+  }
 
 
-h2.facets-heading {
-  font-weight: 700 !important;
-  color: #636363 !important;
-}
+  h2.facets-heading {
+    font-weight: 700 !important;
+    color: #636363 !important;
+  }
 
-/*Adjust bolding and color of metadata labels*/
-.work-show dt {
-  font-weight:600;
-  color:#000;
-}
+  /*Adjust bolding and color of metadata labels*/
+  .work-show dt {
+    font-weight:600;
+    color:#000;
+  }
 
-.representative-media {width: auto;}
+  .representative-media {width: auto;}
 
-/*Small changes to make the view area 15px bigger in all directions to help UV have more room*/
-.panel-body {padding:0;}
+  /*Small changes to make the view area 15px bigger in all directions to help UV have more room*/
+  .panel-body {padding:0;}
 
-dl.work-show.work {padding-top:15px;}
+  dl.work-show.work {padding-top:15px;}
 
-img.representative-media {padding-top:15px;}
+  img.representative-media {padding-top:15px;}
 
-/*put space at the bottom of the universal viewer*/
-.viewer {padding:10px 0 10px 0;}
+  /*put space at the bottom of the universal viewer*/
+  .viewer {padding:10px 0 10px 0;}
 
 
 
 
 
-/* -------- COLLECTION PAGE -------- */
+  /* -------- COLLECTION PAGE -------- */
 
-/*adjusting attribute font*/
-.doc-list thead tr th {
-  font-weight:600;
-}
+  /*adjusting attribute font*/
+  .doc-list thead tr th {
+    font-weight:600;
+  }
 
-/*when logged in, remove space on left of edit buttons*/
-.actions-controls-collections {
-  margin-left:0;
-}
+  /*when logged in, remove space on left of edit buttons*/
+  .actions-controls-collections {
+    margin-left:0;
+  }
 
-/*Get rid of striped rows look*/
-.table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
+  /*Get rid of striped rows look*/
+  .table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
 
-/*Collection info text under collection name and description - make smaller, darker labels and less space between lines, hide "collection details"text*/
-.hyc-metadata h2 {display:none;}
+  /*Collection info text under collection name and description - make smaller, darker labels and less space between lines, hide "collection details"text*/
+  .hyc-metadata h2 {display:none;}
 
-.hyc-metadata dl {border-top:0px;}
+  .hyc-metadata dl {border-top:0px;}
 
-.hyc-metadata div {border-bottom:0px;}
+  .hyc-metadata div {border-bottom:0px;}
 
-.hyc-metadata div dt {
-  color:#636363; /* changed from #333 for consistency */
-  font-size: .9em;
-  line-height:1;
-}
+  .hyc-metadata div dt {
+    color:#636363; /* changed from #333 for consistency */
+    font-size: .9em;
+    line-height:1;
+  }
 
-.hyc-metadata div dd{
-  font-size: .9em;
-  line-height:1;
-}
+  .hyc-metadata div dd{
+    font-size: .9em;
+    line-height:1;
+  }
 
-/*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
-p.media-heading {font-size:1.2em;}
+  /*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
+  p.media-heading {font-size:1.2em;}
 
-.parent-collections-list td {border-bottom: none !important;}
+  .parent-collections-list td {border-bottom: none !important;}
 
-/*Top section of collection page layout adjustment*/
-.hyc-description {padding:0;}
+  /*Top section of collection page layout adjustment*/
+  .hyc-description {padding:0;}
 
-.hyc-header {margin-bottom:1em;}
+  .hyc-header {margin-bottom:1em;}
 
-.hyc-generic .hyc-title.collection-title-size h1 {font-size: 1.8em;}
+  .hyc-generic .hyc-title.collection-title-size h1 {font-size: 1.8em;}
 
-.hyc-body .hyc-bl-title.parent-collections-title-size h2 {font-size: 1.2em;}
+  .hyc-body .hyc-bl-title.parent-collections-title-size h2 {font-size: 1.2em;}
 
 
 
-#backtop {
-  position: fixed;
-  left:auto;
-  right: 20px;
-  top:auto;
-  bottom: 20px;
-  outline: none;
-  overflow:hidden;
-  color:#fff;
-  text-align:center;
-  background-color: rgba(230,90,58,1);
-  height:40px;
-  width:40px;
-  line-height:40px;
-  font-size:14px;
-  border-radius:2px;
-  border: 1px solid #E05C3F;
-  cursor:pointer;
-  transition:all 0.3s linear;
-  z-index:999999;
-  opacity:1;
-  display:none;
-}
-#backtop:hover {
-  background-color: rgba(255,255,255,0.84);
-  color:#E05C3F;
-}
-#backtop.mcOut {
-  opacity:0;
-}
+  #backtop {
+    position: fixed;
+    left:auto;
+    right: 20px;
+    top:auto;
+    bottom: 20px;
+    outline: none;
+    overflow:hidden;
+    color:#fff;
+    text-align:center;
+    background-color: rgba(230,90,58,1);
+    height:40px;
+    width:40px;
+    line-height:40px;
+    font-size:14px;
+    border-radius:2px;
+    border: 1px solid #E05C3F;
+    cursor:pointer;
+    transition:all 0.3s linear;
+    z-index:999999;
+    opacity:1;
+    display:none;
+  }
+  #backtop:hover {
+    background-color: rgba(255,255,255,0.84);
+    color:#E05C3F;
+  }
+  #backtop.mcOut {
+    opacity:0;
+  }
 
 
 
-/*--------------------------------------------------------------------------------
+  /*--------------------------------------------------------------------------------
 MEDIA QUERIES START HERE-------------------------------------------------------------
 -----------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------
-*/
+ */
 
 
-/* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
+  /* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
 
-@media screen and (min-width:768px) {
+  @media screen and (min-width:768px) {
 
-  .navbar-right {margin-right:0px;}/*fix/remove scrollbar showing in mobile menu */
+    .navbar-right {margin-right:0px;}/*fix/remove scrollbar showing in mobile menu */
 
-  .fixedsticky-on {padding-top:125px;}
+    .fixedsticky-on {padding-top:125px;}
 
-  .navbar-nav {float:none;}
+    .navbar-nav {float:none;}
 
-  .navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
+    .navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
 
-  .footer-info {padding-left:2em;}
+    .footer-info {padding-left:2em;}
 
-  .browse-box {padding-top:1.5em;}
+    .browse-box {padding-top:1.5em;}
 
-  .browse-box div:first-child {margin-bottom:0em;}
+    .browse-box div:first-child {margin-bottom:0em;}
 
-  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-  .navbar-default .navbar-collapse {padding-top:45px;}
-
-
-
-}
+    /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+    .navbar-default .navbar-collapse {padding-top:45px;}
 
 
-@media screen and (min-width: 992px){
-	.navbar-nav {float:left;}
-	.navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
-	.browse-box {padding-top:0em;}
-	.footer-info {text-align:right;}
-	.footer-info a {padding:1em 0 1em 1em;}
-
-}
-
-
-
-
-
-
-
-
-/* MEDIA QUERIES (not mobile first-so stylying mobile and tablet) */
-
-@media screen and (max-width: 992px) {
-
-
-
-  /* Home Page items */
-  .hero-fullscreen-bg {
-    height: auto;
-    padding-top: 150px;
-  }
-
-  .hero-fullscreen-bg .heading {
-    font-size: 2em; /*making font smaller for mobile*/
-  }
-
-  #search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
-    display: none;
-  }
-
-  #search-submit-header.btn.btn-primary {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border: none;
-  }
-
-  button#search-option-toggle.btn.btn-default.dropdown-toggle {
-    display: none;
-  }
-
-  /* -------------- Navigation items -------------- */
-  .navbar-no-background {
-    position: absolute;
-    background: rgba(37,143,206,0.95) !important;
-    background-image: none !important;
-  }
-
-  .navbar-no-background.image-background {
-    background-image: none !important;
-  }
-
-  .navbar-no-background .main-navbar-nav .dropdown > .dropdown-menu {
-    background-color:#f5f5f5;
-  }
-  .navbar .container {
-    z-index:2;
-  }
-
-  .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
-    color: #3b3b3b;
-    padding: 1.5em 0;
-  }
-
-  .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-brand, .navbar-default .navbar-nav > li.active > a {
-    color: #e65a3a;
-  }
-
-  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
-    color: #e65a3a;
-    padding-left: 16px;
-  }
-
-  .navbar-light-font .open .dropdown-menu > .active > a, .navbar-light-font .open .dropdown-menu > .active > a:hover, .navbar-light-font .open .dropdown-menu > .active > a:focus {
-    background-color: #313133 !important;
-  }
-
-  .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
-    background-color: #fff;
-  }
-
-  /*adding border to the main site menu dropdown to be consistent with admin dropdown and make it look more like the whole area is clickable*/
-  .navbar-nav > li{
-    border-bottom: 1px solid #424242;
-    padding-left:1em;
-  }
-
-.navbar-nav > li:last-child {
-	border-bottom:0px;
-}
-
-
-  .navbar-nav.main-navbar-nav {
-    border-top:1px solid #424242;
-  }
-  .navbar-nav {
-    margin:0;
-  }
-
-  /*dropdown menu colors*/
-  .navbar-light-font .open .dropdown-menu > li > a {
-    color:#3b3b3b !important;
-  }
-  .navbar-light-font .open dropdown-menu > li > a:hover {
-    color:#db9e36 !important;
-    background-color:#f5f5f5 !important;
-  }
-
-  .dropdown-menu {
-    box-shadow: none;
-    position: relative;
-    width: 100%;
-    float:none;
-  }
-  .dropdown.open {
-    padding-left:0;
-  }
-
-  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
-  .navbar-default .navbar-collapse {margin-bottom:20px;}
-
-
-  /* -------------- Admin Page -------------- */
-  .page-container .page-sidebar {
-    width: 150px;
-  }
-
-  .page-container .page-content {
-    margin-left: 150px;
-  }
-
-  .dropdown-menu .divider {
-    margin: 0;
-  }
-
-  /* -------------- Forms -------------- */
-  .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
-    padding: 10px 10px;
 
   }
 
 
-  /* -------------- Dashboard and other secondary pages -------------- */
-.container.dashboard {
-  padding-right: 30px;
-}
+  @media screen and (min-width: 992px){
+	  .navbar-nav {float:left;}
+	  .navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
+	  .browse-box {padding-top:0em;}
+	  .footer-info {text-align:right;}
+	  .footer-info a {padding:1em 0 1em 1em;}
 
-.container.dashboard>h1 {
-  margin-top: 50px;
-}
-
-.container.dashboard h2.non.lower small {
-  font-size: 50%;
-}
-
-.heading-tile {
-  font-size: large;
-}
-
-.container.dashboard a.btn.btn-danger.pull-right {
-  float:left !important;
-}
-
-.pull-right.no-pull-sm {
-  float: none !important;
-  margin-bottom: 5px;
-}
-
-.profile {
-  margin-top: 20px;
-}
-
-/* Make images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-img.file_listing_thumbnail {
-  max-width: initial;
-}
-
-
-}
-
-
-@media screen and (min-width:993px) and (max-width: 1199px) {
-  /*admin logged-in menu changed font size so it will fit in header without breaking layout*/
-  .main-navbar-nav {
-    font-size:.7em;
   }
-}
 
 
-/*--------------------this stuff here is not in a media query, its between them-------------------------
+
+
+
+
+
+
+  /* MEDIA QUERIES (not mobile first-so stylying mobile and tablet) */
+
+  @media screen and (max-width: 992px) {
+
+
+
+    /* Home Page items */
+    .hero-fullscreen-bg {
+      height: auto;
+      padding-top: 150px;
+    }
+
+    .hero-fullscreen-bg .heading {
+      font-size: 2em; /*making font smaller for mobile*/
+    }
+
+    #search-submit-header.btn.btn-primary>.glyphicon.glyphicon-search {
+      display: none;
+    }
+
+    #search-submit-header.btn.btn-primary {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: none;
+    }
+
+    button#search-option-toggle.btn.btn-default.dropdown-toggle {
+      display: none;
+    }
+
+    /* -------------- Navigation items -------------- */
+    .navbar-no-background {
+      position: absolute;
+      background: rgba(37,143,206,0.95) !important;
+      background-image: none !important;
+    }
+
+    .navbar-no-background.image-background {
+      background-image: none !important;
+    }
+
+    .navbar-no-background .main-navbar-nav .dropdown > .dropdown-menu {
+      background-color:#f5f5f5;
+    }
+    .navbar .container {
+      z-index:2;
+    }
+
+    .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+      color: #3b3b3b;
+      padding: 1.5em 0;
+    }
+
+    .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-brand, .navbar-default .navbar-nav > li.active > a {
+      color: #e65a3a;
+    }
+
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+      color: #e65a3a;
+      padding-left: 16px;
+    }
+
+    .navbar-light-font .open .dropdown-menu > .active > a, .navbar-light-font .open .dropdown-menu > .active > a:hover, .navbar-light-font .open .dropdown-menu > .active > a:focus {
+      background-color: #313133 !important;
+    }
+
+    .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
+      background-color: #fff;
+    }
+
+    /*adding border to the main site menu dropdown to be consistent with admin dropdown and make it look more like the whole area is clickable*/
+    .navbar-nav > li{
+      border-bottom: 1px solid #424242;
+      padding-left:1em;
+    }
+
+    .navbar-nav > li:last-child {
+	    border-bottom:0px;
+    }
+
+
+    .navbar-nav.main-navbar-nav {
+      border-top:1px solid #424242;
+    }
+    .navbar-nav {
+      margin:0;
+    }
+
+    /*dropdown menu colors*/
+    .navbar-light-font .open .dropdown-menu > li > a {
+      color:#3b3b3b !important;
+    }
+    .navbar-light-font .open dropdown-menu > li > a:hover {
+      color:#db9e36 !important;
+      background-color:#f5f5f5 !important;
+    }
+
+    .dropdown-menu {
+      box-shadow: none;
+      position: relative;
+      width: 100%;
+      float:none;
+    }
+    .dropdown.open {
+      padding-left:0;
+    }
+
+    /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
+    .navbar-default .navbar-collapse {margin-bottom:20px;}
+
+
+    /* -------------- Admin Page -------------- */
+    .page-container .page-sidebar {
+      width: 150px;
+    }
+
+    .page-container .page-content {
+      margin-left: 150px;
+    }
+
+    .dropdown-menu .divider {
+      margin: 0;
+    }
+
+    /* -------------- Forms -------------- */
+    .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
+      padding: 10px 10px;
+
+    }
+
+
+    /* -------------- Dashboard and other secondary pages -------------- */
+    .container.dashboard {
+      padding-right: 30px;
+    }
+
+    .container.dashboard>h1 {
+      margin-top: 50px;
+    }
+
+    .container.dashboard h2.non.lower small {
+      font-size: 50%;
+    }
+
+    .heading-tile {
+      font-size: large;
+    }
+
+    .container.dashboard a.btn.btn-danger.pull-right {
+      float:left !important;
+    }
+
+    .pull-right.no-pull-sm {
+      float: none !important;
+      margin-bottom: 5px;
+    }
+
+    .profile {
+      margin-top: 20px;
+    }
+
+    /* Make images responsive */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    img.file_listing_thumbnail {
+      max-width: initial;
+    }
+
+
+  }
+
+
+  @media screen and (min-width:993px) and (max-width: 1199px) {
+    /*admin logged-in menu changed font size so it will fit in header without breaking layout*/
+    .main-navbar-nav {
+      font-size:.7em;
+    }
+  }
+
+
+  /*--------------------this stuff here is not in a media query, its between them-------------------------
 ------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------*/
-/*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
+  /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
-#per_page-dropdown .dropdown-toggle {
-  color: #E65A3A;
-}
+  #per_page-dropdown .dropdown-toggle {
+    color: #E65A3A;
+  }
 
-.hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
-  height: auto;
-  padding: 0;
-}
+  .hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
+    height: auto;
+    padding: 0;
+  }
 
-/*-------------------END OF SECTION OF NON MEDIA QUERIES IN THE MIDDLE OF THE MEDIA QUERIES-----------
+  /*-------------------END OF SECTION OF NON MEDIA QUERIES IN THE MIDDLE OF THE MEDIA QUERIES-----------
 -------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------*/
 
-@media screen and (max-width: 768px) {
-  /*Need space between social media and metadata can add for mobile */
-  .mobile-media {
-    text-align: left;
-    margin-bottom: 1em;
+  @media screen and (max-width: 768px) {
+    /*Need space between social media and metadata can add for mobile */
+    .mobile-media {
+      text-align: left;
+      margin-bottom: 1em;
+    }
+
+    .col-xs-12 {padding: 0;}
+
   }
 
-  .col-xs-12 {padding: 0;}
-
-}
 
 
 
 
+  /* for very small screesn - buttons on home page adjustment*/
+  @media screen and (max-width: 320px) {
 
-/* for very small screesn - buttons on home page adjustment*/
-@media screen and (max-width: 320px) {
+	  .container {
+		  padding-right:.25em;
+		  padding-left:.25em;
+	  }
 
-	.container {
-		padding-right:.25em;
-		padding-left:.25em;
-	}
+	  nav .container {
+		  padding-right:.5em;
+		  padding-left:.5em;
+	  }
 
-	nav .container {
-		padding-right:.5em;
-		padding-left:.5em;
-	}
+	  .list-inline.collection-highlights-list li a {
+		  font-size: 1.25em;
+	  }
 
-	.list-inline.collection-highlights-list li a {
-		font-size: 1.25em;
-	}
-
+  }
 }

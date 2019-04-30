@@ -4,8 +4,8 @@
     <%= render partial: 'layouts/head_tag_content' %>
     <%= content_for(:head) %>
   </head>
-
-  <body id="top" data-spy="scroll">
+  <% content_for(:extra_body_classes, 'frontend') %>
+  <body id="top" data-spy="scroll" class="<%= body_class %>">
     <div id="wrapper">
       <!-- NAV UNIT -->
       <%= render '/masthead' %>

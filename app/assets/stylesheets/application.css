@@ -15,5 +15,7 @@
  *= require 'openseadragon'
  *= require 'hyrax'
  *= require 'main'
+ *= require 'navbar'
+ *= require 'admin'
  *= require '_overrides'
  */
