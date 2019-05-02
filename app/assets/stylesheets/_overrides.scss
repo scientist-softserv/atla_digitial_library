@@ -29,7 +29,8 @@ body.frontend {
 
   h1 {font-size: 1.6em;}
 
-  h3.panel-title.facet-field-heading {
+  h3.panel-title.facet-field-heading a {
+    color: rgb(51, 51, 51);
     font-weight:600;
   }
 
@@ -377,6 +378,14 @@ body.frontend {
 	  color:#fff;
   }
 
+  .btn-danger, .btn-danger:hover, .btn-danger:focus {
+    color: white;
+  }
+
+  .pagination > .active > a, .pagination > .active > span {
+    color: white;
+  }
+
   button.btn.btn-primary.add-subcollection, section.works-wrapper a.btn.btn-primary {
 	  margin-bottom:.5em;
 	}
@@ -465,6 +474,12 @@ body.frontend {
     border: 1px solid #ddd;
     color:white;
     text-decoration:underline;
+  }
+
+  .pagination > li > a:focus, .pagination > li > span:focus {
+    background-color: #E65A3A;
+    border-color: #E65A3A;
+    color: white;
   }
 
   .pagination > li > a.disabled, .pagination > li > span.disabled {
@@ -859,6 +874,7 @@ body.frontend {
   h2.facets-heading {
     font-weight: 700 !important;
     color: #636363 !important;
+    margin: 10px 0;
   }
 
   /*Adjust bolding and color of metadata labels*/
@@ -875,6 +891,10 @@ body.frontend {
   dl.work-show.work {padding-top:15px;}
 
   img.representative-media {padding-top:15px;}
+
+  .media-left img {
+    max-width: none;
+  }
 
   /*put space at the bottom of the universal viewer*/
   .viewer {padding:10px 0 10px 0;}
@@ -1062,7 +1082,7 @@ MEDIA QUERIES START HERE--------------------------------------------------------
       z-index:2;
     }
 
-    .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a  {
+    .navbar-default .navbar-nav > li > a  {
       color: #3b3b3b;
       padding: 1.5em 0;
     }

@@ -56,12 +56,14 @@
   padding-left: 0;
   padding-right: 0;
 }
+
 @media screen and (max-width: 768px) {
   .navbar-default .navbar-collapse {
     padding-left: inherit;
     padding-right: inherit;
   }
 }
+
 @media screen and (max-width: 992px) {
   .navbar-default .navbar-collapse {
     width: 100%;
@@ -90,6 +92,7 @@
   border: none;
   z-index: 9999;
 }
+
 @media screen and (max-width: 992px) {
   .navbar-no-background {
     position: absolute;
@@ -144,6 +147,7 @@
   border-color: #5c9d14;
   color: #fff;
 }
+
 @media screen and (max-width: 992px) {
   .navbar-light-font .open .dropdown-menu > li > a, .navbar-light-font .open .dropdown-menu > li > a:hover, .navbar-light-font .open .dropdown-menu > li > a:focus {
     color: #fff !important;
@@ -263,6 +267,7 @@
 .main-navbar-nav .dropdown-mega .dropdown-menu li.active > a, .main-navbar-nav .dropdown-mega .dropdown-menu li.active > a:hover, .main-navbar-nav .dropdown-mega .dropdown-menu li.active > a:focus {
   color: #69B417;
 }
+
 @media screen and (min-width: 993px) {
   .main-navbar-nav .dropdown:hover > .dropdown-menu {
     display: block;
@@ -273,6 +278,7 @@
     margin-top: -2px;
   }
 }
+
 @media screen and (max-width: 992px) {
   .main-navbar-nav > li {
     border-bottom: 1px solid #f3f3f3;
@@ -340,11 +346,13 @@
 .secondary-navbar-nav .dropdown-cart {
   float: left;
 }
+
 @media screen and (min-width: 993px) {
   .secondary-navbar-nav .dropdown:hover > .dropdown-menu {
     display: block;
   }
 }
+
 @media screen and (max-width: 992px) {
   .secondary-navbar-nav {
     margin: 0;
@@ -433,6 +441,7 @@
   padding-bottom: 30px;
   line-height: 1;
 }
+
 /*
 .image-background {
   background-image: image-url('ATLA-hero-dark.jpg')!important;
@@ -441,8 +450,9 @@
   max-height: 110px;
 }
 */
+
 .navbar-default .navbar-nav > li > a {
-  font-size: 17px; /*changed from 11px*/
+  font-size: 17px !important; /*changed from 11px*/
   font-weight: 600;
 }
 
@@ -490,5 +500,3 @@ ul.nav.navbar-nav {
 #wrapper .navbar-transparent {
   background-color: rgba(37, 143, 206, 0.95);
 }
-
-
