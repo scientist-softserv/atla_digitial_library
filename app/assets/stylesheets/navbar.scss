@@ -20,11 +20,6 @@
   border-bottom: 1px solid #e7e7e7;
   background-color: #fff;
 }
-.navbar-default .navbar-nav > li > a {
-  color: #3B3B3B;
-  font-weight: normal;
-  font-size: 13px;
-}
 .navbar-default .navbar-nav > li > a:hover {
   background-color: transparent;
   color: #69B417;
@@ -452,7 +447,7 @@
 */
 
 .navbar-default .navbar-nav > li > a {
-  font-size: 17px !important; /*changed from 11px*/
+  font-size: 17px;
   font-weight: 600;
 }
 

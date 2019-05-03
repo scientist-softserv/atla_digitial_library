@@ -29,36 +29,16 @@ body.frontend {
 
   h1 {font-size: 1.6em;}
 
-  h3.panel-title.facet-field-heading a {
-    color: rgb(51, 51, 51);
-    font-weight:600;
-  }
-
   /*adjust the bold color to slightly less black*/
   b, strong {
     color:#4e4e4e;
   }
-
-
-  /*----------LINKS------------*/
-  a {
-    color: #E65A3A;
-    text-decoration: none;
-  }
-  a:hover, a:focus {
-    color: #E65A3A;
-    text-decoration: underline;
-  }
-
 
   .row {
     margin-left: 0;
     margin-right: 0;
     clear:both;
   }
-
-
-
 
   /*---------PAGE ELEMENTS----------*/
 
@@ -378,10 +358,12 @@ body.frontend {
 	  color:#fff;
   }
 
+  /* override default `a` color */
   .btn-danger, .btn-danger:hover, .btn-danger:focus {
     color: white;
   }
 
+  /* override default .pagination `a` color */
   .pagination > .active > a, .pagination > .active > span {
     color: white;
   }
@@ -567,6 +549,12 @@ body.frontend {
 
 
   /* -------- Search Results -------- */
+
+  /* override default `a` element */
+  h3.panel-title.facet-field-heading a {
+    color: rgb(51, 51, 51);
+    font-weight:600;
+  }
 
   .facet_limit-active > .panel-heading {
     color: #E65A3A;
@@ -864,17 +852,17 @@ body.frontend {
     padding-top:0;
   }
 
-  .panel-heading h2 { margin:0;}
+  /* Remove space around title on Work show page */
+  .work-type .panel-heading h2 { margin:0;}
 
   .work-type .panel-heading .col-sm-8 {
-	  padding-left:0;
+    padding-left:0;
   }
 
 
   h2.facets-heading {
     font-weight: 700 !important;
     color: #636363 !important;
-    margin: 10px 0;
   }
 
   /*Adjust bolding and color of metadata labels*/
@@ -892,6 +880,8 @@ body.frontend {
 
   img.representative-media {padding-top:15px;}
 
+  /* Remove attribute set in */
+  /* hyrax.scss by .catalog img */
   .media-left img {
     max-width: none;
   }
@@ -1082,6 +1072,7 @@ MEDIA QUERIES START HERE--------------------------------------------------------
       z-index:2;
     }
 
+    /* Set color and padding of text links in navbar */
     .navbar-default .navbar-nav > li > a  {
       color: #3b3b3b;
       padding: 1.5em 0;
