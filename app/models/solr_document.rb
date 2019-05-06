@@ -14,6 +14,7 @@ class SolrDocument
   attribute :time_period, Solr::Array, solr_name('time_period')
   attribute :format_digital, Solr::Array, solr_name('format_digital')
   attribute :types, Solr::Array, solr_name('types')
+  attribute :rights_holder, Solr::Array, solr_name('rights_holder')
   attribute :remote_manifest_url, Solr::Array, solr_name('remote_manifest_url')
   attribute :slug, Solr::Array, solr_name('slug')
   attribute :member_of_collections, Solr::Array, "member_of_collections_ssim"
