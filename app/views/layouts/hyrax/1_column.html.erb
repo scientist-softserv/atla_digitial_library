@@ -4,7 +4,8 @@
     <%= render partial: 'layouts/head_tag_content' %>
   </head>
 
-  <body>
+  <% content_for(:extra_body_classes, 'frontend') %>
+  <body class="<%= body_class %>">
     <div id='no-home'>
       <a href="#skip_to_content" class="sr-only">Skip to Content</a>
       <%= render partial: '/masthead' %>

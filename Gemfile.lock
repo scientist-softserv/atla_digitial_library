@@ -256,6 +256,7 @@ GEM
       activesupport (>= 4.0)
     flot-rails (0.0.7)
       jquery-rails
+    flutie (2.1.0)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
     globalid (0.4.2)
@@ -816,6 +817,7 @@ DEPENDENCIES
   devise (~> 4.5)
   devise-guests (~> 0.6)
   fcrepo_wrapper
+  flutie
   health-monitor-rails!
   hyrax (~> 2.3.3)
   hyrax-spec
