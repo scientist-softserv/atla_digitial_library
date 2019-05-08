@@ -85,7 +85,7 @@
 .navbar-no-background {
   background: none;
   border: none;
-  z-index: 9999;
+  z-index: 1049; /* 1 less than modals, don't increase */
 }
 
 @media screen and (max-width: 992px) {
