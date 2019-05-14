@@ -11,6 +11,17 @@ task repair_format_digital: [:environment] do
   end
 end
 
+desc 'reindex collections shallowly'
+task collection_index_only: [:environment] do
+  progress = ProgressBar.new(Collection.count)
+
+  Collection.find_each do |collection|
+    collection.reindex_extent = Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
+    collection.update_index
+    progress.increment!
+  end
+end
+
 desc 'Move location on collection to contributing institution'
 task location_to_contributing: [:environment] do
   puts "Assigning all Collection's :contributing_institution attributes"
