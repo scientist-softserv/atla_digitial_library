@@ -26,8 +26,6 @@ services:
     environment:
       VIRTUAL_HOST: atla.docker
       VIRTUAL_PORT: 3000
-    ports:
-      - "${DEV_PORT}"
     depends_on:
       - dj
       - redis
