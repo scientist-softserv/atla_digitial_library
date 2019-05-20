@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def has_iiif?
+    @presenter.universal_viewer? || @presenter.remote_manifest_url.present?
+  end
+
   def render_full_image_tag(document, image_options = {}, url_options = {})
     value = if blacklight_config.view_config(document_index_view_type).thumbnail_method
               send(blacklight_config.view_config(document_index_view_type).thumbnail_method, document, image_options)

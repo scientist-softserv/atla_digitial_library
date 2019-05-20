@@ -14,17 +14,19 @@
       <div class="panel-body">
         <div class="row">
           <%= render 'workflow_actions_widget', presenter: @presenter %>
-          <% if @presenter.universal_viewer? || @presenter.remote_manifest_url.present? %>
+          <% if has_iiif? %>
             <div class="col-sm-12">
               <%= render 'representative_media', presenter: @presenter, viewer: true %>
             </div>
           <% end %>
           <div class="col-sm-3 mobile-media">
-            <%= render('representative_media', presenter: @presenter, viewer: false) if(!@presenter.universal_viewer? && !@presenter.remote_manifest_url.present?) %>
-            <% if @presenter.identifier.present? && @presenter.identifier.first.match("http") %>
-              <%= link_to @presenter.identifier.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
-                View Full Item
-                <span class="glyphicon glyphicon-new-window"></span>
+            <% if !has_iiif? %>
+              <%= render('representative_media', presenter: @presenter, viewer: false)%>
+              <% if @presenter.identifier.present? && @presenter.identifier.first.match("http") %>
+                <%= link_to @presenter.identifier.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
+                  View Full Item
+                  <span class="glyphicon glyphicon-new-window"></span>
+                <% end %>
               <% end %>
             <% end %>
             <%= render 'social_media' %>
