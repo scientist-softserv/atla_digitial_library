@@ -67,3 +67,24 @@ task find_missing_in_fedora: [:environment] do
     end
   end
 end
+
+# TODO: move to :before_save in Work model?
+desc 'associate Works with parent collections'
+task works_in_parents: [:environment] do
+  Work.find_each do |w|
+    if w.member_of_collections.present?
+      w.member_of_collection_ids.each do |cid|
+        wc = Collection.find(cid)
+        if wc.member_of_collections.present?
+          wc.member_of_collection_ids.each do |wcid|
+            wpc = Collection.find(wcid)
+            w.member_of_collections << wpc
+            w.save!
+          end
+        end
+      end
+    else
+      next
+    end
+  end
+end
