@@ -1,3 +1,17 @@
+desc 'Strip spaces from subjects'
+task remove_subject_spaces: [:environment] do
+  progress = ProgressBar.new(Work.count)
+  Work.find_each do |w|
+    original_subject = []
+    work.subject = work.subject.map do |subject|
+      original_subject << subject
+      subject.strip
+    end
+    work.save if work.subject.to_a != original_subject
+    progress.increment!
+  end
+end
+
 desc 'Fixes mp3 facet duplications and properly set to MPEG'
 task repair_format_digital: [:environment] do
   progress = ProgressBar.new(Work.count)
