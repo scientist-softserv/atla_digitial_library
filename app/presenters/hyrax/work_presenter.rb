@@ -6,7 +6,7 @@ module Hyrax
              :creator, :contributor, :subject, :publisher, :language, :embargo_release_date,
              :lease_expiration_date, :license, :source, :rights_statement, :rights_holder, :thumbnail_id, :representative_id,
              :rendering_ids, :member_of_collection_ids, :contributing_institution, :place, :extent, :format_original,
-             :format_digital, :time_period, :alternative_title, :types, :remote_manifest_url, :has_manifest,
+             :format_digital, :time_period, :alternative_title, :types, :remote_manifest_url, :has_manifest, :ancestor_collection_ids,
 
              to: :solr_document
 
@@ -24,6 +24,10 @@ module Hyrax
         members_include_viewable_image?
     end
     alias universal_viewer? iiif_viewer?
+
+    def ancestor_collections
+      Collection.where(id: self.ancestor_collection_ids)
+    end
 
   end
 end

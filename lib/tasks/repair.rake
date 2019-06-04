@@ -55,7 +55,6 @@ task location_to_contributing: [:environment] do
   end
 end
 
-
 desc 'find works missing from fedora but still in search index'
 task find_missing_in_fedora: [:environment] do
   progress = ProgressBar.new(Work.count)
@@ -64,27 +63,6 @@ task find_missing_in_fedora: [:environment] do
       progress.increment!
     rescue ActiveFedora::ActiveFedoraError => e
       puts e.message
-    end
-  end
-end
-
-# TODO: move to :before_save in Work model?
-desc 'associate Works with parent collections'
-task works_in_parents: [:environment] do
-  Work.find_each do |w|
-    if w.member_of_collections.present?
-      w.member_of_collection_ids.each do |cid|
-        wc = Collection.find(cid)
-        if wc.member_of_collections.present?
-          wc.member_of_collection_ids.each do |wcid|
-            wpc = Collection.find(wcid)
-            w.member_of_collections << wpc
-            w.save!
-          end
-        end
-      end
-    else
-      next
     end
   end
 end

@@ -19,7 +19,7 @@ class SolrDocument
   attribute :slug, Solr::Array, solr_name('slug')
   attribute :member_of_collections, Solr::Array, "member_of_collections_ssim"
   attribute :has_manifest, Solr::Array, solr_name('has_manifest')
-
+  attribute :ancestor_collection_ids, Solr::Array, solr_name('ancestor_collection_ids')
   # self.unique_key = 'id'
 
   # Email uses the semantic field mappings below to generate the body of an email.
