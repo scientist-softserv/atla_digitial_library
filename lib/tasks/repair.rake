@@ -55,7 +55,6 @@ task location_to_contributing: [:environment] do
   end
 end
 
-
 desc 'find works missing from fedora but still in search index'
 task find_missing_in_fedora: [:environment] do
   progress = ProgressBar.new(Work.count)

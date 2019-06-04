@@ -12,11 +12,7 @@
 <%= presenter.attribute_to_html(:alternative_title, render_as: :faceted, html_dl: true) %>
 <%= presenter.attribute_to_html(:time_period, render_as: :faceted, html_dl: true) %>
 <%= presenter.attribute_to_html(:relation, render_as: :external_link, html_dl: true) %>
-<% presenter.presenter_types.each do |type| %>
-  <% presenter.grouped_presenters(filtered_by: type).each_pair do |_, items| %>
-    <%= render 'relationships_parent_row', type: type, items: items, presenter: presenter %>
-  <% end %>
-<% end %>
+<%= render 'relationships_parent_row', type: 'collection', items: presenter.ancestor_collections, presenter: presenter %>
 <%= presenter.attribute_to_html(:format_digital, render_as: :faceted, html_dl: true) %>
 <%= presenter.attribute_to_html(:types, render_as: :faceted, html_dl: true) %>
 <% if presenter.identifier.present? && presenter.identifier.first.match("http") %>
