@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190411201623) do
+ActiveRecord::Schema.define(version: 20190601222101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20190411201623) do
     t.text "parsed_metadata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "last_error"
+    t.datetime "last_error_at"
+    t.datetime "last_succeeded_at"
     t.index ["importer_id"], name: "index_bulkrax_entries_on_importer_id"
   end
 
