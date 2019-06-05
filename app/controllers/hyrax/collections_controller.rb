@@ -43,7 +43,7 @@ module Hyrax
 
     def slugitout
       if params[:id]
-        @curation_concern = Collection.where(slug: params[:id]).first || Collection.find(params[:id])
+        @curation_concern = Collection.where(slug_sim: params[:id]).first || Collection.find(params[:id])
         # TODO: This is about as hacky as you can get and should be fixed.
         # The problem is that further down the stack,
         # where permissions are searched for and matched against

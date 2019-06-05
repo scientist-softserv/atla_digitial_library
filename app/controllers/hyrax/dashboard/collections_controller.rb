@@ -1,3 +1,5 @@
+# Override file from Hyrax 2.3.3
+# Overrides are marked with an "OVERRIDE" comment
 module Hyrax
   module Dashboard
     ## Shows a list of all collections to the admins
@@ -201,8 +203,10 @@ module Hyrax
           Hyrax::CollectionType.find_or_create_default_collection_type
         end
 
-        def link_parent_collection(parent_id)
-          parent = ActiveFedora::Base.find(parent_id)
+        # OVERRIDE METHOD
+        # Search for parent collection via :slug instead of :id
+        def link_parent_collection(parent_slug)
+          parent = Collection.where(slug_sim: parent_slug).first
           Hyrax::Collections::NestedCollectionPersistenceService.persist_nested_collection_for(parent: parent, child: @collection)
         end
 
