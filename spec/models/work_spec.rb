@@ -160,4 +160,21 @@ RSpec.describe Work do
         .to contain_exactly(*values)
     end
   end
+
+  describe '#ancestor_collections' do
+    before(:example) do
+      @grandparent_collection = Collection.new(title: ['Grandparent Collection'])
+      @parent_collection = Collection.new(title: ['Parent Collection'])
+      @parent_collection.member_of_collections << @grandparent_collection
+      work.member_of_collections << @parent_collection
+    end
+
+    it 'returns both its parent and grandparent collection' do
+      expect(work.member_of_collections)
+        .to_not include(@grandparent_collection)
+      expect(work.ancestor_collections)
+        .to include(@parent_collection)
+        .and include(@grandparent_collection)
+    end
+  end
 end
