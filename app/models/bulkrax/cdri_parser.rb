@@ -29,10 +29,10 @@ module Bulkrax
     def create_collections_with_works
       data.css('Collections').each do |collection_xml|
         collection_identifier = CdriCollectionEntry.get_identifier(collection_xml)
-        collection = CdriCollectionEntry.where(importer: self.importer, identifier: collection_identifier).first_or_initialize
-        collection.raw_metadata = collection_xml
-        collection.build
-        collection.save
+        collection_entry = CdriCollectionEntry.where(importer: self.importer, identifier: collection_identifier).first_or_initialize
+        collection_entry.raw_metadata = collection_xml
+        collection = collection_entry.build
+        collection_entry.save
         create_works(collection_xml, collection)
         if limit && running_count >= limit
           break
