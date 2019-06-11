@@ -4,6 +4,12 @@
 <% if solr_response.total_pages > 1 %>
     <%# Added `pager` class %>
     <div class="row record-padding col-md-12 pager">
-      <%= paginate solr_response, outer_window: 2, theme: 'blacklight', param_name: page_param_name %>
+      <% if @curation_concern && @curation_concern.respond_to?(:slug) %>
+        <%= paginate solr_response, outer_window: 2, theme: 'blacklight', param_name: page_param_name, params: { id: @curation_concern.slug } %>
+      <% elsif @collection && @collection.respond_to?(:slug) %>
+        <%= paginate solr_response, outer_window: 2, theme: 'blacklight', param_name: page_param_name, params: { id: @collection.slug } %>
+      <% else %>
+        <%= paginate solr_response, outer_window: 2, theme: 'blacklight', param_name: page_param_name %>
+      <% end %>
     </div><!-- /pager -->
 <% end %>
