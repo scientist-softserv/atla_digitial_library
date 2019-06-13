@@ -1,3 +1,4 @@
+# Override file from Hyrax 2.3.3
 module Hyrax
   module CollectionsHelper
     # TODO: we could move this to CollectionPresenter if it had a view_context
@@ -11,7 +12,8 @@ module Hyrax
     def render_collection_links(solr_doc)
       collection_list = Hyrax::CollectionMemberService.run(solr_doc, controller.current_ability)
       return if collection_list.empty?
-      links = collection_list.map { |collection| link_to collection.title_or_label, hyrax.collection_path(collection.id) }
+      # Override links to use Collection slug if present
+      links = collection_list.map { |collection| link_to collection.title_or_label, hyrax.collection_path(slug_or_id_of(collection)) }
       collection_links = []
       links.each_with_index do |link, n|
         collection_links << link
