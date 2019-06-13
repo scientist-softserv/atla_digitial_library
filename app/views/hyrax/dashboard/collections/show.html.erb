@@ -1,3 +1,4 @@
+<%# Override file from Hyrax 2.3.3 %>
 <% provide :page_title, construct_page_title(@presenter.title) %>
 
 <% provide :page_header do %>
@@ -15,7 +16,8 @@
         <div itemscope itemtype="http://schema.org/CollectionPage" class="row collection">
           <div class="col-sm-3 text-center">
               <%= render 'hyrax/collections/media_display', presenter: @presenter %>
-              <%= link_to t('.public_view_label'), collection_path(id: @presenter.id) %>
+              <%# Override link_to to use Collection slug if present %>
+              <%= link_to t('.public_view_label'), collection_path(@presenter.slug_or_id) %>
           </div>
           <div class="col-sm-9 collection-description-wrapper">
             <!-- Parent Collection(s) -->
