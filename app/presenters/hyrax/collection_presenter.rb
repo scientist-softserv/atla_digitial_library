@@ -1,4 +1,6 @@
-# Override file to customize Collections show view
+## Override file from Hyrax 2.3.3 to customize Collections show view
+# Modified #show_path method to use slugs
+# Added custom #slug_or_id method
 module Hyrax
   class CollectionPresenter
     include ModelProxy
@@ -105,8 +107,9 @@ module Hyrax
       current_ability.can?(:create_collection_of_type, collection_type)
     end
 
+    # Override method to use custom :slug_or_id method instead of just id
     def show_path
-      Hyrax::Engine.routes.url_helpers.dashboard_collection_path(id, locale: I18n.locale)
+      Hyrax::Engine.routes.url_helpers.dashboard_collection_path(slug_or_id, locale: I18n.locale)
     end
 
     def banner_file
@@ -181,6 +184,17 @@ module Hyrax
     def allow_batch?
       return true if current_ability.can?(:edit, solr_document)
       false
+    end
+
+    # Custom method to support the use of slugs in links
+    def slug_or_id
+      if solr_document.slug.present?
+        # While :slug on an instance of a Collection is a Singular value,
+        # solr_document stores it as an Array, thus we need to call .first
+        solr_document.slug.first
+      else
+        solr_document.id
+      end
     end
   end
 end
