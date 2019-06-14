@@ -1,4 +1,6 @@
-# Override file to customize Collections show view
+## Override file from Hyrax 2.3.3 to customize Collections show view
+# Modified #show_path method to use slugs
+# Added custom #slug_or_id method
 module Hyrax
   class CollectionPresenter
     include ModelProxy
@@ -184,6 +186,7 @@ module Hyrax
       false
     end
 
+    # Custom method to support the use of slugs in links
     def slug_or_id
       if solr_document.slug.present?
         # While :slug on an instance of a Collection is a Singular value,

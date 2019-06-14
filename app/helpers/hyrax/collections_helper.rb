@@ -1,4 +1,5 @@
-# Override file from Hyrax 2.3.3
+## Override file from Hyrax 2.3.3
+# Modified #render_collection_links to use slugs
 module Hyrax
   module CollectionsHelper
     # TODO: we could move this to CollectionPresenter if it had a view_context
