@@ -9,9 +9,9 @@
     <div id='no-home'>
       <a href="#skip_to_content" class="sr-only">Skip to Content</a>
       <%= render partial: '/masthead' %>
-      <%= render partial: '/flash_msg' %>
       <!-- <div class="image-background"> -->
       <div id="content-wrapper" class="one-pages">
+        <%= render partial: '/flash_msg' %>
         <div class="container">
           <%= render_breadcrumbs builder: Hyrax::BootstrapBreadcrumbsBuilder %>
         </div>
