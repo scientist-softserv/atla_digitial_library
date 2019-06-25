@@ -1,3 +1,14 @@
+desc 'reindex items missing ancestors'
+task :reindex_ancestors do
+  progress = ProgressBar.new(ActiveFedora::Base.where("-ancestor_collection_ids_tesim: [\"\" TO *] AND has_model_ssim: Work").count)
+  ActiveFedora::Base.where("-ancestor_collection_ids_tesim: [\"\" TO *] AND has_model_ssim: Work").find_each do |w|
+    next unless w.is_a?(Work)
+    w.reindex_extent = Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
+    w.update_index
+    progress.increment!
+  end
+end
+
 desc 'Strip spaces from subjects'
 task remove_subject_spaces: [:environment] do
   progress = ProgressBar.new(Work.count)
@@ -42,8 +53,8 @@ task location_to_contributing: [:environment] do
   puts "~~to :based_near (Location) values, then clear :based_near values:"
 
   collections_missing_location = []
-
-  Collection.all.each do |c|
+  progress = ProgressBar.new(Collection.count)
+  Collection.find_each do |c|
     if c.contributing_institution.present?
       puts ">>> Skipping #{c.id} :contributing_institution already exists => [#{c.contributing_institution.first}]"
       next
@@ -57,6 +68,7 @@ task location_to_contributing: [:environment] do
     else
       collections_missing_location << c
     end
+    progress.increment!
   end
 
   if collections_missing_location.any?
