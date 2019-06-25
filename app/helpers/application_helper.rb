@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+  def slug_or_id_of(collection_obj_or_doc)
+    return unless collection_obj_or_doc.respond_to?(:slug)
+    return collection_obj_or_doc.id unless collection_obj_or_doc.slug.present?
+
+    if collection_obj_or_doc.slug.is_a?(Array) # solr_documents store slug as an Array
+      collection_obj_or_doc.slug.first
+    else
+      collection_obj_or_doc.slug
+    end
+  end
+
   def has_iiif?
     @presenter.universal_viewer? || @presenter.remote_manifest_url.present?
   end
