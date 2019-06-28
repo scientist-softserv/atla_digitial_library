@@ -9,6 +9,7 @@ gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]
 gem 'capybara', '~> 2.13', group: %i[development test]
 gem 'coffee-rails', '~> 4.2'
+gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 gem 'devise', '~> 4.5'
