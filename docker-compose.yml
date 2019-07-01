@@ -9,7 +9,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/data
+      - .:/data:delegated
 
   dj:
     extends: main
@@ -56,7 +56,7 @@ services:
     ports:
       - "8983"
     volumes:
-      - './solr/config:/opt/config'
+      - './solr/config:/opt/config:delegated'
 
   fcrepo:
     image: botimer/fcrepo:4.5.1
