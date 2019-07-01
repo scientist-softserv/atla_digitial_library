@@ -1,3 +1,4 @@
+# Override file from Hyrax 2.3.3
 # frozen_string_literal: true
 # added default collection image
 
