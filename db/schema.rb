@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190601222101) do
+ActiveRecord::Schema.define(version: 20190702012533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20190601222101) do
   end
 
   create_table "bulkrax_importer_runs", force: :cascade do |t|
-    t.bigint "bulkrax_importer_id"
+    t.bigint "importer_id"
     t.integer "total_records", default: 0
     t.integer "enqueued_records", default: 0
     t.integer "processed_records", default: 0
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20190601222101) do
     t.integer "failed_records", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bulkrax_importer_id"], name: "index_bulkrax_importer_runs_on_bulkrax_importer_id"
+    t.index ["importer_id"], name: "index_bulkrax_importer_runs_on_importer_id"
   end
 
   create_table "bulkrax_importers", force: :cascade do |t|
@@ -609,7 +609,7 @@ ActiveRecord::Schema.define(version: 20190601222101) do
   end
 
   add_foreign_key "bulkrax_entries", "bulkrax_importers", column: "importer_id"
-  add_foreign_key "bulkrax_importer_runs", "bulkrax_importers"
+  add_foreign_key "bulkrax_importer_runs", "bulkrax_importers", column: "importer_id"
   add_foreign_key "bulkrax_importers", "users"
   add_foreign_key "collection_type_participants", "hyrax_collection_types"
   add_foreign_key "curation_concerns_operations", "users"
