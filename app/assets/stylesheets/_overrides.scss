@@ -322,8 +322,8 @@ body.frontend {
   .featured-item img {
     padding-right: 0;
     margin-right: 1em;
-    width:auto;
     max-width: 100%;
+		height: auto;
   }
 
 
@@ -1003,6 +1003,10 @@ MEDIA QUERIES START HERE--------------------------------------------------------
     /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
     .navbar-default .navbar-collapse {padding-top:45px;}
 
+		.featured-item img {
+			max-width: 50%;
+			height: auto;
+		}
 
 
   }
