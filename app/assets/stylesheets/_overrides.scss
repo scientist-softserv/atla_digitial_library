@@ -894,7 +894,9 @@ body.frontend {
   }
 
   /*put space at the bottom of the universal viewer*/
-  .viewer {padding:10px 0 10px 0;}
+  .viewer {
+    padding: 10px 0;
+  }
 
   .viewer iframe {
     height: 580px; /* increase from default (480px) */
