@@ -23,13 +23,18 @@
           <% end %>
           <div class="col-sm-3 mobile-media">
             <% if !has_iiif? %>
-              <%= render('representative_media', presenter: @presenter, viewer: false)%>
               <% if @presenter.identifier.present? && @presenter.identifier.first.match("http") %>
+                <% Hyrax.config.display_media_download_link = false %>
+                <%= render('representative_media', presenter: @presenter, viewer: false)%>
+
                 <%= link_to @presenter.identifier.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
                   View Full Item
                   <span class="glyphicon glyphicon-new-window"></span>
                 <% end %>
-              <% end %>
+              <% else %>
+                <% Hyrax.config.display_media_download_link = true %>
+                <%= render('representative_media', presenter: @presenter, viewer: false)%>
+               <% end %>
             <% end %>
             <%= render 'social_media' %>
           </div>

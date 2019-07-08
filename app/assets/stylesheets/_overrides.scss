@@ -769,6 +769,27 @@ body.frontend {
     margin-bottom:0;
   }
 
+  #file_download {
+    background-color: #E65A3A;
+    border-color: #E65A3A;
+    color: #FFF;
+    border-radius: 2px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+  }
+
   /*putting table border to bottom instead of top*/
   .table tbody tr td, .table tbody tr th, .table thead tr th {
     border-top:0;
