@@ -6,33 +6,38 @@ homepage:
       url: /collections/latin-america-collection #PATH TO COLLECTION
       image:
         path_to_file: /img/latin_america.png #DESIRED THUMBNAIL NAME
-    - id: 2
+    - id: 3
+      anchor_text: Philadelphia Congregations Early Records Project
+      url: /collections/philadelphia-congregations-early-records-project #PATH TO COLLECTION
+      image:
+        path_to_file: /img/philadelphia.png #DESIRED THUMBNAIL NAME
+    - id: 4
       anchor_text: Moffett Korea Collection - Princeton Theological Seminary
       url: /collections/moffett-korea-collection #PATH TO COLLECTION
       image:
         path_to_file: /img/moffett_korea.png #DESIRED THUMBNAIL NAME
-    - id: 3
+    - id: 5
       anchor_text: Collection of Free Church Literature - Trinity International University Rolfing Library
       url: /collections/collection-of-free-church-literature #PATH TO COLLECTION
       image:
         path_to_file: /img/free-churchliterature.jpg #DESIRED THUMBNAIL NAME
-    - id: 4
+    - id: 6
       anchor_text: The W. H. Dub Jackson Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
       url: /collections/the-w-h-dub-jackson-digital-materials-collection #PATH TO COLLECTION
       image:
         path_to_file: /img/whdub.png #DESIRED THUMBNAIL NAME
-    - id: 5
+    - id: 7
       anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
       url: /collections/the-l-r-scarborough-digital-materials-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/methodist-manuscripts.png #DESIRED THUMBNAIL NAME
-    - id: 6
+        path_to_file: /img/lrscarborough.png #DESIRED THUMBNAIL NAME
+    - id: 8
       anchor_text: The Methodist Manuscripts Collection - Garrett-Evangelical Theological Seminary Styberg Library
       url: /collections/the-methodist-manuscripts-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/robert_hamill.png #DESIRED THUMBNAIL NAME
-    - id: 7
+        path_to_file: /img/methodist-manuscripts.png #DESIRED THUMBNAIL NAME
+    - id: 9
       anchor_text: Cooperative Digital Resources Initiative
-      url: /collections/cooperative-digital-resources-initiative-cdri #PATH TO COLLECTION
+      url: /collections/cooperative-digital-resources-initiative #PATH TO COLLECTION
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
