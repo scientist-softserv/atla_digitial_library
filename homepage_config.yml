@@ -10,7 +10,7 @@ homepage:
       anchor_text: Philadelphia Congregations Early Records Project
       url: /collections/philadelphia-congregations-early-records-project #PATH TO COLLECTION
       image:
-        path_to_file: /img/philadelphia.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/philadelphia.jpg #DESIRED THUMBNAIL NAME
     - id: 4
       anchor_text: Moffett Korea Collection - Princeton Theological Seminary
       url: /collections/moffett-korea-collection #PATH TO COLLECTION
