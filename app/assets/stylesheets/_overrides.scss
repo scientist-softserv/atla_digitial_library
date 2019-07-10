@@ -322,8 +322,8 @@ body.frontend {
   .featured-item img {
     padding-right: 0;
     margin-right: 1em;
-    width:auto;
     max-width: 100%;
+    height: auto;
   }
 
 
@@ -769,6 +769,27 @@ body.frontend {
     margin-bottom:0;
   }
 
+  #file_download {
+    background-color: #E65A3A;
+    border-color: #E65A3A;
+    color: #FFF;
+    border-radius: 2px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+  }
+
   /*putting table border to bottom instead of top*/
   .table tbody tr td, .table tbody tr th, .table thead tr th {
     border-top:0;
@@ -886,12 +907,21 @@ body.frontend {
     max-width: none;
   }
 
+
+  /* -------- UNIVERSAL VIEWER -------- */
+
+  .viewer-wrapper {
+    height: 600px; /* increase from default (500px) */
+  }
+
   /*put space at the bottom of the universal viewer*/
-  .viewer {padding:10px 0 10px 0;}
+  .viewer {
+    padding: 10px 0;
+  }
 
-
-
-
+  .viewer iframe {
+    height: 580px; /* increase from default (480px) */
+  }
 
   /* -------- COLLECTION PAGE -------- */
 
@@ -975,12 +1005,7 @@ body.frontend {
 
 
 
-  /*--------------------------------------------------------------------------------
-MEDIA QUERIES START HERE-------------------------------------------------------------
------------------------------------------------------------------------------------
------------------------------------------------------------------------------------
- */
-
+  /* -------- MEDIA QUERIES -------- */
 
   /* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
 
@@ -1003,7 +1028,10 @@ MEDIA QUERIES START HERE--------------------------------------------------------
     /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
     .navbar-default .navbar-collapse {padding-top:45px;}
 
-
+    .featured-item img {
+      max-width: 50%;
+      height: auto;
+    }
 
   }
 
