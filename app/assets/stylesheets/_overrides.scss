@@ -923,6 +923,25 @@ body.frontend {
     height: 580px; /* increase from default (480px) */
   }
 
+  /* ------ @todo remove on upgrade to Hyrax 3.x ----- */
+
+  .viewer-wrapper iframe {
+    height: 100% !important;
+    width: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  // Show various footer, header, left and right panels on larger screens only
+  @media only screen and (min-width: 640px) {
+    .viewer-wrapper {
+      height: 640px;
+    }
+  }
+
+  /* ------ @todo end ----- */
+
   /* -------- COLLECTION PAGE -------- */
 
   /*adjusting attribute font*/
