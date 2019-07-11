@@ -910,17 +910,11 @@ body.frontend {
 
   /* -------- UNIVERSAL VIEWER -------- */
 
-  .viewer-wrapper {
-    height: 600px; /* increase from default (500px) */
-  }
-
   /*put space at the bottom of the universal viewer*/
-  .viewer {
-    padding: 10px 0;
-  }
-
-  .viewer iframe {
-    height: 580px; /* increase from default (480px) */
+  .viewer-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
   }
 
   /* ------ @todo remove on upgrade to Hyrax 3.x ----- */
