@@ -13,7 +13,7 @@ services:
 
   dj:
     extends: main
-    command: rails jobs:work
+    command: bash -l -c "yarn install && rails jobs:work"
     depends_on:
       - solr
       - fcrepo
