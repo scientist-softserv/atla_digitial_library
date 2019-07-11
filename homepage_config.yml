@@ -15,7 +15,7 @@ homepage:
       anchor_text: Moffett Korea Collection - Princeton Theological Seminary
       url: /collections/moffett-korea-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/moffett_korea.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/moffett_korea.jpg #DESIRED THUMBNAIL NAME
     - id: 5
       anchor_text: Collection of Free Church Literature - Trinity International University Rolfing Library
       url: /collections/collection-of-free-church-literature #PATH TO COLLECTION
@@ -25,17 +25,17 @@ homepage:
       anchor_text: The W. H. Dub Jackson Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
       url: /collections/the-w-h-dub-jackson-digital-materials-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/whdub.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/whdub.jpg #DESIRED THUMBNAIL NAME
     - id: 7
       anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
       url: /collections/the-l-r-scarborough-digital-materials-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/lrscarborough.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/lrscarborough.jpg #DESIRED THUMBNAIL NAME
     - id: 8
       anchor_text: The Methodist Manuscripts Collection - Garrett-Evangelical Theological Seminary Styberg Library
       url: /collections/the-methodist-manuscripts-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/methodist-manuscripts.png #DESIRED THUMBNAIL NAME
+        path_to_file: /img/methodist-manuscripts.jpg #DESIRED THUMBNAIL NAME
     - id: 9
       anchor_text: Cooperative Digital Resources Initiative
       url: /collections/cooperative-digital-resources-initiative #PATH TO COLLECTION
