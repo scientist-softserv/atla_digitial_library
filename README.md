@@ -24,14 +24,11 @@ On the first run, you may need to run some setup:
 
 * create Solr collection
 * run database migrations
-* create the admin set 
-* install universal viewer
+* seed the database with colleciton types and the default admin set
 
 ```sh
 sc exec -s solr bin/solr create -c development -d /opt/config
-sc be rake db:schema:load db:migrate
-sc rake hyrax:default_admin_set:create
-sc exec yarn install
+sc be rake db:schema:load db:migrate db:seed
 ```
 Once these are done, stop and start the containers to ensure dj is picking up the database migration.
 
