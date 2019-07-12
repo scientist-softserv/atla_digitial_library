@@ -1,7 +1,7 @@
 <%# Override file to remove unwanted labels from header and customize layout of view %>
 <%# Modified 'public_view_label' Collection link to use slugs %>
 <% provide :page_title, construct_page_title(@presenter.title) %>
-<% provide :meta_description, !(@presenter.description).empty? ? (@presenter.description).shift : "The Atla Digital Library provides access to digital collections of interest to religion and theology researchers. It is conceived in support of Atla's mission of fostering the study of theology and religion by enhancing the development of theological and religious studies libraries and librarianship." %>
+<% provide :meta_description, !(@presenter.description).empty? ? @presenter.description[0] : "The Atla Digital Library provides access to digital collections of interest to religion and theology researchers. It is conceived in support of Atla's mission of fostering the study of theology and religion by enhancing the development of theological and religious studies libraries and librarianship." %>
 
 <div class="hyc-container" itemscope itemtype="http://schema.org/CollectionPage">
   <div class="row hyc-header">
