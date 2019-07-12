@@ -1,17 +1,15 @@
 FROM ruby:2.5.3
 
-
-# enable sources using https
-RUN apt-get update && apt-get -y install apt-transport-https
-
-# yarn and lates nodejs sources
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
-
 RUN apt-get update -qq && \
+    apt-get -y install apt-transport-https && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt-get update -qq && \
     apt-get install -y build-essential libpq-dev nodejs vim libreoffice imagemagick unzip ghostscript nodejs yarn && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    yarn config set no-progress && \
+    yarn config set silent
 
 # If changes are made to fits version or location,
 # amend `LD_LIBRARY_PATH` in docker-compose.yml accordingly.
@@ -30,7 +28,8 @@ ADD Gemfile.lock /data/Gemfile.lock
 ENV BUNDLE_JOBS=4
 RUN bundle install
 ADD . /data
-#RUN  cd /data && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile
+RUN cd /data && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile
+RUN cd /data && NODE_ENV=production yarn install
 EXPOSE 3000
 
 CMD ["bin/rails", "console"]

@@ -13,7 +13,7 @@ services:
 
   dj:
     extends: main
-    command: rails jobs:work
+    command: bash -l -c "yarn install && rails jobs:work"
     depends_on:
       - solr
       - fcrepo
@@ -22,7 +22,7 @@ services:
 
   web:
     extends: main
-    command: bin/rails server --port 3000 --binding 0.0.0.0
+    command: bash -l -c "yarn install && bin/rails server --port 3000 --binding 0.0.0.0"
     environment:
       VIRTUAL_HOST: atla.docker
       VIRTUAL_PORT: 3000
