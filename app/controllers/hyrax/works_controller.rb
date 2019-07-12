@@ -21,6 +21,8 @@ module Hyrax
 
     ## Custom method for Work show pages. Breadcrumbs reflect a
     #  hierarchical structure of which Collections the Work belongs to.
+    #  TODO: create new method in Work model that doesn't return ALL Collections
+    #        and dynamically selects which Collections to show (maybe using cookies?)
     def add_breadcrumb_to_show_page
       add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
       presenter.ancestor_collections.each do |c|
