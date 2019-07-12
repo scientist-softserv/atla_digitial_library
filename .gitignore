@@ -94,6 +94,5 @@ public/branding/
 fits.log
 
 # yarn artifacts
-yarn.lock
 *node_modules*
 public/uv/
