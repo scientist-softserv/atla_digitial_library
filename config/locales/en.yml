@@ -30,9 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hyrax:
-    collections:
-      show:
-        default_description: "The Atla Digital Library provides access to digital collections of interest to religion and theology researchers. It is conceived in support of Atla's mission of fostering the study of theology and religion by enhancing the development of theological and religious studies libraries and librarianship."
+  layouts:
+    head_tag_content:
+      default_description: "The Atla Digital Library provides access to digital collections of interest to religion and theology researchers. It is conceived in support of Atla's mission of fostering the study of theology and religion by enhancing the development of theological and religious studies libraries and librarianship."
 
   hello: "Hello world"

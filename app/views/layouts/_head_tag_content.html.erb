@@ -22,7 +22,7 @@ signed in %>
 
 <!-- ATLA Digital Library - Work Title -->
 <title><%= page_title(app_name: "ATLA Digital Library", separator: " - ") %></title>
-<meta name="description" content="<%= yield(:meta_description) %>">
+<meta name="description" content="<%= yield_meta_tag(:description, t('.default_description')) %>">
 
 <!-- application css -->
 <%= stylesheet_link_tag 'application' %>
