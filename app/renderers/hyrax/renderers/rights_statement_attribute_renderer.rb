@@ -11,7 +11,7 @@ module Hyrax
       def attribute_value_to_html(value)
         label = RightsStatementLookup.description_for(value)
         if label.blank?
-          ERB::Util.h(value)
+          ERB::Util.h(value.gsub(URI.regexp, '<a href="\0">\0</a>'))
         else
           label
         end
