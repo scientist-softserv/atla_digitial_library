@@ -1,41 +1,50 @@
+# alts should be downcase
 terms:
-  - id: Article
-    term: Article
-  - id: Audio
-    term: Audio
-  - id: Book
-    term: Book
-  - id: Capstone Project
-    term: Capstone Project
-  - id: Conference Proceeding
-    term: Conference Proceeding
+  - id: Collection
+    term: Collection
+    alts: []
+    active: true
   - id: Dataset
     term: Dataset
-  - id: Dissertation
-    term: Dissertation
+    alts: []
+    active: true
+  - id: Event
+    term: Event
+    alts: []
+    active: true
   - id: Image
     term: Image
-  - id: Journal
-    term: Journal
-  - id: Map or Cartographic Material
-    term: Map or Cartographic Material
-  - id: Masters Thesis
-    term: Masters Thesis
-  - id: Part of Book
-    term: Part of Book
-  - id: Poster
-    term: Poster
-  - id: Presentation
-    term: Presentation
-  - id: Project
-    term: Project
-  - id: Report
-    term: Report
-  - id: Research Paper
-    term: Research Paper
-  - id: Software or Program Code
-    term: Software or Program Code
-  - id: Video
-    term: Video
-  - id: Other
-    term: Other
+    alts: []
+    active: true
+  - id: InteractiveResource
+    term: Interactive Resource
+    alts: ['interactiveresource']
+    active: true
+  - id: MovingImage
+    term: Moving Image
+    alts: ['movingimage','video']
+    active: true
+  - id: PhysicalObject
+    term: Physical Object
+    alts: ['physicalobject']
+    active: true
+  - id: Service
+    term: Service
+    alts: []
+    active: true
+  - id: Software
+    term: Software
+    alts: []
+    active: true
+  - id: Sound
+    term: Sound
+    alts: ['audio']
+    active: true
+  - id: StillImage
+    term: Still Image
+    alts: ['stillimage', 'photograph', 'picture']
+    active: true
+  - id: Text
+    term: Text
+    alts: []
+    active: true
