@@ -41,5 +41,9 @@ class SolrDocument
     self.slug&.first || self.id
   end
 
+  def date
+    self[Solrizer.solr_name('date')]
+  end
+
   use_extension( Hydra::ContentNegotiation )
 end
