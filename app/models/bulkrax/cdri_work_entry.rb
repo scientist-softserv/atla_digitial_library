@@ -53,7 +53,7 @@ module Bulkrax
         add_metadata(clean_key, val)
       end
 
-      # remove any unspported attributes
+      # remove any unsupported attributes
       object = entry_class.new
       self.parsed_metadata = self.parsed_metadata.select do |key, value|
         object.respond_to?(key.to_sym)

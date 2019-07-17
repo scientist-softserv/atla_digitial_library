@@ -1,0 +1,7 @@
+<%# Override file from Hyrax 2.5.1 %>
+<%# Alters link_to to use Collection slug %>
+<div class="search-results-title-row">
+  <%# Override link_to to take advantage of SolrDocument's :to_param override %>
+  <h4 class="search-result-title"><%= link_to document.title_or_label, hyrax.collection_path(document) %></h4>
+  <%= Hyrax::CollectionPresenter.new(document, current_ability).collection_type_badge %>
+</div>

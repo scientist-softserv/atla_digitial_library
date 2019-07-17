@@ -11,6 +11,10 @@ module ApplicationHelper
     end
   end
 
+  def yield_meta_tag(tag, default_text)
+    content_for?(:meta_description) ? content_for(:meta_description) : default_text
+  end
+
   def has_iiif?
     @presenter.universal_viewer? || @presenter.remote_manifest_url.present?
   end
