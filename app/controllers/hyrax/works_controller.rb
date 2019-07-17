@@ -25,8 +25,15 @@ module Hyrax
     #        and dynamically selects which Collections to show (maybe using cookies?)
     def add_breadcrumb_to_show_page
       add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
-      presenter.ancestor_collections.each do |c|
-        add_breadcrumb "#{c.title.first}", hyrax.collection_path(c)
+      if presenter.ancestor_relationships.present?
+        parent_and_child_ids = presenter.ancestor_relationships.first.split(':')
+        parent_and_child_ids.each do |c_id|
+          collection = Collection.find(c_id)
+          add_breadcrumb "#{collection.title.first}", hyrax.collection_path(collection)
+        end
+      else
+        parent = Collection.find(presenter.member_of_collection_ids.first)
+        add_breadcrumb "#{parent.title.first}", hyrax.collection_path(parent)
       end
       add_breadcrumb_for_action
     end

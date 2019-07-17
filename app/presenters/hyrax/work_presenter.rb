@@ -7,6 +7,7 @@ module Hyrax
              :lease_expiration_date, :license, :source, :rights_statement, :rights_holder, :thumbnail_id, :representative_id,
              :rendering_ids, :member_of_collection_ids, :contributing_institution, :place, :extent, :format_original,
              :format_digital, :time_period, :alternative_title, :types, :remote_manifest_url, :has_manifest, :ancestor_collection_ids,
+             :ancestor_relationships,
 
              to: :solr_document
 
