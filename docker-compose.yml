@@ -52,11 +52,17 @@ services:
       - 'postgres:/var/lib/postgresql/data'
 
   solr:
-    image: solr:5.5
+    image: solr:7.7
     ports:
       - "8983"
     volumes:
       - './solr/config:/opt/config:delegated'
+      - solr:/opt/solr/server/solr/mycores
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - "${SOLR_CORE}"
+      - /opt/config
 
   fcrepo:
     image: botimer/fcrepo:4.5.1
@@ -69,3 +75,4 @@ volumes:
   fcrepo:
   postgres:
   redis:
+  solr:
