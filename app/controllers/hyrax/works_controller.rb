@@ -30,24 +30,26 @@ module Hyrax
     end
 
     def dynamic_collection_breadcrumbs
-      if cookies[:_atla_last_collection_visited].present? && presenter.member_of_collection_ids.join(',').match(cookies[:_atla_last_collection_visited])
-        matching_collection = Collection.find(cookies[:_atla_last_collection_visited])
-
-        if matching_collection.member_of_collection_ids.present?
-          matching_parent = Collection.find(matching_collection.member_of_collection_ids.first)
-          add_breadcrumb "#{matching_parent.title.first}", hyrax.collection_path(matching_parent)
+      @last_collection_visited_id = cookies[:_atla_last_collection_visited_id]
+      if @last_collection_visited_id.present? && presenter.member_of_collection_ids.join(',').match?(@last_collection_visited_id) && presenter.ancestor_relationships.present?
+        presenter.ancestor_relationships.each do |ar|
+          if ar.match?(@last_collection_visited_id)
+            parse_ancestor_relationship(ar)
+          end
         end
-
-        add_breadcrumb "#{matching_collection.title.first}", hyrax.collection_path(matching_collection)
       elsif presenter.ancestor_relationships.present?
-        parent_and_child_ids = presenter.ancestor_relationships.first.split(':')
-        parent_and_child_ids.each do |c_id|
-          collection = Collection.find(c_id)
-          add_breadcrumb "#{collection.title.first}", hyrax.collection_path(collection)
-        end
+        default_collection_ids = presenter.ancestor_relationships.first
+        parse_ancestor_relationship(default_collection_ids)
       else
         collection = Collection.find(presenter.member_of_collection_ids.first)
-        add_breadcrumb "#{collection.title.first}", hyrax.collection_path(collection)
+        add_breadcrumb collection.to_s, hyrax.collection_path(collection)
+      end
+    end
+
+    def parse_ancestor_relationship(collection_ids)
+      collection_ids.split(':').each do |c_id|
+        collection = Collection.find(c_id)
+        add_breadcrumb collection.to_s, hyrax.collection_path(collection)
       end
     end
   end

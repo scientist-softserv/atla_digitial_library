@@ -23,12 +23,12 @@ class Work < ActiveFedora::Base
   end
 
   def ancestor_collection_ids
-    ancestor_collections.map &:id
+    ancestor_collections.map(&:id)
   end
 
   def ancestor_relationships
     return @ancestor_relationships if @ancestor_relationships.present?
-    return [] if @ancestor_collection_ids.count <= 1
+    return [] if ancestor_collection_ids.count <= 1
     @ancestor_relationships = []
     ancestor_collections.each do |ac|
       next if ac.member_of_collection_ids.blank?

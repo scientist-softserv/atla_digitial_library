@@ -20,7 +20,7 @@ module Hyrax
     # UPGRADE NOTE: start of block.
     # This is actually overriding app/controllers/concerns/hyrax/collections_controller_behavior.rb in the hyrax gem.
     def show
-      cookies[:_atla_last_collection_visited] = @curation_concern.id
+      cookies[:_atla_last_collection_visited_id] = @curation_concern.id
       presenter
       query_collection_members
     end
