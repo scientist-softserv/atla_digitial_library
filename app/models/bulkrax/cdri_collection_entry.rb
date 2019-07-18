@@ -11,7 +11,7 @@ module Bulkrax
       self.new(raw_metadata: raw_metadata).identifier
     end
 
-    def entry_class
+    def factory_class
       Collection
     end
 
