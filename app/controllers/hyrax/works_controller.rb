@@ -25,28 +25,33 @@ module Hyrax
     #        and dynamically selects which Collections to show (maybe using cookies?)
     def add_breadcrumb_to_show_page
       add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
-      dynamic_collection_breadcrumbs
+      dynamic_collection_breadcrumbs if presenter.member_of_collection_ids.present?
       add_breadcrumb_for_action
     end
 
     def dynamic_collection_breadcrumbs
       @last_collection_visited_id = cookies[:_atla_last_collection_visited_id]
-      if @last_collection_visited_id.present? && presenter.member_of_collection_ids.join(',').match?(@last_collection_visited_id) && presenter.ancestor_relationships.present?
-        presenter.ancestor_relationships.each do |ar|
-          if ar.match?(@last_collection_visited_id)
-            parse_ancestor_relationship(ar)
+
+      if presenter.ancestor_relationships.present?
+        if @last_collection_visited_id.present? && presenter.member_of_collection_ids.join(',').match?(@last_collection_visited_id)
+          presenter.ancestor_relationships.each do |ar|
+            if ar.match?(@last_collection_visited_id)
+              add_ancestor_breadcrumbs(ar)
+            end
           end
+
+        else
+          default_ancestor_breadcrumbs = presenter.ancestor_relationships.first
+          add_ancestor_breadcrumbs(default_ancestor_breadcrumbs)
         end
-      elsif presenter.ancestor_relationships.present?
-        default_collection_ids = presenter.ancestor_relationships.first
-        parse_ancestor_relationship(default_collection_ids)
+
       else
         collection = Collection.find(presenter.member_of_collection_ids.first)
         add_breadcrumb collection.to_s, hyrax.collection_path(collection)
       end
     end
 
-    def parse_ancestor_relationship(collection_ids)
+    def add_ancestor_breadcrumbs(collection_ids)
       collection_ids.split(':').each do |c_id|
         collection = Collection.find(c_id)
         add_breadcrumb collection.to_s, hyrax.collection_path(collection)
