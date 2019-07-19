@@ -12,6 +12,9 @@ class Work < ActiveFedora::Base
 
   alias_attribute :rights, :license
 
+  ## Terminology explanation:
+  #  "Ancestor" refers to both a Work's immediate parent Collections
+  #  as well as those parent Collections' parents ("grandparents").
   def ancestor_collections
     return @ancestor_collections if @ancestor_collections.present?
     @ancestor_collections = []
@@ -26,6 +29,9 @@ class Work < ActiveFedora::Base
     ancestor_collections.map(&:id)
   end
 
+  ## Show the relationships between a given Work's parent and grandparent
+  #  Collections by creating an Array with the following structure:
+  #  ["grandparent_collection_id:parent_collection:id"]
   def ancestor_relationships
     return @ancestor_relationships if @ancestor_relationships.present?
     return [] if ancestor_collection_ids.count <= 1

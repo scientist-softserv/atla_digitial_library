@@ -21,8 +21,6 @@ module Hyrax
 
     ## Custom method for Work show pages. Breadcrumbs reflect a
     #  hierarchical structure of which Collections the Work belongs to.
-    #  TODO: create new method in Work model that doesn't return ALL Collections
-    #        and dynamically selects which Collections to show (maybe using cookies?)
     def add_breadcrumb_to_show_page
       add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
       dynamic_collection_breadcrumbs if presenter.member_of_collection_ids.present?
@@ -33,6 +31,8 @@ module Hyrax
       @last_collection_visited_id = cookies[:_atla_last_collection_visited_id]
 
       if presenter.ancestor_relationships.present?
+        ## Use #member_of_collection_ids because we only care about if we're navigating to the Work's
+        #  show page from an immediate parent Collection.
         if @last_collection_visited_id.present? && presenter.member_of_collection_ids.join(',').match?(@last_collection_visited_id)
           presenter.ancestor_relationships.each do |ar|
             if ar.match?(@last_collection_visited_id)
@@ -41,8 +41,8 @@ module Hyrax
           end
 
         else
-          default_ancestor_breadcrumbs = presenter.ancestor_relationships.first
-          add_ancestor_breadcrumbs(default_ancestor_breadcrumbs)
+          default_ancestor_collection_ids = presenter.ancestor_relationships.first
+          add_ancestor_breadcrumbs(default_ancestor_collection_ids)
         end
 
       else
@@ -51,6 +51,8 @@ module Hyrax
       end
     end
 
+    ## Takes in a value with the structure of:
+    #  ["grandparent_collection_id:parent_collection_id"]
     def add_ancestor_breadcrumbs(collection_ids)
       collection_ids.split(':').each do |c_id|
         collection = Collection.find(c_id)
