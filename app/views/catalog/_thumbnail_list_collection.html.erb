@@ -3,9 +3,10 @@
 <%# by wrapping it in the .list-thumbnail class %>
 <div class="col-md-2">
   <div class="list-thumbnail">
-    <% cbi = CollectionBrandingInfo.where(collection_id: document.id).where(role: 'logo').first %>
-    <% if cbi.present? %>
-      <img alt="<%= cbi.alt_text.present? ? cbi.alt_text : cbi.local_path.gsub(/\/data\/public\/branding\/\w*\/logo\//, '') %>" src="<%= cbi.local_path.gsub(/\/data\/public/, '') %>" />
+    <% if collection_logo_info(document.id).present? %>
+      <% collection_logo_info(document.id).each_with_index do |lr, i| %>
+        <img alt="<%= (lr[:alttext].present? ? lr[:alttext] : lr[:file]) %>" src="<%= lr[:file_location] %>" />
+      <% end %>
     <% else %>
       <%= render_thumbnail_tag document, {}, suppress_link: true %>
     <% end %>
