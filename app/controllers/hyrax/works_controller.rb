@@ -23,29 +23,17 @@ module Hyrax
     #  hierarchical structure of which Collections the Work belongs to.
     def add_breadcrumb_to_show_page
       add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
-      dynamic_collection_breadcrumbs if presenter.member_of_collection_ids.present?
+      dynamic_collection_breadcrumbs
       add_breadcrumb_for_action
     end
 
     def dynamic_collection_breadcrumbs
-      @last_collection_visited_id = cookies[:_atla_last_collection_visited_id]
+      last_visited = cookies[:_atla_last_collection_visited_id]
 
       if presenter.ancestor_relationships.present?
-        ## Use #member_of_collection_ids because we only care about if we're navigating to the Work's
-        #  show page from an immediate parent Collection.
-        if @last_collection_visited_id.present? && presenter.member_of_collection_ids.join(',').match?(@last_collection_visited_id)
-          presenter.ancestor_relationships.each do |ar|
-            if ar.match?(@last_collection_visited_id)
-              add_ancestor_breadcrumbs(ar)
-            end
-          end
-
-        else
-          default_ancestor_collection_ids = presenter.ancestor_relationships.first
-          add_ancestor_breadcrumbs(default_ancestor_collection_ids)
-        end
-
-      else
+        id_str = last_visited.present? ? presenter.ancestor_relationships.detect { |ar| ar.match?(last_visited) } : presenter.ancestor_relationships.first
+        add_ancestor_breadcrumbs(id_str)
+      elsif presenter.member_of_collection_ids.present?
         collection = Collection.find(presenter.member_of_collection_ids.first)
         add_breadcrumb collection.to_s, hyrax.collection_path(collection)
       end
