@@ -28,7 +28,7 @@ RSpec.feature 'Rights statements render correctly on Work show page', js: false 
       login_as user
     end
 
-    scenario "Selected Rights Statement renders the correct url link (http)" do
+    scenario "Selected Rights Statement renders the correct url link (https)" do
       visit '/dashboard'
       click_link "Works"
       click_link "Add new work"
@@ -46,7 +46,7 @@ RSpec.feature 'Rights statements render correctly on Work show page', js: false 
       fill_in('Title', with: 'My Test Work')
       fill_in('Creator', with: 'Doe, Jane')
       fill_in('Keyword', with: 'testing')
-      select('No Copyright - Other Known Legal Restrictions', from: 'Rights statement')
+      select('Attribution-NoDerivatives 4.0 International', from: 'Rights statement')
 
       # With selenium and the chrome driver, focus remains on the
       # select box. Click outside the box so the next line can't find
@@ -56,7 +56,7 @@ RSpec.feature 'Rights statements render correctly on Work show page', js: false 
       check('agreement')
 
       click_on('Save')
-      expect(page.html).to include("<a href='http://rightsstatements.org/vocab/NoC-OKLR/1.0/' target=\"_blank\">http://rightsstatements.org/vocab/NoC-OKLR/1.0/</a>")
+      expect(page.html).to include("<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\" target=\"_blank\">https://creativecommons.org/licenses/by-nd/4.0/</a>")
     end
   end
 end
