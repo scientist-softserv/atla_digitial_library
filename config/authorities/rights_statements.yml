@@ -1,77 +1,77 @@
 terms:
   - id: http://rightsstatements.org/vocab/InC/1.0/
     term: In Copyright
-    description: <b>In Copyright.</b> This Item is protected by copyright and/or related rights. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. For other uses you need to obtain permission from the rights-holder(s). <a href='http://rightsstatements.org/vocab/InC/1.0/' target="_blank">http://rightsstatements.org/vocab/InC/1.0/</a>
+    description: <b>In Copyright.</b> This Item is protected by copyright and/or related rights. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. For other uses you need to obtain permission from the rights-holder(s). <a href='https://rightsstatements.org/vocab/InC/1.0/' target="_blank">http://rightsstatements.org/vocab/InC/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/InC-EDU/1.0/
     term: In Copyright - Educational Use Permitted
-    description: <b>In Copyright - Educational Use Permitted.</b> This Item is protected by copyright and/or related rights. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. In addition, no permission is required from the rights-holder(s) for educational uses. For other uses, you need to obtain permission from the rights-holder(s). <a href='http://rightsstatements.org/vocab/InC-EDU/1.0/' target='_blank'>http://rightsstatements.org/vocab/InC-EDU/1.0/</a>
+    description: <b>In Copyright - Educational Use Permitted.</b> This Item is protected by copyright and/or related rights. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. In addition, no permission is required from the rights-holder(s) for educational uses. For other uses, you need to obtain permission from the rights-holder(s). <a href='https://rightsstatements.org/vocab/InC-EDU/1.0/' target='_blank'>http://rightsstatements.org/vocab/InC-EDU/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/InC-NC/1.0/
     term: In Copyright - Non-Commercial Use Permitted
-    description: <b>In Copyright - Non-Commercial Use Permitted.</b> This Item is protected by copyright and/or related rights. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. In addition, no permission is required from the rights-holder(s) for non-commercial uses. For other uses you need to obtain permission from the rights-holder(s).<a href='http://rightsstatements.org/vocab/InC-NC/1.0/' target='_blank'>http://rightsstatements.org/vocab/InC-NC/1.0/</a>
+    description: <b>In Copyright - Non-Commercial Use Permitted.</b> This Item is protected by copyright and/or related rights. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. In addition, no permission is required from the rights-holder(s) for non-commercial uses. For other uses you need to obtain permission from the rights-holder(s).<a href='https://rightsstatements.org/vocab/InC-NC/1.0/' target='_blank'>http://rightsstatements.org/vocab/InC-NC/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/NoC-CR/1.0/
     term: No Copyright - Contractual Restrictions
-    description: <b>No Copyright - Contractual Restrictions.</b> Use of this Item is not restricted by copyright and/or related rights. As part of the acquisition or digitization of this Item, the organization that has made the Item available is contractually required to limit the use of this Item. Limitations may include, but are not limited to, privacy issues, cultural protections, digitization agreements or donor agreements. Please refer to the organization that has made the Item available for more information. <a href='http://rightsstatements.org/vocab/NoC-CR/1.0/' target='_blank'>http://rightsstatements.org/vocab/NoC-CR/1.0/</a>
+    description: <b>No Copyright - Contractual Restrictions.</b> Use of this Item is not restricted by copyright and/or related rights. As part of the acquisition or digitization of this Item, the organization that has made the Item available is contractually required to limit the use of this Item. Limitations may include, but are not limited to, privacy issues, cultural protections, digitization agreements or donor agreements. Please refer to the organization that has made the Item available for more information. <a href='https://rightsstatements.org/vocab/NoC-CR/1.0/' target='_blank'>http://rightsstatements.org/vocab/NoC-CR/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/NoC-NC/1.0/
     term: No Copyright - Non-Commercial Use Only
-    description: <b>No Copyright - Non-Commercial Use Only.</b> This object has been digitized in a public-private partnership. As part of this partnership, the partners have agreed to limit commercial uses of this digital representation of the object by third parties. You can, without permission, copy, modify, distribute, display, or perform the digital object, for non-commercial uses. For any other permissible uses, please review the terms and conditions of the organization that has made the item available. <a href='http://rightsstatements.org/vocab/NoC-NC/1.0/' target='_blank'>http://rightsstatements.org/vocab/NoC-NC/1.0/</a>
+    description: <b>No Copyright - Non-Commercial Use Only.</b> This object has been digitized in a public-private partnership. As part of this partnership, the partners have agreed to limit commercial uses of this digital representation of the object by third parties. You can, without permission, copy, modify, distribute, display, or perform the digital object, for non-commercial uses. For any other permissible uses, please review the terms and conditions of the organization that has made the item available. <a href='https://rightsstatements.org/vocab/NoC-NC/1.0/' target='_blank'>http://rightsstatements.org/vocab/NoC-NC/1.0/</a>
     active: true
-  - id: http://rightsstatements.org/vocab/NoC-OKLR/1.0/ 
+  - id: http://rightsstatements.org/vocab/NoC-OKLR/1.0/
     term: No Copyright - Other Known Legal Restrictions
-    description: <b>No Copyright - Other Known Legal Restrictions.</b> Use of this Item is not restricted by copyright and/or related rights. In one or more jurisdictions, laws other than copyright are known to impose restrictions on the use of this Item. Please refer to the organization that has made the Item available for more information. <a href='http://rightsstatements.org/vocab/NoC-OKLR/1.0/' target="_blank">http://rightsstatements.org/vocab/NoC-OKLR/1.0/</a>
+    description: <b>No Copyright - Other Known Legal Restrictions.</b> Use of this Item is not restricted by copyright and/or related rights. In one or more jurisdictions, laws other than copyright are known to impose restrictions on the use of this Item. Please refer to the organization that has made the Item available for more information. <a href='https://rightsstatements.org/vocab/NoC-OKLR/1.0/' target="_blank">http://rightsstatements.org/vocab/NoC-OKLR/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/NoC-US/1.0/
     term: No Copyright - United States
-    description: <b>No Copyright - United States.</b> The organization that has made the Item available believes that the Item is in the Public Domain under the laws of the United States, but a determination was not made as to its copyright status under the copyright laws of other countries. The Item may not be in the Public Domain under the laws of other countries. Please refer to the organization that has made the Item available for more information. <a href='http://rightsstatements.org/vocab/NoC-US/1.0/' target='_blank'>http://rightsstatements.org/vocab/NoC-US/1.0/</a>
+    description: <b>No Copyright - United States.</b> The organization that has made the Item available believes that the Item is in the Public Domain under the laws of the United States, but a determination was not made as to its copyright status under the copyright laws of other countries. The Item may not be in the Public Domain under the laws of other countries. Please refer to the organization that has made the Item available for more information. <a href='https://rightsstatements.org/vocab/NoC-US/1.0/' target='_blank'>http://rightsstatements.org/vocab/NoC-US/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/UND/1.0/
     term: Copyright Undetermined
-    description: <b>Copyright Undetermined.</b> The copyright and related rights status of this Item has been reviewed by the organization that has made the Item available, but the organization was unable to make a conclusive determination as to the copyright status of the Item. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href='http://rightsstatements.org/vocab/UND/1.0/' target='_blank'>http://rightsstatements.org/vocab/UND/1.0/</a>
+    description: <b>Copyright Undetermined.</b> The copyright and related rights status of this Item has been reviewed by the organization that has made the Item available, but the organization was unable to make a conclusive determination as to the copyright status of the Item. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href='https://rightsstatements.org/vocab/UND/1.0/' target='_blank'>http://rightsstatements.org/vocab/UND/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/NKC/1.0/
     term: No Known Copyright
-    description: <b>No Known Copyright.</b> The organization that has made the Item available reasonably believes that the Item is not restricted by copyright or related rights, but a conclusive determination could not be made. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href='http://rightsstatements.org/vocab/NKC/1.0/' target='_blank'>http://rightsstatements.org/vocab/NKC/1.0/</a>
+    description: <b>No Known Copyright.</b> The organization that has made the Item available reasonably believes that the Item is not restricted by copyright or related rights, but a conclusive determination could not be made. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href='https://rightsstatements.org/vocab/NKC/1.0/' target='_blank'>http://rightsstatements.org/vocab/NKC/1.0/</a>
     active: true
   - id: http://rightsstatements.org/vocab/CNE/1.0/
     term: Copyright Not Evaluated
-    description: <b>Copyright Not Evaluated.</b> The copyright and related rights status of this Item has not been evaluated. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href="http://rightsstatements.org/vocab/CNE/1.0/" target="_blank">http://rightsstatements.org/vocab/CNE/1.0/</a>
+    description: <b>Copyright Not Evaluated.</b> The copyright and related rights status of this Item has not been evaluated. Please refer to the organization that has made the Item available for more information. You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. <a href="https://rightsstatements.org/vocab/CNE/1.0/" target="_blank">http://rightsstatements.org/vocab/CNE/1.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by/4.0/
     term: Attribution 4.0 International
-    description: <b>Creative Commons Attribution 4.0 International</b> <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a>
+    description: <b>Creative Commons Attribution 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by-sa/4.0/
     term: Attribution-ShareAlike 4.0 International
-    description: <b>Creative Commons Attribution-ShareAlike 4.0 International</b> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">https://creativecommons.org/licenses/by-sa/4.0/</a>
+    description: <b>Creative Commons Attribution-ShareAlike 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">https://creativecommons.org/licenses/by-sa/4.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by-nd/4.0/
     term: Attribution-NoDerivatives 4.0 International
-    description: <b>Creative Commons Attribution-NoDerivatives 4.0 International</b> <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/" target="_blank">https://creativecommons.org/licenses/by-nd/4.0/</a>
+    description: <b>Creative Commons Attribution-NoDerivatives 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank">https://creativecommons.org/licenses/by-nd/4.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by-nc/4.0/
     term: Attribution-NonCommercial 4.0 International
-    description: <b>Creative Commons Attribution-NonCommercial 4.0 International</b> <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc/4.0/</a>
+    description: <b>Creative Commons Attribution-NonCommercial 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc/4.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by-nc-nd/4.0/
     term: Attribution-NonCommercial-NoDerivatives 4.0 International
-    description: <b>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</b> <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc-nd/4.0/</a>
+    description: <b>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc-nd/4.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by-nc-nd/3.0/
     term: Attribution-NonCommercial-NoDerivs 3.0
-    description: <b>Creative Commons Attribution-NonCommercial-NoDerivatives 3.0</b> <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">https://creativecommons.org/licenses/by-nc-nd/3.0/</a>
+    description: <b>Creative Commons Attribution-NonCommercial-NoDerivatives 3.0</b> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">https://creativecommons.org/licenses/by-nc-nd/3.0/</a>
     active: true
   - id: http://creativecommons.org/licenses/by-nc-sa/4.0/
     term: Attribution-NonCommercial-ShareAlike 4.0 International
-    description: <b>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</b> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>
+    description: <b>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>
     active: true
   - id: http://creativecommons.org/publicdomain/zero/1.0/
     term: Public Domain Dedication CC0 1.0 Universal
-    description: <b>Creative Commons Public Domain Dedication CC0 1.0 Universal</b> <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank">https://creativecommons.org/publicdomain/zero/1.0/</a>
+    description: <b>Creative Commons Public Domain Dedication CC0 1.0 Universal</b> <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">https://creativecommons.org/publicdomain/zero/1.0/</a>
     active: true
   - id: http://creativecommons.org/publicdomain/mark/1.0/
     term: Public Domain Mark 1.0
-    description: <b>Creative Commons Public Domain Mark 1.0</b> <a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/" target="_blank">https://creativecommons.org/publicdomain/mark/1.0/</a>
+    description: <b>Creative Commons Public Domain Mark 1.0</b> <a rel="license" href="https://creativecommons.org/publicdomain/mark/1.0/" target="_blank">https://creativecommons.org/publicdomain/mark/1.0/</a>
     active: true
