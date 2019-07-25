@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'active_fedora/cleaner'
+ActiveFedora::Cleaner.clean!
 include Warden::Test::Helpers
 
 # NOTE: If you generated more than one work, you have to set "js: true"
@@ -43,7 +45,7 @@ RSpec.feature 'Rights statements render correctly on Work show page', js: false 
         attach_file("files[]", "#{Hyrax::Engine.root}/spec/fixtures/jp2_fits.xml", visible: false)
       end
       click_link "Descriptions" # switch tab
-      fill_in('Title', with: 'My Test Work')
+      fill_in('Title', with: 'My Test Work 1')
       fill_in('Creator', with: 'Doe, Jane')
       fill_in('Keyword', with: 'testing')
       select('No Copyright - Other Known Legal Restrictions', from: 'Rights statement')

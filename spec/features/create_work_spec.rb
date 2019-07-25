@@ -1,6 +1,8 @@
 # Generated via
 #  `rails generate hyrax:work Work`
 require 'rails_helper'
+require 'active_fedora/cleaner'
+ActiveFedora::Cleaner.clean!
 include Warden::Test::Helpers
 
 # NOTE: If you generated more than one work, you have to set "js: true"
