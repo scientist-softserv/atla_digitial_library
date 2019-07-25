@@ -1,4 +1,5 @@
 require 'rails_helper'
+# Added acvtive_fedora cleaner in order to clear out works after the spec has ran.
 require 'active_fedora/cleaner'
 ActiveFedora::Cleaner.clean!
 include Warden::Test::Helpers

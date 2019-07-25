@@ -1,4 +1,5 @@
 module ActiveFedora
+  # added this file to access ActiveFedoraCleaner for feature specs
   module Cleaner
     def self.clean!
       cleanout_fedora
