@@ -56,7 +56,7 @@ services:
     ports:
       - "8983"
     volumes:
-      - './solr/config:/opt/config:delegated'
+      - './solr/conf:/opt/config:delegated'
       - solr:/opt/solr/server/solr/mycores
     entrypoint:
       - docker-entrypoint.sh
