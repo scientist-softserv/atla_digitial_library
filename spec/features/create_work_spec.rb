@@ -1,14 +1,12 @@
 # Generated via
 #  `rails generate hyrax:work Work`
 require 'rails_helper'
-# Added acvtive_fedora cleaner in order to clear out works after the spec has ran.
-require 'active_fedora/cleaner'
-ActiveFedora::Cleaner.clean!
 include Warden::Test::Helpers
 
 # NOTE: If you generated more than one work, you have to set "js: true"
 RSpec.feature 'Create a Work', js: false do
   context 'a logged in user' do
+    let(:title) { 'My Test Work' }
     let(:user_attributes) do
       { email: 'test@example.com' }
     end
@@ -31,6 +29,12 @@ RSpec.feature 'Create a Work', js: false do
         access: 'deposit'
       )
       login_as user
+    end
+
+    after do
+      Work.where(title: [title]).each do |w|
+        w.destroy(eradicate: true)
+      end
     end
 
     scenario do
