@@ -31,7 +31,7 @@ module Hyrax
       last_visited = cookies[:_atla_last_collection_visited_id]
 
       if presenter.ancestor_relationships.present?
-        id_str = last_visited.present? ? presenter.ancestor_relationships.detect { |ar| ar.match?(last_visited) } : presenter.ancestor_relationships.first
+        id_str = (last_visited.present? && presenter.ancestor_relationships.detect { |ar| ar.match?(last_visited) }) || presenter.ancestor_relationships.first
         add_ancestor_breadcrumbs(id_str)
       elsif presenter.member_of_collection_ids.present?
         collection = Collection.find(presenter.member_of_collection_ids.first)
@@ -40,8 +40,10 @@ module Hyrax
     end
 
     ## Takes in a value with the structure of:
-    #  ["grandparent_collection_id:parent_collection_id"]
+    #  "grandparent_collection_id:parent_collection_id"
     def add_ancestor_breadcrumbs(collection_ids)
+      return unless collection_ids.present?
+
       collection_ids.split(':').each do |c_id|
         collection = Collection.find(c_id)
         add_breadcrumb collection.to_s, hyrax.collection_path(collection)
