@@ -16,7 +16,7 @@ module Bulkrax
     matcher 'place', from: ['coverage']
     matcher 'publisher', split: /\s*[;]\s*/
     matcher 'rights_statement', from: ['rights']
-    matcher 'subject', split: true
+    matcher 'subject', split: /\s*[;|]\s*/ # don't split on :
 
     # override to swap out the thumbnail_url
     def build_metadata
