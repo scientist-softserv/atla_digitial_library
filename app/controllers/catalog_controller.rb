@@ -62,7 +62,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("subject", :facetable), label: "Subject", limit: 5
     config.add_facet_field solr_name("place", :facetable), label: "Place", limit: 5
 
-        #config.add_facet_field solr_name("resource_type", :facetable), label: "Resource Type", limit: 5
+    #config.add_facet_field solr_name("resource_type", :facetable), label: "Resource Type", limit: 5
     config.add_facet_field solr_name("contributor", :facetable), label: "Contributor", limit: 5
     # config.add_facet_field solr_name("keyword", :facetable), limit: 5
     # config.add_facet_field solr_name("subject", :facetable), limit: 5
@@ -70,7 +70,8 @@ class CatalogController < ApplicationController
     # config.add_facet_field solr_name("based_near_label", :facetable), limit: 5
     # config.add_facet_field solr_name("publisher", :facetable), limit: 5
     # config.add_facet_field solr_name("file_format", :facetable), limit: 5
-    config.add_facet_field solr_name('member_of_collection_ids', :symbol), limit: 5, label: 'Collections', helper_method: :collection_title_by_id
+    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5
+
     config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5
     config.add_facet_field solr_name("format_original", :facetable), label: "Format (Original)", limit: 5
     config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 5
