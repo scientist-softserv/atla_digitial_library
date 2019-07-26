@@ -2,6 +2,9 @@ module Bulkrax
   class OaiIaEntry < OaiDcEntry
     include Bulkrax::Concerns::HasMatchers
 
+    # use same matchers as OaiDcEntry (inherit from OaiDcEntry), override date to use parser
+    matcher 'date', from: ['date'], parsed: true
+
     def build_metadata
       self.parsed_metadata = {}
 
@@ -14,7 +17,7 @@ module Bulkrax
 
       self.parsed_metadata['contributing_institution'] = [contributing_institution]
       self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
-      self.parsed_metadata['remote_manifest_url'] ||= ["https://iiif.archivelab.org/iiif/#{record.header.identifier.split(':').last}/manifest.json"]
+      self.parsed_metadata['remote_manifest_url'] ||= build_manifest
 
       add_visibility
       add_rights_statement
@@ -25,6 +28,20 @@ module Bulkrax
       self.parsed_metadata['format'] = nil
 
       return self.parsed_metadata
+    end
+
+    def build_manifest
+      url = "https://iiif.archivelab.org/iiif/#{record.header.identifier.split(':').last}/manifest.json"
+      return [url] if manifest_available?(url)
+    end
+
+    def manifest_available?(url)
+      response = Faraday.get url
+      if response.status == 200
+        true
+      else
+        false
+      end
     end
   end
 end
