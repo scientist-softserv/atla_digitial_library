@@ -1,6 +1,7 @@
 <!-- Override file from Hyrax 2.3.3 -->
 <!-- removed default render for work_description, items, relationships, and citations. Added a iiif check for representative_media mobile views. If no iiif, display "View Full item" -->
-<% provide :page_title, @presenter.page_title %>
+<% provide :page_title, construct_page_title(@presenter.title) %>
+<% provide(:meta_description, @presenter.description.join("\n")) if @presenter.description.present? %>
 
 <%= render 'shared/citations' %>
 

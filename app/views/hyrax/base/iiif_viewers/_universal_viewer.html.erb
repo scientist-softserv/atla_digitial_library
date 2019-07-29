@@ -1,0 +1,10 @@
+<%# override file ported from Hyrax master (slated for 3.x) %>
+
+<% data_uri = presenter.remote_manifest_url.present? ? presenter.remote_manifest_url.first : main_app.polymorphic_url([main_app, :manifest, presenter], { locale: nil }) %>
+<div class="viewer-wrapper">
+  <iframe
+    src="<%= universal_viewer_base_url %>#?manifest=<%= data_uri %>&config=<%= universal_viewer_config_url %>" 
+    allowfullscreen="true" 
+    frameborder="0" 
+  ></iframe>
+</div>

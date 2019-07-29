@@ -20,6 +20,7 @@ class SolrDocument
   attribute :member_of_collections, Solr::Array, "member_of_collections_ssim"
   attribute :has_manifest, Solr::Array, solr_name('has_manifest')
   attribute :ancestor_collection_ids, Solr::Array, solr_name('ancestor_collection_ids')
+  attribute :ancestor_relationships, Solr::Array, solr_name('ancestor_relationships')
   # self.unique_key = 'id'
 
   # Email uses the semantic field mappings below to generate the body of an email.
@@ -39,6 +40,10 @@ class SolrDocument
   # Do content negotiation for AF models.
   def to_param
     self.slug&.first || self.id
+  end
+
+  def date
+    self[Solrizer.solr_name('date')]
   end
 
   use_extension( Hydra::ContentNegotiation )

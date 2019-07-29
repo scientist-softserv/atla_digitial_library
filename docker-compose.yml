@@ -13,7 +13,7 @@ services:
 
   dj:
     extends: main
-    command: rails jobs:work
+    command: bash -l -c "yarn install && bin/rails jobs:work"
     depends_on:
       - solr
       - fcrepo
@@ -22,9 +22,7 @@ services:
 
   web:
     extends: main
-    command: bin/rails server --port 3000 --binding 0.0.0.0
-    ports:
-      - "3000:3000"
+    command: bash -l -c "yarn install && bin/rails server --port 3000 --binding 0.0.0.0"
     environment:
       VIRTUAL_HOST: atla.docker
       VIRTUAL_PORT: 3000
@@ -54,11 +52,20 @@ services:
       - 'postgres:/var/lib/postgresql/data'
 
   solr:
-    image: solr:5.5
+    image: solr:7.7
     ports:
       - "8983"
+    environment:
+      VIRTUAL_HOST: solr.docker
+      VIRTUAL_PORT: 8983
     volumes:
-      - './solr/config:/opt/config:delegated'
+      - './solr/conf:/opt/config:delegated'
+      - solr:/opt/solr/server/solr/mycores
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - "${SOLR_CORE}"
+      - /opt/config
 
   fcrepo:
     image: botimer/fcrepo:4.5.1
@@ -71,3 +78,4 @@ volumes:
   fcrepo:
   postgres:
   redis:
+  solr:

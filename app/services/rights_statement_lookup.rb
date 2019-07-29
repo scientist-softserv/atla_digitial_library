@@ -9,7 +9,7 @@ class RightsStatementLookup
 
   def self.description_for(id)
     subauthority_hash['terms'].detect { |statement|
-      statement["id"] == id
+      statement["id"].gsub(/https*:\/\//, '') == id.gsub(/https*:\/\//, '')
     }&.[]("description")&.to_s&.html_safe
   end
 end
