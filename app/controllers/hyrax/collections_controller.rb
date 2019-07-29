@@ -20,10 +20,30 @@ module Hyrax
     # UPGRADE NOTE: start of block.
     # This is actually overriding app/controllers/concerns/hyrax/collections_controller_behavior.rb in the hyrax gem.
     def show
+      # Sets a cookie to be used for dynamically populating breadcrumbs
+      cookies[:_atla_last_collection_visited_id] = @curation_concern.id
       presenter
       query_collection_members
     end
     # UPGRADE NOTE: end of block
+
+    ## Overrides Hyrax method to customize how breadcrumbs appear on Collection show pages.
+    #  Original method found at:
+    #  https://github.com/samvera/hyrax/blob/v2.5.1/app/controllers/concerns/hyrax/breadcrumbs.rb
+    def build_breadcrumbs
+      add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
+      add_breadcrumb I18n.t('hyrax.controls.collections'), main_app.collections_path
+      add_breadcrumb_for_parent
+      add_breadcrumb_for_action
+    end
+
+    ## Custom method for Collection show pages. If the current Collection
+    #  has a parent Collection, add a breadcrumb for it.
+    def add_breadcrumb_for_parent
+      return if @curation_concern.member_of_collection_ids.blank?
+      parent_collection = Collection.find(@curation_concern.member_of_collection_ids.first)
+      add_breadcrumb parent_collection.to_s, hyrax.collection_path(parent_collection)
+    end
 
     private
 

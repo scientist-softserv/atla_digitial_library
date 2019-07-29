@@ -5,4 +5,5 @@ Bulkrax.setup do |config|
     { name: 'OAI - Omeka', class_name: 'Bulkrax::OaiOmekaParser', partial: 'oai_omeka_fields' },
     { name: 'CDRI Xml File', class_name: 'Bulkrax::CdriParser', partial: 'cdri_fields' }
   ]
+  config.system_identifier_field = 'identifier'
 end

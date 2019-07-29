@@ -2,6 +2,9 @@ module Bulkrax
   class OaiIaEntry < OaiDcEntry
     include Bulkrax::Concerns::HasMatchers
 
+    # use same matchers as OaiDcEntry (inherit from OaiDcEntry), override date to use parser
+    matcher 'date', from: ['date'], parsed: true
+
     def build_metadata
       self.parsed_metadata = {}
 
@@ -13,24 +16,32 @@ module Bulkrax
       add_metadata('thumbnail_url', thumbnail_url)
 
       self.parsed_metadata['contributing_institution'] = [contributing_institution]
-      if override_rights_statement || self.parsed_metadata['rights_statement'].blank?
-        self.parsed_metadata['rights_statement'] = [rights_statement]
-      end
-      self.parsed_metadata['visibility'] = 'open'
-      self.parsed_metadata['source'] ||= [record.header.identifier]
-      self.parsed_metadata['remote_manifest_url'] ||= ["https://iiif.archivelab.org/iiif/#{record.header.identifier.split(':').last}/manifest.json"]
+      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
+      self.parsed_metadata['remote_manifest_url'] ||= build_manifest
 
+      add_visibility
+      add_rights_statement
+      add_collections
 
       # @todo remove this when field_mapping is in place
       self.parsed_metadata['contributor'] = nil
       self.parsed_metadata['format'] = nil
 
-      if collection.present?
-        self.parsed_metadata['collections'] ||= []
-        self.parsed_metadata['collections'] << {id: self.collection.id}
-      end
-
       return self.parsed_metadata
+    end
+
+    def build_manifest
+      url = "https://iiif.archivelab.org/iiif/#{record.header.identifier.split(':').last}/manifest.json"
+      return [url] if manifest_available?(url)
+    end
+
+    def manifest_available?(url)
+      response = Faraday.get url
+      if response.status == 200
+        true
+      else
+        false
+      end
     end
   end
 end

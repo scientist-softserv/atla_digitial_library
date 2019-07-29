@@ -23,7 +23,7 @@ module Bulkrax
     def build
       # attributes, files_dir = nil, files = [], user = nil
       begin
-        Bulkrax::ApplicationFactory.for(entry_class.to_s).new(build_metadata, File.join(parser.parser_fields['upload_path'], collection.name_code.first) , [], user).run
+        Bulkrax::ApplicationFactory.for(factory_class.to_s).new(build_metadata, File.join(parser.parser_fields['upload_path'], collection.name_code.first) , [], user).run
       rescue => e
         self.last_error = "#{e.message}\n\n#{e.backtrace}"
         self.last_error_at = Time.now
@@ -36,7 +36,7 @@ module Bulkrax
       end
     end
 
-    def entry_class
+    def factory_class
       Work
     end
 
@@ -54,7 +54,7 @@ module Bulkrax
       end
 
       # remove any unsupported attributes
-      object = entry_class.new
+      object = factory_class.new
       self.parsed_metadata = self.parsed_metadata.select do |key, value|
         object.respond_to?(key.to_sym)
       end
