@@ -1,6 +1,5 @@
 module Bulkrax
   class OaiPtcEntry < OaiEntry
-    include Bulkrax::Concerns::HasMatchers
 
     # DON'T use same matchers as OaiDcEntry (inherit from OaiEntry), we don't want format_digital
 
