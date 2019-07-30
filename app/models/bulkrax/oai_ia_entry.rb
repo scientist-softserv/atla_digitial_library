@@ -7,6 +7,7 @@ module Bulkrax
 
     def build_metadata
       self.parsed_metadata = {}
+      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
 
       record.metadata.children.each do |child|
         child.children.each do |node|
@@ -16,7 +17,6 @@ module Bulkrax
       add_metadata('thumbnail_url', thumbnail_url)
 
       self.parsed_metadata['contributing_institution'] = [contributing_institution]
-      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
       self.parsed_metadata['remote_manifest_url'] ||= build_manifest
 
       add_visibility

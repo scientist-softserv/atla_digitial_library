@@ -7,6 +7,7 @@ module Bulkrax
     # override to swap out the thumbnail_url
     def build_metadata
       self.parsed_metadata = {}
+      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
 
       record.metadata.children.each do |child|
         child.children.each do |node|
@@ -18,10 +19,8 @@ module Bulkrax
       # remove all image urls
       self.parsed_metadata['identifier'] = identifiers.reject { |id| id =~ %r{http(s{0,1})://[s3.amazonaws.com]+\S+.jpg\S+$} } unless identifiers.blank?
       # use first image url as thumbnail in identifiers matching the given pattern
-      self.parsed_metadata['thumbnail_url'] = [identifiers.select { |id| id =~ %r{http(s{0,1})://[s3.amazonaws.com]+\S+.jpg\S+$} }.first] unless identifiers.blank?
+      self.parsed_metadata['remote_files'] = [identifiers.select { |id| id =~ %r{http(s{0,1})://[s3.amazonaws.com]+\S+.jpg\S+$} }.first] unless identifiers.blank?
       self.parsed_metadata['contributing_institution'] = [contributing_institution]
-       
-      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
       
       add_visibility
       add_rights_statement
