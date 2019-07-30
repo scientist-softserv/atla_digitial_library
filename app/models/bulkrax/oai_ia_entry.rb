@@ -25,7 +25,6 @@ module Bulkrax
 
       # @todo remove this when field_mapping is in place
       self.parsed_metadata['contributor'] = nil
-      self.parsed_metadata['format'] = nil
 
       return self.parsed_metadata
     end
