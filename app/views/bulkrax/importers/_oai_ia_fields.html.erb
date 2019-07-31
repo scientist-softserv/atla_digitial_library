@@ -6,6 +6,8 @@
   
   <%= fi.input :set, as: :string, placeholder: 'collection:', hint: 'Provide the collection id, such as collection:bplscas (https://archive.org/details/bplscas). The preface collection: is required', input_html: { value: importer.parser_fields['set'] } %>
 
+  <%= fi.input :collection_title, as: :string, input_html: { value: importer.parser_fields['collection_title'] } %>
+
   <%= fi.input :institution_name, as: :string, input_html: { value: importer.parser_fields['institution_name'] } %>
   
   <% rights_statements = Hyrax.config.rights_statement_service_class.new %>
