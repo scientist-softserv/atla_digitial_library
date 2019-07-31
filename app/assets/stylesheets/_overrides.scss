@@ -1313,3 +1313,11 @@ body.frontend {
 
   }
 }
+
+body.dashboard {
+  nav.breadcrumb:after {
+    content: ' ';
+    clear: both;
+    display: table;
+  }
+}

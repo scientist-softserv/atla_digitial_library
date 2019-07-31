@@ -61,6 +61,8 @@ en:
       collections:
         show:
           subcollection_count: Collections in this Collection
+    bread_crumb:
+      search_results: Back to Search Results
     collections:
       show:
         works_in_collection: Items in this Collection

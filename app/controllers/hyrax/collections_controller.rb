@@ -35,6 +35,7 @@ module Hyrax
       add_breadcrumb I18n.t('hyrax.controls.collections'), main_app.collections_path
       add_breadcrumb_for_parent
       add_breadcrumb_for_action
+      add_back_to_search_crumb
     end
 
     ## Custom method for Collection show pages. If the current Collection
@@ -43,6 +44,11 @@ module Hyrax
       return if @curation_concern.member_of_collection_ids.blank?
       parent_collection = Collection.find(@curation_concern.member_of_collection_ids.first)
       add_breadcrumb parent_collection.to_s, hyrax.collection_path(parent_collection)
+    end
+
+    def add_back_to_search_crumb
+      return unless request.referer&.match?('catalog')
+      add_breadcrumb I18n.t('hyrax.bread_crumb.search_results'), request.referer, class: 'back-to-results col-sm-3'
     end
 
     private
