@@ -25,6 +25,7 @@ module Hyrax
       add_breadcrumb I18n.t('hyrax.controls.home'), hyrax.root_path
       dynamic_collection_breadcrumbs
       add_breadcrumb_for_action
+      add_back_to_search_crumb
     end
 
     def dynamic_collection_breadcrumbs
@@ -48,6 +49,11 @@ module Hyrax
         collection = Collection.find(c_id)
         add_breadcrumb collection.to_s, hyrax.collection_path(collection)
       end
+    end
+
+    def add_back_to_search_crumb
+      return unless request.referer&.match?('catalog')
+      add_breadcrumb I18n.t('hyrax.bread_crumb.search_results'), request.referer, class: 'back-to-results col-sm-3'
     end
   end
 end
