@@ -1,6 +1,5 @@
 module Bulkrax
   class OaiOmekaEntry < OaiDcEntry
-    include Bulkrax::Concerns::HasMatchers
 
     # use same matchers as OaiDcEntry (inherit from OaiDcEntry)
 

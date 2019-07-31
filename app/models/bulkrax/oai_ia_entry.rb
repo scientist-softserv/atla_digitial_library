@@ -1,6 +1,5 @@
 module Bulkrax
   class OaiIaEntry < OaiDcEntry
-    include Bulkrax::Concerns::HasMatchers
 
     # use same matchers as OaiDcEntry (inherit from OaiDcEntry), override date to use parser
     matcher 'date', from: ['date'], parsed: true

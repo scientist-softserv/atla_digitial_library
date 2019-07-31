@@ -1,6 +1,5 @@
 module Bulkrax
   class OaiDcEntry < OaiEntry
-    include Bulkrax::Concerns::HasMatchers
 
     def self.matcher_class
       Bulkrax::AtlaOaiMatcher
