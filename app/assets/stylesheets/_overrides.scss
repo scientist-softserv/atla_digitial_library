@@ -717,11 +717,11 @@ body.frontend {
     color: #E65A3A;
   }
 
-  .breadcrumb.link-accent a {
-    color: #258fce;
+  .breadcrumb a {
+    color: #E65A3A;
   }
 
-  .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
+  .breadcrumb a:hover, .breadcrumb a:focus {
     text-decoration: none;
     color: #E65A3A;
     text-decoration:underline;
