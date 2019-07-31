@@ -16,24 +16,24 @@ class Hyrax::BootstrapBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Buil
   def render
     return "" if @elements.blank?
     # begin CUSTOM block
-    if @elements.last.options[:class]&.include?('back-to-results')
-      @back_to_results = @elements.pop
+    if @elements.last.options[:class]&.include?('back-to-search')
+      @back_to_search_breadcrumb = @elements.pop
     end
     # end CUSTOM block
 
     @context.content_tag(:nav, breadcrumbs_options) do
       # CUSTOM changes to original line: save breadcrumbs into variable, add CSS classes
-      crumbs = @context.content_tag(:ol, { class: 'breadcrumb-list col-sm-9' }) do
+      record_breadcrumbs = @context.content_tag(:ol, { class: 'breadcrumb-list col-md-9' }) do
         safe_join(@elements.uniq.collect { |e| render_element(e) })
       end
 
       # begin CUSTOM block
-      if @back_to_results.present?
-        crumb = @context.link_to(@context.truncate(compute_name(@back_to_results), length: 30, separator: ' '), compute_path(@back_to_results), @back_to_results.options)
-        crumbs = crumbs + crumb.to_s
+      if @back_to_search_breadcrumb.present?
+        back_to_search_link = @context.link_to(@context.truncate(compute_name(@back_to_search_breadcrumb), length: 30, separator: ' '), compute_path(@back_to_search_breadcrumb), @back_to_search_breadcrumb.options)
+        record_breadcrumbs = record_breadcrumbs + back_to_search_link.to_s
       end
 
-      crumbs
+      record_breadcrumbs
       # end CUSTOM block
     end
   end

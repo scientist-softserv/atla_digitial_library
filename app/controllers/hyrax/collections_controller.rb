@@ -48,7 +48,7 @@ module Hyrax
 
     def add_back_to_search_crumb
       return unless request.referer&.match?('catalog')
-      add_breadcrumb I18n.t('hyrax.bread_crumb.search_results'), request.referer, class: 'back-to-results col-sm-3'
+      add_breadcrumb I18n.t('hyrax.bread_crumb.search_results'), request.referer, class: 'back-to-search col-md-3'
     end
 
     private
