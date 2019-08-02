@@ -1,5 +1,5 @@
 module Bulkrax
-  class OaiPtcEntry < OaiEntry
-
+  class OaiPtcEntry < OaiDcEntry
+    Bulkrax::Concerns::ContributingInstitution
   end
 end
