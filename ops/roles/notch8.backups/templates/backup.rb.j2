@@ -121,7 +121,7 @@ Backup::Model.new(:{{ project_name }}, 'Backup the database and files') do
     mail.on_failure           = true
 
     mail.from                 = 'server@notch8.com'
-    mail.to                   = 'rob@notch8.com' # Hipchat or dev team?
+    mail.to                   = ['rob@notch8.com', 'jbutler@atla.com'] # Hipchat or dev team?
     mail.address              = 'email-smtp.us-east-1.amazonaws.com'
     mail.port                 = 587
     mail.domain               = 'notch8.com'
