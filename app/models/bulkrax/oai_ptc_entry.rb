@@ -16,7 +16,7 @@ module Bulkrax
     matcher 'language', parsed: true, split: /\s*[;]\s*/
     matcher 'place', from: ['coverage']
     matcher 'publisher', split: /\s*[;]\s*/
-    # NOTE (dewey4iv): Commented out per Rob. Being removed temporarily for ATLA's use
+    # NOTE (dewey4iv): Commented out per Rob. Being removed temporarily for Atla's use
     # matcher 'relation', split: true
     matcher 'rights_statement', from: ['rights']
     matcher 'subject', split: /\s*[;]\s*/

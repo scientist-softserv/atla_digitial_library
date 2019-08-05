@@ -93,7 +93,7 @@ en:
     search:
       form:
         q:
-          label:          "Search ATLA Digital Library"
+          label:          "Search Atla Digital Library"
           placeholder:    "Enter search terms ..."
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search

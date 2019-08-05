@@ -1,7 +1,7 @@
 # Generated via
 #  `rails generate hyrax:work Work`
 class WorkIndexer < Hyrax::WorkIndexer
-  # Override the default mete data for the ATLA superset
+  # Override the default mete data for the Atla superset
   def rdf_service
     AtlaWorkMetadataIndexer
   end
