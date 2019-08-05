@@ -11,8 +11,9 @@
   <%= fi.input :institution_name, as: :string, input_html: { value: importer.parser_fields['institution_name'] } %>
   
   <% rights_statements = Hyrax.config.rights_statement_service_class.new %>
+  <%= fi.input :blank_rights_statement, as: :boolean, hint: 'If checked, skip dc:rights from the imported record and set rights statement to blank.', input_html: { checked: (importer.parser_fields['blank_rights_statement'] == "1") } %>
   
-  <%= fi.input :rights_statement,
+  <%= fi.input :rights_statement, required: false,
         collection: rights_statements.select_active_options,
         selected: importer.parser_fields['rights_statement'],
         include_blank: true,
