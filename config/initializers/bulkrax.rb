@@ -66,6 +66,7 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::CsvParser"]["rights_statement"] = { from: ["rights", "rights_statement"] }
   config.field_mappings["Bulkrax::CsvParser"]["types"] = { from: ["type", "types", "resource_type"], split: /\s*[;]\s*/, parsed: true }
   config.field_mappings["Bulkrax::CsvParser"]["format_digital"] = { from: ["format", "format_digital"], parsed: true }
+  config.field_mappings["Bulkrax::CsvParser"]["remote_files"] = { from: ["thumbnail_url", "remote_files"], parsed: true }
 
   # internet archive - custom mappings - exclude contributor and format
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiIaParser"][key] = value }
