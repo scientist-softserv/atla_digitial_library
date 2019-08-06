@@ -1,12 +1,16 @@
 module Bulkrax
   class OaiIaEntry < OaiDcEntry
 
+    def self.matcher_class
+      Bulkrax::AtlaOaiMatcher
+    end
+
     # use same matchers as OaiDcEntry (inherit from OaiDcEntry), override date to use parser
     matcher 'date', from: ['date'], parsed: true
 
     def build_metadata
       self.parsed_metadata = {}
-      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
+      self.parsed_metadata[Bulkrax.system_identifier_field] = [record.header.identifier]
 
       record.metadata.children.each do |child|
         child.children.each do |node|
