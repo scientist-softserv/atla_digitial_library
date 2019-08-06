@@ -64,6 +64,8 @@ en:
     bread_crumb:
       search_results: Back to Search Results
     collections:
+      index:
+        collections: Collections
       show:
         works_in_collection: Items in this Collection
     controls:
@@ -83,13 +85,15 @@ en:
     institution_name_full: The Institution Name
     pages:
       tabs:
+        about_page: About
         institutions_page: Contributing Institutions
+        participate_page: Participate
     product_name: Hyrax
     product_twitter_handle: "@SamveraRepo"
     search:
       form:
         q:
-          label:          "Search ATLA Digital Library"
+          label:          "Search Atla Digital Library"
           placeholder:    "Enter search terms ..."
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search

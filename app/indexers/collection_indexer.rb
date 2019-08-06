@@ -1,7 +1,7 @@
 # Generated via
 #  `rails generate hyrax:work Collection`
 class CollectionIndexer < Hyrax::CollectionIndexer
-  # Override the default mete data for the ATLA superset
+  # Override the default mete data for the Atla superset
   def rdf_service
     AtlaCollectionMetadataIndexer
   end
