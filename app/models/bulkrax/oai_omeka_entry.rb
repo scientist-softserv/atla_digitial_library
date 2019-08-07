@@ -1,6 +1,8 @@
 module Bulkrax
   class OaiOmekaEntry < OaiDcEntry
 
+    # use same matchers as OaiDcEntry (inherit from OaiDcEntry)
+
     # override to swap out the thumbnail_url
     def build_metadata
       self.parsed_metadata = {}

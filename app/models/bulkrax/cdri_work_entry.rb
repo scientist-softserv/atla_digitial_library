@@ -1,5 +1,14 @@
 module Bulkrax
   class CdriWorkEntry < Entry
+    
+    matcher 'contributing_institution', from: ['publisher']
+    matcher 'creator', split: true
+    matcher 'date', from: ['date', 'pub_date'], split: true
+    matcher 'description'
+    matcher 'language', parsed: true, split: /\s*,\s*/
+    # Removed 6/1 per issue #172 matcher 'place', from: ['pub_place']
+    matcher 'subject', parsed: true
+    matcher 'title'
 
     def initialize(attrs={})
       super(attrs)
