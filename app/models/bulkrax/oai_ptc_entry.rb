@@ -1,5 +1,5 @@
 module Bulkrax
   class OaiPtcEntry < OaiDcEntry
-    Bulkrax::Concerns::ContributingInstitution
+    Bulkrax::Concerns::HasLocalProcessing
   end
 end
