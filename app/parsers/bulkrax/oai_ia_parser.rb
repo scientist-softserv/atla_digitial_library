@@ -2,6 +2,19 @@ module Bulkrax
   # Parser for the Internet Archive OAI-PMH Endpoint
   class OaiIaParser < OaiDcParser
     
+    def self.parser_fields
+      {
+        base_url: :string,
+        metadata_prefix: :string,
+        set: :string,
+        institution_name: :string,
+        rights_statements: :string,
+        override_rights_statement: :boolean,
+        thumbnail_url: :string,
+        collection_title: :string
+      }
+    end
+    
     def entry_class
       OaiIaEntry
     end
