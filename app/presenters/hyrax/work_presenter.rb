@@ -26,5 +26,10 @@ module Hyrax
       Collection.where(id: self.ancestor_collection_ids)
     end
 
+    # use this to select urls from identifier
+    def url
+      solr_document.identifier.select {|i| i.match('http')}
+    end
+
   end
 end

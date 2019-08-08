@@ -1,10 +1,6 @@
 module Bulkrax
   class OaiIaEntry < OaiDcEntry
 
-    def self.matcher_class
-      Bulkrax::AtlaOaiMatcher
-    end
-
     # use same matchers as OaiDcEntry (inherit from OaiDcEntry), override date to use parser
     matcher 'date', from: ['date'], parsed: true
 

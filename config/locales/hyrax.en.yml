@@ -45,6 +45,7 @@ en:
           identifier_tesim: URL
           contributing_institution: Contributing Institution
           identifier: URL
+          url: URL
           types: Type
           format_digital: Format (Digital)
           format_original: Format (Original)
