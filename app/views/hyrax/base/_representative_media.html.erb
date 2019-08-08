@@ -4,8 +4,8 @@
 <% if presenter.representative_id.present? && presenter.representative_presenter.present? %>
   <% if defined?(viewer) && viewer %>
     <%= iiif_viewer_display presenter %>
-  <% elsif presenter.identifier.present? && presenter.identifier.first.match("http") %>
-    <%= link_to presenter.identifier.first, target: '_blank', rel: "nofollow" do %>
+  <% elsif presenter.url.present? %>
+    <%= link_to presenter.url.first, target: '_blank', rel: "nofollow" do %>
       <%= media_display presenter.representative_presenter %>
     <% end %>
   <% else %>
