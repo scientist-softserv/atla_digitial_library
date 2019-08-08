@@ -4,6 +4,6 @@ module Bulkrax::Concerns::HasLocalProcessing
   end
 
   def add_local
-    parsed_metadata['contributing_institution'] = [contributing_institution]
+    self.parsed_metadata['contributing_institution'] ||= [contributing_institution].compact
   end
 end
