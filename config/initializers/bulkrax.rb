@@ -73,6 +73,7 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiIaParser"][key] = value }
   config.field_mappings["Bulkrax::OaiIaParser"]["contributor"] = { from: ["contributor"], excluded: true}
   config.field_mappings["Bulkrax::OaiIaParser"]["date"] = { from: ["date"], parsed: true, split: /\s*[;]\s*/}
+  config.field_mappings["Bulkrax::OaiIaParser"]["format_digital"] = { from: ["format"], excluded: true }
 
   # ptc - custom mappings - switch format_digital for format_original
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiPtcParser"][key] = value }
