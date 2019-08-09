@@ -67,6 +67,7 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::CsvParser"]["types"] = { from: ["type", "types", "resource_type"], split: /\s*[;]\s*/, parsed: true }
   config.field_mappings["Bulkrax::CsvParser"]["format_digital"] = { from: ["format", "format_digital"], parsed: true, split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::CsvParser"]["remote_files"] = { from: ["thumbnail_url", "remote_files"], parsed: true }
+  config.field_mappings["Bulkrax::CsvParser"]["abstract"] = { from: ["abstract"], excluded: true }
 
   # internet archive - custom mappings - exclude contributor, add date parser
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiIaParser"][key] = value }
@@ -80,7 +81,7 @@ Bulkrax.setup do |config|
   
   # custom mappings for qdc
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiQualifiedDcParser"][key] = value }
-  config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["abstract"] = { from: ["abstract"] }
+  config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["abstract"] = { from: ["abstract"], excluded: true }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["alternative_title"] = { from: ["alternative"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["date"] = { from: ["date_created", "date"], split: /\s*[;]\s*/}
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["format_original"] = { from: ['medium'], parsed: true, split: /\s*[;]\s*/ }
