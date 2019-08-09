@@ -36,10 +36,17 @@ module Bulkrax
     def manifest_available?(url)
       response = Faraday.get url
       if response.status == 200
-        true
+        manifest_canvases?(response.body)
       else
         false
       end
+    end
+
+    # don't use if we don't have canvases
+    def manifest_canvases?(manifest)
+      JSON.parse(manifest)['sequences'].any? {|c| !c['canvases'].empty?}
+    rescue
+      false
     end
   end
 end
