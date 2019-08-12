@@ -717,16 +717,32 @@ body.frontend {
     color: #E65A3A;
   }
 
-  .breadcrumb.link-accent a {
-    color: #258fce;
+  .breadcrumb a {
+    color: #E65A3A;
   }
 
-  .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
+  .breadcrumb a:hover, .breadcrumb a:focus {
     text-decoration: none;
     color: #E65A3A;
     text-decoration:underline;
   }
 
+  /*Remove border around breadcrumbs and adjust spacing */
+  .breadcrumb {
+    border: 0px;
+    margin-top: 0px;
+    padding: 0;
+  }
+
+  nav.breadcrumb:after {
+    content: ' ';
+    clear: both;
+    display: table;
+  }
+
+  a.back-to-search {
+    text-align: right;
+  }
 
 
 
@@ -856,13 +872,6 @@ body.frontend {
   .work-type .panel {
     border:0px;
     box-shadow:0 0px 0px rgba(0,0,0,0.00)
-  }
-
-  /*Remove border around breadcrumbs and adjust spacing */
-  .breadcrumb {
-    border:0px;
-    margin-top:0px;
-    padding:0;
   }
 
   /*Remove background color from titles on Item pages*/
@@ -1302,5 +1311,13 @@ body.frontend {
 		  font-size: 1.25em;
 	  }
 
+  }
+}
+
+body.dashboard {
+  nav.breadcrumb:after {
+    content: ' ';
+    clear: both;
+    display: table;
   }
 }

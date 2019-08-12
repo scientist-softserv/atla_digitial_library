@@ -1,9 +1,7 @@
 module Bulkrax
-  class OaiDcEntry < OaiEntry
-    include Bulkrax::Concerns::HasLocalProcessing
+  class OaiQualifiedDcEntry < OaiEntry
     def self.matcher_class
       Bulkrax::AtlaOaiMatcher
     end
-
   end
 end

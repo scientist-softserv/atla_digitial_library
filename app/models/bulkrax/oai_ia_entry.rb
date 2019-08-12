@@ -1,12 +1,12 @@
 module Bulkrax
   class OaiIaEntry < OaiDcEntry
-    include Bulkrax::Concerns::HasMatchers
 
     # use same matchers as OaiDcEntry (inherit from OaiDcEntry), override date to use parser
     matcher 'date', from: ['date'], parsed: true
 
     def build_metadata
       self.parsed_metadata = {}
+      self.parsed_metadata[Bulkrax.system_identifier_field] = [record.header.identifier]
 
       record.metadata.children.each do |child|
         child.children.each do |node|
@@ -16,7 +16,6 @@ module Bulkrax
       add_metadata('thumbnail_url', thumbnail_url)
 
       self.parsed_metadata['contributing_institution'] = [contributing_institution]
-      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
       self.parsed_metadata['remote_manifest_url'] ||= build_manifest
 
       add_visibility
@@ -25,7 +24,6 @@ module Bulkrax
 
       # @todo remove this when field_mapping is in place
       self.parsed_metadata['contributor'] = nil
-      self.parsed_metadata['format'] = nil
 
       return self.parsed_metadata
     end
@@ -38,10 +36,17 @@ module Bulkrax
     def manifest_available?(url)
       response = Faraday.get url
       if response.status == 200
-        true
+        manifest_canvases?(response.body)
       else
         false
       end
+    end
+
+    # don't use if we don't have canvases
+    def manifest_canvases?(manifest)
+      JSON.parse(manifest)['sequences'].any? {|c| !c['canvases'].empty?}
+    rescue
+      false
     end
   end
 end

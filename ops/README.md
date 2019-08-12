@@ -22,7 +22,7 @@ Place AWS and Deploy keys in keys subdirectory
 ```
 
 ## Origins
-This ansible playbook set was created by Notch8 for ATLA, based on the work done by Data Curation Experts for the Chemical Heritage Foundation.
+This ansible playbook set was created by Notch8 for Atla, based on the work done by Data Curation Experts for the Chemical Heritage Foundation.
 
 
 ## TODO

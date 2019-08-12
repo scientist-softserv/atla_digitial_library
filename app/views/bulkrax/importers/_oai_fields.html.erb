@@ -1,12 +1,10 @@
-<div class='oai_ia_fields'>
+<div class='oai_fields'>
+  <%= fi.input :base_url, as: :string, input_html: { value: importer.parser_fields['base_url'] } %>
   
-  <%= fi.input :base_url, as: :string, input_html: { value: importer.parser_fields['base_url'] || 'https://archive.org/services/oai.php' } %>
+  <%= fi.input :metadata_prefix, as: :string, hint: 'Such as oai_dc, dcterms or oai_qdc', input_html: { value: importer.parser_fields['metadata_prefix'] } %>
   
-  <%= fi.input :metadata_prefix, as: :string, hint: 'Such as oai_dc, dcterms or oai_qdc', input_html: { value: importer.parser_fields['metadata_prefix'] || 'oai_dc' } %>
-  
-  <%= fi.input :set, as: :string, placeholder: 'collection:', hint: 'Provide the collection id, such as collection:bplscas (https://archive.org/details/bplscas). The preface collection: is required', input_html: { value: importer.parser_fields['set'] } %>
-
-  <%= fi.input :collection_title, as: :string, input_html: { value: importer.parser_fields['collection_title'] } %>
+  <%= fi.input :set, collection: [importer.parser_fields['set']], label: 'Set (source)', selected: importer.parser_fields['set'] %>
+  <button type="button" class="btn btn-default refresh-set-source">Refresh Sets</button>
 
   <%= fi.input :institution_name, as: :string, input_html: { value: importer.parser_fields['institution_name'] } %>
   
@@ -27,9 +25,11 @@
     </p>
 
     <p>
-      https://archive.org/services/img/<&#37= identifier.split(':').last &#37>
+      http://commons.ptsem.edu/?cover=<&#37= identifier.split(':').last &#37>&size=L
     </p>
 
+    <p>
+      http://commons.ptsem.edu/?cover=<&#37= record.header.identifier.split(':').last &#37>&size=L
+    </p>
   </div>
-  
 </div>

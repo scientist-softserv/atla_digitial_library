@@ -1,6 +1,6 @@
-# ATLA Digital Library
+# Atla Digital Library
 
-ATLA staff use this repository as their digital library.
+Atla staff use this repository as their digital library.
 
 ## Versions
 
@@ -70,4 +70,3 @@ Currently backups are taken nightly. This can be scaled up or down easily by edi
 # Restore Procedure
 
 Backups are encrypted and stored in S3. To restore backups, first download the correct backup files from S3.  At that point the backup needs to be decrypted as per [instructions here](http://backup.github.io/backup/v4/encryptor-openssl/).  Password is found in the secure env files under `backup_password`. After the tar file is decrypted Postgresql restore is done via the psql command and uploaded files can be copied back in to place manually. At that point Fedora, Solr and Passenger can all be restarted. 
-

@@ -45,6 +45,7 @@ en:
           identifier_tesim: URL
           contributing_institution: Contributing Institution
           identifier: URL
+          url: URL
           types: Type
           format_digital: Format (Digital)
           format_original: Format (Original)
@@ -61,7 +62,11 @@ en:
       collections:
         show:
           subcollection_count: Collections in this Collection
+    bread_crumb:
+      search_results: Back to Search Results
     collections:
+      index:
+        collections: Collections
       show:
         works_in_collection: Items in this Collection
     controls:
@@ -79,12 +84,17 @@ en:
       service_html: A service of <a href="http://samvera.org/" class="navbar-link" target="_blank">Samvera</a>.
     institution_name: Institution
     institution_name_full: The Institution Name
+    pages:
+      tabs:
+        about_page: About
+        institutions_page: Contributing Institutions
+        participate_page: Participate
     product_name: Hyrax
     product_twitter_handle: "@SamveraRepo"
     search:
       form:
         q:
-          label:          "Search ATLA Digital Library"
+          label:          "Search Atla Digital Library"
           placeholder:    "Enter search terms ..."
       button:
         html: <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
