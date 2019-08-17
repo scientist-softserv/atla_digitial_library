@@ -23,7 +23,7 @@ WORKDIR /data
 ADD Gemfile /data/Gemfile
 ADD Gemfile.lock /data/Gemfile.lock
 # for engine dev only
-ADD vendor/engines/bulkrax /data/vendor/engines/bulkrax
+#ADD vendor/engines/bulkrax /data/vendor/engines/bulkrax
 
 ENV BUNDLE_JOBS=4
 RUN bundle install
