@@ -8,6 +8,7 @@ namespace :hyrax do
       Hyrax::PermissionTemplateAccess.delete_all
       Hyrax::PermissionTemplate.delete_all
       Delayed::Job.delete_all
+      Bulkrax::Entry.delete_all
 
       # we need to wait till Fedora is done with its cleanup
       # otherwise creating the admin set will fail
