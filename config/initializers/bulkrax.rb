@@ -63,11 +63,19 @@ Bulkrax.setup do |config|
 
   # csv - custom mappings
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::CsvParser"][key] = value }
-  config.field_mappings["Bulkrax::CsvParser"]["rights_statement"] = { from: ["rights", "rights_statement"], split: /\s*[;]\s*/ }
-  config.field_mappings["Bulkrax::CsvParser"]["types"] = { from: ["type", "types", "resource_type"], split: /\s*[;]\s*/, parsed: true }
-  config.field_mappings["Bulkrax::CsvParser"]["format_digital"] = { from: ["format", "format_digital"], parsed: true, split: /\s*[;]\s*/ }
-  config.field_mappings["Bulkrax::CsvParser"]["remote_files"] = { from: ["thumbnail_url", "remote_files"], parsed: true }
   config.field_mappings["Bulkrax::CsvParser"]["abstract"] = { from: ["abstract"], excluded: true }
+  config.field_mappings["Bulkrax::CsvParser"]["alternative_title"] = { from: ["alternative_title"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["contributing_institution"] = { from: ["contributing_institution"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["extent"] = { from: ["extent"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["format_digital"] = { from: ["format", "format_digital"], parsed: true, split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["format_original"] = { from: ["format_original"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["place"] = { from: ["place"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["remote_files"] = { from: ["thumbnail_url", "remote_files"], parsed: true }
+  config.field_mappings["Bulkrax::CsvParser"]["remote_manifest_url"] = { from: ["remote_manifest_url"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["rights_holder"] = { from: ["rights_holder"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["rights_statement"] = { from: ["rights", "rights_statement"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["time_period"] = { from: ["time_period"], split: /\s*[;]\s*/ }
+  config.field_mappings["Bulkrax::CsvParser"]["types"] = { from: ["type", "types", "resource_type"], split: /\s*[;]\s*/, parsed: true }
 
   # internet archive - custom mappings - exclude contributor, add date parser
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiIaParser"][key] = value }
