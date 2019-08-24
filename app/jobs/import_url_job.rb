@@ -115,8 +115,13 @@ class ImportUrlJob < Hyrax::ApplicationJob
     # Make sure the file we write has a usable name
     # @param uri [URI] the uri of the file to download
     def safe_filename(uri)
-      filename = File.basename(uri.path)
-      filename.gsub!('/', '')
-      filename.present? ? filename : file_set.id
+      begin
+        r = HTTParty.head(uri.to_s)
+        return CGI::parse(r.headers['content-disposition'])["filename"][0].gsub("\"", '')
+      rescue
+        filename = File.basename(uri.path)
+        filename.gsub!('/', '')
+        filename.present? ? filename : file_set.id
+      end
     end
 end
