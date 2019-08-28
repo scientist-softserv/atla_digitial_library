@@ -118,3 +118,19 @@ task update_oai_set_entry_and_collection_identifiers: [:environment] do
     progress.increment!
   end
 end
+
+desc 'List Works with differnt contributing institution to Collection'
+task list_works_with_mismatched_contributing_institution: [:environment] do
+  puts "Listing Works with differnt contributing institution to Collection"
+  puts "  use this list to check for items in the wrong collection"
+  progress = ProgressBar.new(Bulkrax::OaiSetEntry.count)
+  Bulkrax::OaiSetEntry.find_each do |entry|
+    collection = Collection.where(Bulkrax.system_identifier_field => entry.identifier).first
+    puts "Listing collection: #{collection.id} (#{collection.send(Bulkrax.system_identifier_field).first})"
+    Work.where(member_of_collection_ids_ssim: collection.id).each do | work |
+      puts "#{work.id}\n" if work.contributing_institution.first != collection.contributing_institution.first
+    end
+    puts "------\n"
+    progress.increment!
+  end
+end
