@@ -92,3 +92,45 @@ task find_missing_in_fedora: [:environment] do
     end
   end
 end
+
+desc 'Update Bulkrax::OaiSetEntry.identifier and Collection system identifier'
+task update_oai_set_entry_and_collection_identifiers: [:environment] do
+  puts "Updating Bulkrax::OaiSetEntry.identifier and Collection.#{Bulkrax.system_identifier_field}"
+
+  progress = ProgressBar.new(Bulkrax::OaiSetEntry.count)
+  Bulkrax::OaiSetEntry.find_each do |entry|
+    next if entry.identifier.include?(entry.importer.parser_fields['base_url'].split('/')[2])
+    new_identifier = entry.importer.unique_collection_identifier(entry.identifier)
+    contributing_institution = entry.parsed_metadata['contributing_institution']
+    collection = nil
+    Collection.where(Bulkrax.system_identifier_field => entry.identifier).each do | c |
+      collection = c if contributing_institution.first == c.contributing_institution.first
+    end
+    metadata = entry.parsed_metadata
+    metadata[Bulkrax.system_identifier_field] = [new_identifier]
+    if collection
+      collection.send("#{Bulkrax.system_identifier_field}=", [new_identifier])
+      collection.save
+      entry.identifier = new_identifier
+      entry.parsed_metadata = metadata
+      entry.save
+    end
+    progress.increment!
+  end
+end
+
+desc 'List Works with differnt contributing institution to Collection'
+task list_works_with_mismatched_contributing_institution: [:environment] do
+  puts "Listing Works with differnt contributing institution to Collection"
+  puts "  use this list to check for items in the wrong collection"
+  progress = ProgressBar.new(Bulkrax::OaiSetEntry.count)
+  Bulkrax::OaiSetEntry.find_each do |entry|
+    collection = Collection.where(Bulkrax.system_identifier_field => entry.identifier).first
+    puts "Listing collection: #{collection.id} (#{collection.send(Bulkrax.system_identifier_field).first})"
+    Work.where(member_of_collection_ids_ssim: collection.id).each do | work |
+      puts "#{work.id}\n" if work.contributing_institution.first != collection.contributing_institution.first
+    end
+    puts "------\n"
+    progress.increment!
+  end
+end
