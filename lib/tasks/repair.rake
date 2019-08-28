@@ -92,3 +92,29 @@ task find_missing_in_fedora: [:environment] do
     end
   end
 end
+
+desc 'Update Bulkrax::OaiSetEntry.identifier and Collection system identifier'
+task update_oai_set_entry_and_collection_identifiers: [:environment] do
+  puts "Updating Bulkrax::OaiSetEntry.identifier and Collection.#{Bulkrax.system_identifier_field}"
+
+  progress = ProgressBar.new(Bulkrax::OaiSetEntry.count)
+  Bulkrax::OaiSetEntry.find_each do |entry|
+    next if entry.identifier.include?(entry.importer.parser_fields['base_url'].split('/')[2])
+    new_identifier = entry.importer.unique_collection_identifier(entry.identifier)
+    contributing_institution = entry.parsed_metadata['contributing_institution']
+    collection = nil
+    Collection.where(Bulkrax.system_identifier_field => entry.identifier).each do | c |
+      collection = c if contributing_institution.first == c.contributing_institution.first
+    end
+    metadata = entry.parsed_metadata
+    metadata[Bulkrax.system_identifier_field] = [new_identifier]
+    if collection
+      collection.send("#{Bulkrax.system_identifier_field}=", [new_identifier])
+      collection.save
+      entry.identifier = new_identifier
+      entry.parsed_metadata = metadata
+      entry.save
+    end
+    progress.increment!
+  end
+end
