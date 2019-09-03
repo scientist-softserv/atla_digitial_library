@@ -119,7 +119,7 @@ task update_oai_set_entry_and_collection_identifiers: [:environment] do
   end
 end
 
-desc 'List Works with differnt contributing institution to Collection'
+desc 'List Works with different contributing institution to Collection'
 task list_works_with_mismatched_contributing_institution: [:environment] do
   puts "Listing Works with differnt contributing institution to Collection"
   puts "  use this list to check for items in the wrong collection"
@@ -131,6 +131,38 @@ task list_works_with_mismatched_contributing_institution: [:environment] do
       puts "#{work.id}\n" if work.contributing_institution.first != collection.contributing_institution.first
     end
     puts "------\n"
+    progress.increment!
+  end
+end
+
+desc 'Transfer source to identifier'
+task ptc_source_to_identifier: [:environment] do
+  puts "Transfer source to identifier"
+  progress = ProgressBar.new(Bulkrax::OaiPtcEntry.count)
+  Bulkrax::OaiEntry.find_each do |entry|
+    work = Work.where(source: entry.identifier).first
+    if work
+      puts "Updating: #{work.id}"
+      work.identifier += [entry.identifier] unless work.identifier.include?(entry.identifier)
+      src = work.source.to_a
+      src.delete(entry.identifier)
+      work.source = src
+      work.save
+    end
+    progress.increment!
+  end
+end
+
+desc 'Update entries with multiple collection_ids'
+task multiple_collection_ids: [:environment] do
+  puts "Update entries with multiple collection_ids"
+  progress = ProgressBar.new(Bulkrax::OaiPtcEntry.count)
+  Bulkrax::OaiEntry.find_each do |entry|
+    next if entry.collections_created?
+    puts "Updating #{entry.id}"
+    entry.collection_ids = []
+    entry.find_or_create_collection_ids
+    entry.save
     progress.increment!
   end
 end
