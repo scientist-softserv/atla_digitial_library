@@ -104,7 +104,11 @@ task update_oai_set_entry_and_collection_identifiers: [:environment] do
     contributing_institution = entry.parsed_metadata['contributing_institution']
     collection = nil
     Collection.where(Bulkrax.system_identifier_field => entry.identifier).each do | c |
-      collection = c if contributing_institution.first == c.contributing_institution.first
+      if contributing_institution.present?
+        collection = c if contributing_institution.first == c.contributing_institution&.first
+      else
+        collection = c
+      end
     end
     metadata = entry.parsed_metadata
     metadata[Bulkrax.system_identifier_field] = [new_identifier]
