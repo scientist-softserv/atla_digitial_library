@@ -209,13 +209,13 @@ task remove_duplicate_works: [:environment] do
   progress = ProgressBar.new(Bulkrax::OaiEntry.count)
   # just works, not collections
   identifiers = Bulkrax::OaiEntry.all.map { |e| e.identifier unless e.type == 'Bulkrax::OaiSetEntry' }.uniq
-  identifiers.each do |work|
-    works = Work.where(identifier: work)
+  identifiers.each do |work_identifier|
+    works = Work.where(identifier: work_identifier)
     if works.length > 1
-      latest = works.first.id
-      latest_date = works.first.date_uploaded
+      latest = nil
+      latest_date = DateTime.new(2001,2,3,4,5,6) 
       works.each do |w|
-        if w.date_uploaded > latest_date 
+        if w.identifier.include?(work_identifier) && w.date_uploaded > latest_date 
           latest = w.id 
           latest_date = w.date_uploaded
         end
@@ -223,7 +223,7 @@ task remove_duplicate_works: [:environment] do
       works.each do | w |
         unless w.id == latest
           puts "Destroying #{w.id}"
-          w.destroy.eradicate
+          w.destroy(:eradicate) if w.identifier.include?(work_identifier)
         end
       end
     end
