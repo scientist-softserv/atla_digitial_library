@@ -142,7 +142,7 @@ end
 desc 'Transfer source to identifier'
 task ptc_source_to_identifier: [:environment] do
   puts "Transfer source to identifier"
-  progress = ProgressBar.new(Bulkrax::OaiPtcEntry.count)
+  progress = ProgressBar.new(Bulkrax::OaiEntry.count)
   Bulkrax::OaiEntry.find_each do |entry|
     work = Work.where(source: entry.identifier).first
     if work
@@ -160,7 +160,7 @@ end
 desc 'Update entries with multiple collection_ids'
 task multiple_collection_ids: [:environment] do
   puts "Update entries with multiple collection_ids"
-  progress = ProgressBar.new(Bulkrax::OaiPtcEntry.count)
+  progress = ProgressBar.new(Bulkrax::OaiEntry.count)
   Bulkrax::OaiEntry.find_each do |entry|
     next if entry.collections_created?
     puts "Updating #{entry.id}"
@@ -168,5 +168,64 @@ task multiple_collection_ids: [:environment] do
     entry.find_or_create_collection_ids
     entry.save
     progress.increment!
+  end
+end
+
+
+desc 'Remove duplicate entries on an importer'
+task remove_duplicate_entries: [:environment] do
+  puts "Remove duplicate entries on an importer"
+  progress = ProgressBar.new(Bulkrax::Importer.count)
+  Bulkrax::Importer.find_each do |importer|
+    total = importer.entries.count
+    unique = importer.entries.map {|e| e.identifier }.uniq.count
+
+    if total > unique
+      puts "Total: #{total}; Unique #{unique}; cleaning up"
+
+      done = []
+      destroy = []
+
+      importer.entries.each do |e|
+        if done.include?(e.identifier)
+          destroy << e.id
+        else
+          done << e.identifier
+        end
+      end
+
+      destroy.each {|d| Bulkrax::Entry.find(d).destroy}
+      importer.reload
+      total = importer.entries.count
+      unique = importer.entries.map {|e| e.identifier }.uniq.count
+      puts "Total: #{total}; Unique #{unique}; after clean up"
+    end
+  end
+end
+
+desc 'Remove duplicate works'
+task remove_duplicate_works: [:environment] do
+  puts "Remove duplicate works"
+  progress = ProgressBar.new(Bulkrax::OaiEntry.count)
+  # just works, not collections
+  identifiers = Bulkrax::OaiEntry.all.map { |e| e.identifier unless e.type == 'Bulkrax::OaiSetEntry' }.uniq
+  identifiers.each do |work|
+    works = Work.where(identifier: work)
+    if works.length > 1
+      latest = works.first.id
+      latest_date = works.first.date_uploaded
+      works.each do |w|
+        if w.date_uploaded > latest_date 
+          latest = w.id 
+          latest_date = w.date_uploaded
+        end
+      end
+      works.each do | w |
+        unless w.id == latest
+          puts "Destroying #{w.id}"
+          w.destroy.eradicate
+        end
+      end
+    end
   end
 end
