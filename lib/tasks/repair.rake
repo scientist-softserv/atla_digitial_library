@@ -140,7 +140,7 @@ task list_works_with_mismatched_contributing_institution: [:environment] do
 end
 
 desc 'Transfer source to identifier'
-task ptc_source_to_identifier: [:environment] do
+task source_to_identifier: [:environment] do
   puts "Transfer source to identifier"
   progress = ProgressBar.new(Bulkrax::OaiEntry.count)
   Bulkrax::OaiEntry.find_each do |entry|
