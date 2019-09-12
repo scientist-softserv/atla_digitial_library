@@ -17,7 +17,7 @@ gem 'devise-guests', '~> 0.6'
 gem 'fcrepo_wrapper', group: %i[development test]
 gem 'flutie'
 gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
-gem 'hyrax', '~> 2.5.1'
+gem 'hyrax', git: 'https://github.com/orangewolf/hyrax.git', branch: 'collection_path_js_fix_2.5.1' #'~> 2.5.1'
 gem 'hyrax-spec', group: %i[development test]
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
