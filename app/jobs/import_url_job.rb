@@ -53,7 +53,7 @@ class ImportUrlJob < Hyrax::ApplicationJob
     # code is 206 instead of 200, but that is enough to satisfy the #success? method.
     # @param uri [URI] the uri of the file to be downloaded
     def can_retrieve?(uri)
-      HTTParty.get(uri, headers: { Range: 'bytes=0-0' }).success?
+      Faraday.get(uri, headers: { Range: 'bytes=0-0' }).success?
     end
 
     # Download file from uri, yields a block with a file in a temporary directory.
@@ -116,7 +116,7 @@ class ImportUrlJob < Hyrax::ApplicationJob
     # @param uri [URI] the uri of the file to download
     def safe_filename(uri)
       begin
-        r = HTTParty.head(uri.to_s)
+        r = Faraday.head(uri.to_s)
         return CGI::parse(r.headers['content-disposition'])["filename"][0].gsub("\"", '')
       rescue
         filename = File.basename(uri.path)
