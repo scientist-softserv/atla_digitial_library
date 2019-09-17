@@ -15,10 +15,12 @@ module Bulkrax
       list_sets.each do |set|
         next unless collection_name == 'all' || collection_name == set.spec
 
-        metadata[:title] = [parser_fields['collection_title'] || set.name]
-        metadata[Bulkrax.system_identifier_field] = [set.spec]
+        unique_collection_identifier = importer.unique_collection_identifier(set.spec)
 
-        new_entry = collection_entry_class.where(importer: importer, identifier: set.spec, raw_metadata: metadata).first_or_create!
+        metadata[:title] = [parser_fields['collection_title'] || set.name]
+        metadata[Bulkrax.system_identifier_field] = [unique_collection_identifier]
+
+        new_entry = collection_entry_class.where(importer: importer, identifier: unique_collection_identifier, raw_metadata: metadata).first_or_create!
         ImportWorkCollectionJob.perform_later(new_entry.id, importer.current_importer_run.id)
       end
     end
