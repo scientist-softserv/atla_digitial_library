@@ -123,12 +123,12 @@ namespace :cdri do
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
         # Remove trailing period from title and subject fields
-        # TODO: remove trailing period from title
         # Remove “Place” value
         # Add Format (Original): Slides (photographs)
         # Add Format (Digital): JPEG
         # Add Type: Still Image
         # Correct Contributing Institution field to be: Southwestern Baptist Theological Seminary Libraries
+        work.titles = work.titles.map {|t| t.gsub(/\.$/, '') }
         work.place = nil
         work.format_original = ['Slides (photographs)']
         work.format_digital = ['JPEG']
