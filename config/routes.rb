@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount BrowseEverything::Engine => '/browse'
   mount Bulkrax::Engine, at: '/'
 
   mount HealthMonitor::Engine, at: '/'
