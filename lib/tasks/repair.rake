@@ -141,9 +141,10 @@ end
 
 desc 'Transfer source to identifier'
 task source_to_identifier: [:environment] do
-  puts "Transfer source to identifier"
-  progress = ProgressBar.new(Bulkrax::OaiEntry.count)
-  Bulkrax::OaiEntry.find_each do |entry|
+  progress = ProgressBar.new(Bulkrax::Entry.count)
+  Bulkrax::Entry.find_each do |entry|
+    progress.increment!
+    next unless entry.is_a?(Bulkrax::OaiEntry)
     work = Work.where(source: entry.identifier).first
     if work
       puts "Updating: #{work.id}"
@@ -153,21 +154,21 @@ task source_to_identifier: [:environment] do
       work.source = src
       work.save
     end
-    progress.increment!
   end
 end
 
 desc 'Update entries with multiple collection_ids'
 task multiple_collection_ids: [:environment] do
   puts "Update entries with multiple collection_ids"
-  progress = ProgressBar.new(Bulkrax::OaiEntry.count)
-  Bulkrax::OaiEntry.find_each do |entry|
+  progress = ProgressBar.new(Bulkrax::Entry.count)
+  Bulkrax::Entry.find_each do |entry|
+    progress.increment!
+    next unless entry.is_a?(Bulkrax::OaiEntry)
     next if entry.collections_created?
     puts "Updating #{entry.id}"
     entry.collection_ids = []
     entry.find_or_create_collection_ids
     entry.save
-    progress.increment!
   end
 end
 
@@ -177,6 +178,7 @@ task remove_duplicate_entries: [:environment] do
   puts "Remove duplicate entries on an importer"
   progress = ProgressBar.new(Bulkrax::Importer.count)
   Bulkrax::Importer.find_each do |importer|
+    puts "Processing #{importer.id}"
     total = importer.entries.count
     unique = importer.entries.map {|e| e.identifier }.uniq.count
 
@@ -193,39 +195,212 @@ task remove_duplicate_entries: [:environment] do
           done << e.identifier
         end
       end
-
+      puts "Removing #{destroy.size} entries"
       destroy.each {|d| Bulkrax::Entry.find(d).destroy}
       importer.reload
       total = importer.entries.count
       unique = importer.entries.map {|e| e.identifier }.uniq.count
       puts "Total: #{total}; Unique #{unique}; after clean up"
     end
+    progress.increment!
   end
 end
 
-desc 'Remove duplicate works'
-task remove_duplicate_works: [:environment] do
-  puts "Remove duplicate works"
-  progress = ProgressBar.new(Bulkrax::OaiEntry.count)
-  # just works, not collections
-  identifiers = Bulkrax::OaiEntry.all.map { |e| e.identifier unless e.type == 'Bulkrax::OaiSetEntry' }.uniq
-  identifiers.each do |work_identifier|
-    works = Work.where(identifier: work_identifier)
-    if works.length > 1
-      latest = nil
-      latest_date = DateTime.new(2001,2,3,4,5,6) 
-      works.each do |w|
-        if w.identifier.include?(work_identifier) && w.date_uploaded > latest_date 
-          latest = w.id 
-          latest_date = w.date_uploaded
-        end
-      end
-      works.each do | w |
-        unless w.id == latest
-          puts "Destroying #{w.id}"
-          w.destroy(:eradicate) if w.identifier.include?(work_identifier)
+desc 'Remove duplicate identifiers from works where ActiveFedora/Solr has returned on an inexact match'
+task remove_duplicate_identifiers: [:environment] do
+  puts "Remove duplicate identifiers"
+  progress = ProgressBar.new(Bulkrax::Entry.count)
+  num = 0
+  Bulkrax::Entry.find_each do |entry|
+    progress.increment!
+    next unless entry.is_a?(Bulkrax::OaiEntry)
+    next if entry.is_a?(Bulkrax::OaiSetEntry)
+    works = Work.where(identifier: entry.identifier).select {|work| work.identifier.include?(entry.identifier)}
+    works.each do |work|
+      identifiers = work.identifier.select {|i| i.include?(entry.identifier)}
+      if identifiers.size > 1
+        longest = identifiers.max_by(&:size)
+        shortest = identifiers.min_by(&:size)
+        # use URL to ensure we are matching the correct work
+        # so far all examples have been PTC where there is a unique URL
+        # if this means we miss some others, that's better than removing the
+        # wrong identifier
+        url = entry.parsed_metadata['identifier'].map { |i| i if i.include?('http')}.first
+        if entry.identifier == shortest && work.identifier.include?(url)
+          puts "Entry identifier #{entry.identifier}"
+          puts "The shortest is #{shortest}"
+          puts "Deleting #{longest} from #{work.id}"
+          new_identifier = work.identifier.delete(longest)
+          work.identifier.clear
+          work.identifier = new_identifier
+          work.save
+          num += 1
         end
       end
     end
   end
+  puts "Deleted identifiers from #{num} works"
+end
+
+desc 'Remove duplicate identifiers from works where the longer of the two should be kept'
+task remove_duplicate_identifiers_longer: [:environment] do
+  puts "Remove duplicate identifiers"
+  progress = ProgressBar.new(Work.count)
+  num = 0
+  Work.find_each do |work|
+    if work.identifier.size >= 3
+      url = work.identifier.select { | i | i.include?('http') }.first
+      if url.present?
+        id = url.split('/').last
+        real_identifiers = work.identifier.select { | i | i.end_with?(id) }
+        deleted_identifier = work.identifier.reject { | i | i.end_with?(id) }
+        puts "Deleting identifiers #{deleted_identifier.join(' & ')} from #{work.id}"
+        work.identifier.clear
+        work.identifier = real_identifiers
+        work.save!
+        num += 1
+      end
+    end
+    progress.increment!
+  end
+  puts "Deleted identifiers from #{num} works"
+end
+
+desc 'Remove duplicate works - this will only work after the two remove_duplicate_identifiers tasks have run'
+task remove_duplicate_works: [:environment] do
+  puts "Remove duplicate works"
+  progress = ProgressBar.new(Bulkrax::Entry.count)
+  num = 0
+  Bulkrax::Entry.find_each do |entry|
+    progress.increment!
+    next unless entry.is_a?(Bulkrax::OaiEntry)
+    next if entry.is_a?(Bulkrax::OaiSetEntry)
+    # ensure exact matches
+    works = Work.where(identifier: entry.identifier).select {|work| work.identifier.include?(entry.identifier)}
+    if works.length > 1
+      # ensure we have the latest metadata
+      entry.build_metadata
+      entry.save
+      latest = nil
+      # older than the first object in atla
+      latest_date = DateTime.new(2001,2,3,4,5,6) 
+      works.each do | w |
+        if w.date_uploaded > latest_date
+          latest = w
+          latest_date = w.date_uploaded
+        end
+      end
+      works.each do | w |
+        unless w.id == latest.id
+          if latest.identifier.size == w.identifier.size
+            puts "Destroying #{w.id} - duplicate of #{latest.id}"
+            w.destroy.eradicate
+            num += 1
+          else
+            puts "Mismatched identifiers for #{w.id} and #{latest.id}"
+          end
+        end
+      end
+    end
+  end
+  puts "Destroyed #{num} works"
+end
+
+desc 'Update the collection_identifiers where the OaiSet has not yet been created'
+task update_collection_identifiers: [:environment] do
+  puts "Update the collection_identifiers where the OaiSet has not yet been created"
+  num = 0
+  identifiers = {}
+  Bulkrax::Importer.find_each { | i | identifiers[i.parser_fields['set']] = i.unique_collection_identifier(i.parser_fields['set']) if i.parser_fields['set'] }
+  progress = ProgressBar.new(identifiers.size)
+  identifiers.each do |key,value|
+    collection = Collection.where(identifier: key).select {|c| c.identifier.include?(key)}
+    if collection.size == 1
+      collection.first.identifier = [value]
+      collection.first.save
+      num += 1
+    elsif collection.size > 1
+      puts "Check these for duplicates: #{collection.each {|c| c.id}.join(', ') }"
+    end
+    progress.increment!
+  end
+  puts "Updated #{num} collections"
+end
+
+desc 'Transfer source to identifier - stray ptsem'
+task source_to_identifier_ptsem: [:environment] do
+  puts 'Transfer source to identifier - stray ptsem'
+  works = Work.where(source: 'oai:digital.library.ptsem.edu')
+  puts "Updating #{works.size} works"
+  num = 0
+  progress = ProgressBar.new(works.size)
+  works.each do | work |
+    puts "Updating: #{work.id}"
+    work.identifier += [work.source.first]
+    work.source = []
+    work.save
+    num += 1
+    progress.increment!
+  end
+  puts "Updated #{num} works"
+end
+
+desc 'Restore missing identifiers ptsem'
+task missing_identifier_pstem: [:environment] do
+  puts 'Restore missing identifiers ptsem'
+  num = 0
+  pstem = Collection.where(member_of_collection_ids_ssim: "4q77fs785")
+  progress = ProgressBar.new(pstem.count)
+  pstem.each do | collection |
+    puts "Processing #{collection.title.join}\n "
+    progress.increment!
+    works = Work.where(member_of_collection_ids_ssim: collection.id)
+    works.each do |work|
+      url = work.identifier.select {|i| i.starts_with?('http://commons.ptsem.edu/id/')}
+      next if url.blank?
+      oai = "oai:digital.library.ptsem.edu:#{url.first.split('/').last}"
+      unless work.identifier.include?(oai)
+        work.identifier = [oai, url.first]
+        work.source = []
+        work.save
+        num += 1
+      end
+    end
+  end
+  puts "Updated #{num} works"
+end
+
+desc 'Remove duplicate works - stray ptsem'
+task remove_duplicate_works_pstem: [:environment] do
+  puts 'Remove duplicate works - stray ptsem'
+  works = Work.where(identifier: 'oai:digital.library.ptsem.edu')
+  duplicates = {}
+  # build a hash of identifiers
+  works.each { | w | duplicates[w.identifier.reject {|i| i.include?('http')}.first] = [] }
+  # populate the hash
+  works.each { | w | duplicates[w.identifier.reject {|i| i.include?('http')}.first] << w }
+  progress = ProgressBar.new(duplicates.size)
+  num = 0
+  progress = ProgressBar.new(works.size)
+  duplicates.each do | key, value |
+    progress.increment!
+    next if value.length <= 1
+    latest = nil
+    # older than the first object in atla
+    latest_date = DateTime.new(2001,2,3,4,5,6) 
+    value.each do | w |
+      if w.date_uploaded > latest_date
+        latest = w
+        latest_date = w.date_uploaded
+      end
+    end
+    value.each do | w |
+      unless w.id == latest.id
+        puts "Destroying #{w.id} - duplicate of #{latest.id}"
+        #w.destroy.eradicate
+        num += 1
+      end
+    end
+  end
+  puts "Deleted #{num} works"
 end
