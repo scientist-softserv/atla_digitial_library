@@ -414,7 +414,7 @@ task format_original_and_subjects: [:environment] do
       work.format_original.each_with_index do |format, i|
         string = format.downcase
         fixed = string.slice(0,1).capitalize + string.slice(1..-1)
-        if fixex != format
+        if fixed != format
           work.format_original[i] = fixed
           dirty = true
         end
