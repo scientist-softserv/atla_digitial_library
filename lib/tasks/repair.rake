@@ -404,3 +404,34 @@ task remove_duplicate_works_pstem: [:environment] do
   end
   puts "Deleted #{num} works"
 end
+
+desc 'format_original_and_subject makes sure subject and format original rules match current bulkrax convention for new records'
+task format_original_and_subjects: [:environment] do
+  progress = ProgressBar.new(Work.count)
+  Work.for_each do |work|
+    dirty = false
+    if work.format_original.present?
+      work.format_original.each_with_index do |format, i|
+        string = format.downcase
+        fixed = string.slice(0,1).capitalize + string.slice(1..-1)
+        if fixed != format
+          work.format_original[i] = fixed
+          dirty = true
+        end
+      end
+    end
+    if work.subject.present?
+      work.subject.each_with_index do |subject, i|
+        fixed = subject.gsub(/\.$/, '')
+        if fixed != subject
+          work.subject[i] = fixed
+          dirty = true
+        end
+      end
+    end
+
+    work.save if dirty
+    progress.increment!
+  end
+
+end
