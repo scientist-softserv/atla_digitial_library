@@ -623,7 +623,6 @@ body.frontend {
 
 
 
-
   /* -------- User Notifications -------- */
   .container.dashboard a.btn.btn-danger.pull-right {
     margin-right: 30px;
@@ -807,11 +806,13 @@ body.frontend {
     line-height: 1.428571429;
   }
 
-  /*putting table border to bottom instead of top*/
+  /*Removing table border to bottom instead of top*/
   .table tbody tr td, .table tbody tr th, .table thead tr th {
     border-top:0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0px solid #ddd;
   }
+  
+
 
   li.URL {word-break:break-all;}
   li.Rights a {word-break:break-all;}
@@ -1026,6 +1027,9 @@ body.frontend {
     opacity:0;
   }
 
+/*nav menu*/	
+
+
 
 
   /* -------- MEDIA QUERIES -------- */
@@ -1106,6 +1110,12 @@ body.frontend {
     }
 
     /* -------------- Navigation items -------------- */
+	
+
+
+	
+	
+	
     .navbar-no-background {
       position: absolute;
       background: rgba(37,143,206,0.95) !important;
@@ -1139,8 +1149,16 @@ body.frontend {
     }
 
     .navbar-light-font .open .dropdown-menu > .active > a, .navbar-light-font .open .dropdown-menu > .active > a:hover, .navbar-light-font .open .dropdown-menu > .active > a:focus {
-      background-color: #313133 !important;
+      background-color: transparent !important;
     }
+	
+	body.frontend .navbar-light-font .open .dropdown-menu > li > a:hover {
+		color:#e65a3a !important;
+		}
+	
+	.navbar-light-font .open .dropdown-menu > li > a:hover, .navbar-light-font .open .dropdown-menu > li > a:focus {
+		background-color:transparent !important;
+		}
 
     .navbar-collapse.collapse.in, .no-js #sidebar .navbar-collapse.collapse, .no-js #sidebar .collapse#facet-panel-collapse, .collapse.in#facet-panel-collapse {
       background-color: #fff;
@@ -1185,6 +1203,20 @@ body.frontend {
 
     /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
     .navbar-default .navbar-collapse {margin-bottom:20px;}
+	
+	
+	
+body.frontend .navbar-default .navbar-nav .active > a,
+body.frontend .navbar-default .navbar-nav .active > a:hover,
+body.frontend .navbar-default .navbar-nav .active > a:focus {
+		color:#e65a3a!important;
+		}
+	
+	
+	
+	
+	
+	
 
 
     /* -------------- Admin Page -------------- */
@@ -1320,4 +1352,9 @@ body.dashboard {
     clear: both;
     display: table;
   }
-}
+}/*END MEDIA QUERIES HERE*/
+
+
+
+
+
