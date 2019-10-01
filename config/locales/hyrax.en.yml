@@ -27,6 +27,7 @@ en:
           types: Type
           format_digital: Format (Digital)
           format_original: Format (Original)
+          time_period: Time Period
           keyword_tesim: Keyword
           language_tesim: Language
           license_tesim: License
@@ -49,6 +50,7 @@ en:
           types: Type
           format_digital: Format (Digital)
           format_original: Format (Original)
+          time_period: Time Period
           keyword_tesim: Keyword
           language_tesim: Language
           license_tesim: License
