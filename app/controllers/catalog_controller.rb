@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("format_original", :stored_searchable), label: "Format (Original)", itemprop: 'formatOriginal', link_to_search: solr_name("format_original", :facetable)
     config.add_index_field solr_name("language", :stored_searchable), label: "Language", itemprop: 'inLanguage', link_to_search: solr_name("language", :facetable)
     config.add_index_field solr_name("publisher", :stored_searchable), label: "Publisher", itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
-    config.add_index_field solr_name("time_period", :stored_searchable), label: "timePeriod", itemprop: 'timePeriod'
+    config.add_index_field solr_name("time_period", :stored_searchable), label: "Time Period", itemprop: 'timePeriod'
     config.add_index_field solr_name("format_digital", :stored_searchable), label: "Format (Digital)", itemprop: 'formatDigital', link_to_search: solr_name("format_digital", :facetable)
     config.add_index_field solr_name("types", :stored_searchable), label: "Type", link_to_search: solr_name("types", :facetable)
 
