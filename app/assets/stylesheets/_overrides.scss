@@ -812,7 +812,15 @@ body.frontend {
     border-bottom: 0px solid #ddd;
   }
   
+.search-result-wrapper .table tbody tr th {
+	text-align:right;
+	width:28%;
+	padding-left:0;
+}
 
+.search-result-wrapper div.col-md-2 {
+	padding-right:0;
+}
 
   li.URL {word-break:break-all;}
   li.Rights a {word-break:break-all;}
