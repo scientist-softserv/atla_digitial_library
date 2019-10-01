@@ -53,7 +53,7 @@ class ImportUrlJob < Hyrax::ApplicationJob
     # code is 206 instead of 200, but that is enough to satisfy the #success? method.
     # @param uri [URI] the uri of the file to be downloaded
     def can_retrieve?(uri)
-      uri.host? && Faraday.get(uri, headers: { Range: 'bytes=0-0' }).success?
+      uri.to_s.match(URI::ABS_URI) && Faraday.get(uri, headers: { Range: 'bytes=0-0' }).success?
     end
 
     # Download file from uri, yields a block with a file in a temporary directory.
