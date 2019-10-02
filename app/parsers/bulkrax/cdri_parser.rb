@@ -78,6 +78,11 @@ module Bulkrax
       CdriMapping
     end
 
+    # the set of fields available in the import data
+    def import_fields
+      ['contributor', 'coverage', 'creator', 'date', 'description', 'format', 'identifier', 'language', 'pub_place', 'publisher', 'pub_date', 'relation', 'rights', 'source', 'subject', 'title', 'type']
+    end
+
     def total
       @total ||= data.css('Components').count
     rescue
