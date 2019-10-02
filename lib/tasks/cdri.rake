@@ -175,4 +175,27 @@ namespace :cdri do
       $stderr.puts "#{work.id} - #{e.message}\n#{e.backtrace[0..6]}"
     end
   end
+
+  desc 'selected-photographs-of-ancient-near-eastern-and-mediterranean-sites fixes'
+  task photographs_near_eastern: [:environment] do
+    col = Collection.where(slug: 'selected-photographs-of-ancient-near-eastern-and-mediterranean-sites').first
+    raise 'collection not found' unless col.present?
+
+    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    errors = []
+    ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
+      begin
+        # Remove Place
+        work.place = nil
+        work.save!
+      rescue => e
+        errors << [work, e]
+      end
+      progress.increment!
+    end
+    if errors.present?
+      $stderr.puts "-- ERRORS REPORTED"
+      $stderr.puts "#{work.id} - #{e.message}\n#{e.backtrace[0..6]}"
+    end
+  end
 end

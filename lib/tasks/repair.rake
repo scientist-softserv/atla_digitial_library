@@ -408,30 +408,36 @@ end
 desc 'format_original_and_subject makes sure subject and format original rules match current bulkrax convention for new records'
 task format_original_and_subjects: [:environment] do
   progress = ProgressBar.new(Work.count)
-  Work.for_each do |work|
+  Work.find_each do |work|
     dirty = false
     if work.format_original.present?
+      formats = []
       work.format_original.each_with_index do |format, i|
         string = format.downcase
         fixed = string.slice(0,1).capitalize + string.slice(1..-1)
         if fixed != format
-          work.format_original[i] = fixed
+          formats << fixed
           dirty = true
+        else
+          formats << format
         end
       end
+      work.format_original = formats if dirty
     end
     if work.subject.present?
+      subjects = []
       work.subject.each_with_index do |subject, i|
         fixed = subject.gsub(/\.$/, '')
         if fixed != subject
-          work.subject[i] = fixed
+          subjects << fixed
           dirty = true
+        else
+          subjects << subject
         end
       end
+      work.subject = subjects if dirty
     end
-
-    work.save if dirty
+    work.save! if dirty
     progress.increment!
   end
-
 end
