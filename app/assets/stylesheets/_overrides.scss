@@ -95,6 +95,12 @@ body.frontend {
 		font-weight:600;
 	}
 	
+	.browse-all-home a {
+		padding-right:1em;
+		padding-left:1em;
+		text-decoration:underline;
+		}
+	
 	/* intro section */
 	section.intro {
 		background-color:#5e4375;
@@ -572,9 +578,10 @@ body.frontend {
 	}
 	
 	.panel-heading.collapse-toggle .panel-title:after {
-		margin-top: -20px;
+		margin-top: -25px;
+		padding-right: .5em;
 	}
-	
+
 	#appliedParams.constraints-container {
 		margin-bottom: 10px;
 	}
@@ -606,7 +613,7 @@ body.frontend {
 	
 	.facet-values {padding: .5em;}
 	
-	.panel-heading.collapse-toggle .panel-title:after {padding-right: .25em;}
+
 	
 	.facet-values li .selected {
 		color:#E65A3A;
