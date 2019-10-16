@@ -23,7 +23,7 @@ homepage:
         path_to_file: /img/free-churchliterature.jpg #DESIRED THUMBNAIL NAME
     - id: 6
       anchor_text: Temple of Religion & Tower of Peace - Graduate Theological Union
-      url: /collections/the-w-h-dub-jackson-digital-materials-collection #PATH TO COLLECTION
+      url: /collections/temple-of-religion-and-tower-of-peace-1938-1940 #PATH TO COLLECTION
       image:
         path_to_file: /img/temple-of-religion.jpg #DESIRED THUMBNAIL NAME
     - id: 7
