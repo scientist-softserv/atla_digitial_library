@@ -72,7 +72,7 @@ class CatalogController < ApplicationController
     # config.add_facet_field solr_name("file_format", :facetable), limit: 5
     config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5
 
-    config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5, show:false
+    config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5, show: false
     config.add_facet_field solr_name("format_original", :facetable), label: "Format (Original)", limit: 5
     config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 5
     config.add_facet_field solr_name("publisher", :facetable), label: "Publisher", limit: 5
