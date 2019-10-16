@@ -12,20 +12,20 @@ homepage:
       image:
         path_to_file: /img/philadelphia.jpg #DESIRED THUMBNAIL NAME
     - id: 4
-      anchor_text: Moffett Korea Collection - Princeton Theological Seminary
-      url: /collections/moffett-korea-collection #PATH TO COLLECTION
+      anchor_text: The March on Washington, 1963 - Union Presbyterian Seminary Library
+      url: /collections/the-march-on-washington-1963 #PATH TO COLLECTION
       image:
-        path_to_file: /img/moffett_korea.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/the-march-on-wash-ups.jpg #DESIRED THUMBNAIL NAME
     - id: 5
       anchor_text: Collection of Free Church Literature - Trinity International University Rolfing Library
       url: /collections/collection-of-free-church-literature #PATH TO COLLECTION
       image:
         path_to_file: /img/free-churchliterature.jpg #DESIRED THUMBNAIL NAME
     - id: 6
-      anchor_text: The W. H. Dub Jackson Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
+      anchor_text: Temple of Religion & Tower of Peace - Graduate Theological Union
       url: /collections/the-w-h-dub-jackson-digital-materials-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/whdub.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/temple-of-religion.jpg #DESIRED THUMBNAIL NAME
     - id: 7
       anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
       url: /collections/the-l-r-scarborough-digital-materials-collection #PATH TO COLLECTION
