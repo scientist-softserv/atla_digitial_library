@@ -1,1 +1,1 @@
-ansistrano_git_branch: production
+ansistrano_git_branch: {$CI_COMMIT_REF_NAME}
