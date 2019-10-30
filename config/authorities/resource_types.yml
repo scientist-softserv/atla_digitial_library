@@ -14,7 +14,7 @@ terms:
     active: true
   - id: Image
     term: Image
-    alts: []
+    alts: ['stillimage', 'photograph', 'picture', 'still image', 'image']
     active: true
   - id: InteractiveResource
     term: Interactive Resource
@@ -39,10 +39,6 @@ terms:
   - id: Sound
     term: Sound
     alts: ['audio']
-    active: true
-  - id: StillImage
-    term: Still Image
-    alts: ['stillimage', 'photograph', 'picture']
     active: true
   - id: Text
     term: Text
