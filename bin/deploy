@@ -9,6 +9,6 @@ end
 
 tag = "tag_Compound_web_#{environment}"
 
-command = "cd #{__DIR__} && ansible-playbook -i ec2.py --private-key ./keys/hydra.pem deploy.yml -l #{tag} --extra-vars \"hosts=web sha=#{deploy_sha}\""
+command = "cd #{__DIR__} && ansible-playbook -i ec2.py --private-key ./keys/hydra.pem deploy.yml -l #{tag} --extra-vars \"hosts=web deploy_sha=#{deploy_sha}\""
 puts command
 system(command) || raise("Failed to deploy")

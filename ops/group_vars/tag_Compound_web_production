@@ -1,1 +1,1 @@
-ansistrano_git_branch: {$CI_COMMIT_REF_NAME}
+ansistrano_git_branch: {deploy_sha}
