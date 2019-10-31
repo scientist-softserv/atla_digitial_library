@@ -628,6 +628,38 @@ body.frontend {
 		}
 	}
 	
+	/*styling the sort by button*/
+select#sort, select#per_page {
+	padding:5px 10px;
+	color:#E65A3A;
+	}
+	
+.hyc-bl-sort {
+	border-bottom:1px solid #ddd;
+	padding-bottom:.5em;
+	margin-top:0;
+	}
+	
+.hyc-bl-sort button.btn-xs {
+	padding: 5px 10px;
+	}
+
+.hyc-bl-sort fieldset.pull-left {
+	float:right !important;
+	}
+	
+.hyc-blacklight.hyc-bl-sort::after {
+	content: "";
+	clear: both;
+	display: table;
+	}
+	
+.hyc-bl-sort fieldset.pull-left span.tiny-nudge {
+	margin-left:0;
+	}
+	
+	
+	
 	
 	
 	/* -------- User Notifications -------- */
@@ -1075,6 +1107,11 @@ p.media-heading {font-size:1.2em;}
 		height: auto;
 	}
 	
+	
+	.hyc-bl-sort fieldset.pull-left span.tiny-nudge {
+		margin-left:.5em;
+	}
+	
 }
 
 
@@ -1313,9 +1350,11 @@ p.media-heading {font-size:1.2em;}
 ------------------------------------------------------------------------------------------------*/
 /*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
 
-#per_page-dropdown .dropdown-toggle {
+#sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle {
 	color: #E65A3A;
 }
+
+
 
 .hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
 	height: auto;
