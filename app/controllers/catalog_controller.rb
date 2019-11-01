@@ -55,31 +55,29 @@ class CatalogController < ApplicationController
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
-
-    config.add_facet_field solr_name("creator", :facetable), label: "Creator", limit: 5
-    config.add_facet_field solr_name("date", :facetable), label: "Date", limit: 5
-    config.add_facet_field solr_name("contributing_institution", :facetable), label: "Contributing Institution", limit: 5
-    config.add_facet_field solr_name("subject", :facetable), label: "Subject", limit: 5
-    config.add_facet_field solr_name("place", :facetable), label: "Place", limit: 5
-
-    #config.add_facet_field solr_name("resource_type", :facetable), label: "Resource Type", limit: 5
-    config.add_facet_field solr_name("contributor", :facetable), label: "Contributor", limit: 5
+    config.add_facet_field solr_name("types", :facetable), label: "Type", limit: 10
+    config.add_facet_field solr_name("subject", :facetable), label: "Subject", limit: 10
+    config.add_facet_field solr_name("date", :facetable), label: "Date", limit: 10
+    config.add_facet_field solr_name("place", :facetable), label: "Place", limit: 10
+    config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 10
+    config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5, show: false
+    config.add_facet_field solr_name("format_original", :facetable), label: "Format (Original)", limit: 10
+    config.add_facet_field solr_name("format_digital", :facetable), label: "Format (Digital)", limit: 10
+    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5
+    config.add_facet_field solr_name("contributing_institution", :facetable), label: "Contributing Institution", limit: 10
+    # config.add_facet_field solr_name("creator", :facetable), label: "Creator", limit: 5
+    # config.add_facet_field solr_name("resource_type", :facetable), label: "Resource Type", limit: 5
+    # config.add_facet_field solr_name("contributor", :facetable), label: "Contributor", limit: 5
     # config.add_facet_field solr_name("keyword", :facetable), limit: 5
     # config.add_facet_field solr_name("subject", :facetable), limit: 5
     # config.add_facet_field solr_name("language", :facetable), limit: 5
     # config.add_facet_field solr_name("based_near_label", :facetable), limit: 5
     # config.add_facet_field solr_name("publisher", :facetable), limit: 5
     # config.add_facet_field solr_name("file_format", :facetable), limit: 5
-    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5
+    # config.add_facet_field solr_name("publisher", :facetable), label: "Publisher", limit: 5
+    # config.add_facet_field solr_name("time_period", :facetable), label: "Time Period", limit: 5
+    # config.add_facet_field solr_name("human_readable_type", :facetable), label: "Type", limit: 5
 
-    config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5, show: false
-    config.add_facet_field solr_name("format_original", :facetable), label: "Format (Original)", limit: 5
-    config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 5
-    config.add_facet_field solr_name("publisher", :facetable), label: "Publisher", limit: 5
-    config.add_facet_field solr_name("time_period", :facetable), label: "Time Period", limit: 5
-    config.add_facet_field solr_name("format_digital", :facetable), label: "Format (Digital)", limit: 5
-    #config.add_facet_field solr_name("human_readable_type", :facetable), label: "Type", limit: 5
-    config.add_facet_field solr_name("types", :facetable), label: "Type", limit: 5
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
     config.add_facet_field solr_name("generic_type", :facetable), if: false
@@ -115,16 +113,16 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("date", :stored_searchable), label: "Date", itemprop: 'dateCreated', link_to_search: solr_name("date", :facetable)
     config.add_index_field solr_name("contributing_institution", :stored_searchable), label: "Contributing Institution", itemprop: 'contributingInstitution', link_to_search: solr_name("contributing_institution", :facetable)
     config.add_index_field solr_name("description", :stored_searchable), label: "Description", itemprop: 'description', helper_method: :iconify_auto_link
-    config.add_index_field solr_name("subject", :stored_searchable), label: "Subject", itemprop: 'about', link_to_search: solr_name("subject", :facetable)
-    config.add_index_field solr_name("place", :symbol), label: "Place", helper_method: :link_to_profile, link_to_search: solr_name("place", :facetable)
-    config.add_index_field solr_name("contributor", :stored_searchable), label: "Contributor", itemprop: 'contributor', link_to_search: solr_name("contributor", :facetable)
-    config.add_index_field solr_name("extent", :stored_searchable), label: "Extent", itemprop: 'extent', link_to_search: solr_name("extent", :facetable)
-    config.add_index_field solr_name("format_original", :stored_searchable), label: "Format (Original)", itemprop: 'formatOriginal', link_to_search: solr_name("format_original", :facetable)
-    config.add_index_field solr_name("language", :stored_searchable), label: "Language", itemprop: 'inLanguage', link_to_search: solr_name("language", :facetable)
-    config.add_index_field solr_name("publisher", :stored_searchable), label: "Publisher", itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
-    config.add_index_field solr_name("time_period", :stored_searchable), label: "Time Period", itemprop: 'timePeriod'
-    config.add_index_field solr_name("format_digital", :stored_searchable), label: "Format (Digital)", itemprop: 'formatDigital', link_to_search: solr_name("format_digital", :facetable)
-    config.add_index_field solr_name("types", :stored_searchable), label: "Type", link_to_search: solr_name("types", :facetable)
+    # config.add_index_field solr_name("subject", :stored_searchable), label: "Subject", itemprop: 'about', link_to_search: solr_name("subject", :facetable)
+    # config.add_index_field solr_name("place", :symbol), label: "Place", helper_method: :link_to_profile, link_to_search: solr_name("place", :facetable)
+    # config.add_index_field solr_name("contributor", :stored_searchable), label: "Contributor", itemprop: 'contributor', link_to_search: solr_name("contributor", :facetable)
+    # config.add_index_field solr_name("extent", :stored_searchable), label: "Extent", itemprop: 'extent', link_to_search: solr_name("extent", :facetable)
+    # config.add_index_field solr_name("format_original", :stored_searchable), label: "Format (Original)", itemprop: 'formatOriginal', link_to_search: solr_name("format_original", :facetable)
+    # config.add_index_field solr_name("language", :stored_searchable), label: "Language", itemprop: 'inLanguage', link_to_search: solr_name("language", :facetable)
+    # config.add_index_field solr_name("publisher", :stored_searchable), label: "Publisher", itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
+    # config.add_index_field solr_name("time_period", :stored_searchable), label: "Time Period", itemprop: 'timePeriod'
+    # config.add_index_field solr_name("format_digital", :stored_searchable), label: "Format (Digital)", itemprop: 'formatDigital', link_to_search: solr_name("format_digital", :facetable)
+    # config.add_index_field solr_name("types", :stored_searchable), label: "Type", link_to_search: solr_name("types", :facetable)
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
@@ -369,11 +367,11 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     # label is key, solr field is value
-#    config.add_sort_field "score desc, #{uploaded_field} desc", label: "relevance"
-#    config.add_sort_field "#{uploaded_field} desc", label: "date uploaded \u25BC"
-#    config.add_sort_field "#{uploaded_field} asc", label: "date uploaded \u25B2"
-#    config.add_sort_field "#{modified_field} desc", label: "date modified \u25BC"
-#    config.add_sort_field "#{modified_field} asc", label: "date modified \u25B2"
+    #    config.add_sort_field "score desc, #{uploaded_field} desc", label: "relevance"
+    #    config.add_sort_field "#{uploaded_field} desc", label: "date uploaded \u25BC"
+    #    config.add_sort_field "#{uploaded_field} asc", label: "date uploaded \u25B2"
+    #    config.add_sort_field "#{modified_field} desc", label: "date modified \u25BC"
+    #    config.add_sort_field "#{modified_field} asc", label: "date modified \u25B2"
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
