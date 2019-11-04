@@ -1,1 +1,1 @@
-ansistrano_git_branch: {{deploy_sha}}
+ansistrano_git_branch: "{{deploy_sha}}"
