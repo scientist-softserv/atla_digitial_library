@@ -67,7 +67,7 @@ terms:
     term: Attribution-NonCommercial-ShareAlike 4.0 International
     description: <b>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</b> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">https://creativecommons.org/licenses/by-nc-sa/4.0/</a>
     active: true
-   - id: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
+  - id: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
     term: Attribution-NonCommercial-ShareAlike 3.0  United States
     description: <b>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 United States</b> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank">https://creativecommons.org/licenses/by-nc-sa/3.0/us/</a>
     active: true
