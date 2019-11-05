@@ -21,7 +21,12 @@ class ImportUrlJob < Hyrax::ApplicationJob
   def perform(file_set, operation, headers = {})
     operation.performing!
     user = User.find_by_user_key(file_set.depositor)
-    uri = URI(URI.decode_www_form_component(file_set.import_url))
+    begin
+      uri = URI(file_set.import_url)
+    rescue
+      return false
+    end
+
     @file_set = file_set
     @operation = operation
 
