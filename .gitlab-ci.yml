@@ -58,7 +58,7 @@ staging:
     - echo $GROUP_VARS_ALL | base64 -d > $CI_PROJECT_DIR/ops/group_vars/all
     # set ec2.ini
     - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
-    - ./bin/deploy staging
+    - ./bin/deploy staging $CI_COMMIT_SHA
   only:
     - master
 
@@ -77,7 +77,7 @@ production:
     - echo $GROUP_VARS_ALL | base64 -d > $CI_PROJECT_DIR/ops/group_vars/all
     # set ec2.ini
     - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
-    - ./bin/deploy production
+    - ./bin/deploy production $CI_COMMIT_SHA
   when: manual
   only:
     - master
