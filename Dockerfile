@@ -18,6 +18,7 @@ RUN mkdir -p /opt/fits && \
     cd /opt/fits && unzip fits-latest.zip && chmod +X /opt/fits/fits.sh && \
     cp -r /opt/fits/* /usr/local/bin/
 
+RUN mkdir /opt/csv
 RUN mkdir /data
 WORKDIR /data
 ADD Gemfile /data/Gemfile

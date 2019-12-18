@@ -15,7 +15,7 @@ module Bulkrax
     end
 
     def data
-      @data ||= File.open(importer.parser_fields['xml_path']) { |f| Nokogiri::XML(f).remove_namespaces! }
+      @data ||= File.open(importerexporter.parser_fields['xml_path']) { |f| Nokogiri::XML(f).remove_namespaces! }
     end
 
     def run
@@ -29,7 +29,7 @@ module Bulkrax
     def create_collections_with_works
       data.css('Collections').each do |collection_xml|
         collection_identifier = CdriCollectionEntry.get_identifier(collection_xml)
-        collection_entry = CdriCollectionEntry.where(importer: self.importer, identifier: collection_identifier).first_or_initialize
+        collection_entry = CdriCollectionEntry.where(importerexporter: self.importerexporter, identifier: collection_identifier).first_or_initialize
         collection_entry.raw_metadata = collection_xml
         collection = collection_entry.build
         collection_entry.save
@@ -50,12 +50,12 @@ module Bulkrax
         end
         begin
           work_identifier = CdriWorkEntry.get_identifier(component_xml)
-          new_entry = entry_class.where(importer: self.importer, identifier: work_identifier).first_or_initialize do |e|
+          new_entry = entry_class.where(importerexporter: self.importerexporter, identifier: work_identifier).first_or_initialize do |e|
             e.collection_id = collection.id
           end
           new_entry.raw_metadata = component_xml
           new_entry.save!
-          ImportWorkJob.perform_later(new_entry.id, importer.current_importer_run.id)
+          ImportWorkJob.perform_later(new_entry.id, importerexporter.current_importer_run.id)
           ImporterRun.find(current_importer_run.id).increment!(:processed_records)
         rescue => e
           Rails.logger.error "Import ERROR: #{component_xml["ComponentID"].to_s} - Message: #{e.message}"
