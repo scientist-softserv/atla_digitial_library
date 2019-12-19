@@ -8,12 +8,12 @@ require 'csv'
 # EXAMPLE: ruby fetch_sets.rb https://thecatholicnewsarchive.org/crra-oaiserver
 
 def add_sets(doc)
-	@index += 1
-	puts "Reading sets batch #{@index} ... "
-	doc.css('ListSets set').each do |set|
+  @index += 1
+  puts "Reading sets batch #{@index} ... "
+  doc.css('ListSets set').each do |set|
     @sets_list[set.css('setSpec').first.content] = set.css('setName').first.content
   end
-	if doc.css('resumptionToken').length > 0
+  unless doc.css('resumptionToken').empty?
     doc = get_doc(doc.css('resumptionToken').first.content)
     add_sets(doc)
   end
@@ -27,9 +27,9 @@ end
 
 @index = 0
 @sets_list = {}
-if ARGV[0].nil? 
-	puts 'Please supply the OAI-PMH endpoint URL (with no verbs)'
-	exit
+if ARGV[0].nil?
+  puts 'Please supply the OAI-PMH endpoint URL (with no verbs)'
+  exit
 end
 @uri = ARGV[0]
 
@@ -40,9 +40,8 @@ add_sets(doc)
 # puts @sets_list
 filename = "#{@uri.split('/').last}_sets.csv"
 puts "Writing #{filename}"
-CSV.open(filename, "wb",
-		:write_headers=> true,
-		:headers => ["setSpec","setName"]
-	) do |csv|
-		@sets_list.each_pair {|k,v| csv << [k,v] }
+CSV.open(filename, 'wb',
+         write_headers: true,
+         headers: %w[setSpec setName]) do |csv|
+  @sets_list.each_pair { |k, v| csv << [k, v] }
 end
