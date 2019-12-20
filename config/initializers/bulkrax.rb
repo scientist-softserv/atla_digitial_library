@@ -2,9 +2,12 @@ Bulkrax.setup do |config|
   config.parsers += [
     { name: 'OAI - Princeton Theological Commons', class_name: 'Bulkrax::OaiPtcParser', partial: 'oai_ptc_fields' },
     { name: 'OAI - Internet Archive', class_name: 'Bulkrax::OaiIaParser', partial: 'oai_ia_fields' },
+    { name: 'OAI - Manual Sets', class_name: 'Bulkrax::OaiSetsParser', partial: 'oai_sets_fields' },
     { name: 'OAI - Omeka', class_name: 'Bulkrax::OaiOmekaParser', partial: 'oai_omeka_fields' },
     { name: 'CDRI Xml File', class_name: 'Bulkrax::CdriParser', partial: 'cdri_fields' }
   ]
+
+  config.default_work_type = 'Work'
 
   # Field to use during import to identify if the Work or Collection already exists.
   # Default is 'source'.
@@ -52,14 +55,18 @@ Bulkrax.setup do |config|
       "subject" => { from: ["subject"], parsed: true, split: /\s*[;]\s*/ }
     },
     "Bulkrax::OaiIaParser" => {},
+    "Bulkrax::OaiSetsParser" => {},
     "Bulkrax::OaiOmekaParser" => {},
     "Bulkrax::OaiPtcParser" => {},
     "Bulkrax::CsvParser" => {},
     "Bulkrax::OaiQualifiedDcParser" => {}
   }
 
-  # omeka - uses the same mappings as oai
+  # omeka - uses the same mappings as oai_dc
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiOmekaParser"][key] = value }
+
+  # sets parser - uses the same mappings as oai_dc
+  config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiSetsParser"][key] = value }
 
   # csv - custom mappings
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::CsvParser"][key] = value }
