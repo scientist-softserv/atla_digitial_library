@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/notch8/bulkrax.git
-  revision: 471752f4108f9082b54b96fb748c34a6dae8d18b
+  revision: 6669c1f0b6de64c538b230162813b75ff73c975a
   specs:
     bulkrax (0.1.0)
       bagit (~> 0.4)
