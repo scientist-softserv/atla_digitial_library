@@ -4,6 +4,9 @@ development:
 test:
   host: redis
   port: 6379
+staging:
+  host: redis
+  port: 6379
 production:
   host: redis
   port: 6379
