@@ -28,7 +28,7 @@ module Bulkrax
       end
 
       # remove any unspported attributes
-      object = entry_class.new
+      object = factory_class.new
       self.parsed_metadata = self.parsed_metadata.select do |key, value|
         object.respond_to?(key.to_sym)
       end
