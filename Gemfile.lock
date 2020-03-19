@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/notch8/bulkrax.git
-  revision: 2d4cde08313d34b5f88a210fb1ebe4de5a6278c5
+  revision: 3d66510bcf1d41efb827a65adc246c795d68d416
   specs:
     bulkrax (0.1.0)
       bagit (~> 0.4)
@@ -8,7 +8,7 @@ GIT
       language_list (~> 1.2, >= 1.2.1)
       libxml-ruby (~> 3.1.0)
       loofah (>= 2.2.3)
-      oai (~> 0.4)
+      oai (>= 0.4, < 2.x)
       rack (>= 2.0.6)
       rails (>= 5.1.6)
       rdf (>= 2.0.2, < 4.0)
@@ -273,7 +273,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
       faraday
-    faraday_middleware (0.13.1)
+    faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
     fcrepo_wrapper (0.9.0)
       ruby-progressbar
@@ -535,7 +535,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogumbo (1.5.0)
       nokogiri
-    oai (0.4.0)
+    oai (1.0.1)
       builder (>= 3.1.0)
       faraday
       faraday_middleware
