@@ -34,6 +34,7 @@ class Hyrax::PagesController < ApplicationController
   def permitted_params
     params.require(:content_block).permit(:about,
                                           :participate, # UPGRADE NOTE: this line differs from original source. Changed to allow for a "participate" page.
+                                          :search_tips,
                                           :agreement,
                                           :help,
                                           :institutions, # UPGRADE NOTE: this line differs from original source. Changed to allow for an "institutions" page.

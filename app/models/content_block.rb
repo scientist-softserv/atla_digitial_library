@@ -12,6 +12,7 @@ class ContentBlock < ActiveRecord::Base
     announcement: :announcement_text,
     about: :about_page,
     participate: :participate_page,
+    search_tips: :search_tips_page,
     help: :help_page,
     institutions: :institutions_page,
     terms: :terms_page,
@@ -72,6 +73,15 @@ class ContentBlock < ActiveRecord::Base
     def participate_page=(value)
       participate_page.update(value: value)
     end
+
+    def search_tips_page
+      find_or_create_by(name: 'search_tips_page')
+    end
+
+    def search_tips_page=(value)
+      search_tips_page.update(value: value)
+    end
+
     # END UPGRADE NOTE
 
     def agreement_page
