@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191212155530) do
+ActiveRecord::Schema.define(version: 20200312190638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20191212155530) do
     t.string "identifier"
     t.string "collection_ids"
     t.string "type"
+    t.bigint "importerexporter_id"
     t.text "raw_metadata"
     t.text "parsed_metadata"
     t.datetime "created_at", null: false
@@ -38,8 +39,8 @@ ActiveRecord::Schema.define(version: 20191212155530) do
     t.text "last_error"
     t.datetime "last_error_at"
     t.datetime "last_succeeded_at"
-    t.integer "importerexporter_id"
     t.string "importerexporter_type", default: "Bulkrax::Importer"
+    t.index ["importerexporter_id"], name: "index_bulkrax_entries_on_importerexporter_id"
   end
 
   create_table "bulkrax_exporter_runs", force: :cascade do |t|
@@ -95,6 +96,10 @@ ActiveRecord::Schema.define(version: 20191212155530) do
     t.text "field_mapping"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "validate_only"
+    t.text "last_error"
+    t.datetime "last_error_at"
+    t.datetime "last_succeeded_at"
     t.index ["user_id"], name: "index_bulkrax_importers_on_user_id"
   end
 
