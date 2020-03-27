@@ -485,8 +485,23 @@ body.frontend {
 		background-color:white;
 		color:#E65A3A;
 	}
+
+/*move the next button to the right side*/	
+	ul.pagination {
+		display:flex;
+		flex-wrap:wrap;
+		}
 	
-	
+	ul.pagination :nth-child(2){
+		order:2;
+		}
+	/*style the no longer active link prev/next buttons */	
+	.pagination > li.disabled > a, .pagination > li.disabled > a:hover, .pagination > li.disabled > a:focus, .pagination > li.disabled > a:focus {
+		color:#4c4c4c;
+		background-color:white;
+		text-decoration:none;
+		border-color:#ddd;
+		}
 	
 	
 	/* -------- FOOTER STYLES -------- */
@@ -1014,18 +1029,63 @@ img.representative-media {padding-top:15px;}
 
 .hyc-metadata dl {border-top:0px;}
 
-.hyc-metadata div {border-bottom:0px;}
+.hyc-metadata div {
+	border-bottom:0px;
+	padding-left:0;
+	}
 
 .hyc-metadata div dt {
-	color:#636363; /* changed from #333 for consistency */
+	color:#313131; /* changed from #333 for consistency */
 	font-size: .9em;
 	line-height:1;
+}
+
+.hyc-metadata div dt {
+	flex-basis:auto; /*fixing width of cont. inst. label on collections*/
+	font-weight:normal;
+	padding-right:.25em;
+}
+/* adding colon after collection page cont. inst. label */
+.hyc-metadata div dt::after{
+	content: ":"
 }
 
 .hyc-metadata div dd{
 	font-size: .9em;
 	line-height:1;
 }
+
+
+/*tightening up spacing for top area of collection pages*/
+
+.hyc-body{
+	margin-bottom:0;
+}
+
+/*
+.hyc-bl-results.parent-collections-list {
+	margin-bottom:0;
+	}*/
+	
+.hyc-bl-results.parent-collections-list table.table-striped {
+	margin-bottom:0;
+	}
+	
+	
+.hyc-bl-title h2 {
+	margin-bottom:0;
+	}
+	
+.hyc-blacklight.hyc-bl-search.hyc-body.row {
+	margin-bottom:1em;
+	}
+	
+.hyc-bl-sort {
+	margin-bottom: .25em;
+	}	
+	
+	
+	
 
 /*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
 p.media-heading {font-size:1.2em;}
@@ -1373,6 +1433,38 @@ p.media-heading {font-size:1.2em;}
 	}
 	
 	.col-xs-12 {padding: 0;}
+	
+	.col-sm-6 .hyc-bl-title h2 {margin-bottom: .5em;}
+	
+	.hyc-title.collection-title-size {padding-top: 1em;}
+	
+	
+	/*un hiding thumbs for mobile lists */
+	.hidden-xs {display:inline-block !important;}
+	
+	
+	/*adjusting top section of search results on mobile*/
+	.search-results {padding: 1em 0;}
+	
+	.search-widgets.pull-right {
+		float:none !important;
+		}
+		
+	.page-links {
+		margin-bottom:.5em;
+		}
+		
+	#sortAndPerPage {text-align:center;}
+	
+	/*removing extra padding on sides of works in a collection list for mobile*/
+	.hyc-blacklight.hyc-bl-results {
+		padding:0;
+	}
+	
+	.hyc-bl-results .table > tbody > tr > td {
+		padding-left:0;
+		padding-right:0;
+		}
 	
 }
 
