@@ -20,6 +20,9 @@
     <li>
       <a href="#terms" role="tab" data-toggle="tab"><%= t(:'hyrax.pages.tabs.terms_page') %></a>
     </li>
+    <li>
+      <a href="#search_tips" role="tab" data-toggle="tab"><%= t(:'hyrax.pages.tabs.search_tips_page') %></a>
+    </li>
   </ul>
   <div class="tab-content">
     <div id="about" class="tab-pane active">
@@ -109,6 +112,22 @@
             <div class="field form-group">
                 <%= f.label :terms %><br />
                 <%= f.text_area :terms, value: f.object.value, class: 'form-control tinymce', rows: 20, cols: 120 %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= link_to t(:'hyrax.pages.cancel'), hyrax.admin_admin_sets_path, class: 'btn btn-default pull-right' %>
+            <%= f.button :submit, class: 'btn btn-primary pull-right' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="search_tips" class="tab-pane">
+      <div class="panel panel-default labels">
+        <%= simple_form_for ContentBlock.for(:search_tips), url: hyrax.page_path(ContentBlock.for(:search_tips)) do |f| %>
+          <div class="panel-body">
+            <div class="field form-group">
+              <%= f.label :search_tips %><br />
+              <%= f.text_area :search_tips, value: f.object.value, class: 'form-control tinymce', rows: 20, cols: 120 %>
             </div>
           </div>
           <div class="panel-footer">
