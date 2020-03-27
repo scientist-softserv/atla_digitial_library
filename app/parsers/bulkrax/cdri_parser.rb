@@ -74,6 +74,11 @@ module Bulkrax
       CdriWorkEntry
     end
 
+    def collection_entry_class
+      nil
+    end
+
+
     def mapping_class
       CdriMapping
     end
