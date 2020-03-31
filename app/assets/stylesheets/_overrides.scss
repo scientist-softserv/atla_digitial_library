@@ -903,13 +903,13 @@ ul.tabular {
 /*making table responsive*/
 .table-overflow {overflow-x:auto;}
 
+.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
+
+/* not needed with add this buttons
 .social-media{
 	padding-right:0px;
 	padding-left:0px;
 }
-
-.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
-
 
 .rep-sharing-button-tumblr {display:none;}
 a[title="Tumblr"] {display:none;}
@@ -917,6 +917,18 @@ a[title="Tumblr"] {display:none;}
 .resp-sharing-button {
 	padding: .5em .65em .3em .65em;
 }
+*/
+
+
+/* AddThis share buttons */
+
+	.addthis_inline_share_toolbox {
+		padding-top:1em;
+		}
+		
+	.addthis_inline_share_toolbox p {
+		font-weight:bold;
+	}
 
 
 /*Removes indent from metadata value lines and adjusts spacing*/
