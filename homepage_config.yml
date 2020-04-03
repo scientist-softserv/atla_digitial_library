@@ -2,42 +2,74 @@
 homepage:
   collections:
     - id: 1
-      anchor_text: Latin America Collection - Princeton Theological Seminary
-      url: /collections/latin-america-collection #PATH TO COLLECTION
+      anchor_text: Saarinen's Village
+      anchor_text_two: Concordia Theological Seminary
+      url: /collections/saarinens-village-the-concordia-campus-through-time #PATH TO COLLECTION
       image:
-        path_to_file: /img/latin_america.png #DESIRED THUMBNAIL NAME
-    - id: 3
+        path_to_file: /img/concordia.jpg #DESIRED THUMBNAIL NAME
+    - id: 2
       anchor_text: Philadelphia Congregations Early Records Project
+      anchor_text_two: 
       url: /collections/philadelphia-congregations-early-records-project #PATH TO COLLECTION
       image:
         path_to_file: /img/philadelphia.jpg #DESIRED THUMBNAIL NAME
-    - id: 4
-      anchor_text: The March on Washington, 1963 - Union Presbyterian Seminary Library
-      url: /collections/the-march-on-washington-1963 #PATH TO COLLECTION
+    - id: 3
+      anchor_text: North Carolina Baptist Church Records
+      anchor_text_two: Z. Smith Reynolds Library
+      url: /collections/north-carolina-baptist-church-records #PATH TO COLLECTION
       image:
-        path_to_file: /img/the-march-on-wash-ups.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/zsmith.jpg #DESIRED THUMBNAIL NAME      
+    - id: 4
+      anchor_text: La Esperanza
+      anchor_text_two: Catholic Research Resources Alliance
+      url: /collections/la-esperanza #PATH TO COLLECTION
+      image:
+        path_to_file: /img/laesperanza.jpg #DESIRED THUMBNAIL NAME
     - id: 5
-      anchor_text: Collection of Free Church Literature - Trinity International University Rolfing Library
+      anchor_text: Collection of Free Church Literature
+      anchor_text_two: Trinity International University Rolfing Library
       url: /collections/collection-of-free-church-literature #PATH TO COLLECTION
       image:
         path_to_file: /img/free-churchliterature.jpg #DESIRED THUMBNAIL NAME
     - id: 6
-      anchor_text: Temple of Religion & Tower of Peace - Graduate Theological Union
+      anchor_text: Temple of Religion & Tower of Peace
+      anchor_text_two: Graduate Theological Union
       url: /collections/temple-of-religion-and-tower-of-peace-1938-1940 #PATH TO COLLECTION
       image:
         path_to_file: /img/temple-of-religion.jpg #DESIRED THUMBNAIL NAME
     - id: 7
-      anchor_text: The L.R. Scarborough Digital Materials Collection - Southwestern Baptist Theological Seminary Libraries
-      url: /collections/the-l-r-scarborough-digital-materials-collection #PATH TO COLLECTION
+      anchor_text: The March on Washington, 1963
+      anchor_text_two: Union Presbyterian Seminary Library
+      url: /collections/the-march-on-washington-1963 #PATH TO COLLECTION
       image:
-        path_to_file: /img/lrscarborough.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/the-march-on-wash-ups.jpg #DESIRED THUMBNAIL NAME 
     - id: 8
-      anchor_text: The Methodist Manuscripts Collection - Garrett-Evangelical Theological Seminary Styberg Library
+      anchor_text: The Methodist Manuscripts Collection
+      anchor_text_two: Garrett-Evangelical Theological Seminary Styberg Library
       url: /collections/the-methodist-manuscripts-collection #PATH TO COLLECTION
       image:
         path_to_file: /img/methodist-manuscripts.jpg #DESIRED THUMBNAIL NAME
     - id: 9
+      anchor_text: Latin America Collection
+      anchor_text_two: Princeton Theological Seminary
+      url: /collections/latin-america-collection #PATH TO COLLECTION
+      image:
+        path_to_file: /img/latin_america.png #DESIRED THUMBNAIL NAME
+    - id: 10
       anchor_text: Cooperative Digital Resources Initiative
+      anchor_text_two: 
       url: /collections/cooperative-digital-resources-initiative #PATH TO COLLECTION
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
+    - id: 11
+      anchor_text: The L.R. Scarborough Digital Materials Collection
+      anchor_text_two: Southwestern Baptist Theological Seminary Libraries
+      url: /collections/the-l-r-scarborough-digital-materials-collection #PATH TO COLLECTION
+      image:
+        path_to_file: /img/lrscarborough.jpg #DESIRED THUMBNAIL NAME
+    - id: 12
+      anchor_text: Archbishop Goold Special Collection
+      anchor_text_two: University of Divinity
+      url: /collections/archbishop-goold-special-collection #PATH TO COLLECTION
+      image:
+        path_to_file: /img/uofdivinityfeasts.jpg #DESIRED THUMBNAIL NAME
