@@ -29,7 +29,10 @@
                 <%= render('representative_media', presenter: @presenter, viewer: false)%>
 
                 <%= link_to @presenter.url.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
-                  View Full Item
+                  View Full Item at
+                  <% @presenter.contributing_institution.each do |contributing_institution| %>
+                  	 <span itemprop="name" class="institution_link"><%= contributing_institution %></span>
+                  <% end %>
                   <span class="glyphicon glyphicon-new-window"></span>
                 <% end %>
               <% else %>
