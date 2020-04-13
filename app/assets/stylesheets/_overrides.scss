@@ -407,6 +407,9 @@ body.frontend {
 		color:#fff;
 	}
 	
+	
+	.btn-link:hover, body.frontend .btn-link:focus {color:white;}
+	
 	/* override default `a` color */
 	.btn-danger, .btn-danger:hover, .btn-danger:focus {
 		color: white;
@@ -454,6 +457,13 @@ body.frontend {
 	.label {
 		padding-top:.5em;
 	}
+	
+	/* work show page view full item button make text wrap*/
+	
+	.work-type .col-sm-3.mobile-media a.btn{
+		white-space:normal;
+		/*text-align:left;*/
+		}
 	
 	/*----------PAGER prev next and numbers----------*/
 	
@@ -945,6 +955,9 @@ ul.tabular {
 /*making table responsive*/
 .table-overflow {overflow-x:auto;}
 
+.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
+
+/* not needed with add this buttons
 .social-media{
 	padding-right:0px;
 	padding-left:0px;
@@ -952,11 +965,26 @@ ul.tabular {
 
 .show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
 
+.rep-sharing-button-tumblr {display:none;}
+a[title="Tumblr"],a[title="Google+"] {display:none;}
+
 .resp-sharing-button__link {margin:.1em;}
 
 .resp-sharing-button {
 	padding: .5em .65em .3em .65em;
 }
+*/
+
+
+/* AddThis share buttons */
+
+	.addthis_inline_share_toolbox {
+		padding-top:1em;
+		}
+		
+	.addthis_inline_share_toolbox p {
+		font-weight:bold;
+	}
 
 
 /*Removes indent from metadata value lines and adjusts spacing*/
@@ -979,6 +1007,9 @@ h1.work-type-tag {display:none;}
 
 /*Remove background color from titles on Item pages*/
 .work-type .panel-default>.panel-heading {background-color:transparent;}
+
+/* moving work title over to the left */
+.work-type .panel-default>.panel-heading .col-sm-12, .work-type .panel-heading {padding:0;}
 
 /* Remove space above title heading and border under it*/
 .work-type .panel-heading {
@@ -1225,12 +1256,11 @@ p.media-heading {font-size:1.2em;}
 		margin-left:.5em;
 	}
 	
-
-
-
-	
-} /*----------- end min-width:768px media query -----------*/
-
+	/* Move work show page thumb to the right side */
+	.work-type .col-sm-3.mobile-media {
+		float:right;
+		}
+} /*----------- end min-width:768px media query -----------*/	
 
 @media screen and (min-width: 992px){
 	.navbar-nav {float:left;}
