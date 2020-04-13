@@ -1,3 +1,6 @@
+# override Hyrax 2.5 - increased feature limit
+
+
 class FeaturedWork < ActiveRecord::Base
   FEATURE_LIMIT = 6
   validate :count_within_limit, on: :create
