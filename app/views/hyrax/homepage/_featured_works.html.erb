@@ -1,24 +1,24 @@
 
 <h2 class="sr-only"><%= t('hyrax.homepage.featured_works.title') %></h2>
 <section class="featured-section">
-  <div class="clearfix"><!--removed class container-->
-    <% if @featured_work_list.empty? %>
-      <p><%= t('hyrax.homepage.featured_works.no_works') %></p>
-    <% elsif can? :update, FeaturedWork %>
-      <%= form_for [hyrax, @featured_work_list] do |f| %>
-        <div class="panel-group dd" id="dd">
-          <ol id="featured_works">
-            <%= f.fields_for :featured_works do |featured| %>
-              <%= render 'sortable_featured', f: featured %>
-            <% end %>
-          </ol>
-        </div>
-        <%= f.submit("Save order", class: 'btn btn-default') %>
-      <% end %>
-    <% else %>
-      <%= render partial: 'featured', collection: @featured_work_list.featured_works %>
-    <% end %>
-  </div>
+	<div class="clearfix">
+		<% if @featured_work_list.empty? %>
+		  <p><%= t('hyrax.homepage.featured_works.no_works') %></p>
+		<% elsif can? :update, FeaturedWork %>
+		  <%= form_for [hyrax, @featured_work_list] do |f| %>
+			<div class="panel-group dd" id="dd">
+			  <ol id="featured_works">
+				<%= f.fields_for :featured_works do |featured| %>
+				  <%= render 'sortable_featured', f: featured %>
+				<% end %>
+			  </ol>
+			</div>
+			<%= f.submit("Save order", class: 'btn btn-default') %>
+		  <% end %>
+		<% else %>
+		  <%= render partial: 'featured', collection: @featured_work_list.featured_works %>
+		<% end %>
+	</div>
 </section>
 <ul class="list-inline collection-highlights-list">
   <li>
