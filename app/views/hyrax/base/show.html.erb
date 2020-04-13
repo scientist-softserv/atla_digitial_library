@@ -37,7 +37,9 @@
                 <%= render('representative_media', presenter: @presenter, viewer: false)%>
                <% end %>
             <% end %>
-            <%= render 'social_media' %>
+          	
+            <div class="addthis_inline_share_toolbox"></div>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e83955ef8379e2e"></script>
           </div>
           <div class="col-sm-9">
             <%= render 'metadata', presenter: @presenter %>
