@@ -3,6 +3,7 @@
 	<section class="hero-fullscreen-bg text-center">
 		<div class="container">
 			<h2 class="heading">Explore Religion & Theology Collections</h2>
+			<h3 class="home-stats">Discover over 100,000 images, texts, videos and sounds from 46 contributers</h3>
 			<div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 				<%= render partial: 'catalog/search_form' %>
 			</div>
@@ -36,7 +37,7 @@
 					</div>
 					<div class="col-xm-12 col-sm-6">
 						<%= link_to main_app.institutions_path do %>
-							<%= image_tag "/img/institutions.png", class: "browse-by-img" %>
+							<%= image_tag "/img/institutions.jpg", class: "browse-by-img" %>
 						<% end %>
 						<p><%= link_to "Browse by Institution", main_app.institutions_path %></p>
 					</div>
