@@ -4,6 +4,5 @@ module Bulkrax
     def self.matcher_class
       Bulkrax::AtlaOaiMatcher
     end
-
   end
 end
