@@ -61,6 +61,12 @@ body.frontend {
     padding-top: 108px;
     padding-bottom:2em;
   }
+  
+  
+/*adjusting space above featured collections heading to make smaller*/
+	.content-wrapper-homepage {
+		padding-top:5em !important;
+	}
 
   /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
   #content-wrapper.one-pages {
@@ -96,6 +102,11 @@ body.frontend {
     font-family: 'PT Serif', serif;
     margin-bottom:.35em;
     margin-top:.5em;
+  }
+  
+  h3.home-stats {
+  	font-size:20px;
+  	font-weight:500;
   }
 
   /* text under home page search bar */
@@ -182,6 +193,12 @@ body.frontend {
     margin-right:auto;
   }
 
+	img.browse-by-img:hover {
+		box-shadow:0 4px 12px 0 rgba(0, 0, 0, 0.4);
+		}
+	
+
+
 
   .slideInLeft {
     animation-name: slideInLeft;
@@ -221,7 +238,6 @@ body.frontend {
     animation-name: slideInRight;
   }
 
-
 /* linked headings for Home Featured Collections & Works */
   #featured-collections .nav>li>a, #featured-works .nav>li>a {
     padding-top:0;
@@ -241,10 +257,20 @@ body.frontend {
     text-decoration: underline;
   }
 
+	#featured_works.thumbnail-custom {
+		margin-bottom:0;
+	}
+
+
   .featured-thumbnail {
     position:relative;
   }
+  
+	.featured-thumbnail img {
+		border-radius: 4px 4px 0 0;
+	}
 
+/* not using overlay on hover 
   .featured-thumbnail .overlay{
     background-color:rgba(256, 256, 256, 0.6);
     transition: all 200ms ease-out;
@@ -257,40 +283,55 @@ body.frontend {
   .featured-collection:hover .overlay {
     opacity:1;
     }
+*/
+
+/* using box-shadow on hover to highlight instead of overlay */    
+	.featured-collection:hover, .featured-item:hover {
+		box-shadow:0 4px 12px 0 rgba(0,0,0,.4);
+		}
 
   /* making thumbnail titles entire area clickable as link for featured collections & setting font size in em */
   .featured-text a {
-    padding:10px .25em;
+    padding:12px 12px 14px 12px;
     display:block;
   }
 
   /*** Flexbox GRID for featured and collecitons spacing***/
   .featured-collection .featured-text h4 {
-    font-size:1.25em;
+    font-size:1.15em;
     margin:0;
   }
 
   .featured-collection .featured-text h4 span{
-    font-size:.85em;
+    font-size:.76em;
     font-weight:normal;
   }
 
-  .featured-collection{
+  .featured-collection {
     margin: 0 1% 1.5em 1%;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
+    border: 1px solid rgba(0,0,0,.125);
+    /*box-shadow:0 1px 3px 0 rgba(0,0,0,.25);*/
+    border-radius:4px;
   }
 
 
-/* featured item is for the featured works*/
+/* FEATURED ITEMS (works) section */
+
+  .featured-section {padding-bottom:0;}
+
+   .featured-section .grid-item.col-sm-6.col-md-4 {
+   		padding:1%;
+   } 
+
   .featured-item {
     border: 1px solid #ddd;
+    border-radius:4px;
     min-height: 135px;
     padding:1em;
   }
-
-  .featured-section {padding-bottom:0;}
 
   .featured-item img {
     padding-right: 0;
@@ -312,6 +353,9 @@ body.frontend {
   .featured-item .featured-item-title p {
     font-size: .9em;
     }
+    
+
+    
 
 
   /* -------- Featured Collections and Featured Other stuff -------*/
@@ -578,6 +622,10 @@ body.frontend {
   .footer-menu {
     padding:1em;
   }
+  
+  .footer-menu p {
+  		margin-bottom:.5em!important;
+  	}
 
   .footer-search {
     padding:1em;
