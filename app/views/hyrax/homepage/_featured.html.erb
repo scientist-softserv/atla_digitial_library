@@ -1,9 +1,7 @@
 <!-- Override file from Hyrax 2.3.3 -->
 <!-- added grid-item with thumbnails -->
-<div class="grid-item col-sm-6 col-md-4">
-	<div id="featured_works" class="thumbnail-custom">
-		<div class="featured-item" data-id="<%= featured.presenter.id %>">
-			<%= render 'hyrax/homepage/featured_fields', featured: featured.presenter %>
-		</div>
+<div class="featured_works">
+	<div class="featured-item" data-id="<%= featured.presenter.id %>">
+		<%= render 'hyrax/homepage/featured_fields', featured: featured.presenter %>
 	</div>
 </div>
