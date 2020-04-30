@@ -1,15 +1,15 @@
-<div>
-	<div class="featured-item-title clearfix">
-		<span class="sr-only"><%= t('hyrax.homepage.featured_works.document.title_label') %></span>
-		<figure>
-			<%= link_to [main_app, featured] do %>
-			<%= render_thumbnail_tag(featured, {suppress_link: true}) %>
-			<% end %>
-		</figure>
+
+	<span class="sr-only"><%= t('hyrax.homepage.featured_works.document.title_label') %></span>
+	<figure>
+		<%= link_to [main_app, featured] do %>
+		<%= render_thumbnail_tag(featured, {suppress_link: true}) %>
+		<% end %>
+	</figure>
+	<div class="featured-item-title">
 		<h3><%= link_to [main_app, featured] do %>
 		<%= truncate(featured.title.first, length: 56, separator: ' ') %>
 		<% end %>
 		</h3>
 		<p><%= truncate(featured.description.first, length: 100, separator: ' ') %></p>
-	</div><!--removed item depositor and keywords-->
-</div>
+	</div>
+
