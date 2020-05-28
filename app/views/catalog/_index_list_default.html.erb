@@ -11,5 +11,15 @@
         </tr>
       <% end %>
     <% end %>
+    <% institution = document.contributing_institution.first %>
+    <% external_url = document["identifier_tesim"].find { |d| d =~ /http/ } %>
+    <% if institution.present? && external_url.present? %>
+      <tr>
+        <td></td>
+        <td>
+          <%= link_to("View Full Item at #{document.contributing_institution.first} <span class='glyphicon glyphicon-new-window'></span>".html_safe, document["identifier_tesim"].find { |d| d =~ /http/ }, target: "_blank") %>
+        </td>
+      </tr>
+    <% end %>
   </table>
 </div>
