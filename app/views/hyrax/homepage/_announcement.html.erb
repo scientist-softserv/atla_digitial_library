@@ -1,12 +1,16 @@
 	<!-- Override file from Hyrax 2.3.3 -->
 	<!-- Added custom announcement sections and links to browse collections and institutions -->
+	<!-- NOTE(dewey4iv @ 2020/05/29): Added real work count and contributing institutions count -->
 	<section class="hero-fullscreen-bg text-center">
 		<div class="container">
 			<h2 class="heading">Explore Religion & Theology Collections</h2>
-            <% byebug %>
-            <h3 class="home-stats">
-              Discover <%= Work.count %> images, texts, videos and sounds from <%= Work.contributing_institutions_count %> contributers
-            </h3>
+			<h3 class="home-stats">
+				Discover
+				<strong><%= Work.count %></strong>
+				images, texts, videos and sounds from
+				<strong><%= Work.contributing_institution_count %></strong>
+				contributers
+			</h3>
 			<div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 				<%= render partial: 'catalog/search_form' %>
 			</div>
@@ -19,17 +23,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-5 intro-text slideInLeft">
-					<!--<p> <span class="find-heading">Find archival, historical, and special collections</span> in religion and theology from libraries, religious institutions, and archives worldwide.</p>-->
-					
 					<h3>Welcome to Atla Digital Library</h3>
 					<p>Find archival, historical, and special collections in religion and theology from libraries, religious institutions, and archives worldwide.</p>
-					
-					
-					
 					<p class="learn-more">
 						<%= link_to "Learn more ", hyrax.about_path %>
 					</p>
-
 				</div>
 				<div class="col-sm-12 col-md-7 browse-box slideInRight">
 					<div class="col-xm-12 col-sm-6">
