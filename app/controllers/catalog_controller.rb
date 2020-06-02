@@ -1,4 +1,6 @@
 class CatalogController < ApplicationController
+
+  include BlacklightRangeLimit::ControllerOverride
   include Hydra::Catalog
   include Hydra::Controller::ControllerBehavior
 
@@ -57,7 +59,8 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_facet_field solr_name("types", :facetable), label: "Type", limit: 10, collapse: false
     config.add_facet_field solr_name("subject", :facetable), label: "Subject", limit: 20, solr_params: { 'facet.mincount' => 2 }
-    config.add_facet_field solr_name("date", :facetable), label: "Date", limit: 10
+    # config.add_facet_field solr_name("date", :facetable), label: "Date", limit: 10
+    config.add_facet_field solr_name('date', :facetable), label: 'Date', range: { facet_field_label: 'Date Range', num_segments: 10, assumed_boundaries: [1100, Time.now.year + 2], segments: true, maxlength: 4 }, facet_field_label: 'DDate Range'
     config.add_facet_field solr_name("place", :facetable), label: "Place", limit: 10
     config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 10
     config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5, show: false
