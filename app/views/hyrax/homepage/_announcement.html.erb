@@ -5,11 +5,7 @@
 		<div class="container">
 			<h2 class="heading">Explore Religion & Theology Collections</h2>
 			<h3 class="home-stats">
-				Discover
-				<strong><%= Work.count %></strong>
-				images, texts, videos and sounds from
-				<strong><%= Work.contributing_institution_count %></strong>
-				contributers
+				<%= displayable_content_block @announcement_text %>
 			</h3>
 			<div class="searchbar navbar col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 				<%= render partial: 'catalog/search_form' %>
