@@ -31,18 +31,45 @@
                 <%= link_to @presenter.url.first, class: 'btn btn-primary', target: '_blank', rel: "nofollow" do %>
                   View Full Item at
                   <% @presenter.contributing_institution.each do |contributing_institution| %>
-                  	 <span itemprop="name" class="institution_link"><%= contributing_institution %></span>
+                    <span itemprop="name" class="institution_link"><%= contributing_institution %></span>
                   <% end %>
                   <span class="glyphicon glyphicon-new-window"></span>
                 <% end %>
               <% else %>
                 <% Hyrax.config.display_media_download_link = true %>
                 <%= render('representative_media', presenter: @presenter, viewer: false)%>
-               <% end %>
+                <% end %>
             <% end %>
-          	
+
             <div class="addthis_inline_share_toolbox"></div>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e83955ef8379e2e"></script>
+
+            <!-- citations start -->
+            <button
+              class="btn btn-default btn-block"
+              data-toggle="collapse"
+              href="#collapse-citations"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapse-citations"
+            >
+              <%= t('.citation_formats') %>
+            </button>
+
+            <div id="collapse-citations" class="collapse">
+              <h4>MLA</h4>
+              <span class="mla-citation"><%= export_as_mla_citation(@presenter) %></span>
+              <br /><br />
+
+              <h4>APA</h4>
+              <span class="apa-citation"><%= export_as_apa_citation(@presenter) %></span>
+              <br /><br />
+
+              <h4>Chicago</h4>
+              <span class="chicago-citation"><%= export_as_chicago_citation(@presenter) %></span>
+              <br /><br />
+            </div>
+            <!-- citations end -->
           </div>
           <div class="col-sm-9">
             <%= render 'metadata', presenter: @presenter %>
@@ -51,7 +78,4 @@
       </div>
     </div>
   </div>
-              <!-- citations start -->
-              <%= render 'citations', presenter: @presenter %>
-              <!-- citations end -->
 </div>
