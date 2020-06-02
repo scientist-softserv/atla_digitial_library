@@ -81,7 +81,6 @@ class ContentBlock < ActiveRecord::Base
     def search_tips_page=(value)
       search_tips_page.update(value: value)
     end
-
     # END UPGRADE NOTE
 
     def agreement_page
