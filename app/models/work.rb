@@ -12,13 +12,14 @@ class Work < ActiveFedora::Base
 
   alias_attribute :rights, :license
 
-  def self.contributing_institution_count
-    insts = []
+  def self.contributing_institutions
+    contributors = []
+
     Work.find_each do |w|
-      w.contributing_institution.each { |contributor| insts << contributor }
+      w.contributing_institution.each { |contributor| contributors << contributor }
     end
 
-    insts.uniq.count
+    contributors.uniq
   end
 
   ## Terminology explanation:
