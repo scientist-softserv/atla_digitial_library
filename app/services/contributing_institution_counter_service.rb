@@ -31,7 +31,7 @@ class ContributingInstitutionCounterService
   def get_work_count_from(tag)
     work_count =
         if tag.attributes['href'].value =~ /catalog/
-          institution_name = CGI::parse(URI.parse(tag.attributes['href'].value).query)["f[contributing_institution_sim][]"]
+          institution_name = CGI::parse(URI.parse(tag.attributes['href'].value).query)["f[contributing_institution_sim][]"].first
           get_work_count_by_contributing_institution institution_name
         elsif tag.attributes['href'].value =~ /collections/
           institution_name = URI.parse(tag.attributes['href'].value).path.split('/').last
