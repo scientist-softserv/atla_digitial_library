@@ -47,14 +47,14 @@ class Collection < ActiveFedora::Base
 
   def works_count
     if is_ancestor_collection?
-      collections.reduce(0) { |count, child| count + child.member_ids.size }
+      collections.reduce(0) { |count, child| count + child.member_object_ids.length }
     else
-      member_ids.size
+      member_object_ids.length
     end
   end
 
   def is_ancestor_collection?
-    c.collection_ids.size > 0
+    collection_ids.length > 0
   end
 
   ##
