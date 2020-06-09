@@ -1,3 +1,4 @@
+# NOTE(dewey4iv): overridden from blacklight - adds search support to facets
 # frozen_string_literal: true
 module Blacklight::Catalog
   extend ActiveSupport::Concern
@@ -71,8 +72,10 @@ module Blacklight::Catalog
   def facet
     @facet = blacklight_config.facet_fields[params[:id]]
     raise ActionController::RoutingError, 'Not Found' unless @facet
+    # NOTE(dewey4iv): added/modified to support searching facets
     extra_params = params[:fq].present? ? { fq: "#{@facet.key}:*#{params[:fq]}*" } : {}
     @response = get_facet_field_response(@facet.key, params, extra_params)
+    # end
     @display_facet = @response.aggregations[@facet.field]
     @pagination = facet_paginator(@facet, @display_facet)
     respond_to do |format|
