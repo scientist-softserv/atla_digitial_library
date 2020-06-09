@@ -4,6 +4,7 @@ ruby '2.5.3'
 gem 'rails', '5.1.6'
 
 # gem 'bulkrax', path: './vendor/engines/bulkrax'
+gem 'blacklight_range_limit'
 gem 'bulkrax', git: 'https://github.com/notch8/bulkrax.git'
 gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]

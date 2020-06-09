@@ -1,3 +1,5 @@
 en:
   blacklight:
     application_name: 'Blacklight'
+    range_limit:
+      submit_limit: 'Update'
