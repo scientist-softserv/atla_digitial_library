@@ -45,6 +45,18 @@ class Collection < ActiveFedora::Base
     end
   end
 
+  def works_count
+    if is_ancestor_collection?
+      collections.reduce(0) { |count, child| count + child.member_work_ids.length }
+    else
+      member_work_ids.length
+    end
+  end
+
+  def is_ancestor_collection?
+    collection_ids.length > 0
+  end
+
   ##
   # Override method that does not currently scale to large collections,
   # disabling size sorting of collections.

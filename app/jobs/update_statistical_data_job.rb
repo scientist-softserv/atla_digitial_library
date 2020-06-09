@@ -9,6 +9,7 @@ class UpdateStatisticalDataJob < Hyrax::ApplicationJob
   def perform
     begin
       Rake::Task['atla:update_announcement_text'].invoke
+      Rake::Task['atla:update_institutions_page'].invoke
 
       self.class.set(wait_until: 1.week.from_now.beginning_of_day).perform_later
     rescue
