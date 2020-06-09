@@ -31,14 +31,14 @@
 
 <script>
   $(document).ready(function () {
-      $('body').on('keyup paste', '#fq', function(e) {
-          const input = e.target
-          const fq = input.value
+    $('body').on('keyup paste', '#fq', function(e) {
+      const input = e.target
+      const fq = input.value
 
-          if (fq.length >= 2) {
-              const link = $('.fq-link').attr('href') + '&fq=' + fq
-              $('.fq-link').attr('href', link)
-          }
-      })
+      if (fq.length >= 2) {
+        const link = $('.fq-link').attr('href') + '&fq=' + fq
+        $('.fq-link').attr('href', link)
+      }
+    })
   })
 </script>
