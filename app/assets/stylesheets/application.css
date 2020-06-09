@@ -18,4 +18,5 @@
  *= require 'navbar'
  *= require 'admin'
  *= require '_overrides'
+ *= require 'facet_pagination'
  */
