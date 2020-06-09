@@ -17,6 +17,7 @@
  *= require 'main'
  *= require 'navbar'
  *= require 'admin'
- *= require '_overrides'
  *= require 'facet_pagination'
- *= require  'blacklight_range_limit'
+ *= require 'blacklight_range_limit'
+ *= require '_overrides'
+*/
