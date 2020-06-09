@@ -12,6 +12,16 @@ class Work < ActiveFedora::Base
 
   alias_attribute :rights, :license
 
+  def self.contributing_institutions
+    contributors = []
+
+    Work.find_each do |w|
+      w.contributing_institution.each { |contributor| contributors << contributor }
+    end
+
+    contributors.uniq
+  end
+
   ## Terminology explanation:
   #  "Ancestor" refers to both a Work's immediate parent Collections
   #  as well as those parent Collections' parents ("grandparents").
