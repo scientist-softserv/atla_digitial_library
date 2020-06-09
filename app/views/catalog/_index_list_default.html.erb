@@ -1,5 +1,6 @@
 <!-- Override file from Hyrax 2.3.3 -->
 <!-- added a check if field name is not rights_tesim. also removed total_viewable_collections/works counts -->
+<!-- added external link of contributing_institution -->
 <div class="col-md-10">
   <table class="table">
     <% doc_presenter = index_presenter(document) %>
@@ -10,6 +11,16 @@
           <td><%= doc_presenter.field_value field_name %></td>
         </tr>
       <% end %>
+    <% end %>
+    <% institution = document.contributing_institution.first %>
+    <% external_url = document["identifier_tesim"].find { |d| d =~ /http/ } %>
+    <% if institution.present? && external_url.present? %>
+      <tr>
+        <td></td>
+        <td>
+          <%= link_to("View Full Item at #{institution} <span class='glyphicon glyphicon-new-window'></span>".html_safe, external_url, target: "_blank") %>
+        </td>
+      </tr>
     <% end %>
   </table>
 </div>

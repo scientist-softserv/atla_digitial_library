@@ -19,4 +19,4 @@
  *= require 'admin'
  *= require '_overrides'
  *= require 'facet_pagination'
- */
+ *= require  'blacklight_range_limit'
