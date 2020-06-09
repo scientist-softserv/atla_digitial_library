@@ -18,9 +18,5 @@
  *= require 'navbar'
  *= require 'admin'
  *= require '_overrides'
- 
- *
- * Used by blacklight_range_limit
+ *= require 'facet_pagination'
  *= require  'blacklight_range_limit'
- *
-*/
