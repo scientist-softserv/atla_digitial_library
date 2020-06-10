@@ -1,8 +1,3 @@
-require 'rake'
-
-Rake::Task.clear
-AtlaDigitalLibrary::Application.load_tasks
-
 class UpdateStatisticalDataJob < Hyrax::ApplicationJob
   queue_as :update_statistical_data
 
