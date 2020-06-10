@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= 
 //= require float-panel
 //
 
@@ -31,3 +30,12 @@
 // this:
 //= require 'blacklight_range_limit'
 
+// NOTE(dewey4iv): Hyrax Override - this field should be open by default
+// Yes, we could do this in the template - but it would require futzing with
+// a template that is incredibly nested and dynamic. This would mean addtl
+// pain in the next hyrax upgrade.
+$(document).ready(function() {
+  $('#facet-date_sim').addClass('in');
+  $('[data-target="#facet-date_sim"]').removeClass('collapsed');
+})
+// End Override

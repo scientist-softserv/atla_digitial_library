@@ -73,7 +73,7 @@ module Blacklight::Catalog
     @facet = blacklight_config.facet_fields[params[:id]]
     raise ActionController::RoutingError, 'Not Found' unless @facet
     # NOTE(dewey4iv): added/modified to support searching facets
-    extra_params = params[:fq].present? ? { fq: "#{@facet.key}:*#{params[:fq]}*" } : {}
+    extra_params = params[:fq].present? ? { fq: "#{@facet.key}:#{params[:fq]}*" } : {}
     @response = get_facet_field_response(@facet.key, params, extra_params)
     # end
     @display_facet = @response.aggregations[@facet.field]
