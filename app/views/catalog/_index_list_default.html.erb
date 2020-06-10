@@ -13,7 +13,7 @@
       <% end %>
     <% end %>
     <% institution = document.contributing_institution.first %>
-    <% external_url = document["identifier_tesim"].find { |d| d =~ /http/ } %>
+    <% external_url = document["identifier_tesim"]&.find { |d| d =~ /http/ } %>
     <% if institution.present? && external_url.present? %>
       <tr>
         <td></td>
