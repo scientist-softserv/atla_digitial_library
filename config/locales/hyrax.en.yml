@@ -61,6 +61,8 @@ en:
   hyrax:
     account_name: My Institution Account Id
     base:
+      show:
+        citation_formats: Cite this item
       collections:
         show:
           subcollection_count: Collections in this Collection
@@ -112,5 +114,3 @@ en:
         
     collections:
 
-
-      
