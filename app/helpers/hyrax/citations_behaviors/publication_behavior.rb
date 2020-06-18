@@ -1,4 +1,4 @@
-# NOTE(dewey4iv @ 06/18/20): Hyrax Override: fotmats aren't quite what Atla wants.
+# NOTE(dewey4iv @ 06/18/20): Hyrax Override: formats aren't quite what Atla wants.
 # Changed to match: https://gitlab.com/notch8/atla_digital_library/-/issues/285#note_363126537
 
 # frozen_string_literal: true
