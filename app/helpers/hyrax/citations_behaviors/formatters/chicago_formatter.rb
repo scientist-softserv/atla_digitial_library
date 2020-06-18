@@ -1,3 +1,6 @@
+# NOTE(dewey4iv @ 06/18/20): Hyrax Override: fotmats aren't quite what Atla wants.
+# Changed to match: https://gitlab.com/notch8/atla_digital_library/-/issues/285#note_363126537
+
 # frozen_string_literal: true
 module Hyrax
   module CitationsBehaviors
@@ -17,12 +20,15 @@ module Hyrax
           pub_info = setup_pub_info(work, false)
           text += " #{whitewash(pub_info)}." if pub_info.present?
 
-          # Get Pub Date
+          # NOTE(dewey4iv): moved date down to match Atla request
           pub_date = setup_pub_date(work)
           text += " #{whitewash(pub_date)}." unless pub_date.nil?
 
+          # NOTE(dewey4iv): Hyrax Override: adds addtl content for citation
           text += add_retrieved_from
           text += add_link_to_original(work)
+          # end
+
           text.html_safe
         end
 

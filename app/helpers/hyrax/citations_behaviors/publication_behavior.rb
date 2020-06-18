@@ -1,10 +1,15 @@
+# NOTE(dewey4iv @ 06/18/20): Hyrax Override: fotmats aren't quite what Atla wants.
+# Changed to match: https://gitlab.com/notch8/atla_digital_library/-/issues/285#note_363126537
+
 # frozen_string_literal: true
 module Hyrax
   module CitationsBehaviors
     module PublicationBehavior
       include Hyrax::CitationsBehaviors::CommonBehavior
       def setup_pub_date(work)
+        # NOTE(dewey4iv): Hyrax Override: used to be date_created
         first_date = work.date.first if work.date
+        # end
         if first_date.present?
           first_date = CGI.escapeHTML(first_date)
           date_value = first_date.gsub(/[^0-9|n\.d\.]/, "")[0, 4]
@@ -30,6 +35,8 @@ module Hyrax
         end
 
         if (publisher = setup_pub_publisher(work))
+          # NOTE(dewey4iv): Hyrax Override: format was wrong
+          # ':' should only be added if there is previous info
           pub_info += ":" if pub_info.length > 0
           pub_info += " #{CGI.escapeHTML(publisher)}"
         end
