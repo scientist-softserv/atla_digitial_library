@@ -61,8 +61,8 @@ body.frontend {
     padding-top: 108px;
     padding-bottom:2em;
   }
-  
-  
+
+
 /*adjusting space above featured collections heading to make smaller*/
 	.content-wrapper-homepage {
 		padding-top:5em !important;
@@ -103,7 +103,7 @@ body.frontend {
     margin-bottom:.35em;
     margin-top:.5em;
   }
-  
+
   h3.home-stats {
   	font-size:20px;
   	font-weight:500;
@@ -196,7 +196,7 @@ body.frontend {
 	img.browse-by-img:hover {
 		box-shadow:0 4px 12px 0 rgba(0, 0, 0, 0.4);
 		}
-	
+
 
 
 
@@ -261,12 +261,12 @@ body.frontend {
   .featured-thumbnail {
     position:relative;
   }
-  
+
 	.featured-thumbnail img {
 		border-radius: 4px 4px 0 0;
 	}
 
-/* not using overlay on hover 
+/* not using overlay on hover
   .featured-thumbnail .overlay{
     background-color:rgba(256, 256, 256, 0.6);
     transition: all 200ms ease-out;
@@ -281,7 +281,7 @@ body.frontend {
     }
 */
 
-/* using box-shadow on hover to highlight instead of overlay */    
+/* using box-shadow on hover to highlight instead of overlay */
 	.featured-collection:hover, .featured_works:hover {
 		box-shadow:0 4px 12px 0 rgba(0,0,0,.4);
 		}
@@ -320,7 +320,7 @@ body.frontend {
 
    .featured-section {
    		padding:1%;
-   } 
+   }
 
   .featured_works {
     border: 1px solid #ddd;
@@ -333,7 +333,7 @@ body.frontend {
 		display:flex;
 		border:0;
 		padding:0;
- 
+
 	}
 
 
@@ -358,9 +358,9 @@ body.frontend {
     font-size: .9em;
     margin-bottom:0;
     }
-    
 
-    
+
+
 
 
   /* -------- Featured Collections and Featured Other stuff -------*/
@@ -627,7 +627,7 @@ body.frontend {
   .footer-menu {
     padding:1em;
   }
-  
+
   .footer-menu p {
   		margin-bottom:.5em!important;
   	}
@@ -746,6 +746,20 @@ body.frontend {
     span.label {
       display: none;
     }
+  }
+
+  /* ----Date Range Module--- */
+  .range_limit input.submit.btn.btn-secondary.btn.btn-default.btn-block {
+      color: white;
+      background-color: #E05C3F;
+      border-color: #E05C3F;
+      width: auto;
+      border-radius:2px;
+  }
+
+
+  input#range_date_sim_end, input#range_date_sim_begin {
+  	width:80%;
   }
 
   /*styling the sort by button*/
@@ -1039,6 +1053,36 @@ a[title="Tumblr"],a[title="Google+"] {display:none;}
 .addthis_inline_share_toolbox p {
   font-weight:bold;
 }
+
+/* Citation */
+button[aria-controls]{
+     margin-top: 1em;
+     margin-bottom: 1em;
+     font-weight:bold;
+	font-size:1.25em;
+	padding:1em; /* need this to be .5em for screens between 768 and 992*/
+}
+
+div#collapse-citations {
+     padding-left:.85em;
+}
+
+#collapse-citations h4 {
+     margin-bottom:5px;
+}
+
+.mla-citation,  .apa-citation, .chicago-citation{
+     line-height: 1.25em;
+     display: inline-block;
+}
+
+#collapse-citations p {
+     font-size:.85em;
+     line-height:1.2em;
+}
+
+
+
 
 /*Removes indent from metadata value lines and adjusts spacing*/
 .work-show ul.tabular {padding:0;}
