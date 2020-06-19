@@ -41,7 +41,7 @@ class CatalogController < ApplicationController
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
-    config.search_builder_class = Hyrax::CatalogSearchBuilder
+    # config.search_builder_class = Hyrax::CatalogSearchBuilder
 
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
@@ -60,7 +60,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("types", :facetable), label: "Type", limit: 10, collapse: false
     config.add_facet_field solr_name("subject", :facetable), label: "Subject", limit: 10, solr_params: { 'facet.mincount' => 2 }
     # config.add_facet_field solr_name("date", :facetable), label: "Date", limit: 10
-    config.add_facet_field solr_name('date', :facetable), label: 'Date', range: { facet_field_label: 'Date Range', num_segments: 10, assumed_boundaries: [1100, Time.now.year + 2], segments: true, maxlength: 4 }, facet_field_label: 'Date Range'
+    config.add_facet_field solr_name('date', :facetable), label: 'Date', range: { facet_field_label: 'Date Range', num_segments: 10, assumed_boundaries: [1100, Time.now.year + 2], segments: false, slider_js: false, maxlength: 4 }, facet_field_label: 'Date Range'
     config.add_facet_field solr_name("place", :facetable), label: "Place", limit: 10
     config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 10
     config.add_facet_field solr_name("extent", :facetable), label: "Extent", limit: 5, show: false
