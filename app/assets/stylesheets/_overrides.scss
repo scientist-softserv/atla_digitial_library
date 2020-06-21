@@ -1074,6 +1074,8 @@ div#collapse-citations {
 .mla-citation,  .apa-citation, .chicago-citation{
      line-height: 1.25em;
      display: inline-block;
+     width:100%;
+     overflow-wrap: break-word;
 }
 
 #collapse-citations p {
@@ -1376,6 +1378,16 @@ p.media-heading {font-size:1.2em;}
   .work-type .col-sm-3.mobile-media {
     float:right;
     }
+
+    /* Citation */
+    button[aria-controls]{
+         font-size:1em;
+    }
+
+
+
+
+
 } /*----------- end min-width:768px media query -----------*/
 
 @media screen and (min-width: 992px){
@@ -1397,6 +1409,11 @@ p.media-heading {font-size:1.2em;}
 	.featured_works{
 		flex-basis:31.3%;
 	}
+
+     /* Citation */
+     button[aria-controls]{
+         font-size:1.25em;
+     }
 
 }/*-----------  end min-width: 992px media query -----------*/
 
