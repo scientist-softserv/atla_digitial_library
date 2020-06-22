@@ -1056,31 +1056,31 @@ a[title="Tumblr"],a[title="Google+"] {display:none;}
 
 /* Citation */
 button[aria-controls]{
-     margin-top: 1em;
-     margin-bottom: 1em;
-     font-weight:bold;
-	font-size:1.25em;
-	padding:1em; /* need this to be .5em for screens between 768 and 992*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight:bold;
+    font-size:1.25em;
+    padding:1em; /* need this to be .5em for screens between 768 and 992*/
 }
 
 div#collapse-citations {
-     padding-left:.85em;
+    padding-left: 0.85em;
 }
 
 #collapse-citations h4 {
-     margin-bottom:5px;
+    margin-bottom: 5px;
 }
 
 .mla-citation,  .apa-citation, .chicago-citation{
-     line-height: 1.25em;
-     display: inline-block;
-     width:100%;
-     overflow-wrap: break-word;
+    line-height: 1.25em;
+    display: inline-block;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 #collapse-citations p {
-     font-size:.85em;
-     line-height:1.2em;
+    font-size:.85em;
+    line-height:1.2em;
 }
 
 
@@ -1379,13 +1379,10 @@ p.media-heading {font-size:1.2em;}
     float:right;
     }
 
-    /* Citation */
-    button[aria-controls]{
-         font-size:1em;
-    }
-
-
-
+  /* Citation */
+  button[aria-controls]{
+    font-size:1em;
+  }
 
 
 } /*----------- end min-width:768px media query -----------*/
