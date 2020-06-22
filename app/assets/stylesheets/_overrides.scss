@@ -1394,23 +1394,20 @@ p.media-heading {font-size:1.2em;}
   .footer-info {text-align:right;}
   .footer-info a {padding:1em 0 1em 1em;}
 
-
-
   /* Flexbox grid of featured collections home page */
 
-   .featured-collection {
+  .featured-collection {
     flex-basis:31.3%;
   }
 
+  .featured_works{
+    flex-basis:31.3%;
+  }
 
-	.featured_works{
-		flex-basis:31.3%;
-	}
-
-     /* Citation */
-     button[aria-controls]{
-         font-size:1.25em;
-     }
+  /* Citation */
+  button[aria-controls]{
+    font-size:1.25em;
+  }
 
 }/*-----------  end min-width: 992px media query -----------*/
 
