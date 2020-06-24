@@ -46,8 +46,7 @@ class StatisticalDataService
         get_work_count_by_contributing_institution institution_name
       elsif tag.attributes['href'].value.match?(/collections/)
         institution_slug = URI.parse(tag.attributes['href'].value).path.split('/').last
-        collection = Collection.find institution_slug
-        get_work_count_by_contributing_institution collection&.title&.first if collection.present?
+        collection_work_count institution_slug
       end
 
     work_count || 0
@@ -67,5 +66,14 @@ class StatisticalDataService
       .each_with_object({}) { |(key, val), hash| hash[key] = val }
   rescue
     0
+  end
+
+  def collection_work_count(slug)
+    collection = Collection.find slug
+    total = collection.works_count
+
+    collection
+      .child_collection_ids
+      .map { |id| collection_work_count id }.sum + total
   end
 end
