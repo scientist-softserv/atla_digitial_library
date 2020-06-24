@@ -4,9 +4,9 @@ class StatisticalDataService
   end
 
   def update_home_page
-    work_count = Work.count
-    contributor_count = Work.contributing_institutions.count
-    string = "Discover <strong>#{work_count}</strong> images, texts, videos and sounds from <strong>#{contributor_count}</strong> contributors"
+    work_count_formatted = ActiveSupport::NumberHelper.number_to_delimited(Work.count)
+    contributor_count_formatted = ActiveSupport::NumberHelper.number_to_delimited(contributor_count)
+    string = "Discover <strong>#{work_count_formatted}</strong> images, texts, videos and sounds from <strong>#{contributor_count_formatted}</strong> contributors"
 
     ContentBlock.announcement_text = string
   end
@@ -16,6 +16,11 @@ class StatisticalDataService
   end
 
   private
+
+  def contributor_count
+    results = @conn.get 'select', params: { q: 'has_model_ssim:Work', facet: true, "facet.field": 'contributing_institution_sim', rows: 0 }
+    results["facet_counts"]["facet_fields"]["contributing_institution_sim"].length / 2
+  end
 
   def rewrite_content
     document = Nokogiri::HTML.parse(ContentBlock.institutions_page.value)
