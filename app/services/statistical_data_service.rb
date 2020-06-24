@@ -4,9 +4,9 @@ class StatisticalDataService
   end
 
   def update_home_page
-    work_count = Work.count
-    contributor_count = Work.contributing_institutions.count
-    string = "Discover <strong>#{work_count}</strong> images, texts, videos and sounds from <strong>#{contributor_count}</strong> contributors"
+    work_count_formatted = ActiveSupport::NumberHelper.number_to_delimited(Work.count)
+    contributor_count_formatted = ActiveSupport::NumberHelper.number_to_delimited(contributor_count)
+    string = "Discover <strong>#{work_count_formatted}</strong> images, texts, videos and sounds from <strong>#{contributor_count_formatted}</strong> contributors"
 
     ContentBlock.announcement_text = string
   end
@@ -16,6 +16,11 @@ class StatisticalDataService
   end
 
   private
+
+  def contributor_count
+    results = @conn.get 'select', params: { q: 'has_model_ssim:Work', facet: true, "facet.field": 'contributing_institution_sim', rows: 0 }
+    results["facet_counts"]["facet_fields"]["contributing_institution_sim"].length / 2
+  end
 
   def rewrite_content
     document = Nokogiri::HTML.parse(ContentBlock.institutions_page.value)
@@ -40,8 +45,9 @@ class StatisticalDataService
         institution_name = CGI.parse(URI.parse(tag.attributes['href'].value).query)['f[contributing_institution_sim][]'].first
         get_work_count_by_contributing_institution institution_name
       elsif tag.attributes['href'].value.match?(/collections/)
-        institution_name = URI.parse(tag.attributes['href'].value).path.split('/').last
-        collection_works_count_by_slug institution_name
+        institution_slug = URI.parse(tag.attributes['href'].value).path.split('/').last
+        collection = Collection.find institution_slug
+        collection_works_count_by_slug collection&.title&.first if collection.present?
       end
 
     work_count || 0
@@ -61,13 +67,5 @@ class StatisticalDataService
       .each_with_object({}) { |(key, val), hash| hash[key] = val }
   rescue
     0
-  end
-
-  def collection_works_count_by_slug(slug)
-    collection = Collection.find slug
-
-    return 0 if collection.nil?
-
-    collection.works_count
   end
 end
