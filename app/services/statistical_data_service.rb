@@ -47,7 +47,7 @@ class StatisticalDataService
       elsif tag.attributes['href'].value.match?(/collections/)
         institution_slug = URI.parse(tag.attributes['href'].value).path.split('/').last
         collection = Collection.find institution_slug
-        collection_works_count_by_slug collection&.title&.first if collection.present?
+        get_work_count_by_contributing_institution collection&.title&.first if collection.present?
       end
 
     work_count || 0
