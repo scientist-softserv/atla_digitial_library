@@ -45,8 +45,9 @@ class StatisticalDataService
         institution_name = CGI.parse(URI.parse(tag.attributes['href'].value).query)['f[contributing_institution_sim][]'].first
         get_work_count_by_contributing_institution institution_name
       elsif tag.attributes['href'].value.match?(/collections/)
-        institution_name = URI.parse(tag.attributes['href'].value).path.split('/').last
-        collection_works_count_by_slug institution_name
+        institution_slug = URI.parse(tag.attributes['href'].value).path.split('/').last
+        collection = Collection.find institution_slug
+        collection_works_count_by_slug collection&.title&.first if collection.present?
       end
 
     work_count || 0
@@ -66,13 +67,5 @@ class StatisticalDataService
       .each_with_object({}) { |(key, val), hash| hash[key] = val }
   rescue
     0
-  end
-
-  def collection_works_count_by_slug(slug)
-    collection = Collection.find slug
-
-    return 0 if collection.nil?
-
-    collection.works_count
   end
 end
