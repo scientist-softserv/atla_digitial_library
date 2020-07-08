@@ -17,11 +17,11 @@
 -->
 
 <!--
- This is a stripped down config file used for a simple example...  
- It is *not* a good example to work from. 
+ This is a stripped down config file used for a simple example...
+ It is *not* a good example to work from.
 -->
 <config>
-  
+
   <!-- Controls what version of Lucene various components of Solr
        adhere to.  Generally, you want to use the latest version to
        get all bug fixes and improvements. It is highly recommended
@@ -29,15 +29,15 @@
        affect both how text is indexed and queried.
   -->
   <luceneMatchVersion>5.0.0</luceneMatchVersion>
-  
+
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lib" />
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lucene-libs" />
   <lib dir="${solr.install.dir:../../../..}/contrib/extraction/lib" regex=".*\.jar" />
   <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-cell-\d.*\.jar" />
 
-  <directoryFactory name="DirectoryFactory" 
+  <directoryFactory name="DirectoryFactory"
                     class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}">
-  </directoryFactory> 
+  </directoryFactory>
 
   <codecFactory class="solr.SchemaCodecFactory"/>
 
@@ -45,14 +45,14 @@
 
 
   <dataDir>${solr.blacklight-core.data.dir:}</dataDir>
-  
+
   <requestDispatcher handleSelect="true" >
     <requestParsers enableRemoteStreaming="false" multipartUploadLimitInKB="2048000" />
   </requestDispatcher>
-  
+
   <requestHandler name="/analysis/field" startup="lazy" class="solr.FieldAnalysisRequestHandler" />
 
-  <!-- config for the admin interface --> 
+  <!-- config for the admin interface -->
   <admin>
     <defaultQuery>*:*</defaultQuery>
   </admin>
@@ -89,10 +89,13 @@
        <str name="defType">edismax</str>
        <str name="echoParams">explicit</str>
        <str name="q.alt">*:*</str>
-       <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
-       <int name="qs">1</int>
-       <int name="ps">2</int>
+       <!-- <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str> this was the default -->
+       <str name="mm">1</str> <!-- minimum should match -->
+       <!--<int name="qs">1</int>  query phrase slop -->
+       <!--<int name="ps">2</int> phrase slop -->
        <float name="tie">0.01</float>
+
+
        <!-- this qf and pf are used by default, if not otherwise specified by
             client. The default blacklight_config will use these for the
             "keywords" search. See the author_qf/author_pf, title_qf, etc
@@ -100,16 +103,36 @@
             those searches. You may also be interested in:
             http://wiki.apache.org/solr/LocalParams
        -->
-        <str name="qf">
+        <str name="qf"><!-- list of fields to be searched and their boost factors -->
           id
-          title_tesim
-          author_tesim
-          subject_tesim
+          title_tesim^1000
+          creator_tesim^500
+          subject_tesim^750
+          date_tesim
+          description_tesim
+          place_tesim
+          contributor_tesim
+          publisher_tesim
+          format_original_tesim
+          format_digital_tesim
+          language_tesim
+          types_tesim
+          alternative_title_tesim
         </str>
         <str name="pf">
-          all_text_timv^10
+          all_text_timv^10 <!-- after documents are returned from query using "qf" this boosts documents with search terms as a phrase all_text_timv does not appear to actually do anything, but individual fields work-->
+          title_tesim^10
+          creator_tesim^10
+          subject_tesim^10
+          date_tesim^10
+          description_tesim^10
+          place_tesim^10
+          contributor_tesim^10
+          publisher_tesim^10
+          alternative_title_tesim^10
         </str>
 
+        <!-- I think these are for searches in the specific field rather than a keyword search -->
        <str name="author_qf">
           author_tesim
        </str>
@@ -130,6 +153,8 @@
          *,
          score
        </str>
+
+       <str name="lowercaseOperators">false</str> <!-- this makes it so lowercase and, not, or are not used as boolean operators -->
 
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
@@ -201,7 +226,7 @@
 <!-- Spell Check
 
         The spell check component can return a list of alternative spelling
-        suggestions.  
+        suggestions.
 
         http://wiki.apache.org/solr/SpellCheckComponent
      -->
@@ -256,7 +281,7 @@
        </lst>
      -->
 
-    <!-- a spellchecker that use an alternate comparator 
+    <!-- a spellchecker that use an alternate comparator
 
          comparatorClass be one of:
           1. score (default)
@@ -307,7 +332,7 @@
     </arr>
   </requestHandler>
 -->
- 
+
   <requestHandler name="/update/extract" class="org.apache.solr.handler.extraction.ExtractingRequestHandler">
     <lst name="defaults">
       <str name="fmap.Last-Modified">last_modified</str>
@@ -322,4 +347,3 @@
     <!-- </lst> -->
   </requestHandler>
 </config>
-
