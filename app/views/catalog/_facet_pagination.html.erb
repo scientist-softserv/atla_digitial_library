@@ -1,9 +1,24 @@
 <!-- NOTE(dewey4iv): overridden from blacklight - adds search support to facets -->
+<style>
+  .letter-list {
+    margin-bottom: 10px;
+  }
+  .prefix-link {
+    padding: 0px 5px;
+    margin-left: 0px !important;
+  }
+</style>
 <div class="row">
-  <div class="form-inline">
-    <div class="form-group pull-left">
-      <input id="prefix" class="" name="prefix" type="text" placeholder="search..." value="<%= params["facet.prefix"] %>" aria-label="search" aria-describedby="basic-addon2">
-      <%= link_to(t('blacklight.search.form.submit'), @pagination.params_for_resort_url('count', search_state.to_h), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
+  <div class="letter-list">
+    <div class="">
+      <!-- <input id="prefix" class="" name="prefix" type="text" placeholder="search..." value="<%= params["facet.prefix"] %>" aria-label="search" aria-describedby="basic-addon2">
+      <%= link_to(t('blacklight.search.form.submit'), @pagination.params_for_resort_url('count', search_state.to_h), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %> -->
+      <% ('A'..'Z').to_a.each do |letter| %>
+        <%= link_to(letter, @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": letter}), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
+        <%= "</br>".html_safe if letter == "N" %>
+      <% end %>
+      <br />
+      <%= link_to("reset", @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": ""}), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
     </div>
   </div>
 </div>
