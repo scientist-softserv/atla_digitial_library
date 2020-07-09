@@ -2,8 +2,8 @@
 <div class="row">
   <div class="form-inline">
     <div class="form-group pull-left">
-      <input id="fq" class="" name="fq" type="text" placeholder="search..." value="<%= params[:fq] %>" aria-label="search" aria-describedby="basic-addon2">
-      <%= link_to(t('blacklight.search.form.submit'), @pagination.params_for_resort_url('count', search_state.to_h), class: 'btn btn-link fq-link', data: { ajax_modal: "preserve" }) %>
+      <input id="prefix" class="" name="prefix" type="text" placeholder="search..." value="<%= params["facet.prefix"] %>" aria-label="search" aria-describedby="basic-addon2">
+      <%= link_to(t('blacklight.search.form.submit'), @pagination.params_for_resort_url('count', search_state.to_h), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
     </div>
   </div>
 </div>
@@ -32,15 +32,35 @@
 <!-- NOTE(dewey4iv): overridden from blacklight - adds search support to facets -->
 <script>
   $(document).ready(function() {
-    $('body').on('keyup paste', '#fq', function(e) {
-      const input = e.target
-      const fq = input.value
+    $('body').on('keyup paste', '#prefix', handleSearch)
 
-      if (fq.length >= 2) {
-        const link = $('.fq-link').attr('href') + '&fq=' + fq
-        $('.fq-link').attr('href', link)
+    function handleSearch(e) {
+      const input = e.target
+      const prefix = input.value
+
+      if (prefix.length) {
+        const link = $('.prefix-link').attr('href')
+        const [path, search] = link.split('?')
+        const searchObj = search.split('&').reduce((acc, curr) => {
+          const [key, value] = curr.split('=')
+          return {
+            ...acc,
+            [key]: value,
+          }
+        }, {})
+
+        searchObj['facet.prefix'] = prefix
+
+        const newSearch = Object
+          .keys(searchObj)
+          .map((key) => [key, searchObj[key]].join('='))
+          .join('&')
+
+        const result = [path, newSearch].join('?')
+
+        $('.prefix-link').attr('href', result)
       }
-    })
+    }
   })
 </script>
 <!-- END OVERRIDE -->
