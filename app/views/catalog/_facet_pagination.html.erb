@@ -1,5 +1,5 @@
 <!-- NOTE(dewey4iv): overridden from blacklight - adds search support to facets -->
-<style>
+<%# <style>
   .letter-list {
     margin-bottom: 10px;
   }
@@ -7,18 +7,14 @@
     padding: 0px 5px;
     margin-left: 0px !important;
   }
-</style>
+</style> %>
 <div class="row">
   <div class="letter-list">
     <div class="">
-      <!-- <input id="prefix" class="" name="prefix" type="text" placeholder="search..." value="<%= params["facet.prefix"] %>" aria-label="search" aria-describedby="basic-addon2">
-      <%= link_to(t('blacklight.search.form.submit'), @pagination.params_for_resort_url('count', search_state.to_h), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %> -->
       <% ('A'..'Z').to_a.each do |letter| %>
-        <%= link_to(letter, @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": letter}), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
-        <%= "</br>".html_safe if letter == "N" %>
+        <%= link_to(letter, @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": letter }), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
       <% end %>
-      <br />
-      <%= link_to("reset", @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": ""}), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
+      <%= link_to("reset", @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": "" }), class: 'btn btn-link prefix-link facet-filter-reset', data: { ajax_modal: "preserve" }) %>
     </div>
   </div>
 </div>
@@ -43,39 +39,3 @@
     <span class="active numeric btn btn-default"><%= t('blacklight.search.facets.sort.count') %></span>
   <% end -%>
 </div>
-
-<!-- NOTE(dewey4iv): overridden from blacklight - adds search support to facets -->
-<script>
-  $(document).ready(function() {
-    $('body').on('keyup paste', '#prefix', handleSearch)
-
-    function handleSearch(e) {
-      const input = e.target
-      const prefix = input.value
-
-      if (prefix.length) {
-        const link = $('.prefix-link').attr('href')
-        const [path, search] = link.split('?')
-        const searchObj = search.split('&').reduce((acc, curr) => {
-          const [key, value] = curr.split('=')
-          return {
-            ...acc,
-            [key]: value,
-          }
-        }, {})
-
-        searchObj['facet.prefix'] = prefix
-
-        const newSearch = Object
-          .keys(searchObj)
-          .map((key) => [key, searchObj[key]].join('='))
-          .join('&')
-
-        const result = [path, newSearch].join('?')
-
-        $('.prefix-link').attr('href', result)
-      }
-    }
-  })
-</script>
-<!-- END OVERRIDE -->
