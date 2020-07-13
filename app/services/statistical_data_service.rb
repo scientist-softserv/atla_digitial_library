@@ -70,10 +70,21 @@ class StatisticalDataService
 
   def collection_work_count(slug)
     collection = Collection.find slug
-    total = collection.works_count
 
+    total = fetch_collection_member_count collection.id
+    total = fetch_child_collection_counts collection if total == 0
+
+    return total
+  end
+
+  def fetch_child_collection_counts(collection)
     collection
       .child_collection_ids
-      .map { |id| collection_work_count id }.sum + total
+      .map { |id| fetch_collection_member_count id }.sum
+  end
+
+  def fetch_collection_member_count(id)
+    res = @conn.get 'select', params: { fq: ["{!terms f=has_model_ssim}Work", "-suppressed_bsi:true", "member_of_collection_ids_ssim:#{id}"], rows: 0 }
+    res["response"]["numFound"] || 0
   end
 end
