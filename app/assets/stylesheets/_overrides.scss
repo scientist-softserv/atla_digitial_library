@@ -748,6 +748,29 @@ body.frontend {
     }
   }
 
+  /* Facet "More" Modal A-Z */
+
+  .letter-list {
+    margin-bottom: 1em;
+    text-align: left;
+  }
+
+  .letter-list .prefix-link {
+      padding: 0.5em;
+      margin-left: 0;
+  }
+
+  .letter-list a.btn.btn-link.prefix-link.facet-filter-reset {
+    margin-top: 0.25em;
+    padding: 0.25em 0.5em;
+    background-color: white;
+    color: #E65A3A;
+    border: 1px solid #a5a5a5;
+    text-transform: capitalize;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+
   /* ----Date Range Module--- */
   .range_limit input.submit.btn.btn-secondary.btn.btn-default.btn-block {
       color: white;
