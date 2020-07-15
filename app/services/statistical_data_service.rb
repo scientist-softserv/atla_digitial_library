@@ -18,8 +18,8 @@ class StatisticalDataService
   private
 
   def contributor_count
-    results = @conn.get 'select', params: { q: 'has_model_ssim:Work', facet: true, "facet.field": 'contributing_institution_sim', rows: 0 }
-    results["facet_counts"]["facet_fields"]["contributing_institution_sim"].length / 2
+    results = @conn.get 'select', params: { q: '', facet: true, "facet.field": 'contributing_institution_sim', "facet.mincount": 1, rows: 0 }
+    results['facet_counts']['facet_fields']['contributing_institution_sim'].length / 2
   end
 
   def rewrite_content
@@ -58,7 +58,7 @@ class StatisticalDataService
   end
 
   def fetch_contributing_institutions
-    results = @conn.get 'select', params: { q: 'has_model_ssim:Work', facet: true, "facet.field": 'contributing_institution_sim', rows: 0 }
+    results = @conn.get 'select', params: { q: '', facet: true, 'facet.field': 'contributing_institution_sim', 'facet.mincount': 1, rows: 0 }
     results = results['facet_counts']['facet_fields']['contributing_institution_sim']
     results = results.partition.each_with_index { |_, i| i.even? }
     results[0]
@@ -71,20 +71,20 @@ class StatisticalDataService
   def collection_work_count(slug)
     collection = Collection.find slug
 
-    total = fetch_collection_member_count collection.id
-    total = fetch_child_collection_counts collection if total == 0
+    ids = fetch_collection_member_count collection.id
+    ids = fetch_child_collection_counts collection if ids.empty?
 
-    return total
+    ActiveSupport::NumberHelper.number_to_delimited(ids.uniq.length)
   end
 
   def fetch_child_collection_counts(collection)
     collection
       .child_collection_ids
-      .map { |id| fetch_collection_member_count id }.sum
+      .map { |id| fetch_collection_member_count id }.flatten
   end
 
   def fetch_collection_member_count(id)
-    res = @conn.get 'select', params: { fq: ["{!terms f=has_model_ssim}Work", "-suppressed_bsi:true", "member_of_collection_ids_ssim:#{id}"], rows: 0 }
-    res["response"]["numFound"] || 0
+    res = @conn.get 'select', params: { fq: ['{!terms f=has_model_ssim}Work', '-suppressed_bsi:true', "member_of_collection_ids_ssim:#{id}"], fl: 'id', rows: 1_000_000 }
+    res['response']['docs'].map { |k| k['id'] } || []
   end
 end
