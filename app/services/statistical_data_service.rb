@@ -49,7 +49,7 @@ class StatisticalDataService
         collection_work_count institution_slug
       end
 
-    work_count || 0
+    ActiveSupport::NumberHelper.number_to_delimited(work_count || 0)
   end
 
   def get_work_count_by_contributing_institution(contributing_institution)
@@ -64,8 +64,6 @@ class StatisticalDataService
     results[0]
       .zip(results[1])
       .each_with_object({}) { |(key, val), hash| hash[key] = val }
-  rescue
-    0
   end
 
   def collection_work_count(slug)
@@ -74,7 +72,7 @@ class StatisticalDataService
     ids = fetch_collection_member_count collection.id
     ids = fetch_child_collection_counts collection if ids.empty?
 
-    ActiveSupport::NumberHelper.number_to_delimited(ids.uniq.length)
+    ids.uniq.length
   end
 
   def fetch_child_collection_counts(collection)
