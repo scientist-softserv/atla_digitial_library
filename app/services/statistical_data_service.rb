@@ -29,8 +29,8 @@ class StatisticalDataService
     tags.each do |tag|
       work_count = get_work_count_from tag
 
-      if tag.content.match?(/\s\([^\d]*(\d+)[^\d]*\)$/)
-        tag.content = tag.content.gsub(/\s\([^\d]*(\d+)[^\d]*\)$/, " (#{work_count})")
+      if tag.content.match?(/\s\(\d{1,3}(,\d{3})*(\.\d+)?\)$/)
+        tag.content = tag.content.gsub(/\s\(\d{1,3}(,\d{3})*(\.\d+)?\)$/, " (#{work_count})")
       else
         tag.content += " (#{work_count})"
       end
