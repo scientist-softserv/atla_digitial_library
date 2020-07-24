@@ -239,7 +239,7 @@ module Bulkrax
       end
 
       # NOTE(dewey4iv): overriden from bulkrax gem
-      # NOTE(dewey4iv): we need to upgrade the version of bulkrax.
+      # TODO(dewey4iv): we need to upgrade the version of bulkrax.
       # Upgrading bulkrax was a bigger ask that the time allowed.
       def valid_parser_fields
         params&.[](:importer)&.[](:parser_fields)&.keys - ["file"]
