@@ -49,7 +49,7 @@ module Bulkrax
       add_rights_statement
       add_collections
 
-      self.parsed_metadata['file'] = [raw_metadata_xml["ComponentFileName"].downcase] if raw_metadata_xml["ComponentFileName"].present?
+      self.parsed_metadata['file'] = [File.join(files_path, raw_metadata_xml["ComponentFileName"].downcase)] if raw_metadata_xml["ComponentFileName"].present?
       self.parsed_metadata[Bulkrax.system_identifier_field] ||= [self.identifier]
       self.parsed_metadata['has_manifest'] = "1"
       return self.parsed_metadata
