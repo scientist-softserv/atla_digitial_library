@@ -29,6 +29,7 @@ gem 'pg'
 gem 'progress_bar'
 gem 'puma', '~> 3.7'
 gem 'riiif', '~> 1.1'
+gem 'rinku'
 gem 'rsolr', '~> 2.2'
 gem 'rspec-rails', group: %i[development test]
 gem 'sass-rails', '~> 5.0'
