@@ -18,11 +18,11 @@ Bulkrax.setup do |config|
   #   config.field_mappings = {
   #     "Bulkrax::OaiDcParser" => { **individual field mappings go here*** }
   #   }
-  
+
   # Add to, or change existing mappings as follows
   #   e.g. to exclude date
   #   config.field_mappings["Bulkrax::OaiDcParser"]["date"] = { from: ["date"], excluded: true  }
-  
+
   # To duplicate a set of mappings from one parser to another
   #   config.field_mappings["Bulkrax::OaiOmekaParser"] = {}
   #   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiOmekaParser"][key] = value }
@@ -94,7 +94,7 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiPtcParser"][key] = value }
   config.field_mappings["Bulkrax::OaiPtcParser"]["format_original"] = { from: ["format"], parsed: true, split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::OaiPtcParser"].delete("format_digital")
-  
+
   # custom mappings for qdc
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiQualifiedDcParser"][key] = value }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["abstract"] = { from: ["abstract"], excluded: true }
@@ -105,6 +105,6 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["time_period"] = { from: ["temporal"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["extent"] = { from: ["extent"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["place"] = { from: ["coverage", "spatial"] }
-  config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["remote_files"] = { from: ["thumbnail_url", "hasVersion"], parsed: true }
+  config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["remote_files"] = { from: ["thumbnail_url", "hasVersion", "dcterms:hasVersion"], parsed: true }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["rights_holder"] = { from: ["rightsHolder"] }
 end
