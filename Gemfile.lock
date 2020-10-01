@@ -686,6 +686,7 @@ GEM
     riiif (1.7.1)
       deprecation (>= 1.0.0)
       railties (>= 4.2, < 6)
+    rinku (2.0.6)
     rsolr (2.2.1)
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
@@ -863,6 +864,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (= 5.1.6)
   riiif (~> 1.1)
+  rinku
   rsolr (~> 2.2)
   rspec-rails
   sass-rails (~> 5.0)
