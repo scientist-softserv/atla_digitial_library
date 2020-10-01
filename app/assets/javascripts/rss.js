@@ -1,4 +1,4 @@
-$(document).ready(function() {
+Blacklight.onLoad(function() {
 
 const RSS_URL = `https://cors-anywhere.herokuapp.com/https://www.atla.com/topic/atla-digital-library/feed/`;
 
