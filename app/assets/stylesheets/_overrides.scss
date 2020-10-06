@@ -238,12 +238,14 @@ body.frontend {
     animation-name: slideInRight;
   }
 
-/* linked headings for Home Featured Collections & Works */
-  #featured-collections .nav>li>a, #featured-works .nav>li>a {
-    padding-top:0;
-    padding-bottom:0;
-    line-height:1;
-  }
+/* Headings for Home Featured Collections & Works */
+
+h3.home-featured-heading {
+	font-family: 'PT Serif', serif;
+	font-weight: 700;
+	font-size: 2.25em;
+}
+
 
 
   /* Custom Thumbnails Home Featured Collections & Works */
@@ -265,21 +267,6 @@ body.frontend {
 	.featured-thumbnail img {
 		border-radius: 4px 4px 0 0;
 	}
-
-/* not using overlay on hover
-  .featured-thumbnail .overlay{
-    background-color:rgba(256, 256, 256, 0.6);
-    transition: all 200ms ease-out;
-    opacity:0;
-    width:100%;
-    height:100%;
-    position:absolute;
-  }
-
-  .featured-collection:hover .overlay {
-    opacity:1;
-    }
-*/
 
 /* using box-shadow on hover to highlight instead of overlay */
 	.featured-collection:hover, .featured_works:hover {
@@ -422,6 +409,87 @@ body.frontend {
   }
 
 
+/* ------- RSS Feed & Side box --------- */
+#rss {
+	max-height:450px; 
+	overflow:auto;
+	}
+
+#rss h4 {
+	margin-bottom:0;
+	font-size:1em;
+	text-decoration:underline;
+}
+
+.rss-item-date{
+	font-style:italic;
+	font-size:.75em;
+	margin-bottom:0;
+}
+
+#rss article {
+  border-bottom: 1px solid #ddd;
+	}
+
+article p:nth-child(4){display:none;}
+article p:nth-child(3){line-height:1.25em;}
+
+/* width */
+#rss::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#rss::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+#rss::-webkit-scrollbar-thumb {
+  background: #ccc; 
+}
+
+/* Handle on hover */
+#rss::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.announcements-one {
+	background-color:#08b295;
+	padding:1.5em; 
+	margin:2em;
+	border-radius:4px;
+	margin-top:1em;
+	margin-bottom:1.5em;
+}
+
+.announcements-one h4, .announcements-two h4{
+	color:white;
+	font-family: 'PT Serif', serif; 
+	font-size:1.75em;
+	}
+	
+.announcements-two{
+	background-color:#5e4375;
+	padding:1.5em; 
+	margin-left:2em;
+	margin-right:2em;
+	margin-bottom:1em;
+	border-radius:4px;
+}
+
+.announcements-two p{
+	color:white; 
+	margin-bottom:0;
+	}
+	
+.news-section .glyphicon{
+	color:white;
+	}
+	
+.announcements-two a, .announcements-one a, .announcements-one ul {
+	color:white;
+}
 
 
 

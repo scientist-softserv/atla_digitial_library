@@ -1,28 +1,23 @@
 
 	<section id="featured-collections">
-		<ul class='nav nav-tabs' role='tablist'>
-			<li class="active">
-				<a aria-expanded="true" href="#tab-col2-first" role="tab" data-toggle="tab">Featured Collections</a>
-			</li>
-		</ul>
-		<div><!--removed class tab-content-->
-			<div class="tab-pane active" id="tab-col2-first">
-				<h2 class="sr-only"><%= t('hyrax.homepage.admin_sets.title') %></h2>
-				<%= render 'explore_collections' %>
-			</div>
+		<h3 class="home-featured-heading">Featured Collections</h3>
+		<div>
+			<h2 class="sr-only"><%= t('hyrax.homepage.admin_sets.title') %></h2>
+			<%= render 'explore_collections' %>
 		</div>
 	</section>
 
 	<section id="featured-works">
-		<ul id="homeTabs" class="nav nav-tabs">
-			<li class="active">
-				<a href="#featured_container" data-toggle="tab" role="tab" id="featureTab">Featured Items</a>
-			</li>
-			<!--<li><a href="#recently_uploaded" data-toggle="tab" role="tab" id="recentTab">Recently Uploaded</a></li>-->
-		</ul>
+		<h3 class="home-featured-heading">Featured Items</h3>
 		<div>
-			<div class="tab-pane fade in active" id="featured_container" role="tabpanel" aria-labelledby="featureTab">
-				<%= render partial: 'featured_works' %>
-			</div>
+			<%= render partial: 'featured_works' %>
 		</div>
 	</section>
+	
+	<section id="featured-news">
+		<h3 class="home-featured-heading">Digital Library News</h3>
+		<div>
+			<%= render partial: 'featured_news' %>
+		</div>
+	</section>
+

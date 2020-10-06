@@ -4,7 +4,7 @@ module Hyrax
       private
 
       def li_value(value)
-        auto_link(value, :html => { :target => '_blank' }) do |link|
+        Rinku.auto_link(value, :all, 'target="_blank"') do |link|
           "#{link}&nbsp;<span class='glyphicon glyphicon-new-window'></span>"
         end
       end
