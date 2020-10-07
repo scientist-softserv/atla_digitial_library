@@ -58,7 +58,7 @@ services:
     ports:
       - "8983"
     environment:
-      VIRTUAL_HOST: solr.docker
+      VIRTUAL_HOST: solr.atla.docker
       VIRTUAL_PORT: 8983
     volumes:
       - './solr/conf:/opt/config:delegated'
