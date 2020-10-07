@@ -1,12 +1,11 @@
-<%# Override Hyrax 2.5 - do not display none working video player %>
 <% if Hyrax.config.display_media_download_link? && can?(:download, file_set.id) %>
   <div>
     <h2 class="sr-only"><%= t('hyrax.file_set.show.downloadable_content.heading') %></h2>
-    <%= image_tag 'video.png',
+    <%= image_tag 'html.png',
       class: "representative-media",
       alt: "",
       role: "presentation" %>
-    <%= link_to t('hyrax.file_set.show.downloadable_content.video_link'),
+    <%= link_to t('hyrax.file_set.show.downloadable_content.default_link'),
      hyrax.download_path(file_set),
      data: { label: file_set.id },
      target: :_blank,
@@ -14,7 +13,7 @@
   </div>
 <% else %>
   <div>
-    <%= image_tag 'video.png',
+    <%= image_tag 'html.png',
         class: "representative-media",
         alt: "",
         role: "presentation" %>
