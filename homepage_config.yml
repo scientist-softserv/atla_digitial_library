@@ -3,7 +3,7 @@ homepage:
   collections:
     - id: 1
       anchor_text: American Religious Sounds Project
-      anchor_text_two: Concordia Theological Seminary
+      anchor_text_two:
       url: /collections/american-religious-sounds-project #PATH TO COLLECTION
       image:
         path_to_file: /img/arsp-flute.jpg #DESIRED THUMBNAIL NAME
