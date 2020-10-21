@@ -42,6 +42,7 @@ bundle exec rake spec
 ```
 
 ## Troubleshooting
+### Ldp::Conflict
 
 If an `Ldp::Conflict, "Can't call create on an existing resource"` error is encountered when attempting to create a Work, Collection, etc., run the following command in a rails console:
 
@@ -52,6 +53,12 @@ If an `Ldp::Conflict, "Can't call create on an existing resource"` error is enco
 Upon resubmission of the form, the resource should be created successfully.
 
 This is currently a known bug in Hyrax. See here for more details: https://github.com/samvera/hyrax/issues/3128
+
+### Statistics Not Updating
+
+Statistics can be updated manually by running `UpdateStatisticalDataJob.perform_later` in the rails console.
+
+Once run, the job will automatically schedule itself to run again in the future.
 
 # Backups
 ## Backup Tools
