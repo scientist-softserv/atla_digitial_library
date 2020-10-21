@@ -104,7 +104,7 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["remote_manifest_url"] = { from: ["hasFormat"] }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["time_period"] = { from: ["temporal"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["extent"] = { from: ["extent"], split: /\s*[;]\s*/ }
-  config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["place"] = { from: ["coverage", "spatial"] }
+  config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["place"] = { from: ["coverage", "spatial"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["remote_files"] = { from: ["thumbnail_url", "hasVersion", "dcterms:hasVersion"], parsed: true }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["rights_holder"] = { from: ["rightsHolder"] }
 end
