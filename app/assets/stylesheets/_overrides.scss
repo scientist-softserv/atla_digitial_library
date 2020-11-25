@@ -50,7 +50,6 @@ body.frontend {
   }
 
   /*---------PAGE ELEMENTS----------*/
-
   section.section-white {
     margin-bottom: 0px; /*was 100px*/
     margin-top:0px; /*remove margin on home page that is needed on other pages? */
@@ -411,7 +410,7 @@ h3.home-featured-heading {
 
 /* ------- RSS Feed & Side box --------- */
 #rss {
-	max-height:450px; 
+	max-height:450px;
 	overflow:auto;
 	}
 
@@ -441,22 +440,22 @@ article p:nth-child(3){line-height:1.25em;}
 
 /* Track */
 #rss::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 #rss::-webkit-scrollbar-thumb {
-  background: #ccc; 
+  background: #ccc;
 }
 
 /* Handle on hover */
 #rss::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 .announcements-one {
 	background-color:#08b295;
-	padding:1.5em; 
+	padding:1.5em;
 	margin:2em;
 	border-radius:4px;
 	margin-top:1em;
@@ -465,13 +464,13 @@ article p:nth-child(3){line-height:1.25em;}
 
 .announcements-one h4, .announcements-two h4{
 	color:white;
-	font-family: 'PT Serif', serif; 
+	font-family: 'PT Serif', serif;
 	font-size:1.75em;
 	}
-	
+
 .announcements-two{
 	background-color:#5e4375;
-	padding:1.5em; 
+	padding:1.5em;
 	margin-left:2em;
 	margin-right:2em;
 	margin-bottom:1em;
@@ -479,14 +478,14 @@ article p:nth-child(3){line-height:1.25em;}
 }
 
 .announcements-two p{
-	color:white; 
+	color:white;
 	margin-bottom:0;
 	}
-	
+
 .news-section .glyphicon{
 	color:white;
 	}
-	
+
 .announcements-two a, .announcements-one a, .announcements-one ul {
 	color:white;
 }
@@ -1466,7 +1465,7 @@ p.media-heading {font-size:1.2em;}
   }
 
   /* Move work show page thumb to the right side */
-  .work-type .col-sm-3.mobile-media {
+  .work-type .mobile-media {
     float:right;
     }
 
