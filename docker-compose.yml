@@ -60,6 +60,7 @@ services:
     environment:
       VIRTUAL_HOST: solr.atla.docker
       VIRTUAL_PORT: 8983
+      OOM: script
     volumes:
       - './solr/conf:/opt/config:delegated'
       - solr:/opt/solr/server/solr/mycores

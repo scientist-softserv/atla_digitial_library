@@ -59,4 +59,12 @@ module ApplicationHelper
     end
     logo_info
   end
+
+  def show_sidebar_size
+    has_iiif? ? 'col-sm-5' : 'col-sm-3'
+  end
+
+  def show_main_size
+    has_iiif? ? 'col-sm-7' : 'col-sm-9'
+  end
 end

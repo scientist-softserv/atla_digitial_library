@@ -3,8 +3,19 @@
 <% data_uri = presenter.remote_manifest_url.present? ? presenter.remote_manifest_url.first : main_app.polymorphic_url([main_app, :manifest, presenter], { locale: nil }) %>
 <div class="viewer-wrapper">
   <iframe
-    src="<%= universal_viewer_base_url %>#?manifest=<%= data_uri %>&config=<%= universal_viewer_config_url %>" 
-    allowfullscreen="true" 
-    frameborder="0" 
+    src="<%= universal_viewer_base_url %>#?manifest=<%= data_uri %>&config=<%= universal_viewer_config_url %>"
+    allowfullscreen="true"
+    frameborder="0"
+    id='uv-frame'
   ></iframe>
 </div>
+
+<script>
+  $(document).ready(function(){
+    window.addEventListener("message", (event) => {
+      if (event.origin === "<%= request.protocol %><%= request.host %>") {
+        $("#transcript-inner").html(event.data)
+      }
+    }, false);
+  });
+</script>

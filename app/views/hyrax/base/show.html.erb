@@ -22,7 +22,10 @@
               <%= render 'representative_media', presenter: @presenter, viewer: true %>
             </div>
           <% end %>
-          <div class="col-sm-3 mobile-media">
+          <div class='<%= show_sidebar_size %> mobile-media'>
+            <div id="transcript">
+              <div id="transcript-inner"></div>
+            </div>
             <% if !has_iiif? %>
               <% if @presenter.url.present? %>
                 <% Hyrax.config.display_media_download_link = false %>
@@ -40,22 +43,21 @@
                 <%= render('representative_media', presenter: @presenter, viewer: false)%>
                 <% end %>
             <% end %>
-
-            <div class="addthis_inline_share_toolbox"></div>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e83955ef8379e2e"></script>
-
-            <!-- citations start -->
-            <button
-              class="btn btn-default btn-block"
-              data-toggle="collapse"
-              href="#collapse-citations"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapse-citations"
-            >
-              <%= t('.citation_formats') %>
-            </button>
-
+            <div class='text-center'>
+              <div class="addthis_inline_share_toolbox"></div>
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e83955ef8379e2e"></script>
+              <!-- citations start -->
+              <button
+                class="btn btn-default btn-block"
+                data-toggle="collapse"
+                href="#collapse-citations"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapse-citations"
+              >
+                <%= t('.citation_formats') %>
+              </button>
+            </div>
             <div id="collapse-citations" class="collapse">
               <h4>MLA citation style</h4>
               <span class="mla-citation"><%= export_as_mla_citation(@presenter) %></span>
@@ -76,7 +78,7 @@
             </div>
             <!-- citations end -->
           </div>
-          <div class="col-sm-9">
+          <div class="<%= show_main_size %>">
             <%= render 'metadata', presenter: @presenter %>
           </div>
         </div>
