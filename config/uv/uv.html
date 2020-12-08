@@ -40,9 +40,11 @@
           data: {Method: 'getImageTextUV', ManifestUrl: urlDataProvider.get('manifest'), PageSeq: PageNumber},
           dataType: "html",
           success: function(response){
-            container.html(response);
-            window.parent.postMessage(response, "*")
-            container.scrollTop(0);
+            if(!response.body.match(/No transcribed text is available for this item/)){
+              container.html(response);
+              window.parent.postMessage(response, "*")
+              container.scrollTop(0);
+            }
           },
           complete: function(){
             // clear the data request (to allow further requests)
