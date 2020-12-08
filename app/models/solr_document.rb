@@ -21,6 +21,8 @@ class SolrDocument
   attribute :has_manifest, Solr::Array, solr_name('has_manifest')
   attribute :ancestor_collection_ids, Solr::Array, solr_name('ancestor_collection_ids')
   attribute :ancestor_relationships, Solr::Array, solr_name('ancestor_relationships')
+  attribute :transcript, Solr::Array, solr_name('transcript')
+
   # self.unique_key = 'id'
 
   # Email uses the semantic field mappings below to generate the body of an email.

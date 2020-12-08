@@ -15,5 +15,6 @@ module Schemas
     property :remote_manifest_url, predicate: ::RDF::Vocab::DC.hasFormat
     property :types, predicate: ::RDF::Vocab::DC11.type
     property :has_manifest, predicate: ::RDF::Vocab::IIIF.hasManifests, multiple: false
+    property :transcript_url, predicate: ::RDF::URI("https://dl.atla.com/work#transcript_url"), multiple: false
   end
 end

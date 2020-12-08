@@ -1,6 +1,7 @@
 # Generated via
 #  `rails generate hyrax:work Work`
 class WorkIndexer < Hyrax::WorkIndexer
+  include ActionView::Helpers::SanitizeHelper # For strip_tags support
   # Override the default mete data for the Atla superset
   def rdf_service
     AtlaWorkMetadataIndexer
@@ -18,6 +19,16 @@ class WorkIndexer < Hyrax::WorkIndexer
         solr_doc['thumbnail_path_ss'] = ActionController::Base.helpers.asset_path('audio.png')
       elsif object.thumbnail&.mime_type == 'text/html'
         solr_doc['thumbnail_path_ss'] = ActionController::Base.helpers.asset_path('html.png')
+      end
+      if object.transcript_url
+        begin
+          transcript = open(object.transcript_url).read
+          # Solr max length is 32766
+          transcript = strip_tags(transcript.gsub("&nbsp;", " ").gsub(">", "> ")).strip[0..32760]
+          solr_doc['transcript_tesim'] = [transcript]
+        rescue => e
+          Raven.capture_exception(e)
+        end
       end
     end
   end

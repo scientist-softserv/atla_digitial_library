@@ -9,7 +9,7 @@
     id='uv-frame'
   ></iframe>
 </div>
-
+<% if presenter.solr_document.transcript.present? %>
 <script>
   $(document).ready(function(){
     window.addEventListener("message", (event) => {
@@ -19,3 +19,4 @@
     }, false);
   });
 </script>
+<% end %>

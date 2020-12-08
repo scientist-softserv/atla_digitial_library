@@ -150,6 +150,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("date", :stored_searchable), label: "Date"
     config.add_show_field solr_name("contributing_institution", :stored_searchable), label: "Contributing Institution"
     config.add_show_field solr_name("description", :stored_searchable), label: "Description"
+
     config.add_show_field solr_name("subject", :stored_searchable), label: "Subject"
     config.add_show_field solr_name("place", :stored_searchable), label: "Place"
     config.add_show_field solr_name("contributor", :stored_searchable), label: "Contributor"
@@ -184,7 +185,7 @@ class CatalogController < ApplicationController
       all_names = config.show_fields.values.map(&:field).join(" ")
       title_name = solr_name("title", :stored_searchable)
       field.solr_parameters = {
-        qf: "#{all_names} file_format_tesim all_text_timv",
+        qf: "#{all_names} file_format_tesim transcript_tesim all_text_timv",
         pf: title_name.to_s
       }
     end
@@ -358,6 +359,14 @@ class CatalogController < ApplicationController
 
     config.add_search_field('license') do |field|
       solr_name = solr_name("license", :stored_searchable)
+      field.solr_local_parameters = {
+        qf: solr_name,
+        pf: solr_name
+      }
+    end
+
+    config.add_search_field('transcript') do |field|
+      solr_name = solr_name("transcript", :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
