@@ -40,7 +40,7 @@
           data: {Method: 'getImageTextUV', ManifestUrl: urlDataProvider.get('manifest'), PageSeq: PageNumber},
           dataType: "html",
           success: function(response){
-            if(!response.body.match(/No transcribed text is available for this item/)){
+            if(!response.match(/No transcribed text is available for this item/)){
               container.html(response);
               window.parent.postMessage(response, "*")
               container.scrollTop(0);
