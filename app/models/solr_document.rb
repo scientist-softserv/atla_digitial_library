@@ -21,7 +21,7 @@ class SolrDocument
   attribute :has_manifest, Solr::Array, solr_name('has_manifest')
   attribute :ancestor_collection_ids, Solr::Array, solr_name('ancestor_collection_ids')
   attribute :ancestor_relationships, Solr::Array, solr_name('ancestor_relationships')
-  attribute :transcript, Solr::Array, solr_name('transcript')
+  attribute :transcript, Solr::Array, 'transcript_tesimv'
 
   # self.unique_key = 'id'
 

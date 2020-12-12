@@ -24,8 +24,8 @@ class WorkIndexer < Hyrax::WorkIndexer
         begin
           transcript = open(object.transcript_url).read
           # Solr max length is 32766
-          transcript = strip_tags(transcript.gsub("&nbsp;", " ").gsub(">", "> ")).strip[0..32760]
-          solr_doc['transcript_tesim'] = [transcript]
+          transcript = strip_tags(transcript.gsub("&nbsp;", " ").gsub(">", "> "))
+          solr_doc['transcript_tesimv'] = [transcript]
         rescue => e
           Raven.capture_exception(e)
         end

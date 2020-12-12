@@ -46,5 +46,7 @@ Rails.application.routes.draw do
   get 'participate' => 'hyrax/pages#show', key: 'participate'
   get 'search_tips' => 'hyrax/pages#show', key: 'search_tips'
 
+  # Stop throwing 404s on missing map files. This route should be LAST
+  get '/*path/*file.map', to: proc { [200, {}, ['']] }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

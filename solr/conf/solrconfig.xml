@@ -116,7 +116,7 @@
           format_original_tesim
           format_digital_tesim
           language_tesim
-          transcript_tesim
+          transcript_tesimv
           types_tesim
           alternative_title_tesim
         </str>
@@ -130,7 +130,7 @@
           place_tesim^10
           contributor_tesim^10
           publisher_tesim^10
-          transcript_tesim^10
+          transcript_tesimv^10
           alternative_title_tesim^10
         </str>
 
