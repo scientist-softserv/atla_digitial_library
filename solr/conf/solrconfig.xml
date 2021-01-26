@@ -105,9 +105,9 @@
        -->
         <str name="qf"><!-- list of fields to be searched and their boost factors -->
           id
-          title_tesim^1000
-          creator_tesim^500
-          subject_tesim^750
+          title_tesim^100
+          creator_tesim^50
+          subject_tesim^75
           date_tesim
           description_tesim
           place_tesim
@@ -121,17 +121,17 @@
           alternative_title_tesim
         </str>
         <str name="pf">
-          all_text_timv^10 <!-- after documents are returned from query using "qf" this boosts documents with search terms as a phrase all_text_timv does not appear to actually do anything, but individual fields work-->
-          title_tesim^10
-          creator_tesim^10
-          subject_tesim^10
-          date_tesim^10
-          description_tesim^10
-          place_tesim^10
-          contributor_tesim^10
-          publisher_tesim^10
-          transcript_tesimv^10
-          alternative_title_tesim^10
+          all_text_timv^1000 <!-- after documents are returned from query using "qf" this boosts documents with search terms as a phrase all_text_timv does not appear to actually do anything, but individual fields work-->
+          title_tesim^1000
+          creator_tesim^1000
+          subject_tesim^1000
+          date_tesim^1000
+          description_tesim^1000
+          place_tesim^1000
+          contributor_tesim^1000
+          publisher_tesim^1000
+          transcript_tesimv^1000
+          alternative_title_tesim^1000
         </str>
 
         <!-- I think these are for searches in the specific field rather than a keyword search -->
@@ -150,7 +150,6 @@
        </str>
        <str name="subject_pf">
        </str>
-
        <str name="fl">
          *,
          score
