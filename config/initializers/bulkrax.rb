@@ -41,7 +41,7 @@ Bulkrax.setup do |config|
       "publisher" => { from: ["publisher"], split: /\s*[;]\s*/ },
       "related_url" => { from: ["relation"], excluded: true },
       "rights_statement" => { from: ["rights"], split: /\s*[;]\s*/ },
-      "source" => { from: ["source"], excluded: true },
+      "contributing_institution" => { from: ["source"] },
       "subject" => { from: ["subject"], split: /\s*[;]\s*/, parsed: true},
       "title" => { from: ["title"] },
       "types" => { from: ["type"], split: /\s*[;]\s*/, parsed: true },
