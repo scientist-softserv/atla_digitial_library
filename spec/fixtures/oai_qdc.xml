@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="/records/plugins/OaiPmhRepository/views/public/xsl/oai-pmh-repository.xsl"?>
+<OAI-PMH xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2021-01-26T06:43:41Z</responseDate>
+  <request identifier="oai:philadelphiacongregations.org:301" metadataPrefix="oai_qdc" verb="GetRecord">https://philadelphiacongregations.org/records/oai/request</request>
+  <GetRecord>
+    <record><header><identifier>oai:philadelphiacongregations.org:301</identifier><datestamp>2020-12-18T15:18:57Z</datestamp><setSpec>5</setSpec></header><metadata xmlns:oai_qdc="http://worldcat.org/xmlschemas/qdc-1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+  <oai_qdc:qualifieddc xmlns:oai_qdc="http://worldcat.org/xmlschemas/qdc-1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://worldcat.org/xmlschemas/qdc-1.0/ http://worldcat.org/xmlschemas/qdc/1.0/qdc-1.0.xsd">
+    <dc:title>Strangers buried, 1797-1798</dc:title>
+    <dcterms:alternative/>
+    <dc:creator>First Presbyterian Church (Philadelphia, Pa.)</dc:creator>
+    <dc:subject>First Presbyterian Church (Philadelphia, Pa.)</dc:subject>
+    <dc:subject>Sepulchral monuments</dc:subject>
+    <dc:subject>Burial records</dc:subject>
+    <dc:description>Record of people buried at First Presbyterian Church who were unaffiliated with any parish between 1st of May 1797-1st of May 1798. Each burial listing includes the date, name of individual, and amount paid to First Presbyterian Church for burial.</dc:description>
+    <dcterms:tableOfContents/>
+    <dcterms:abstract/>
+    <dc:publisher/>
+    <dc:contributor/>
+    <dc:date>1797/1798</dc:date>
+    <dcterms:created/>
+    <dcterms:valid/>
+    <dcterms:available/>
+    <dcterms:issued/>
+    <dcterms:modified/>
+    <dcterms:dateAccepted/>
+    <dcterms:dateCopyrighted/>
+    <dcterms:dateSubmitted/>
+    <dc:type>Text</dc:type>
+    <dc:format>tiff</dc:format>
+    <dcterms:extent>1 folder, 2 pages</dcterms:extent>
+    <dcterms:medium>Manuscripts</dcterms:medium>
+    <dcterms:medium>Registers (Lists)</dcterms:medium>
+    <dc:identifier>https://philadelphiacongregations.org/records/items/show/301</dc:identifier>
+    <dcterms:bibliographicCitation/>
+    <dc:source/>
+    <dc:language>eng</dc:language>
+    <dc:relation/>
+    <dcterms:isVersionOf/>
+    <dcterms:hasVersion>https://www.philageohistory.org/rdic-images/common/get-jpeg-small.cfm/PHS.FirstPresbyterianChurchStrangersBuried1797-1798.01.Recto.jpg</dcterms:hasVersion>
+    <dcterms:replaces/>
+    <dcterms:isReplacedBy/>
+    <dcterms:isRequiredBy/>
+    <dcterms:requires/>
+    <dcterms:isPartOf>Presbyterian Historical Society Archives</dcterms:isPartOf>
+    <dcterms:hasPart/>
+    <dcterms:isReferencedBy/>
+    <dcterms:references/>
+    <dcterms:isFormatOf/>
+    <dcterms:hasFormat>https://www.philageohistory.org/rdic-images/iiif.cfm/PHS.FirstPresbyterianChurchStrangersBuried1797-1798/manifest</dcterms:hasFormat>
+    <transcript>https://www.philageohistory.org/rdic-images/cfc/ImageText.cfc?Method=getImageTextUV&amp;ManifestUrl=https%3A%2F%2Fwww.philageohistory.org%2Frdic-images%2Fiiif.cfm%2FPHS.FirstPresbyterianChurchStrangersBuried1797-1798%2Fmanifest</transcript>
+    <dcterms:conformsTo/>
+    <dc:coverage/>
+    <dcterms:spatial>Pennsylvania--Philadelphia</dcterms:spatial>
+    <dcterms:temporal/>
+    <dc:rights>http://creativecommons.org/publicdomain/mark/1.0/</dc:rights>
+    <dcterms:accessRights/>
+    <dcterms:license/>
+    <dcterms:audience/>
+    <dcterms:mediator/>
+    <dcterms:educationLevel/>
+    <dcterms:accrualMethod/>
+    <dcterms:accrualPeriodicity/>
+    <dcterms:accrualPolicy/>
+    <dcterms:instructionalMethod/>
+    <dcterms:provenance/>
+    <dcterms:rightsHolder/>
+  </oai_qdc:qualifieddc>
+</metadata>
+</record>
+  </GetRecord>
+</OAI-PMH>

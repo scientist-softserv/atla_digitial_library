@@ -276,6 +276,11 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
@@ -850,6 +855,7 @@ DEPENDENCIES
   delayed_job_web
   devise (~> 4.5)
   devise-guests (~> 0.6)
+  factory_bot_rails
   fcrepo_wrapper
   flutie
   health-monitor-rails!

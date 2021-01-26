@@ -15,6 +15,7 @@ gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 gem 'devise', '~> 4.5'
 gem 'devise-guests', '~> 0.6'
+gem 'factory_bot_rails', group: %i[development test]
 gem 'fcrepo_wrapper', group: %i[development test]
 gem 'flutie'
 gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
