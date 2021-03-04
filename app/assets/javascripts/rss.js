@@ -1,5 +1,5 @@
 Blacklight.onLoad(function() {
-  const RSS_URL = `https://cors-anywhere.herokuapp.com/https://www.atla.com/topic/atla-digital-library/feed/`;
+  const RSS_URL = `https://atla.com/topic/atla-digital-library/feed/`;
 
   $.ajax(RSS_URL, {
     accepts: {

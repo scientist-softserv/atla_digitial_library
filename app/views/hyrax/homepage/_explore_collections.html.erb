@@ -1,30 +1,30 @@
 <!-- Override file from Hyrax 2.3.3 -->
-<section class="explore-section">
+			<section class="explore-section">
 
-	<div class="featured-grid clearfix">
+				<div class="featured-grid clearfix">
 
-		<% @collections.each do |collection| %>
-		<div class="featured-collection">
-			<div class="featured-thumbnail">
-				<%= link_to collection['url'], class: '', 'aria-hidden' => true do %>
-				<span class="overlay"></span>
-				<img src="<%= collection['image']['path_to_file'] %>" class="img-responsive"/>
+					<% @collections.each do |collection| %>
+					<div class="featured-collection">
+						<div class="featured-thumbnail">
+							<%= link_to collection['url'], class: '', 'aria-hidden' => true do %>
+							<span class="overlay"></span>
+							<img src="<%= collection['image']['path_to_file'] %>" class="img-responsive"/>
+							<% end %>
+						</div>
+						<div class="featured-text">
+							<h4>
+							<%= link_to collection['url'] do %>
+							<%= collection['anchor_text'] %><br>
+							<span><%= collection['anchor_text_two'] %></span>
+							<% end %></h4>
+						</div>
+				  </div>
 				<% end %>
-			</div>
-			<div class="featured-text">
-				<h4>
-				<%= link_to collection['url'] do %>
-				<%= collection['anchor_text'] %><br>
-				<span><%= collection['anchor_text_two'] %></span>
-				<% end %></h4>
-			</div>
-	  </div>
-	<% end %>
-	</div>
-</section>
+				</div>
+			</section>
 
-<ul class="list-inline collection-highlights-list">
-	<li>
-		<%= link_to "View All Collections", main_app.collections_path, class: 'btn btn-default' %>
-	</li>
-</ul>
+			<ul class="list-inline collection-highlights-list">
+				<li>
+					<%= link_to "View All Collections", main_app.collections_path, class: 'btn btn-default' %>
+				</li>
+			</ul>
