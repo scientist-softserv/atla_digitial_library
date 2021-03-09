@@ -13,7 +13,7 @@
 <script>
   $(document).ready(function(){
     window.addEventListener("message", (event) => {
-      if (event.origin === "<%= request.protocol %><%= request.host %><%= request.port == 80 ? '' : ":#{request.port}" %>") {
+      if (event.origin.match("<%= request.protocol %><%= request.host %>")) {
         $("#transcript-inner").html(event.data)
       }
     }, false);
