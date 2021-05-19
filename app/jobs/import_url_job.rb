@@ -1,4 +1,4 @@
-# Override file path selection as path based urls do not work
+# OVERRIDE: Hyrax 2.9 to retry failed downloads
 require 'uri'
 require 'tmpdir'
 require 'browse_everything/retriever'
@@ -8,6 +8,8 @@ require 'browse_everything/retriever'
 # Called by AttachFilesToWorkJob (when files are uploaded to s3)
 # and CreateWithRemoteFilesActor when files are located in some other service.
 class ImportUrlJob < Hyrax::ApplicationJob
+  class ImportUrlException < StandardError; end
+
   queue_as Hyrax.config.ingest_queue_name
   attr_reader :file_set, :operation
 
@@ -21,11 +23,8 @@ class ImportUrlJob < Hyrax::ApplicationJob
   def perform(file_set, operation, headers = {})
     operation.performing!
     user = User.find_by_user_key(file_set.depositor)
-    begin
-      uri = URI(file_set.import_url)
-    rescue
-      return false
-    end
+    uri = URI(file_set.import_url)
+    name = file_set.label
 
     @file_set = file_set
     @operation = operation
@@ -37,7 +36,7 @@ class ImportUrlJob < Hyrax::ApplicationJob
 
     # @todo Use Hydra::Works::AddExternalFileToFileSet instead of manually
     #       copying the file here. This will be gnarly.
-    copy_remote_file(uri, headers) do |f|
+    copy_remote_file(uri, name, headers) do |f|
       # reload the FileSet once the data is copied since this is a long running task
       file_set.reload
 
@@ -55,9 +54,11 @@ class ImportUrlJob < Hyrax::ApplicationJob
     # because when the file in added into Fedora the file name will get persisted in the
     # metadata.
     # @param uri [URI] the uri of the file to download
+    # @param name [String] the human-readable name of the file
+    # @param headers [Hash] the HTTP headers for the GET request (these may contain an authentication token)
     # @yield [IO] the stream to write to
-    def copy_remote_file(uri, headers = {})
-      filename = safe_filename(uri)
+    def copy_remote_file(uri, name, headers = {})
+      filename = File.basename(name)
       dir = Dir.mktmpdir
       Rails.logger.debug("ImportUrlJob: Copying <#{uri}> to #{dir}")
 
@@ -80,6 +81,8 @@ class ImportUrlJob < Hyrax::ApplicationJob
       @file_set.errors.add('Error:', error_message)
       Hyrax.config.callback.run(:after_import_url_failure, @file_set, user)
       @operation.fail!(@file_set.errors.full_messages.join(' '))
+      # Added to retry url downloads
+      raise ImportUrlException, @file_set.errors.full_messages.join(' ')
     end
 
     # Write file to the stream
@@ -87,7 +90,7 @@ class ImportUrlJob < Hyrax::ApplicationJob
     # @param f [IO] the stream to write to
     def write_file(uri, f, headers)
       retriever = BrowseEverything::Retriever.new
-      uri_spec = { 'url' => uri }.merge(headers)
+      uri_spec = ActiveSupport::HashWithIndifferentAccess.new(url: uri, headers: headers)
       retriever.retrieve(uri_spec) do |chunk|
         f.write(chunk)
       end
@@ -103,19 +106,6 @@ class ImportUrlJob < Hyrax::ApplicationJob
         operation.success!
       else
         send_error(uri.path, nil)
-      end
-    end
-
-    # Make sure the file we write has a usable name
-    # @param uri [URI] the uri of the file to download
-    def safe_filename(uri)
-      begin
-        r = Faraday.head(uri.to_s)
-        return CGI::parse(r.headers['content-disposition'])["filename"][0].gsub("\"", '')
-      rescue
-        filename = File.basename(uri.path)
-        filename.gsub!('/', '')
-        filename.present? ? filename : file_set.id
       end
     end
 end
