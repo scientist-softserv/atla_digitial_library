@@ -60,7 +60,7 @@ staging:
     - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
     - ./bin/deploy staging $CI_COMMIT_SHA
   only:
-    - master
+    - main
 
 production:
   image: registry.gitlab.com/notch8/scripts/builder:latest
@@ -80,5 +80,5 @@ production:
     - ./bin/deploy production $CI_COMMIT_SHA
   when: manual
   only:
-    - master
+    - main
 
