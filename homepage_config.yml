@@ -2,38 +2,38 @@
 homepage:
   collections:
     - id: 1
+      anchor_text: Sermons of the Reverend Dr. William Augustus Jones, Jr.
+      anchor_text_two: Brooklyn College Library
+      url: /collections/sermons-of-the-reverend-dr-william-augustus-jones-jr #PATH TO COLLECTION
+      image:
+        path_to_file: /img/brooklyn-college-library.jpg #DESIRED THUMBNAIL NAME
+    - id: 2
+      anchor_text: Alabama Religious Life
+      anchor_text_two: Samford University Library
+      url: /collections/alabama-religious-life #PATH TO COLLECTION
+      image:
+        path_to_file: /img/alabama-religious-life.jpg #DESIRED THUMBNAIL NAME
+    - id: 3
+      anchor_text: Deaconess Photographs
+      anchor_text_two: Saint Paul School of Theology Library
+      url: /collections/deaconess-photographs #PATH TO COLLECTION
+      image:
+        path_to_file: /img/deaconess-photographs.jpg #DESIRED THUMBNAIL NAME
+    - id: 4
       anchor_text: American Religious Sounds Project
       anchor_text_two:
       url: /collections/american-religious-sounds-project #PATH TO COLLECTION
       image:
         path_to_file: /img/arsp-flute.jpg #DESIRED THUMBNAIL NAME
-    - id: 2
+    - id: 5
       anchor_text: Philadelphia Congregations Early Records Project
       anchor_text_two:
       url: /collections/philadelphia-congregations-early-records-project #PATH TO COLLECTION
       image:
         path_to_file: /img/philadelphia.jpg #DESIRED THUMBNAIL NAME
-    - id: 3
-      anchor_text: Archbishop Goold Special Collection
-      anchor_text_two: University of Divinity
-      url: /collections/archbishop-goold-special-collection #PATH TO COLLECTION
-      image:
-        path_to_file: /img/uofdivinityfeasts.jpg #DESIRED THUMBNAIL NAME
-    - id: 4
+    - id: 6
       anchor_text: Cooperative Digital Resources Initiative
       anchor_text_two:
       url: /collections/cooperative-digital-resources-initiative #PATH TO COLLECTION
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
-    - id: 5
-      anchor_text: Sounding Spirit
-      anchor_text_two:
-      url: /collections/sounding-spirit #PATH TO COLLECTION
-      image:
-        path_to_file: /img/soundingspirit.jpg #DESIRED THUMBNAIL NAME
-    - id: 6
-      anchor_text: Center For Women and Religion
-      anchor_text_two: Graduate Theological Union
-      url: /collections/center-for-women-and-religion #PATH TO COLLECTION
-      image:
-        path_to_file: /img/centerforwomen.jpg #DESIRED THUMBNAIL NAME
