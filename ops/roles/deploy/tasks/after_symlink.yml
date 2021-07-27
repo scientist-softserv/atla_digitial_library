@@ -4,6 +4,11 @@
     state: touch
     mode: "u=rw,g=r,o=r"
 
+- name: Setup Cron
+  command: bash -l -c "cd {{ ansistrano_release_path.stdout }} && bundle exec rake whenever --update-crontab"
+  environment:
+    RAILS_ENV: '{{ deploy_target }}'
+
 - name: Setup Recurring Tasks
   command: bash -l -c "cd {{ ansistrano_release_path.stdout }} && bundle exec rake activejob:schedule"
   environment:
