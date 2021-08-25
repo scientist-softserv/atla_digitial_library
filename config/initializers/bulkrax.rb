@@ -76,6 +76,7 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::CsvParser"]["extent"] = { from: ["extent"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::CsvParser"]["format_digital"] = { from: ["format", "format_digital"], parsed: true, split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::CsvParser"]["format_original"] = { from: ["format_original"], split: /\s*[;]\s*/, parsed: true }
+  config.field_mappings["Bulkrax::CsvParser"]["has_manifest"] = { from: ["has_manifest"] }
   config.field_mappings["Bulkrax::CsvParser"]["place"] = { from: ["place"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::CsvParser"]["remote_files"] = { from: ["thumbnail_url", "remote_files"], parsed: true }
   config.field_mappings["Bulkrax::CsvParser"]["remote_manifest_url"] = { from: ["remote_manifest_url"], split: /\s*[;]\s*/ }
