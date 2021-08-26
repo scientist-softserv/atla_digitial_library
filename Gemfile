@@ -21,6 +21,9 @@ gem 'flutie'
 gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
 # , git: 'https://github.com/orangewolf/hyrax.git', branch: 'collection_path_js_fix_2.5.1'
 gem 'hyrax', '~> 2.6'
+gem 'hyrax-iiif_av', git: 'https://github.com/samvera-labs/hyrax-iiif_av.git', branch: 'uv_meet_av'
+# remove if iiif 0.6 is supported or if upgraded to hyrax 3
+gem 'iiif_manifest', git: 'https://github.com/samvera-labs/iiif_manifest.git', ref: '4219eb57ae9fbcd178391f401928040ebe057529'
 gem 'hyrax-spec', group: %i[development test]
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'

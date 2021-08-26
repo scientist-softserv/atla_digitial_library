@@ -1,3 +1,7 @@
+node_modules/*
+tmp/*
+public/assets/*
+public/uploads/*
 .bundle
 .convox
 .env
