@@ -6,7 +6,7 @@ RUN apt-get update -qq && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev nodejs vim libreoffice imagemagick unzip ghostscript nodejs yarn && \
+    apt-get install -y build-essential libpq-dev nodejs vim libreoffice imagemagick unzip ghostscript nodejs yarn ffmpeg && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     yarn config set no-progress && \
     yarn config set silent

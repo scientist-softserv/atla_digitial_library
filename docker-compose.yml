@@ -10,10 +10,15 @@ services:
     tty: true
     volumes:
       - .:/data:delegated
+      - uploads:/data/public/uploads
+      - assets:/data/public/assets
+      - cache:/data/tmp/cache
+      - node:/data/node_modules
+
 
   dj:
     extends: main
-    command: bash -l -c "yarn install && bin/rails jobs:work"
+    command: bash -l -c "bundle && yarn install && bin/rails jobs:work"
     depends_on:
       - solr
       - fcrepo
@@ -22,7 +27,7 @@ services:
 
   web:
     extends: main
-    command: bash -l -c "yarn install && bin/rails server --port 3000 --binding 0.0.0.0"
+    command: bash -l -c "bundle && yarn install && bin/rails server --port 3000 --binding 0.0.0.0"
     ports:
       - "3000:3000"
     environment:
@@ -82,3 +87,7 @@ volumes:
   postgres:
   redis:
   solr:
+  uploads:
+  assets:
+  cache:
+  node:

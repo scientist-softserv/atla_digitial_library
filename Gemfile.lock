@@ -43,6 +43,25 @@ GIT
     health-monitor-rails (8.4.0)
       rails (>= 4.0)
 
+GIT
+  remote: https://github.com/samvera-labs/hyrax-iiif_av.git
+  revision: 7066aef23c6f7dec0c19626a480a79899b5cf1fb
+  branch: uv_meet_av
+  specs:
+    hyrax-iiif_av (0.2.0)
+      blacklight
+      hyrax (~> 2.4)
+      iiif_manifest (~> 0.5)
+      rails (~> 5.1)
+
+GIT
+  remote: https://github.com/samvera-labs/iiif_manifest.git
+  revision: 4219eb57ae9fbcd178391f401928040ebe057529
+  ref: 4219eb57ae9fbcd178391f401928040ebe057529
+  specs:
+    iiif_manifest (0.5.0)
+      activesupport (>= 4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -446,8 +465,6 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
-    iiif_manifest (0.5.0)
-      activesupport (>= 4)
     iso8601 (0.9.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -895,7 +912,9 @@ DEPENDENCIES
   flutie
   health-monitor-rails!
   hyrax (~> 2.6)
+  hyrax-iiif_av!
   hyrax-spec
+  iiif_manifest!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

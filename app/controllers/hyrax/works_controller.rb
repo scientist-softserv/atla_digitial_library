@@ -6,6 +6,8 @@ module Hyrax
     # Adds Hyrax behaviors to the controller.
     include Hyrax::WorksControllerBehavior
     include Hyrax::BreadcrumbsForWorks
+    # Adds behaviors for hyrax-iiif_av plugin.
+    include Hyrax::IiifAv::ControllerBehavior
     self.curation_concern_type = ::Work
 
     # Use this line if you want to use a custom presenter
