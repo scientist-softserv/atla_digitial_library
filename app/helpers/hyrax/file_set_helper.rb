@@ -1,4 +1,7 @@
-# override Hyrax 2.6 add html to list of display partials
+# override Hyrax 2.6
+# add html to list of display partials
+# remove 'pdf' and add 'image'
+
 module Hyrax::FileSetHelper
   def parent_path(parent)
     if parent.is_a?(Collection)
@@ -25,7 +28,7 @@ module Hyrax::FileSetHelper
       elsif file_set.audio?
         'audio'
       elsif file_set.pdf?
-        'pdf'
+        'image' # remove 'pdf' and add 'image'
       elsif file_set.html?
         'html'
       elsif file_set.office_document?
