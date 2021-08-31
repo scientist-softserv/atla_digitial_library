@@ -24,6 +24,11 @@ module Hyrax
     #   :universal_viewer
     # end
 
+    # ranges are not working at the moment, need to update to iiif-manifest 0.6+ first
+    def ranges
+      []
+    end
+
     def iiif_viewer?
       has_manifest.present? &&
         has_manifest.first == "1" &&
