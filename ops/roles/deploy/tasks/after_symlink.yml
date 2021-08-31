@@ -5,7 +5,7 @@
     mode: "u=rw,g=r,o=r"
 
 - name: Setup Cron
-  command: bash -l -c "cd {{ ansistrano_release_path.stdout }} && bundle exec rake whenever --update-crontab"
+  command: bash -l -c "cd {{ ansistrano_release_path.stdout }} && bundle exec whenever --update-crontab"
   environment:
     RAILS_ENV: '{{ deploy_target }}'
 
