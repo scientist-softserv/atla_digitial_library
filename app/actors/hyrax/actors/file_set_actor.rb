@@ -1,4 +1,6 @@
-# Hyrax Override - Assume file name from ImportUrlJob is correct
+# OVERRIDE: Hyrax 2.6.0:
+# Assume file name from ImportUrlJob is correct
+# add is_derived to the create_metadata method
 
 module Hyrax
   module Actors
@@ -61,6 +63,7 @@ module Hyrax
         file_set.date_uploaded = now
         file_set.date_modified = now
         file_set.creator = [user.user_key]
+        file_set.is_derived = file_set_params[:is_derived]
         if assign_visibility?(file_set_params)
           env = Actors::Environment.new(file_set, ability, file_set_params)
           CurationConcern.file_set_create_actor.create(env)
@@ -76,8 +79,8 @@ module Hyrax
           work.reload unless work.new_record?
           file_set.visibility = work.visibility unless assign_visibility?(file_set_params)
           work.ordered_members << file_set
-          work.representative = file_set if work.representative_id.blank?
-          work.thumbnail = file_set if work.thumbnail_id.blank?
+          work.representative = file_set
+          work.thumbnail = file_set
           # Save the work so the association between the work and the file_set is persisted (head_id)
           # NOTE: the work may not be valid, in which case this save doesn't do anything.
           work.save

@@ -21,14 +21,14 @@ module Hyrax::FileSetHelper
 
   def media_display_partial(file_set)
     'hyrax/file_sets/media_display/' +
-      if file_set.image?
-        'image'
-      elsif file_set.video?
-        'video'
-      elsif file_set.audio?
-        'audio'
-      elsif file_set.pdf?
-        'image' # remove 'pdf' and add 'image'
+    if file_set.pdf?
+      'image' # order dependant?, remove 'pdf' and add 'image'
+    elsif file_set.video?
+      'video'
+    elsif file_set.audio?
+      'audio'
+    elsif file_set.image?
+      'image'
       elsif file_set.html?
         'html'
       elsif file_set.office_document?

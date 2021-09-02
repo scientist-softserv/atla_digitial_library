@@ -1,3 +1,4 @@
+# OVERRIDE: Hyrax 2.6.0 - to add derived: true
 class CreateJpgService
   def self.create_jpgs(files)
     results = files.clone
@@ -15,7 +16,7 @@ class CreateJpgService
       raise "Failed to parse PDF #{pdf_path}: #{cmd_result}" unless $CHILD_STATUS.success?
       Dir.glob("#{directory}/*.jpg") do |jpg|
         jpg_file = File.open(Rails.root.join(jpg))
-        results << Hyrax::UploadedFile.create(file: jpg_file, user_id: file.user_id)
+        results << Hyrax::UploadedFile.create(file: jpg_file, user_id: file.user_id, derived: true)
       end
     end
     results
