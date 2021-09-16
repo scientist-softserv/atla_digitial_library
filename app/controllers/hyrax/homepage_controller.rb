@@ -21,6 +21,7 @@ class Hyrax::HomepageController < ApplicationController
     @marketing_text = ContentBlock.for(:marketing)
     @featured_work_list = FeaturedWorkList.new
     @announcement_text = ContentBlock.for(:announcement)
+    @exhibits = Psych.load(homepage_config_data)['homepage']['exhibits']
     recent
   end
 
@@ -35,8 +36,11 @@ class Hyrax::HomepageController < ApplicationController
     # rescue Blacklight::Exceptions::ECONNREFUSED, Blacklight::Exceptions::InvalidRequest
     #   []
 
-      yaml = ERB.new(File.read(Rails.root.join('homepage_config.yml').to_s)).result(binding)
-      @collections = Psych.load(yaml)['homepage']['collections']
+      @collections = Psych.load(homepage_config_data)['homepage']['collections']
+    end
+
+    def homepage_config_data
+      ERB.new(File.read(Rails.root.join('homepage_config.yml').to_s)).result(binding)
     end
 
     def recent

@@ -2,23 +2,23 @@
 homepage:
   collections:
     - id: 1
+      anchor_text: Black Empowerment Collection
+      anchor_text_two: Meadville Lombard Theological School
+      url: /collections/black-empowerment-collection #PATH TO COLLECTION
+      image:
+        path_to_file: /img/black-empowerment.jpg #DESIRED THUMBNAIL NAME
+    - id: 2
+      anchor_text: PALNI Last Copies
+      anchor_text_two: Saint Paul School of Theology Library
+      url: /collections/palni-last-copies #PATH TO COLLECTION
+      image:
+        path_to_file: /img/palni.jpg #DESIRED THUMBNAIL NAME
+    - id: 3
       anchor_text: Sermons of the Reverend Dr. William Augustus Jones, Jr.
       anchor_text_two: Brooklyn College Library
       url: /collections/sermons-of-the-reverend-dr-william-augustus-jones-jr #PATH TO COLLECTION
       image:
         path_to_file: /img/brooklyn-college-library.jpg #DESIRED THUMBNAIL NAME
-    - id: 2
-      anchor_text: Alabama Religious Life
-      anchor_text_two: Samford University Library
-      url: /collections/alabama-religious-life #PATH TO COLLECTION
-      image:
-        path_to_file: /img/alabama-religious-life.jpg #DESIRED THUMBNAIL NAME
-    - id: 3
-      anchor_text: Deaconess Photographs
-      anchor_text_two: Saint Paul School of Theology Library
-      url: /collections/deaconess-photographs #PATH TO COLLECTION
-      image:
-        path_to_file: /img/deaconess-photographs.jpg #DESIRED THUMBNAIL NAME
     - id: 4
       anchor_text: American Religious Sounds Project
       anchor_text_two:
@@ -37,3 +37,23 @@ homepage:
       url: /collections/cooperative-digital-resources-initiative #PATH TO COLLECTION
       image:
         path_to_file: /img/CDRI_collection_thumb.jpg #DESIRED THUMBNAIL NAME
+
+  exhibits:
+    - id: 1
+      anchor_text: The Life and Ministry of Charles Wesley
+      anchor_text_two:
+      url: /exhibitions/exhibits/show/the-life-and-ministry #PATH TO exhibit
+      image:
+        path_to_file: /img/life-and-ministry.jpg #DESIRED THUMBNAIL NAME
+    - id: 2
+      anchor_text: Wish You Were Here
+      anchor_text_two:
+      url: /exhibitions/exhibits/show/wish-you-were-here #PATH TO exhibit
+      image:
+        path_to_file: /img/wish-you-were-here.jpg #DESIRED THUMBNAIL NAME
+    - id: 3
+      anchor_text: 'Look Back in Anger: Anger, Religion, and Morality through the Ages'
+      anchor_text_two:
+      url: /exhibitions/exhibits/show/look-back-in-anger #PATH TO exhibit
+      image:
+        path_to_file: /img/look-back-in-anger.jpg #DESIRED THUMBNAIL NAME
