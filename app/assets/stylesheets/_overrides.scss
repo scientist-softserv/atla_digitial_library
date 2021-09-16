@@ -268,7 +268,7 @@ h3.home-featured-heading {
 	}
 
 /* using box-shadow on hover to highlight instead of overlay */
-	.featured-collection:hover, .featured_works:hover {
+	.featured-collection:hover, .featured_works:hover, .featured-exhibit:hover {
 		box-shadow:0 4px 12px 0 rgba(0,0,0,.4);
 		}
 
@@ -279,17 +279,17 @@ h3.home-featured-heading {
   }
 
   /*** Flexbox GRID for featured and collecitons spacing***/
-  .featured-collection .featured-text h4 {
+  .featured-collection .featured-text h4, .featured-exhibit .featured-text h4 {
     font-size:1.15em;
     margin:0;
   }
 
-  .featured-collection .featured-text h4 span{
+  .featured-collection .featured-text h4 span, .featured-exhibit .featured-text h4 span{
     font-size:.76em;
     font-weight:normal;
   }
 
-  .featured-collection {
+  .featured-collection, .featured-exhibit {
     margin: 0 1% 1.5em 1%;
     display: flex;
     flex-direction: column;
@@ -358,13 +358,13 @@ h3.home-featured-heading {
     padding-top:1em;
     padding-bottom:0px;
   }
-  .list-inline.collection-highlights-list {
+  .list-inline.collection-highlights-list, .list-inline.exhibit-highlights-list {
     margin-left:0;
     text-align:center;
     padding-bottom:2em;
     padding-top:1.5em;
   }
-  .list-inline.collection-highlights-list li a {
+  .list-inline.collection-highlights-list li a, .list-inline.exhibit-highlights-list li a {
     font-size:1.5em;
   }
 
@@ -380,11 +380,11 @@ h3.home-featured-heading {
     font-size:1em;
   }
 
-  section#featured-works{
-    padding-top:4em;
+  section#featured-works, section#featured-collections, section#featured-news {
+    padding-top:1.5em;
   }
 
-  section#featured-collections {
+  section#featured-exhibits{
     padding-top:0;
     margin-top:-2em; /*adusting space above Feautured Collections heading*/
   }
@@ -403,7 +403,7 @@ h3.home-featured-heading {
     font-family: 'PT Serif', serif;
   }
 
-  ul.collection-highlights-list {
+  ul.collection-highlights-list, ul.exhibit-highlights-list {
     clear:both;
   }
 
@@ -549,20 +549,20 @@ article p:nth-child(3){line-height:1.25em;}
   }
 
   /* homepage btn */
-  .collection-highlights-list .btn-default {
+  .collection-highlights-list .btn-default, .exhibit-highlights-list .btn-default{
     color:white;
     background-color:#E05C3F;
     border-color:#E05C3F;
     text-transform:uppercase;
   }
 
-  .collection-highlights-list .btn-default:hover {
+  .collection-highlights-list .btn-default:hover,.exhibit-highlights-list .btn-default:hover{
     background-color:white;
     border-color:#E05C3F;
     color:#E05C3F;
   }
 
-  .collection-highlights-list .btn-default:active {
+  .collection-highlights-list .btn-default:active,.exhibit-highlights-list .btn-default:active {
     background-color:white;
   }
 
@@ -1414,7 +1414,7 @@ p.media-heading {font-size:1.2em;}
       flex-wrap:wrap;
     }
 
-  .featured-collection {
+  .featured-collection, .featured-exhibit {
     flex-basis:48%;
   }
 
@@ -1490,7 +1490,7 @@ p.media-heading {font-size:1.2em;}
 
   /* Flexbox grid of featured collections home page */
 
-  .featured-collection {
+  .featured-collection, .featured-exhibit {
     flex-basis:31.3%;
   }
 
@@ -1795,7 +1795,7 @@ p.media-heading {font-size:1.2em;}
     padding-left:.5em;
   }
 
-  .list-inline.collection-highlights-list li a {
+  .list-inline.collection-highlights-list li a,.list-inline.exhibit-highlights-list li a {
     font-size: 1.25em;
   }
 

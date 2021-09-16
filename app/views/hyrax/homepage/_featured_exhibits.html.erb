@@ -1,0 +1,30 @@
+<!-- Override file from Hyrax 2.3.3 -->
+			<section class="explore-section">
+
+				<div class="featured-grid clearfix">
+
+					<% @exhibits.each do |exhibit| %>
+					<div class="featured-exhibit">
+						<div class="featured-thumbnail">
+							<%= link_to exhibit['url'], class: '', 'aria-hidden' => true do %>
+							<span class="overlay"></span>
+							<img src="<%= exhibit['image']['path_to_file'] %>" class="img-responsive"/>
+							<% end %>
+						</div>
+						<div class="featured-text">
+							<h4>
+							<%= link_to exhibit['url'] do %>
+							<%= exhibit['anchor_text'] %><br>
+							<span><%= exhibit['anchor_text_two'] %></span>
+							<% end %></h4>
+						</div>
+				  </div>
+				<% end %>
+				</div>
+			</section>
+
+			<ul class="list-inline exhibit-highlights-list">
+				<li>
+   			    		<a class="btn btn-default" href="/exhibitions">View All Exhibits</a>
+   			  	</li>
+			</ul>
