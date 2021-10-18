@@ -1,6 +1,4 @@
-# OVERRIDE: Hyrax 2.6.0:
-# Assume file name from ImportUrlJob is correct
-# add is_derived to the create_metadata method
+# OVERRIDE Hyrax 2.9.1 create metadata to add derived to metadata
 
 module Hyrax
   module Actors
@@ -54,7 +52,8 @@ module Hyrax
       # Adds the appropriate metadata, visibility and relationships to file_set
       # @note In past versions of Hyrax this method did not perform a save because it is mainly used in conjunction with
       #   create_content, which also performs a save.  However, due to the relationship between Hydra::PCDM objects,
-      #   we have to save both the parent work and the file_set in order to record the "metadata" relationship between them.
+      #   we have to save both the parent work and the file_set in order to record the "metadata"
+      #   relationship between them.
       # @param [Hash] file_set_params specifying the visibility, lease and/or embargo of the file set.
       #   Without visibility, embargo_release_date or lease_expiration_date, visibility will be copied from the parent.
       def create_metadata(file_set_params = {})
@@ -63,7 +62,9 @@ module Hyrax
         file_set.date_uploaded = now
         file_set.date_modified = now
         file_set.creator = [user.user_key]
+        # OVERRIDE: Hyrax 2.9.1 set fileset to is_derived
         file_set.is_derived = file_set_params[:is_derived]
+
         if assign_visibility?(file_set_params)
           env = Actors::Environment.new(file_set, ability, file_set_params)
           CurationConcern.file_set_create_actor.create(env)
@@ -134,15 +135,12 @@ module Hyrax
         # @note This is only useful for labeling the file_set, because of the recourse to import_url
         def label_for(file)
           if file.is_a?(Hyrax::UploadedFile) # filename not present for uncached remote file!
-            file.uploader.filename.present? ? file.uploader.filename : File.basename(Addressable::URI.parse(file.file_url).path)
+            file.uploader.filename.presence || File.basename(Addressable::URI.unencode(file.file_url))
           elsif file.respond_to?(:original_name) # e.g. Hydra::Derivatives::IoDecorator
             file.original_name
-
-            # BEGIN OVERRIDE - comment out code to use file name instead
-#          elsif file_set.import_url.present?
-#            # This path is taken when file is a Tempfile (e.g. from ImportUrlJob)
-          #            File.basename(Addressable::URI.parse(file_set.import_url).path)
-            # END OVERRIDE
+          elsif file_set.import_url.present?
+            # This path is taken when file is a Tempfile (e.g. from ImportUrlJob)
+            File.basename(Addressable::URI.unencode(file.file_url))
           else
             File.basename(file)
           end
@@ -152,7 +150,8 @@ module Hyrax
           !((file_set_params || {}).keys.map(&:to_s) & %w[visibility embargo_release_date lease_expiration_date]).empty?
         end
 
-        # replaces file_set.apply_depositor_metadata(user)from hydra-access-controls so depositor doesn't automatically get edit access
+        # replaces file_set.apply_depositor_metadata(user)from hydra-access-controls so
+        # depositor doesn't automatically get edit access
         def depositor_id(depositor)
           depositor.respond_to?(:user_key) ? depositor.user_key : depositor
         end
@@ -160,10 +159,11 @@ module Hyrax
         # Must clear the fileset from the thumbnail_id, representative_id and rendering_ids fields on the work
         #   and force it to be re-solrized.
         # Although ActiveFedora clears the children nodes it leaves those fields in Solr populated.
-        # rubocop:disable Metrics/CyclomaticComplexity
         def unlink_from_work
           work = file_set.parent
+          # rubocop:disable Metrics/LineLength
           return unless work && (work.thumbnail_id == file_set.id || work.representative_id == file_set.id || work.rendering_ids.include?(file_set.id))
+          # rubocop:enable Metrics/LineLength
           work.thumbnail = nil if work.thumbnail_id == file_set.id
           work.representative = nil if work.representative_id == file_set.id
           work.rendering_ids -= [file_set.id]
