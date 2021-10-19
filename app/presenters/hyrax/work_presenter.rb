@@ -50,6 +50,14 @@ module Hyrax
       file_set_presenters.any? { |presenter| (presenter.image? || presenter.video? || presenter.audio?) && current_ability.can?(:read, presenter.id) }
     end
 
+       # OVERRIDE FILE from Hyrax v2.9.0
+    # @return [Array] list to display with Kaminari pagination
+    # paginating on members so we can filter out derived status
+    Hyrax::WorkShowPresenter.class_eval do
+      def list_of_item_ids_to_display
+        paginated_item_list(page_array: members)
+      end
+    end
 
     def ancestor_collections
       Collection.where(id: self.ancestor_collection_ids)
@@ -59,6 +67,23 @@ module Hyrax
     def url
       solr_document.identifier.select {|i| i.match('http')}
     end
+
+    private
+
+      # OVERRIDE FILE from Hyrax v2.9.0
+      # Gets the member id's for pagination, filter out derived files
+      Hyrax::WorkShowPresenter.class_eval do
+        def members
+          members = member_presenters_for(authorized_item_ids)
+          filtered_members =
+            if current_ability.admin?
+              members
+            else
+              members.reject { |m| m.solr_document['is_derived_ssi'] == 'true' }
+            end
+          filtered_members.collect(&:id)
+        end
+      end
 
   end
 end
