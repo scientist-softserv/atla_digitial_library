@@ -1,23 +1,33 @@
-version: '2.2'
+version: '3.8'
+
+x-app: &app
+  build:
+    context: .
+    target: hyrax-base
+  # command: sh -l -c "bundle && bundle exec puma -v -b tcp://0.0.0.0:3000"
+  image: registry.gitlab.com/notch8/britishlibrary:${TAG:-latest}
+  env_file:
+    - .env.development
+    - .env
+  # NOTE: all common env variables moved to .env
+  volumes:
+    - uploads:/app/samvera/hyrax-webapp/public/uploads
+    - assets:/app/samvera/hyrax-webapp/public/assets
+    - cache:/app/samvera/hyrax-webapp/tmp/cache
+    - node:/data/node_modules
+    - .:/app/samvera/hyrax-webapp
+
 services:
-  main:
-    build: .
-    image: registry.gitlab.com/notch8/atla_digital_library:latest
-    env_file:
-      - .env.development
-      - .env
-    stdin_open: true
-    tty: true
-    volumes:
-      - .:/data:delegated
-      - uploads:/data/public/uploads
-      - assets:/data/public/assets
-      - cache:/data/tmp/cache
-      - node:/data/node_modules
-
-
-  dj:
-    extends: main
+  worker:
+    # command: sh -l -c "bundle && bundle exec sidekiq"
+    <<: *app
+    build:
+      context: .
+      target: hyrax-worker
+      cache_from:
+        - registry.gitlab.com/notch8/atla_digital_library:${TAG:-latest}
+        - registry.gitlab.com/notch8/atla_digital_library/worker:${TAG:-latest}
+    image: registry.gitlab.com/notch8/atla_digital_library/worker:${TAG:-latest}
     command: bash -l -c "bundle && yarn install && bin/rails jobs:work"
     depends_on:
       - solr
@@ -26,15 +36,15 @@ services:
       - redis
 
   web:
-    extends: main
-    command: bash -l -c "bundle && yarn install && bin/rails server --port 3000 --binding 0.0.0.0"
+    <<: *app
+    command: sh -l -c "bundle && yarn install && bundle exec puma -v -b tcp://0.0.0.0:3000"
     ports:
       - "3000:3000"
     environment:
       VIRTUAL_HOST: atla.docker
       VIRTUAL_PORT: 3000
     depends_on:
-      - dj
+      - worker
       - redis
       - solr
       - fcrepo
