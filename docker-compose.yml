@@ -5,7 +5,7 @@ x-app: &app
     context: .
     target: hyrax-base
   # command: sh -l -c "bundle && bundle exec puma -v -b tcp://0.0.0.0:3000"
-  image: registry.gitlab.com/notch8/britishlibrary:${TAG:-latest}
+  image: registry.gitlab.com/notch8/atla_digital_library:${TAG:-latest}
   env_file:
     - .env.development
     - .env
