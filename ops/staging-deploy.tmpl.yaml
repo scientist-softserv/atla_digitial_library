@@ -127,7 +127,7 @@ podSecurityContext:
   fsGroupChangePolicy: "OnRootMismatch"
 
 imagePullSecrets:
-  - name: gitlab-registry
+  - name: gitlab
 
 embargoRelease:
   enabled: false

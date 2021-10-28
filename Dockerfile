@@ -6,7 +6,21 @@ RUN apt-get update -qq && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev nodejs vim libreoffice imagemagick unzip ghostscript nodejs yarn ffmpeg exiftool libvips-dev && \
+    apt-get install -y \
+      build-essential \
+      exiftool \
+      ffmpeg \
+      ghostscript \
+      imagemagick \
+      libpq-dev \
+      libreoffice \
+      libvips-dev \
+      netcat \
+      nodejs \
+      unzip \
+      vim \
+      yarn \
+      && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     yarn config set no-progress && \
     yarn config set silent
