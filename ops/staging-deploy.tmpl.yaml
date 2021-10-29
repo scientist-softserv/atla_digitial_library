@@ -12,6 +12,14 @@ derivativesVolume:
 uploadsVolume:
   storageClass: aws-efs
 
+securityContext: &secValues
+  # capabilities:
+  #   drop:
+  #   - ALL
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  runAsUser: 0
+
 extraVolumeMounts: &volMounts
   - name: uploads
     mountPath: /app/samvera/hyrax-webapp/tmp/imports
@@ -38,7 +46,7 @@ ingress:
 
 extraEnvVars: &envVars
   - name: CONFDIR
-    value: "/app/samvera/hyrax-webapp/solr/config"
+    value: "/app/samvera/hyrax-webapp/solr/conf"
   - name: DATABASE_ADAPTER
     value: postgresql
   - name: DATABASE_HOST
@@ -113,6 +121,7 @@ extraEnvVars: &envVars
 
 worker:
   replicaCount: 1
+  securityContext: *secValues
   extraVolumeMounts: *volMounts
   extraEnvVars: *envVars
   podSecurityContext:

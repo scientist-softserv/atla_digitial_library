@@ -1,20 +1,21 @@
 development:
   user: fedoraAdmin
   password: fedoraAdmin
-  url: http://fcrepo:8080/fcrepo/rest
-  base_path: /dev
+  url: http://<%= ENV['FCREPO_HOST'] || 'fcrepo' %>:<%= ENV['FCREPO_PORT'] || 8080 %><%= ENV['FCREPO_PATH'] || '/fedora/rest' %>
+  base_path: <%= ENV['FCREPO_BASE_PATH'] || '/dev' %>
 test:
   user: fedoraAdmin
   password: fedoraAdmin
-  url: http://fcrepo:8080/fcrepo/rest
-  base_path: /test
+  url: http://<%= ENV['FCREPO_HOST'] || 'fcrepo' %>:<%= ENV['FCREPO_PORT'] || 8080 %><%= ENV['FCREPO_PATH'] || '/fedora/rest' %>
+  base_path: <%= ENV['FCREPO_BASE_PATH'] || '/test' %>
 staging:
   user: fedoraAdmin
   password: fedoraAdmin
-  url: http://fcrepo:8080/fedora/rest
-  base_path: /prod
+  url: http://<%= ENV['FCREPO_HOST'] || 'fcrepo' %>:<%= ENV['FCREPO_PORT'] || 8080 %><%= ENV['FCREPO_PATH'] || '/fedora/rest' %>
+  base_path: <%= ENV['FCREPO_BASE_PATH'] || '/staging' %>
+
 production:
   user: fedoraAdmin
   password: fedoraAdmin
-  url: http://fcrepo:8080/fedora/rest
-  base_path: /prod
+  url: http://<%= ENV['FCREPO_HOST'] || 'fcrepo' %>:<%= ENV['FCREPO_PORT'] || 8080 %><%= ENV['FCREPO_PATH'] || '/fedora/rest' %>
+  base_path: <%= ENV['FCREPO_BASE_PATH'] || '/prod' %>

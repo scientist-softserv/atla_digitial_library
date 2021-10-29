@@ -28,7 +28,7 @@ class CreateJpgService
     page_count.first.to_i
   end
 
-  def check_for_errors(cmd_results)
+  def check_for_errors(cmd_results, pdf_path=nil)
     errors = cmd_results.reject do |set|
       set[2].success?
     end
@@ -63,7 +63,7 @@ class CreateJpgService
           cmd_results << [cmd, output, status]
         end
 
-        check_for_errors(cmd_results)
+        check_for_errors(cmd_results, pdf_path)
       end
       self.results += create_uploaded_files(file, directory)
     end
