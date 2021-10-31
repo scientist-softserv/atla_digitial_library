@@ -43,6 +43,10 @@ ingress:
     - host: atla-staging.notch8.cloud
       paths:
         - path: /
+    - host: dl-staging.atla.com
+      paths:
+        - path: /
+
 
 extraEnvVars: &envVars
   - name: CONFDIR
@@ -60,7 +64,7 @@ extraEnvVars: &envVars
   - name: FCREPO_BASE_PATH
     value: /staging
   - name: FCREPO_HOST
-    value: fcrepo.default:8080
+    value: fcrepo.default
   - name: FCREPO_PATH
     value: /rest
   - name: FEDORA_URL

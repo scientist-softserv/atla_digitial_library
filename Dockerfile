@@ -20,6 +20,7 @@ RUN apt-get update -qq && \
       unzip \
       vim \
       yarn \
+      zip \
       && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     yarn config set no-progress && \

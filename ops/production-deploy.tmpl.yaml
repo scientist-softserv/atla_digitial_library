@@ -12,6 +12,14 @@ derivativesVolume:
 uploadsVolume:
   storageClass: aws-efs
 
+securityContext: &secValues
+  # capabilities:
+  #   drop:
+  #   - ALL
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  runAsUser: 0
+
 extraVolumeMounts: &volMounts
   - name: uploads
     mountPath: /app/samvera/hyrax-webapp/tmp/imports
@@ -32,19 +40,22 @@ extraVolumeMounts: &volMounts
 ingress:
   enabled: true
   hosts:
-    - host: dl-staging.notch8.cloud
+    - host: atla.notch8.cloud
+      paths:
+        - path: /
+    - host: dl.atla.com
       paths:
         - path: /
 
 extraEnvVars: &envVars
   - name: CONFDIR
-    value: "/app/samvera/hyrax-webapp/solr/config"
+    value: "/app/samvera/hyrax-webapp/solr/conf"
   - name: DATABASE_ADAPTER
     value: postgresql
   - name: DATABASE_HOST
     value: hyrax20181216.cn4nhxyoxlnu.us-west-2.rds.amazonaws.com
   - name: DATABASE_NAME
-    value: hydra_staging
+    value: hydra
   - name: DATABASE_PASSWORD
     value: $DATABASE_PASSWORD
   - name: DATABASE_USER
@@ -52,7 +63,7 @@ extraEnvVars: &envVars
   - name: FCREPO_BASE_PATH
     value: /prod
   - name: FCREPO_HOST
-    value: fcrepo.default:8080
+    value: fcrepo.default
   - name: FCREPO_PATH
     value: /rest
   - name: FEDORA_URL
@@ -78,19 +89,21 @@ extraEnvVars: &envVars
   - name: HYRAX_FITS_PATH
     value: /app/fits/fits.sh
   - name: SMTP_ADDRESS
-    value: smtp.mailtrap.io
+    value: email-smtp.us-east-1.amazonaws.com
   - name: SMTP_DOMAIN
-    value: smtp.mailtrap.io
+    value: atla.com
   - name: SMTP_ENABLED
     value: "true"
   - name: SMTP_PASSWORD
     value: $SMTP_PASSWORD
   - name: SMTP_PORT
-    value: "2525"
+    value: "465"
   - name: SMTP_TYPE
-    value: cram_md5
+    value: login
   - name: SMTP_USER_NAME
-    value: 857d9918238540
+    value: AKIAJ2P27AKGIPDXBOUA
+  - name: SMTP_STARTTLS
+    value: "true"
   - name: SOLR_ADMIN_USER
     value: admin
   - name: SOLR_COLLECTION_NAME
@@ -104,15 +117,20 @@ extraEnvVars: &envVars
   - name: SOLR_URL
     value: $SOLR_URL
   - name: RAILS_CACHE_STORE_URL
-    value: redis://:staging@staging-redis-master:6379/hyrax
+    value: redis://:production@production-redis-master:6379/hyrax
   - name: REDIS_HOST
-    value: staging-redis-master
+    value: production-redis-master
   - name: REDIS_URL
-    value: redis://:staging@staging-redis-master:6379/hyrax
+    value: redis://:production@production-redis-master:6379/hyrax
+  - name: SECRET_KEY_BASE
+    value: $SECRET_KEY_BASE
+  - name: SENTRY_DSN
+    value: $SENTRY_DSN
 
 
 worker:
   replicaCount: 1
+  securityContext: *secValues
   extraVolumeMounts: *volMounts
   extraEnvVars: *envVars
   podSecurityContext:
@@ -127,7 +145,7 @@ podSecurityContext:
   fsGroupChangePolicy: "OnRootMismatch"
 
 imagePullSecrets:
-  - name: gitlab-registry
+  - name: gitlab
 
 embargoRelease:
   enabled: false
@@ -143,7 +161,7 @@ solr:
 redis:
   cluster:
     enabled: false
-  password: staging
+  password: production
 
 externalFcrepoHost: fcrepo.default.svc.cluster.local
 externalPostgresql:

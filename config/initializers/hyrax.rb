@@ -88,7 +88,7 @@ Hyrax.config do |config|
   # config.redis_namespace = "hyrax"
 
   # Path to the file characterization tool
-  config.fits_path = "/usr/local/bin/fits.sh"
+  config.fits_path = "/app/fits/fits.sh"
 
   # Path to the file derivatives creation tool
   config.libreoffice_path = "soffice"
@@ -183,10 +183,14 @@ Hyrax.config do |config|
   # These must be lambdas that return a Pathname. Can be configured separately
   #  config.upload_path = ->() { Rails.root + 'tmp' + 'uploads' }
   #  config.cache_path = ->() { Rails.root + 'tmp' + 'uploads' + 'cache' }
+  config.upload_path = ->() { ENV.fetch('HYRAX_UPLOAD_PATH') { Rails.root.join('tmp', 'uploads') } }
+  config.cache_path  = ->() { ENV.fetch('HYRAX_CACHE_PATH') { Rails.root.join('tmp', 'cache') } }
+  config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
 
   # Location on local file system where derivatives will be stored
   # If you use a multi-server architecture, this MUST be a shared volume
   # config.derivatives_path = Rails.root.join('tmp', 'derivatives')
+  config.derivatives_path = ENV['HYRAX_DERIVATIVES_PATH'].present? ? ENV['HYRAX_DERIVATIVES_PATH'] :  File.join(Rails.root, 'tmp', 'derivatives')
 
   # Should schema.org microdata be displayed?
   # config.display_microdata = true
