@@ -32,8 +32,20 @@ class ImportUrlJob < Hyrax::ApplicationJob
     @file_set = file_set
     @operation = operation
 
+
     unless BrowseEverything::Retriever.can_retrieve?(uri, headers)
-      send_error('Expired URL')
+      # Figure out why file didn't download
+      begin
+        retriever = BrowseEverything::Retriever.new
+        uri_spec = ActiveSupport::HashWithIndifferentAccess.new(url: uri, headers: headers)
+        retriever.retrieve(uri_spec)
+      rescue BrowseEverything::DownloadError => e
+        if e.response.response_code == 404
+          send_error(e.message, false)
+        else
+          send_error(e.message)
+        end
+      end
       return false
     end
 
@@ -77,13 +89,13 @@ class ImportUrlJob < Hyrax::ApplicationJob
   # Send message to user on download failure
   # @param filename [String] the filename of the file to download
   # @param error_message [String] the download error message
-  def send_error(error_message)
+  def send_error(error_message, should_retry = true)
     user = User.find_by_user_key(file_set.depositor)
     @file_set.errors.add('Error:', error_message)
     Hyrax.config.callback.run(:after_import_url_failure, @file_set, user)
     @operation.fail!(@file_set.errors.full_messages.join(' '))
     # Added to retry url downloads
-    raise ImportUrlException, @file_set.errors.full_messages.join(' ')
+    raise ImportUrlException, @file_set.errors.full_messages.join(' ') if should_retry
   end
 
   # Write file to the stream
