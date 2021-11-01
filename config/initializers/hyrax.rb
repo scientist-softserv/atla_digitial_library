@@ -183,8 +183,8 @@ Hyrax.config do |config|
   # These must be lambdas that return a Pathname. Can be configured separately
   #  config.upload_path = ->() { Rails.root + 'tmp' + 'uploads' }
   #  config.cache_path = ->() { Rails.root + 'tmp' + 'uploads' + 'cache' }
-  config.upload_path = ->() { ENV.fetch('HYRAX_UPLOAD_PATH') { Rails.root.join('tmp', 'uploads') } }
-  config.cache_path  = ->() { ENV.fetch('HYRAX_CACHE_PATH') { Rails.root.join('tmp', 'cache') } }
+  config.upload_path = ->() { "#{ENV.fetch('HYRAX_UPLOAD_PATH', Rails.root.join('tmp', 'uploads'))}/" }
+  config.cache_path  = ->() { "#{ENV.fetch('HYRAX_CACHE_PATH', Rails.root.join('tmp', 'cache'))}/" }
   config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
 
   # Location on local file system where derivatives will be stored

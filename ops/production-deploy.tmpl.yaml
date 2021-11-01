@@ -168,6 +168,7 @@ externalPostgresql:
   host: hyrax20181216.cn4nhxyoxlnu.us-west-2.rds.amazonaws.com
   username: hydra_user
   password: $DATABASE_PASSWORD
+  database: hydra
 
 externalSolrHost: solr.default.svc.cluster.local
 externalSolrUser: admin
