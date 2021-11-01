@@ -1,12 +1,3 @@
-image: registry.gitlab.com/notch8/scripts/builder:latest
-#image: registry.gitlab.com/citygro/docker-and-compose
-
-services:
-  - docker:dind
-
-variables:
-  DOCKER_DRIVER: overlay
-
 stages:
   - build
   - test
@@ -29,6 +20,8 @@ build:
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
     - docker-compose push web
     - docker-compose push worker
+  tags:
+    - local
 
 test:
   script:
@@ -44,6 +37,9 @@ test:
   #   - postgres
   #   - solr:5.5
   #   - botimer/fcrepo:4.5.1
+  tags:
+    - docker
+
 
 staging:
   image: registry.gitlab.com/notch8/scripts/builder:latest
@@ -63,6 +59,9 @@ staging:
     - ./bin/deploy staging $CI_COMMIT_SHA
   only:
     - main
+  tags:
+    - docker
+
 
 production:
   image: registry.gitlab.com/notch8/scripts/builder:latest
@@ -83,12 +82,11 @@ production:
   when: manual
   only:
     - main
-
+  tags:
+    - docker
 
 staging-new:
   type: deploy
-  extends:
-    - .deploy
   environment:
     name: staging
     url: http://dl-staging.atla.com
@@ -111,12 +109,10 @@ staging-new:
     - envsubst < ops/staging-deploy.tmpl.yaml > ops/staging-deploy.yaml
     - ./bin/helm_deploy staging staging
   tags:
-    - kubernetes
+    - local
 
 staging.stop:
   type: deploy
-  extends:
-    - .deploy
   environment:
     name: staging
     url: http://dl-staging.atla.com
@@ -127,15 +123,10 @@ staging.stop:
     - export KUBECONFIG=$KUBECONFIG_ATLA
     - ./bin/helm_delete staging staging
   tags:
-    - kubernetes
-
-.deploy:
-  image: dtzar/helm-kubectl:3.5.3
+    - local
 
 production-new:
   type: deploy
-  extends:
-    - .deploy
   environment:
     name: production
     url: http://dl.atla.com
@@ -158,12 +149,10 @@ production-new:
     - envsubst < ops/production-deploy.tmpl.yaml > ops/production-deploy.yaml
     - ./bin/helm_deploy production production
   tags:
-    - kubernetes
+    - local
 
 production.stop:
   type: deploy
-  extends:
-    - .deploy
   environment:
     name: production
     url: http://dl.atla.com
@@ -174,7 +163,4 @@ production.stop:
     - export KUBECONFIG=$KUBECONFIG_ATLA
     - ./bin/helm_delete production production
   tags:
-    - kubernetes
-
-.deploy:
-  image: dtzar/helm-kubectl:3.5.3
+    - local
