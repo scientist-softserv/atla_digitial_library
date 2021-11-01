@@ -48,7 +48,7 @@ ADD Gemfile.lock /app/samvera/hyrax-webapp/Gemfile.lock
 ENV BUNDLE_JOBS=4
 RUN cd /app/samvera/hyrax-webapp && ls -l && bundle install
 ADD . /app/samvera/hyrax-webapp
-RUN cd /app/samvera/hyrax-webapp && yarn install
+RUN npm install shx --global && cd /app/samvera/hyrax-webapp && yarn install
 RUN cd /app/samvera/hyrax-webapp && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile
 EXPOSE 3000
 
