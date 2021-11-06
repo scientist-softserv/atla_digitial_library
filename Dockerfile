@@ -49,7 +49,7 @@ ENV BUNDLE_JOBS=4
 RUN cd /app/samvera/hyrax-webapp && ls -l && bundle install
 ADD . /app/samvera/hyrax-webapp
 RUN npm install shx --global && cd /app/samvera/hyrax-webapp && yarn install
-RUN cd /app/samvera/hyrax-webapp && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile
+RUN cd /app/samvera/hyrax-webapp && NODE_ENV=production DB_ADAPTER=nulldb bundle exec rake assets:clobber assets:precompile && ln -s /app/samvera/branding /app/samvera/hyrax-webapp/public/branding
 EXPOSE 3000
 
 ENTRYPOINT ["hyrax-entrypoint.sh"]

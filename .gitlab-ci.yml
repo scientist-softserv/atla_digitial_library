@@ -128,3 +128,4 @@ production-new:
     - ./bin/helm_deploy production production
   tags:
     - local
+  when: manual
