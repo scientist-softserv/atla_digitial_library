@@ -117,6 +117,8 @@ extraEnvVars: &envVars
     value: $SOLR_URL_STAGING
   - name: RAILS_CACHE_STORE_URL
     value: redis://:staging@staging-redis-master:6379/hyrax
+  - name: REDIS_PASSWORD
+    value: staging
   - name: REDIS_HOST
     value: staging-redis-master
   - name: REDIS_URL
