@@ -118,6 +118,8 @@ extraEnvVars: &envVars
     value: $SOLR_URL_PROD
   - name: RAILS_CACHE_STORE_URL
     value: redis://:production@production-redis-master:6379/hyrax
+  - name: REDIS_PASSWORD
+    value: production
   - name: REDIS_HOST
     value: production-redis-master
   - name: REDIS_URL
