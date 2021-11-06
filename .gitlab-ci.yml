@@ -42,50 +42,6 @@ test:
 
 
 staging:
-  image: registry.gitlab.com/notch8/scripts/builder:latest
-  stage: deploy
-  script:
-    - export ANSIBLE_HOST_KEY_CHECKING=False
-    # Set ssh key
-    - echo $SSH_DEPLOY_KEY | base64 -d > $CI_PROJECT_DIR/ops/keys/deploy
-    - chmod 600 $CI_PROJECT_DIR/ops/keys/deploy
-    # Set ssh key
-    - echo $SSH_KEY | base64 -d > $CI_PROJECT_DIR/ops/keys/hydra.pem
-    - chmod 600 $CI_PROJECT_DIR/ops/keys/hydra.pem
-    # set group vars
-    - echo $GROUP_VARS_ALL | base64 -d > $CI_PROJECT_DIR/ops/group_vars/all
-    # set ec2.ini
-    - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
-    - ./bin/deploy staging $CI_COMMIT_SHA
-  only:
-    - main
-  tags:
-    - docker
-
-
-production:
-  image: registry.gitlab.com/notch8/scripts/builder:latest
-  stage: deploy
-  script:
-    - export ANSIBLE_HOST_KEY_CHECKING=False
-    # Set ssh key
-    - echo $SSH_DEPLOY_KEY | base64 -d > $CI_PROJECT_DIR/ops/keys/deploy
-    - chmod 600 $CI_PROJECT_DIR/ops/keys/deploy
-    # Set ssh key
-    - echo $SSH_KEY | base64 -d > $CI_PROJECT_DIR/ops/keys/hydra.pem
-    - chmod 600 $CI_PROJECT_DIR/ops/keys/hydra.pem
-    # set group vars
-    - echo $GROUP_VARS_ALL | base64 -d > $CI_PROJECT_DIR/ops/group_vars/all
-    # set ec2.ini
-    - echo $EC2_INI | base64 -d > $CI_PROJECT_DIR/ops/ec2.ini
-    - ./bin/deploy production $CI_COMMIT_SHA
-  when: manual
-  only:
-    - main
-  tags:
-    - docker
-
-staging-new:
   stage: deploy
   only:
     refs:
@@ -107,7 +63,7 @@ staging-new:
   tags:
     - local
 
-production-new:
+production:
   stage: deploy
   only:
     refs:
