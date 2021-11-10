@@ -44,6 +44,16 @@ GIT
       rails (>= 4.0)
 
 GIT
+  remote: https://github.com/notch8/ruby-oai.git
+  revision: d1d88f7e20b3a9cc38a381f613ca19aff585402f
+  branch: quote-marks
+  specs:
+    oai (1.1.0)
+      builder (>= 3.1.0)
+      faraday
+      faraday_middleware
+
+GIT
   remote: https://github.com/samvera-labs/hyrax-iiif_av.git
   revision: 7066aef23c6f7dec0c19626a480a79899b5cf1fb
   branch: uv_meet_av
@@ -591,10 +601,6 @@ GEM
       racc (~> 1.4)
     nokogumbo (1.5.0)
       nokogiri
-    oai (1.1.0)
-      builder (>= 3.1.0)
-      faraday
-      faraday_middleware
     oauth (0.5.4)
     oauth2 (1.4.2)
       faraday (>= 0.8, < 2.0)
@@ -918,6 +924,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  oai!
   pg
   progress_bar
   pry-rails
