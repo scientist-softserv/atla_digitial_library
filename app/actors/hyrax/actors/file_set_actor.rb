@@ -138,9 +138,11 @@ module Hyrax
             file.uploader.filename.presence || File.basename(Addressable::URI.unencode(file.file_url))
           elsif file.respond_to?(:original_name) # e.g. Hydra::Derivatives::IoDecorator
             file.original_name
-          elsif file_set.import_url.present?
-            # This path is taken when file is a Tempfile (e.g. from ImportUrlJob)
-            File.basename(Addressable::URI.unencode(file.file_url))
+          # BEGIN OVERRIDE - comment out code to use file name instead
+          # elsif file_set.import_url.present?
+          #  # This path is taken when file is a Tempfile (e.g. from ImportUrlJob)
+          #            File.basename(Addressable::URI.parse(file_set.import_url).path)
+          # END OVERRIDE
           else
             File.basename(file)
           end

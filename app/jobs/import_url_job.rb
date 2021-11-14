@@ -82,8 +82,8 @@ class ImportUrlJob < Hyrax::ApplicationJob
       rescue StandardError => e
         send_error(e.message)
       end
+      Rails.logger.debug("ImportUrlJob: Closing #{File.join(dir, filename)}")
     end
-    Rails.logger.debug("ImportUrlJob: Closing #{File.join(dir, filename)}")
   end
 
   # Send message to user on download failure
