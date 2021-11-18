@@ -5,7 +5,7 @@ gem 'rails', '5.1.6'
 
 gem 'activejob-scheduler', git: 'https://github.com/notch8/activejob-scheduler.git'
 gem 'blacklight_range_limit'
-gem 'bulkrax', git: 'https://github.com/notch8/bulkrax.git'
+gem 'bulkrax', git: 'https://github.com/notch8/bulkrax.git', branch: 'atla_tmp'
 gem 'activerecord-nulldb-adapter'
 gem 'byebug', group: %i[development test]
 gem 'capybara', '~> 2.13', group: %i[development test]
