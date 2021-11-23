@@ -6,11 +6,6 @@ module Hyrax
     include Hyrax::IiifAv::DisplaysIiifAv
     Hyrax::MemberPresenterFactory.file_presenter_class = Hyrax::IiifAv::IiifFileSetPresenter
 
-    # Optional override to select iiif viewer to render
-    # default :avalon for audio and video, :universal_viewer for images
-    # def iiif_viewer
-    #   :avalon
-    # end
     delegate :title, :date_created, :description,
       :creator, :contributor, :subject, :date, :publisher, :language, :embargo_release_date,
       :lease_expiration_date, :license, :source, :rights_statement, :rights_holder, :thumbnail_id, :representative_id,
