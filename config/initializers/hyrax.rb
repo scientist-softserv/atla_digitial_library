@@ -185,7 +185,7 @@ Hyrax.config do |config|
   #  config.cache_path = ->() { Rails.root + 'tmp' + 'uploads' + 'cache' }
   config.upload_path = ->() { "#{ENV.fetch('HYRAX_UPLOAD_PATH', Rails.root.join('tmp', 'uploads'))}/" }
   config.cache_path  = ->() { "#{ENV.fetch('HYRAX_CACHE_PATH', Rails.root.join('tmp', 'cache'))}/" }
-  config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
+  config.branding_path = Rails.root.join('public', 'branding') # NOTE this is specifically not looking at the ENV because the hyrax chart value wont work until Hyrax 3
 
   # Location on local file system where derivatives will be stored
   # If you use a multi-server architecture, this MUST be a shared volume
