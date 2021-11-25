@@ -1,3 +1,4 @@
+# IIFManifest OVERRIDE (@sara-geezy) - Remove the file name display on the Universal Viewer
 module IIIFManifest
   module V3
     class ManifestBuilder
