@@ -15,6 +15,10 @@ class CreateJpgService
     [File.basename(file["file"], ".pdf"), file.file.path]
   end
 
+  def file_name_and_path_for_remote(file)
+    [File.basename(file, ".pdf"), file.path]
+  end
+
   def directory_for(file_name)
     directory = Rails.root.join("tmp", "jpgs", file_name)
     FileUtils.mkdir_p directory unless File.exist?(directory)
@@ -78,4 +82,30 @@ class CreateJpgService
     end
     [output, $CHILD_STATUS]
   end
+
+  def create_jpgs_from_remote_pdf
+    name = URI(files).path.split('/').last
+    return if name.nil?
+    return unless name.split('.').last == 'pdf'
+    File.open(name, 'wb') do |file|
+      file << open(files).read
+      next unless valid_file?(file)
+      file_name, pdf_path = file_name_and_path_for_remote(file)
+      directory = directory_for(file_name)
+      unless files_present?(directory)
+        page_count = page_count_for(file.path)
+        cmd_results = []
+        page_count.times do |i|
+          cmd = "vips copy #{pdf_path}[dpi=400,page=#{i},n=1] #{directory.join(file_name)}-#{i.to_s.rjust(6, '0')}.jpg"
+          output, status = run(cmd)
+          cmd_results << [cmd, output, status]
+        end
+        check_for_errors(cmd_results)
+      end
+      self.results += create_uploaded_files(file, directory, @user.id)
+    end
+    File.delete(name) if File.exist? name
+    self.results
+  end
+
 end
