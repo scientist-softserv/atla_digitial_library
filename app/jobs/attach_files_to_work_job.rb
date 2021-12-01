@@ -1,6 +1,5 @@
-# OVERRIDE: Hyrax 2.6.0 - add the is_derived field to the job
+# OVERRIDE: Hyrax 2.9.1 to add derived to uploaded files
 
-# Converts UploadedFiles into FileSets and attaches them to works.
 class AttachFilesToWorkJob < Hyrax::ApplicationJob
   queue_as Hyrax.config.ingest_queue_name
 
@@ -28,7 +27,6 @@ class AttachFilesToWorkJob < Hyrax::ApplicationJob
     end
   end
 
-
   private
 
     # The attributes used for visibility - sent as initial params to created FileSets.
@@ -42,7 +40,8 @@ class AttachFilesToWorkJob < Hyrax::ApplicationJob
     def validate_files!(uploaded_files)
       uploaded_files.each do |uploaded_file|
         next if uploaded_file.is_a? Hyrax::UploadedFile
-        raise ArgumentError, "Hyrax::UploadedFile required, but #{uploaded_file.class} received: #{uploaded_file.inspect}"
+        raise ArgumentError,
+              "Hyrax::UploadedFile required, but #{uploaded_file.class} received: #{uploaded_file.inspect}"
       end
     end
 
@@ -50,6 +49,8 @@ class AttachFilesToWorkJob < Hyrax::ApplicationJob
     # A work with files attached by a proxy user will set the depositor as the intended user
     # that the proxy was depositing on behalf of. See tickets #2764, #2902.
     def proxy_or_depositor(work)
+      # rubocop:disable Rails/Presence
       work.on_behalf_of.blank? ? work.depositor : work.on_behalf_of
+      # rubocop:enable Rails/Presence
     end
 end

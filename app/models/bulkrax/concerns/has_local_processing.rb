@@ -17,4 +17,25 @@ module Bulkrax::Concerns::HasLocalProcessing
     Bulkrax::AtlaMatcher
   end
 
+  def fetch_remote_file_link(url)
+    uri = URI.parse(url)
+    page = Nokogiri::HTML(URI.open(uri))
+    nodeset = page.css('a[href]')
+    hrefs = nodeset.map { |element| element["href"] }
+    video_link = hrefs.grep(/.mp4/)&.first
+    audio_link = hrefs.grep(/.mp3/)&.first
+    pdf_link = hrefs.grep(/.pdf/)&.first
+    remote_file_link = if video_link.present?
+                         url + video_link
+                       elsif audio_link.present?
+                         url + audio_link
+                       elsif pdf_link.present?
+                          url + pdf_link
+                       else
+                         ""
+                       end
+    remote_file_link
+  end
+
+
 end

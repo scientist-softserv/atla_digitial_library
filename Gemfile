@@ -17,6 +17,7 @@ gem 'devise', '~> 4.5'
 gem 'devise-guests', '~> 0.6'
 gem 'factory_bot_rails', group: %i[development test]
 gem 'fcrepo_wrapper', group: %i[development test]
+gem 'final_redirect_url'
 gem 'flutie'
 gem 'oai', git: 'https://github.com/notch8/ruby-oai.git', branch: 'quote-marks'
 gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
