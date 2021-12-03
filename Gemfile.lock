@@ -343,6 +343,7 @@ GEM
     fcrepo_wrapper (0.9.0)
       ruby-progressbar
     ffi (1.9.25)
+    final_redirect_url (0.1.0)
     flipflop (2.6.0)
       activesupport (>= 4.0)
     flot-rails (0.0.7)
@@ -916,6 +917,7 @@ DEPENDENCIES
   devise-guests (~> 0.6)
   factory_bot_rails
   fcrepo_wrapper
+  final_redirect_url
   flutie
   health-monitor-rails!
   hyrax (~> 2.6)
