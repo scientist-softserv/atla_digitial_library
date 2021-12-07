@@ -16,5 +16,13 @@ module Bulkrax
         string.slice(0,1).capitalize + string.slice(1..-1)
       end
     end
+
+    # override - clean up special characters
+    def parse_remote_files(src)
+      src.gsub!("\"", '%22')
+      src.gsub!(" " '%20')
+      src.gsub!("'", '%27')
+      { url: src.strip } if src.present?
+    end
   end
 end
