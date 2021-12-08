@@ -127,7 +127,8 @@ extraEnvVars: &envVars
     value: $SECRET_KEY_BASE_STAGING
   - name: SENTRY_DSN
     value: $SENTRY_DSN
-
+  - name: DISABLE_SPRING
+    value: 1
 
 worker:
   replicaCount: 1
