@@ -20,7 +20,7 @@ module Bulkrax
     # override - clean up special characters
     def parse_remote_files(src)
       src.gsub!("\"", '%22')
-      src.gsub!(" " '%20')
+      src.gsub!(" ", '%20')
       src.gsub!("'", '%27')
       { url: src.strip } if src.present?
     end
