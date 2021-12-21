@@ -40,8 +40,8 @@ signed in %>
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
 
-<!-- CookiePro Cookies Consent Notice start for atla.com -->
-<% if ENV['TAG'] != 'dev' %>
+<% if !Rails.env.development? %>
+    <!-- CookiePro Cookies Consent Notice start for atla.com -->
     <script type="text/javascript" src="https://cookie-cdn.cookiepro.com/consent/b2250761-da6d-42e6-a4f3-93a8d7e4d949/OtAutoBlock.js" ></script>
     <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="b2250761-da6d-42e6-a4f3-93a8d7e4d949" ></script>
     <script type="text/javascript">function OptanonWrapper() {}</script>

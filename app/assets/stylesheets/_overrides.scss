@@ -1446,11 +1446,9 @@ p.media-heading {font-size:1.2em;}
 }
 
 /*floating shield button bottom left */
-#ot-sdk-btn-floating .ot-floating-button__front,#ot-sdk-btn-floating .ot-floating-button__back {
-  background-color:#B2C249 !important;
+body.frontend #ot-sdk-btn-floating .ot-floating-button__front, body.frontend #ot-sdk-btn-floating .ot-floating-button__back{
+  background-color: #eeeeee !important;
 }
-
-
 
 /* -------- MEDIA QUERIES -------- */
 
