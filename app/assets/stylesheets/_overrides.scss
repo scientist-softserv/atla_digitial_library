@@ -1400,6 +1400,55 @@ p.media-heading {font-size:1.2em;}
 
 /*nav menu*/
 
+// Cookie Pro Styles
+/* The main popup that shows when you go to the page*/
+#onetrust-consent-sdk #onetrust-accept-btn-handler, #onetrust-banner-sdk #onetrust-reject-all-handler {
+  background-color:#E65A3A !important;
+  border-color:#E65A3A !important;
+}
+
+#onetrust-consent-sdk #onetrust-pc-btn-handler, #onetrust-consent-sdk #onetrust-pc-btn-handler.cookie-setting-link {
+  color:#E65A3A !important;
+  border-color:#E65A3A !important;
+}
+
+/*cookies settings pop up*/
+#onetrust-consent-sdk #onetrust-pc-sdk .privacy-notice-link, #onetrust-consent-sdk #onetrust-pc-sdk .category-vendors-list-handler, #onetrust-consent-sdk #onetrust-pc-sdk .category-vendors-list-handler + a, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-consent-sdk #onetrust-pc-sdk .ot-ven-link, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-name a, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-acc-hdr .ot-host-expand, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info a {
+  color:#E65A3A !important;
+}
+
+#onetrust-consent-sdk #onetrust-pc-sdk button:not(#clear-filters-handler):not(.ot-close-icon):not(#filter-btn-handler):not(.ot-remove-objection-handler):not(.ot-obj-leg-btn-handler):not([aria-expanded]):not(.ot-link-btn), #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-active-leg-btn {
+  background-color:#E65A3A !important;
+  border-color:#E65A3A !important;
+}
+
+/* active item in menu - bar on left side - COLOR OPTIONS*/
+#onetrust-consent-sdk #onetrust-pc-sdk .ot-active-menu{
+  border-color:#E65A3A !important;
+}
+/* cookies toggle bar cirlce - COLOR OPTIONS*/
+#onetrust-pc-sdk .ot-tgl input:checked + .ot-switch .ot-switch-nob::before{
+  background-color:#E65A3A !important;
+}
+
+#onetrust-pc-sdk .ot-always-active {
+  color:#E65A3A !important;
+}
+
+/*these two style that remove before and after bits may need different selectors or use of important to get them to work - i couldnt add them to the dev tool to test for some reason*/
+/*remove triangle that shows in front of "your privacy", comes from Atla site CSS */
+#onetrust-pc-sdk ::before {
+  border:0 !important;
+}
+/* remove link out icon on teh "powered by" text at bottom of settings box, comes from Atla site CSS  */
+.ot-pc-footer-logo a[target="_blank"]:not(.addthis_button_linkedin)::after {
+  content:none !important;
+}
+
+/*floating shield button bottom left */
+#ot-sdk-btn-floating .ot-floating-button__front,#ot-sdk-btn-floating .ot-floating-button__back {
+  background-color:#B2C249 !important;
+}
 
 
 
