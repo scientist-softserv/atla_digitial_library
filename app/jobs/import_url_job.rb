@@ -127,11 +127,11 @@ class ImportUrlJob < Hyrax::ApplicationJob
   def safe_filename(uri)
     begin
       r = Faraday.head(uri.to_s)
-      return CGI::parse(r.headers['content-disposition'])["filename"][0].gsub("\"", '')
+      return CGI::parse(r.headers['content-disposition'])["filename"][0].gsub("\"", '')[0..250]
     rescue
       filename = File.basename(uri.path)
       filename.gsub!('/', '')
-      filename.present? ? filename : file_set.id
+      filename.present? ? filename[0..250] : file_set.id[0..250]
     end
   end
 end
