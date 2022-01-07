@@ -10,7 +10,6 @@ module Bulkrax::Concerns::HasLocalProcessing
         !self.parsed_metadata['contributing_institution'].detect { |i| i.present? }
       self.parsed_metadata['contributing_institution'] = [contributing_institution].compact
     end
-    add_remote_files
   end
 
   def self.matcher_class
