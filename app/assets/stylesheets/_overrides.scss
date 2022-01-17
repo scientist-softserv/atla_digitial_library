@@ -1348,8 +1348,10 @@ img.representative-media {padding-top:15px;}
   margin-bottom: .25em;
   }
 
-
-
+  .py-1 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
 
 /*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
 p.media-heading {font-size:1.2em;}
