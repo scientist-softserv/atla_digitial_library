@@ -1,9 +1,10 @@
-/* Home Page and General Styles */
-
 html {
   font-size:1em;
 }
 
+/*  All styles are inside the body.frontend style so that they only apply to the frontend
+   Also note there are both mobile first and desktop first media queries
+*/
 body.frontend {
   margin-bottom:0px;
   font-family: 'Muli', sans-serif;
@@ -12,10 +13,7 @@ body.frontend {
   background-color: #fff;
   font-weight: 400;
 
-  /*make images and video responsive*/
-  img.representative-media {max-width:100%;}
-
-/* Make images responsive */
+  /* make images and video responsive */
   img {
     max-width: 100%;
     height: auto;
@@ -23,8 +21,8 @@ body.frontend {
   }
 
   video {
-    width: 100%    !important;
-    height: auto   !important;
+    width: 100%!important;
+    height: auto!important;
   }
 
   /*----------FONTS------------*/
@@ -38,7 +36,6 @@ body.frontend {
 
   h1 {font-size: 1.6em;}
 
-  /*adjust the bold color to slightly less black*/
   b, strong {
     color:#4e4e4e;
   }
@@ -51,8 +48,8 @@ body.frontend {
 
   /*---------PAGE ELEMENTS----------*/
   section.section-white {
-    margin-bottom: 0px; /*was 100px*/
-    margin-top:0px; /*remove margin on home page that is needed on other pages? */
+    margin-bottom: 0px;
+    margin-top:0px;
     background-color: #fff;
   }
 
@@ -62,33 +59,22 @@ body.frontend {
   }
 
 
-/*adjusting space above featured collections heading to make smaller*/
+/*  featured collections heading */
 	.content-wrapper-homepage {
 		padding-top:5em !important;
 	}
 
-  /*added class "one-pages" to 1-column layout to fix those pages going up behind fixed header*/
+  /* 1-column layout */
   #content-wrapper.one-pages {
     padding-top:115px;
     padding-bottom:2em;
   }
 
-  /*fixing the admin page content-wrapper not sure if its affecting other pages*/
-  #content-wrapper.container-fluid {
-    padding-top:125px;
-  }
-
-  /*fixing the admin page content-wrapper not sure if its affecting other pages*/
-  #content-wrapper[role=main] {
-    padding-top:110px;
-  }
-
-
 
   /*---------- HOME PAGE------------*/
 
   .hero-fullscreen-bg {
-    height: auto;/* was 60%*/
+    height: auto;
     padding-top:150px;
     padding-bottom:2.75em;
     color:#313133;
@@ -108,7 +94,6 @@ body.frontend {
   	font-weight:500;
   }
 
-  /* text under home page search bar */
   .browse-all-home {
     font-size:1.25em;
     font-weight:600;
@@ -192,12 +177,9 @@ body.frontend {
     margin-right:auto;
   }
 
-	img.browse-by-img:hover {
-		box-shadow:0 4px 12px 0 rgba(0, 0, 0, 0.4);
-		}
-
-
-
+  img.browse-by-img:hover {
+	box-shadow:0 4px 12px 0 rgba(0, 0, 0, 0.4);
+	}
 
   .slideInLeft {
     animation-name: slideInLeft;
@@ -245,8 +227,6 @@ h3.home-featured-heading {
 	font-size: 2.25em;
 }
 
-
-
   /* Custom Thumbnails Home Featured Collections & Works */
 
   .thumbnail-custom a, .thumbnail-custom a:focus {
@@ -258,27 +238,26 @@ h3.home-featured-heading {
     text-decoration: underline;
   }
 
-
   .featured-thumbnail {
     position:relative;
   }
 
-	.featured-thumbnail img {
-		border-radius: 4px 4px 0 0;
+  .featured-thumbnail img {
+	border-radius: 4px 4px 0 0;
 	}
 
-/* using box-shadow on hover to highlight instead of overlay */
+/* box-shadow on hover to highlight */
 	.featured-collection:hover, .featured_works:hover, .featured-exhibit:hover {
 		box-shadow:0 4px 12px 0 rgba(0,0,0,.4);
 		}
 
-  /* making thumbnail titles entire area clickable as link for featured collections & setting font size in em */
+  /* making featured thumbnail titles entire area clickable */
   .featured-text a {
     padding:12px 12px 14px 12px;
     display:block;
   }
 
-  /*** Flexbox GRID for featured and collecitons spacing***/
+  /*** Flexbox GRID for exhibits and collecitons on home ***/
   .featured-collection .featured-text h4, .featured-exhibit .featured-text h4 {
     font-size:1.15em;
     margin:0;
@@ -295,12 +274,11 @@ h3.home-featured-heading {
     flex-direction: column;
     flex: 1 0 auto;
     border: 1px solid rgba(0,0,0,.125);
-    /*box-shadow:0 1px 3px 0 rgba(0,0,0,.25);*/
     border-radius:4px;
   }
 
 
-/* FEATURED ITEMS (works) section */
+/* FEATURED WORKS section */
 
   .featured-section {padding-bottom:0;}
 
@@ -315,21 +293,19 @@ h3.home-featured-heading {
     margin:1%;
   }
 
-	.featured-item  {
-		display:flex;
-		border:0;
-		padding:0;
-
+  .featured-item  {
+	display:flex;
+	border:0;
+	padding:0;
 	}
 
-
   .featured-item img {
-    padding-right: 0;
-    margin-right: 1em;
-    max-width: 100%;
-    height: auto;
-    width:auto;
-    max-width:89px;
+     padding-right: 0;
+     margin-right: 1em;
+     max-width: 100%;
+     height: auto;
+     width:auto;
+     max-width:89px;
   }
 
   .featured-item .featured-item-title h3 {
@@ -345,10 +321,6 @@ h3.home-featured-heading {
     margin-bottom:0;
     }
 
-
-
-
-
   /* -------- Featured Collections and Featured Other stuff -------*/
   .home-content {
     padding-top:0;
@@ -358,26 +330,16 @@ h3.home-featured-heading {
     padding-top:1em;
     padding-bottom:0px;
   }
+
   .list-inline.collection-highlights-list, .list-inline.exhibit-highlights-list {
     margin-left:0;
     text-align:center;
     padding-bottom:2em;
     padding-top:1.5em;
   }
+
   .list-inline.collection-highlights-list li a, .list-inline.exhibit-highlights-list li a {
     font-size:1.5em;
-  }
-
-  .home-content .nav {
-    margin-bottom:1em;
-  }
-
-  .nav-tabs {
-    border-bottom:0px;
-  }
-
-  .nav-tabs > li > a {
-    font-size:1em;
   }
 
   section#featured-works, section#featured-collections, section#featured-news {
@@ -387,20 +349,6 @@ h3.home-featured-heading {
   section#featured-exhibits{
     padding-top:0;
     margin-top:-2em; /*adusting space above Feautured Collections heading*/
-  }
-
-
-  /*this is sizing the explore (now featured collections) and featured text tabs on home */
-  .home-content .nav-tabs > li > a {
-    font-size: 2.25em;
-  }
-
-  .home-content .nav-tabs > li.active > a, .home-content .nav-tabs >li.active > a:hover, .home-content .nav-tabs > li > a:hover, .nav-tabs > li > a, .home-content .nav-tabs > li.active > a:focus {
-    background-color:transparent;
-    border: 1px solid transparent;
-    color:#000000;
-    font-weight:700;
-    font-family: 'PT Serif', serif;
   }
 
   ul.collection-highlights-list, ul.exhibit-highlights-list {
@@ -579,10 +527,8 @@ article p:nth-child(3){line-height:1.25em;}
   }
 
   /* work show page view full item button make text wrap*/
-
   .work-type .col-sm-3.mobile-media a.btn{
     white-space:normal;
-    /*text-align:left;*/
     }
 
   /*----------PAGER prev next and numbers----------*/
@@ -798,13 +744,10 @@ article p:nth-child(3){line-height:1.25em;}
     display:none;
   }
 
-
   /* metadata facets on search results, more ... panel */
   .modal-content {margin-top:115px;}
 
   .facet-values {padding: .5em;}
-
-
 
   .facet-values li .selected {
     color:#E65A3A;
@@ -851,7 +794,6 @@ article p:nth-child(3){line-height:1.25em;}
       border-radius:2px;
   }
 
-
   input#range_date_sim_end, input#range_date_sim_begin {
   	width:80%;
   }
@@ -886,8 +828,10 @@ select#sort, select#per_page {
   margin-left:0;
   }
 
-
-
+  /*Toggle dropdown for sorting*/
+  #sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle {
+    color: #E65A3A;
+  }
 
 
   /* -------- User Notifications -------- */
@@ -895,30 +839,18 @@ select#sort, select#per_page {
     margin-right: 30px;
   }
 
-
-  /*----NOT SURE WHERE THESE ARE-----*/
-  .main-header {
-    margin-top:0;
-  }
-
-  #my_nav {
-    margin-top:10px;
-  }
-
-
-
   /* -------- About & Participate & Institutions pages -------- */
-  /*
-  #content_block_page {
-  padding-top:75px;
-}*/
 
 .static-page-container h2{
   font-size:3em;
   font-family: 'PT Serif', serif;
-
 }
 
+.static-page-container {
+     max-width:810px;
+     margin:0 auto;
+     padding-top:2em;
+}
 
 /* -------- Terms Page -------- */
 
@@ -926,12 +858,6 @@ ol.terms-page li {
   margin-bottom:.8em;
 }
 
-
-/* -------- Contact Page Styles -------- */
-
-.form-horizontal .form-group {
-  margin-right:0;
-}
 
 /* Forms and Devise Views */
 
@@ -972,7 +898,6 @@ input {
 
 
 
-
 /* -------- Breadcrumbs -------- */
 
 .breadcrumb > li.active {
@@ -993,7 +918,6 @@ input {
   text-decoration:underline;
 }
 
-/*Remove border around breadcrumbs and adjust spacing */
 .breadcrumb {
   border: 0px;
   margin-top: 0px;
@@ -1044,9 +968,8 @@ a.back-to-search {
 
 
 
-/* -------- ITEM/WORKS PAGES --------*/
+/* -------- WORKS PAGES --------*/
 
-/*putting space above and below metadata on item page when headings are removed*/
 .meta-table {
   margin-top:1em;
   margin-bottom:0;
@@ -1073,7 +996,7 @@ a.back-to-search {
   line-height: 1.428571429;
 }
 
-/*Removing table border to bottom instead of top*/
+/* table styles for works on search results page */
 .table tbody tr td, .table tbody tr th, .table thead tr th {
   border-top:0;
   border-bottom: 0px solid #ddd;
@@ -1118,28 +1041,7 @@ ul.tabular {
 
 .show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
 
-/* not needed with add this buttons
-.social-media{
-  padding-right:0px;
-  padding-left:0px;
-}
-*/
-
-.show-actions {padding:0;} /*removing padding so that it doesnt take up space when not showing*/
-/*
-.rep-sharing-button-tumblr {display:none;}
-a[title="Tumblr"],a[title="Google+"] {display:none;}
-
-.resp-sharing-button__link {margin:.1em;}
-
-.resp-sharing-button {
-  padding: .5em .65em .3em .65em;
-}
-*/
-
-
 /* AddThis share buttons */
-
 .addthis_inline_share_toolbox {
   padding-top:1em;
 }
@@ -1177,9 +1079,6 @@ div#collapse-citations {
     line-height:1.2em;
 }
 
-
-
-
 /*Removes indent from metadata value lines and adjusts spacing*/
 .work-show ul.tabular {padding:0;}
 
@@ -1187,18 +1086,18 @@ div#collapse-citations {
 
 .work-show dt, .work-show dd { padding: 0;}
 
-/*Remove "work" heading at top of item pages*/
+/*Remove "work" heading at top of work pages*/
 h1.work-type-tag {display:none;}
 
 .work-type h2 {font-size: 1.6em;}
 
-/*Remove border around item record*/
+/*Remove border around work record*/
 .work-type .panel {
   border:0px;
   box-shadow:0 0px 0px rgba(0,0,0,0.00)
 }
 
-/*Remove background color from titles on Item pages*/
+/*Remove background color from titles on work pages*/
 .work-type .panel-default>.panel-heading {background-color:transparent;}
 
 /* moving work title over to the left */
@@ -1223,7 +1122,6 @@ h2.facets-heading {
   color: #636363 !important;
 }
 
-/*Adjust bolding and color of metadata labels*/
 .work-show dt {
   font-weight:600;
   color:#000;
@@ -1246,10 +1144,9 @@ img.representative-media {padding-top:15px;}
 
 
 /* Contributing Inst. name in the Orange button */
-
-	.institution_link {
-		text-decoration:underline;
-		}
+.institution_link {
+	text-decoration:underline;
+	}
 
 
 /* -------- UNIVERSAL VIEWER -------- */
@@ -1288,7 +1185,7 @@ img.representative-media {padding-top:15px;}
 /*Get rid of striped rows look*/
 .table-striped>tbody>tr:nth-of-type(odd) {background-color:transparent;}
 
-/*Collection info text under collection name and description - make smaller, darker labels and less space between lines, hide "collection details"text*/
+/*Collection info text under collection name and description*/
 .hyc-metadata h2 {display:none;}
 
 .hyc-metadata dl {border-top:0px;}
@@ -1299,17 +1196,17 @@ img.representative-media {padding-top:15px;}
   }
 
 .hyc-metadata div dt {
-  color:#313131; /* changed from #333 for consistency */
+  color:#313131;
   font-size: .9em;
   line-height:1;
 }
 
 .hyc-metadata div dt {
-  flex-basis:auto; /*fixing width of cont. inst. label on collections*/
+  flex-basis:auto;
   font-weight:normal;
   padding-right:.25em;
 }
-/* adding colon after collection page cont. inst. label */
+/* add colon after collection page cont. inst. label */
 .hyc-metadata div dt::after{
   content: ":"
 }
@@ -1321,20 +1218,13 @@ img.representative-media {padding-top:15px;}
 
 
 /*tightening up spacing for top area of collection pages*/
-
 .hyc-body{
   margin-bottom:0;
 }
 
-/*
-.hyc-bl-results.parent-collections-list {
-  margin-bottom:0;
-  }*/
-
 .hyc-bl-results.parent-collections-list table.table-striped {
   margin-bottom:0;
   }
-
 
 .hyc-bl-title h2 {
   margin-bottom:0;
@@ -1348,14 +1238,6 @@ img.representative-media {padding-top:15px;}
   margin-bottom: .25em;
   }
 
-
-
-
-/*Item titles in the list are no longer h4 so not being styled with the font family we want - add a style for*/
-p.media-heading {font-size:1.2em;}
-
-.parent-collections-list td {border-bottom: none !important;}
-
 /*Top section of collection page layout adjustment*/
 .hyc-description {padding:0;}
 
@@ -1364,6 +1246,17 @@ p.media-heading {font-size:1.2em;}
 .hyc-generic .hyc-title.collection-title-size h1 {font-size: 1.8em;}
 
 .hyc-body .hyc-bl-title.parent-collections-title-size h2 {font-size: 1.2em;}
+
+.hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
+     height: auto;
+     padding: 0;
+     }
+
+/*collection page works list titles*/
+p.media-heading {font-size:1.2em;}
+
+.parent-collections-list td {border-bottom: none !important;}
+
 
 
 
@@ -1398,9 +1291,8 @@ p.media-heading {font-size:1.2em;}
   opacity:0;
 }
 
-/*nav menu*/
 
-// Cookie Pro Styles
+/* --------Cookie Pro Styles--------*/
 /* The main popup that shows when you go to the page*/
 #onetrust-consent-sdk #onetrust-accept-btn-handler, #onetrust-banner-sdk #onetrust-reject-all-handler {
   background-color:#E65A3A !important;
@@ -1435,20 +1327,19 @@ p.media-heading {font-size:1.2em;}
   color:#E65A3A !important;
 }
 
-/*these two style that remove before and after bits may need different selectors or use of important to get them to work - i couldnt add them to the dev tool to test for some reason*/
-/*remove triangle that shows in front of "your privacy", comes from Atla site CSS */
 #onetrust-pc-sdk ::before {
   border:0 !important;
-}
-/* remove link out icon on teh "powered by" text at bottom of settings box, comes from Atla site CSS  */
-.ot-pc-footer-logo a[target="_blank"]:not(.addthis_button_linkedin)::after {
-  content:none !important;
 }
 
 /*floating shield button bottom left */
 #ot-sdk-btn-floating .ot-floating-button__front, #ot-sdk-btn-floating .ot-floating-button__back {
   background-color: #eeeeee !important;
 }
+
+
+
+
+
 
 /* -------- MEDIA QUERIES -------- */
 
@@ -1477,7 +1368,7 @@ p.media-heading {font-size:1.2em;}
 		}
 
 
-}
+}/* end of min width 481 */
 
 
 // Show various footer, header, left and right panels on larger screens only
@@ -1485,21 +1376,18 @@ p.media-heading {font-size:1.2em;}
   .viewer-wrapper {
     height: 640px;
   }
-}
+}/* end of min width 640 */
 
-
-
-/* -------- MEDIA QUERIES -  bootstrap MOBILE FIRST adjustments -------- */
 
 @media screen and (min-width:768px) {
 
-  .navbar-right {margin-right:0px;}/*fix/remove scrollbar showing in mobile menu */
+  .navbar-right {margin-right:0px;}
 
   .fixedsticky-on {padding-top:125px;}
 
   .navbar-nav {float:none;}
 
-  .navbar-nav > li  {float:none;} /*trying to fix responsive menu*/
+  .navbar-nav > li  {float:none;}
 
   .footer-info {padding-left:2em;}
 
@@ -1507,9 +1395,7 @@ p.media-heading {font-size:1.2em;}
 
   .browse-box div:first-child {margin-bottom:0em;}
 
-  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
   .navbar-default .navbar-collapse {padding-top:45px;}
-
 
   .hyc-bl-sort fieldset.pull-left span.tiny-nudge {
     margin-left:.5em;
@@ -1524,19 +1410,17 @@ p.media-heading {font-size:1.2em;}
   button[aria-controls]{
     font-size:1em;
   }
-
-
 } /*----------- end min-width:768px media query -----------*/
 
 @media screen and (min-width: 992px){
+
   .navbar-nav {float:left;}
-  .navbar-nav > li  {float:left;} /*trying to fix responsive menu*/
+  .navbar-nav > li  {float:left;}
   .browse-box {padding-top:0em;}
   .footer-info {text-align:right;}
   .footer-info a {padding:1em 0 1em 1em;}
 
   /* Flexbox grid of featured collections home page */
-
   .featured-collection, .featured-exhibit {
     flex-basis:31.3%;
   }
@@ -1557,11 +1441,75 @@ p.media-heading {font-size:1.2em;}
 
 
 
-/* MEDIA QUERIES (not mobile first-so stylying mobile and tablet) */
+/* MEDIA QUERIES - NOT MOBILE FIRST -  stylying mobile and tablet */
+
+/* for very small screesn - buttons on home page adjustment*/
+@media screen and (max-width: 320px) {
+
+  .container {
+    padding-right:.25em;
+    padding-left:.25em;
+  }
+
+  nav .container {
+    padding-right:.5em;
+    padding-left:.5em;
+  }
+
+  .list-inline.collection-highlights-list li a,.list-inline.exhibit-highlights-list li a {
+    font-size: 1.25em;
+  }
+
+}/* end of max width 320 */
+
+
+
+
+@media screen and (max-width: 768px) {
+  /*Need space between social media and metadata can add for mobile */
+  .mobile-media {
+    text-align: left;
+    margin-bottom: 1em;
+  }
+
+  .col-xs-12 {padding: 0;}
+
+  .col-sm-6 .hyc-bl-title h2 {margin-bottom: .5em;}
+
+  .hyc-title.collection-title-size {padding-top: 1em;}
+
+
+  /*un hiding thumbs for mobile lists */
+  .hidden-xs {display:inline-block !important;}
+
+
+  /*adjusting top section of search results on mobile*/
+  .search-results {padding: 1em 0;}
+
+  .search-widgets.pull-right {
+    float:none !important;
+    }
+
+  .page-links {
+    margin-bottom:.5em;
+    }
+
+  #sortAndPerPage {text-align:center;}
+
+  /*removing extra padding on sides of works in a collection list for mobile*/
+  .hyc-blacklight.hyc-bl-results {
+    padding:0;
+  }
+
+  .hyc-bl-results .table > tbody > tr > td {
+    padding-left:0;
+    padding-right:0;
+    }
+} /*------------end max-width: 768px media query -------------- */
+
+
 
 @media screen and (max-width: 992px) {
-
-
 
   /* Home Page items */
   .hero-fullscreen-bg {
@@ -1587,7 +1535,7 @@ p.media-heading {font-size:1.2em;}
     display: none;
   }
 
-  /* -------------- Navigation items -------------- */
+  /* Navigation items  */
 
   .navbar-no-background {
     position: absolute;
@@ -1674,82 +1622,16 @@ p.media-heading {font-size:1.2em;}
     padding-left:0;
   }
 
-  /*part of the adjustments to nav bar making it smaller on desktop, here it nees space under it for mobile*/
   .navbar-default .navbar-collapse {margin-bottom:20px;}
 
-
-
-  body.frontend .navbar-default .navbar-nav .active > a,
-  body.frontend .navbar-default .navbar-nav .active > a:hover,
-  body.frontend .navbar-default .navbar-nav .active > a:focus {
-    color:#e65a3a!important;
-  }
-
-
-
-
-
-
-
-
-  /* -------------- Admin Page -------------- */
-  .page-container .page-sidebar {
-    width: 150px;
-  }
-
-  .page-container .page-content {
-    margin-left: 150px;
-  }
-
-  .dropdown-menu .divider {
-    margin: 0;
-  }
-
-  /* -------------- Forms -------------- */
+  /*  Forms  */
   .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .facets-toggle, td.toggle .input-group-lg > .input-group-btn > input[type=submit] {
     padding: 10px 10px;
 
   }
 
+}/* end of max width 992 */
 
-  /* -------------- Dashboard and other secondary pages -------------- */
-  .container.dashboard {
-    padding-right: 30px;
-  }
-
-  .container.dashboard>h1 {
-    margin-top: 50px;
-  }
-
-  .container.dashboard h2.non.lower small {
-    font-size: 50%;
-  }
-
-  .heading-tile {
-    font-size: large;
-  }
-
-  .container.dashboard a.btn.btn-danger.pull-right {
-    float:left !important;
-  }
-
-  .pull-right.no-pull-sm {
-    float: none !important;
-    margin-bottom: 5px;
-  }
-
-  .profile {
-    margin-top: 20px;
-  }
-
-
-
-  img.file_listing_thumbnail {
-    max-width: initial;
-  }
-
-
-}
 
 
 @media screen and (min-width:993px) and (max-width: 1199px) {
@@ -1757,102 +1639,8 @@ p.media-heading {font-size:1.2em;}
   .main-navbar-nav {
     font-size:.7em;
   }
-}
-
-
-/*--------------------this stuff here is not in a media query, its between them-------------------------
-------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------*/
-/*THIS ONE NEEDS TO BE IN THE MOBILE CSS SO only kicks in for mobile - the stylesheet uses both mobile first and desktop first so where to put it can be confusing*/
-
-#sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle {
-  color: #E65A3A;
-}
+}/* end of max width 1199 */
 
 
 
-.hyc-generic .hyc-logos.collection-logo img, .hyc-generic img.hyc-logos.collection-logo {
-  height: auto;
-  padding: 0;
-}
-
-/*-------------------END OF SECTION OF NON MEDIA QUERIES IN THE MIDDLE OF THE MEDIA QUERIES-----------
--------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 768px) {
-  /*Need space between social media and metadata can add for mobile */
-  .mobile-media {
-    text-align: left;
-    margin-bottom: 1em;
-  }
-
-  .col-xs-12 {padding: 0;}
-
-  .col-sm-6 .hyc-bl-title h2 {margin-bottom: .5em;}
-
-  .hyc-title.collection-title-size {padding-top: 1em;}
-
-
-  /*un hiding thumbs for mobile lists */
-  .hidden-xs {display:inline-block !important;}
-
-
-  /*adjusting top section of search results on mobile*/
-  .search-results {padding: 1em 0;}
-
-  .search-widgets.pull-right {
-    float:none !important;
-    }
-
-  .page-links {
-    margin-bottom:.5em;
-    }
-
-  #sortAndPerPage {text-align:center;}
-
-  /*removing extra padding on sides of works in a collection list for mobile*/
-  .hyc-blacklight.hyc-bl-results {
-    padding:0;
-  }
-
-  .hyc-bl-results .table > tbody > tr > td {
-    padding-left:0;
-    padding-right:0;
-    }
-
-
-} /*------------end max-width: 768px media query -------------- */
-
-
-
-
-
-/* for very small screesn - buttons on home page adjustment*/
-@media screen and (max-width: 320px) {
-
-  .container {
-    padding-right:.25em;
-    padding-left:.25em;
-  }
-
-  nav .container {
-    padding-right:.5em;
-    padding-left:.5em;
-  }
-
-  .list-inline.collection-highlights-list li a,.list-inline.exhibit-highlights-list li a {
-    font-size: 1.25em;
-  }
-
-}
-}
-
-body.dashboard {
-  nav.breadcrumb:after {
-    content: ' ';
-    clear: both;
-    display: table;
-  }
-}/*END MEDIA QUERIES HERE*/
+}/* END opening body.frontend tag */

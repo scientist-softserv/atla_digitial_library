@@ -40,6 +40,12 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
 	}
 */
 
+  nav.breadcrumb:after {
+    content: ' ';
+    clear: both;
+    display: table;
+  }
+
 
 /* -------- Admin Page -------- */
 
@@ -77,5 +83,3 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   .navbar-default .navbar-collapse {padding-top:45px;}
   .navbar-right {margin-right:0px;}/*fix/remove scrollbar showing in mobile menu */
 }
-
-
