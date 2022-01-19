@@ -19,3 +19,4 @@ production:
   password: fedoraAdmin
   url: http://<%= ENV['FCREPO_HOST'] || 'fcrepo' %>:<%= ENV['FCREPO_PORT'] || 8080 %><%= ENV['FCREPO_PATH'] || '/fedora/rest' %>
   base_path: <%= ENV['FCREPO_BASE_PATH'] || '/prod' %>
+  request: { timeout: 600, open_timeout: 60}
