@@ -79,6 +79,50 @@ div.heading-tile .glyphicon, div.heading-tile .help-icon, div.heading-tile .glyp
   background: #198d9a !important;
 }
 
+/* -------- Cookie Pro Styles -------- */
+/* The main popup that shows when you go to the page*/
+#onetrust-consent-sdk #onetrust-accept-btn-handler, #onetrust-banner-sdk #onetrust-reject-all-handler {
+  background-color:#E65A3A !important;
+  border-color:#E65A3A !important;
+}
+
+#onetrust-consent-sdk #onetrust-pc-btn-handler, #onetrust-consent-sdk #onetrust-pc-btn-handler.cookie-setting-link {
+  color:#E65A3A !important;
+  border-color:#E65A3A !important;
+}
+
+/*cookies settings pop up*/
+#onetrust-consent-sdk #onetrust-pc-sdk .privacy-notice-link, #onetrust-consent-sdk #onetrust-pc-sdk .category-vendors-list-handler, #onetrust-consent-sdk #onetrust-pc-sdk .category-vendors-list-handler + a, #onetrust-consent-sdk #onetrust-pc-sdk .category-host-list-handler, #onetrust-consent-sdk #onetrust-pc-sdk .ot-ven-link, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-name a, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-acc-hdr .ot-host-expand, #onetrust-consent-sdk #onetrust-pc-sdk #ot-host-lst .ot-host-info a {
+  color:#E65A3A !important;
+}
+
+#onetrust-consent-sdk #onetrust-pc-sdk button:not(#clear-filters-handler):not(.ot-close-icon):not(#filter-btn-handler):not(.ot-remove-objection-handler):not(.ot-obj-leg-btn-handler):not([aria-expanded]):not(.ot-link-btn), #onetrust-consent-sdk #onetrust-pc-sdk .ot-leg-btn-container .ot-active-leg-btn {
+  background-color:#E65A3A !important;
+  border-color:#E65A3A !important;
+}
+
+/* active item in menu - bar on left side - COLOR OPTIONS*/
+#onetrust-consent-sdk #onetrust-pc-sdk .ot-active-menu{
+  border-color:#E65A3A !important;
+}
+/* cookies toggle bar cirlce - COLOR OPTIONS*/
+#onetrust-pc-sdk .ot-tgl input:checked + .ot-switch .ot-switch-nob::before{
+  background-color:#E65A3A !important;
+}
+
+#onetrust-pc-sdk .ot-always-active {
+  color:#E65A3A !important;
+}
+
+#onetrust-pc-sdk ::before {
+  border:0 !important;
+}
+
+/*floating shield button bottom left */
+#ot-sdk-btn-floating .ot-floating-button__front, #ot-sdk-btn-floating .ot-floating-button__back {
+  background-color: #eeeeee !important;
+}
+
 @media screen and (min-width:768px) {
   .navbar-default .navbar-collapse {padding-top:45px;}
   .navbar-right {margin-right:0px;}/*fix/remove scrollbar showing in mobile menu */
