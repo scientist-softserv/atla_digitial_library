@@ -1,7 +1,7 @@
 <!-- NOTE(dewey4iv): overridden from blacklight - adds search support to facets -->
 <div class="row">
   <div class="letter-list">
-    <div class="">
+    <div>
       <% ('A'..'Z').to_a.each do |letter| %>
         <%= link_to(letter, @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": letter }), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
       <% end %>
