@@ -21,9 +21,9 @@ signed in %>
 <%= yield :gscholar_meta %>
 
 <!-- Atla Digital Library - Work Title -->
-<title><%= page_title(app_name: "Atla Digital Library", separator: " - ").html_safe %></title>
+<title><%= page_title(app_name: "Atla Digital Library", separator: " - ", reverse: true).html_safe %></title>
 <meta name="description" content="<%= yield_meta_tag(:description, t('.default_description')) %>">
-
+    <% console %>
 <!-- application css -->
 <%= stylesheet_link_tag 'application' %>
 
