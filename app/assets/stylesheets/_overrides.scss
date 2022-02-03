@@ -839,6 +839,17 @@ select#sort, select#per_page {
     margin-right: 30px;
   }
 
+  /* ------- Dashboard ------- */
+  #check_all:disabled:hover:before {
+    content: "Too many items, cannot select all.";
+    width: 18em;
+    transform: translate(0px, 17px);
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 3px;
+  }
+
   /* -------- About & Participate & Institutions pages -------- */
 
 .static-page-container h2{
