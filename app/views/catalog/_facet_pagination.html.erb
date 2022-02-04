@@ -1,7 +1,7 @@
 <!-- NOTE(dewey4iv): overridden from blacklight - adds search support to facets -->
 <div class="row">
   <div class="letter-list">
-    <div class="">
+    <div>
       <% ('A'..'Z').to_a.each do |letter| %>
         <%= link_to(letter, @pagination.params_for_resort_url('count', search_state.to_h).merge({ "facet.prefix": letter }), class: 'btn btn-link prefix-link', data: { ajax_modal: "preserve" }) %>
       <% end %>
@@ -13,11 +13,15 @@
 
 <div class="prev_next_links btn-group pull-left">
   <%= link_to_previous_page @pagination, raw(t('views.pagination.previous')), params: search_state.to_h, param_name: blacklight_config.facet_paginator_class.request_keys[:page], class: 'btn btn-link', data: { ajax_modal: "preserve" } do %>
-    <span class="disabled btn btn-disabled"><%= raw(t('views.pagination.previous')) %></span>
+    <%# NOTE(aprilrieger): overridden from blacklight - removes the span tag on modal %>
+    <%= content_tag :span, raw(t('views.pagination.previous')), class: 'disabled btn btn-disabled' %>
+    <%# End override %>
   <% end %>
 
   <%= link_to_next_page @pagination, raw(t('views.pagination.next')), params: search_state.to_h, param_name: blacklight_config.facet_paginator_class.request_keys[:page], class: 'btn btn-link',  data: { ajax_modal: "preserve" } do %>
-    <span class="disabled btn btn-disabled"><%= raw(t('views.pagination.next')) %></span>
+    <%# NOTE(aprilrieger): overridden from blacklight - removes the span tag on modal %>
+    <%= content_tag :span, raw(t('views.pagination.next')), class: 'disabled btn btn-disabled' %>
+    <%# End override %>
   <% end %>
 </div>
 

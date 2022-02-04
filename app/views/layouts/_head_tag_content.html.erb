@@ -11,7 +11,7 @@ signed in %>
 <% if Hyrax.config.realtime_notifications? && signed_in? %>
     <%= tag :meta, name: 'current-user', data: { user_key: current_user.user_key } %>
 <% end %>
-<!-- added for use on small devices like phones -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="resourcesync" href="<%= hyrax.capability_list_url %>" />
 
@@ -21,9 +21,8 @@ signed in %>
 <%= yield :gscholar_meta %>
 
 <!-- Atla Digital Library - Work Title -->
-<title><%= page_title(app_name: "Atla Digital Library", separator: " - ").html_safe %></title>
+<title><%= page_title(app_name: "Atla Digital Library", separator: " - ", reverse: true).html_safe %></title>
 <meta name="description" content="<%= yield_meta_tag(:description, t('.default_description')) %>">
-
 <!-- application css -->
 <%= stylesheet_link_tag 'application' %>
 

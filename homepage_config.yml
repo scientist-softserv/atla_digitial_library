@@ -2,17 +2,17 @@
 homepage:
   collections:
     - id: 1
-      anchor_text: Black Empowerment Collection
-      anchor_text_two: Meadville Lombard Theological School
-      url: /collections/black-empowerment-collection #PATH TO COLLECTION
+      anchor_text: The Edgar J. Goodspeed Manuscript Collection
+      anchor_text_two: University of Chicago Library
+      url: /collections/the-edgar-j-goodspeed-manuscript-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/black-empowerment.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/uofc.jpg #DESIRED THUMBNAIL NAME
     - id: 2
-      anchor_text: PALNI Last Copies
-      anchor_text_two: Saint Paul School of Theology Library
-      url: /collections/palni-last-copies #PATH TO COLLECTION
+      anchor_text: Atlanta-Rome District CME Church Collection
+      anchor_text_two: Atlanta University Center Robert W. Woodruff Library
+      url: /collections/atlanta-rome-district-cme-church-collection #PATH TO COLLECTION
       image:
-        path_to_file: /img/palni.jpg #DESIRED THUMBNAIL NAME
+        path_to_file: /img/atlanta.jpg #DESIRED THUMBNAIL NAME
     - id: 3
       anchor_text: Sermons of the Reverend Dr. William Augustus Jones, Jr.
       anchor_text_two: Brooklyn College Library
