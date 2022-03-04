@@ -5,7 +5,7 @@ namespace :cdri do
     col = Collection.where(slug: 'woodcuts-and-metal-engravings-from-16th-19th-century-publications').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
@@ -19,7 +19,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
@@ -32,7 +32,7 @@ namespace :cdri do
     col = Collection.where(slug: 'postcards-of-unitarian-and-universalist-church-buildings').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
@@ -48,7 +48,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
@@ -61,7 +61,7 @@ namespace :cdri do
     col = Collection.where(slug: 'engravings-from-the-richard-c-kessler-reformation-collection').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
@@ -75,7 +75,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
@@ -88,14 +88,14 @@ namespace :cdri do
     col = Collection.where(slug: 'postcards-of-new-england-congregational-and-baptist-churches').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
         # Remove trailing period from subject fields (titles end in abbreviation so dont apply)
         # Correct Contributing Institution field to be: Andover Newton Theological School Franklin Trask Library
         # Add Format (Digital): JPEG
-        # Add Type: Still Image 
+        # Add Type: Still Image
         # Add Format (Original): Postcards
         work.contributing_institution = ['Andover Newton Theological School Franklin Trask Library']
         work.format_digital = ['JPEG']
@@ -105,7 +105,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
@@ -118,7 +118,7 @@ namespace :cdri do
     col = Collection.where(slug: 'images-of-the-ancient-near-east').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
@@ -138,7 +138,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
@@ -151,7 +151,7 @@ namespace :cdri do
     col = Collection.where(slug: 'shape-note-tune-books').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
@@ -168,7 +168,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
@@ -181,7 +181,7 @@ namespace :cdri do
     col = Collection.where(slug: 'selected-photographs-of-ancient-near-eastern-and-mediterranean-sites').first
     raise 'collection not found' unless col.present?
 
-    progress = ProgressBar.new(ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
+    progress = ProgressBar.create(format: "%t %c of %C %a %B %p%%", total: ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).count)
     errors = []
     ActiveFedora::Base.where(member_of_collection_ids_ssim: col.id, has_model_ssim: ['Work']).each do |work|
       begin
@@ -191,7 +191,7 @@ namespace :cdri do
       rescue => e
         errors << [work, e]
       end
-      progress.increment!
+      progress.increment
     end
     if errors.present?
       $stderr.puts "-- ERRORS REPORTED"
