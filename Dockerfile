@@ -17,6 +17,7 @@ RUN apt-get update -qq && \
       libvips-dev \
       netcat \
       nodejs \
+      screen \
       unzip \
       vim \
       yarn \

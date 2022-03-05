@@ -1,5 +1,3 @@
-require 'progress_bar'
-
 namespace :setup do
   desc 'Import files from dir to exsiting works'
   task :import_files, [:dir, :user_email] => :environment do |_t, args|

@@ -32,12 +32,13 @@ gem 'jquery-rails'
 gem 'listen', '>= 3.0.5', '< 3.2', group: [:development]
 gem 'pry-rails'
 gem 'pg'
-gem 'progress_bar'
+gem 'ruby-progressbar'
 gem 'puma', '~> 3.7'
 gem 'riiif', '~> 1.1'
 gem 'rinku'
 gem 'rsolr', '~> 2.2'
 gem 'rspec-rails', group: %i[development test]
+gem 'samvera-nesting_indexer', git: 'https://github.com/samvera-labs/samvera-nesting_indexer.git', branch: 'skip_failure_option'
 gem 'sass-rails', '~> 5.0'
 gem 'selenium-webdriver', group: %i[development test]
 gem 'sentry-raven'
