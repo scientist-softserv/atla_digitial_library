@@ -22,6 +22,9 @@
             <li <%= 'class=active dropdown' if current_page?(main_app.institutions_path) %>>
               <%= link_to t(:'hyrax.controls.institutions'), main_app.institutions_path %>
             </li>
+            <li <%= 'class=active dropdown' if current_page?("/exhibitions") %>>
+              <%= link_to "Exhibits", "/exhibitions" %>
+            </li>
           </ul>
         </li>
 

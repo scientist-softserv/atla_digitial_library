@@ -20,5 +20,4 @@
 <% end %>
 <%= presenter.attribute_to_html(:related_url, render_as: :external_link, html_dl: true) %>
 <%= presenter.attribute_to_html(:rights_statement, render_as: :rights_statement, label: 'Rights', html_dl: true) %>
-<%= presenter.attribute_to_html(:rights_holder, render_as: :faceted, html_dl: true) %>
-
+<%= presenter.attribute_to_html(:rights_holder, html_dl: true) %>
