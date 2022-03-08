@@ -36,7 +36,7 @@ RUN mkdir -p /app/fits && \
 
 COPY ./ops/bin /app/samvera
 ENV PATH="/app/samvera:$PATH"
-ENV RAILS_ROOT="/app/samvera/hyrax-hyrax-webapp"
+ENV RAILS_ROOT="/app/samvera/hyrax-webapp"
 
 RUN mkdir /opt/csv
 RUN mkdir -p /app/samvera/hyrax-webapp
