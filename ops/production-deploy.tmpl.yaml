@@ -21,7 +21,6 @@ securityContext: &secValues
   runAsUser: 0
 podSecurityContext: &podSecValues
   runAsNonRoot: false
-  readOnlyRootFilesystem: false
   runAsUser: 0
   runAsGroup: 101
   fsGroup: 101
