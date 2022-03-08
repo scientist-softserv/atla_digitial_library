@@ -19,6 +19,13 @@ securityContext: &secValues
   readOnlyRootFilesystem: false
   runAsNonRoot: false
   runAsUser: 0
+podSecurityContext: &podSecValues
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+  runAsUser: 0
+  runAsGroup: 101
+  fsGroup: 101
+  fsGroupChangePolicy: "OnRootMismatch"
 
 extraVolumeMounts: &volMounts
   - name: uploads
@@ -137,16 +144,7 @@ worker:
   securityContext: *secValues
   extraVolumeMounts: *volMounts
   extraEnvVars: *envVars
-  podSecurityContext:
-    runAsUser: 1001
-    runAsGroup: 101
-    fsGroup: 101
-    fsGroupChangePolicy: "OnRootMismatch"
-podSecurityContext:
-  runAsUser: 1001
-  runAsGroup: 101
-  fsGroup: 101
-  fsGroupChangePolicy: "OnRootMismatch"
+  podSecurityContext: *podSecValues
 
 imagePullSecrets:
   - name: gitlab
