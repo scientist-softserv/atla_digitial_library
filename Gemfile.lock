@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/notch8/willow_sword.git
-  revision: 0a669d78617c6003e4aa1a46a10447be92be27d5
-  specs:
-    willow_sword (0.2.0)
-      bagit (~> 0.4.1)
-      rails (>= 5.1.6)
-      rubyzip (>= 1.0.0)
-
-GIT
   remote: https://github.com/notch8/activejob-scheduler.git
   revision: 22850499dd0ab046eff2e1c113261782e7b8d8dc
   specs:
@@ -53,6 +44,15 @@ GIT
       builder (>= 3.1.0)
       faraday
       faraday_middleware
+
+GIT
+  remote: https://github.com/notch8/willow_sword.git
+  revision: 0a669d78617c6003e4aa1a46a10447be92be27d5
+  specs:
+    willow_sword (0.2.0)
+      bagit (~> 0.4.1)
+      rails (>= 5.1.6)
+      rubyzip (>= 1.0.0)
 
 GIT
   remote: https://github.com/samvera-labs/hyrax-iiif_av.git
