@@ -47,5 +47,5 @@ gem 'spring', group: [:development]
 gem 'spring-watcher-listen', '~> 2.0.0', group: [:development]
 gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '>= 3.3.0', group: [:development]
-gem 'willow_sword', github: 'notch8/willow_sword'
+gem 'willow_sword', git: 'https://github.com/notch8/willow_sword.git'
 gem 'whenever', require: false

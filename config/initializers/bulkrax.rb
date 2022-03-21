@@ -110,3 +110,11 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["rights_holder"] = { from: ["rightsHolder"] }
   config.field_mappings["Bulkrax::OaiQualifiedDcParser"]["transcript_url"] = { from: ["transcript"] }
 end
+
+# Verify that scheduled jobs get created when needed
+i = Bulkrax::Importer.where('frequency <> ?', 'PT0S')
+i.each do |importer|
+  if importer.schedulable? && Delayed::Job.find_by('handler LIKE ? AND handler LIKE ?', "job_class: Bulkrax::ImporterJob", importer.to_gid.to_s)
+    Bulkrax::ImporterJob.set(wait_until: importer.next_import_at).perform_later(importer.id, true)
+  end
+end
