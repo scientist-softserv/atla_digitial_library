@@ -14,7 +14,7 @@ module Bulkrax
 
       identifiers = parsed_metadata['identifier']
       # remove all image urls
-      self.parsed_metadata['identifier'] = identifiers.reject { |id| id =~ %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|pdf|jp2|mp4|mp3)} } unless identifiers.blank?
+      self.parsed_metadata['identifier'] = identifiers.reject { |id| id =~ %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|pdf|jp2|mp4|mp3|srt)} } unless identifiers.blank?
       # use first image url as thumbnail in identifiers matching the given pattern
       self.parsed_metadata['remote_files'] = [identifiers.map { |id| { url: id } if id =~ %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|jp2)} }.compact.first] unless identifiers.blank?
       self.parsed_metadata['contributing_institution'] = [contributing_institution]
