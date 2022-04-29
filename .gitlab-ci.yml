@@ -60,6 +60,11 @@ staging:
     - export KUBECONFIG=$KUBECONFIG_ATLA
     - envsubst < ops/staging-deploy.tmpl.yaml > ops/staging-deploy.yaml
     - ./bin/helm_deploy staging staging
+  rules:
+  - if: $CI_COMMIT_BRANCH == "main"
+  - if: $CI_COMMIT_BRANCH != "main"
+    when: manual
+  
   tags:
     - local
 
