@@ -24,5 +24,15 @@ module Bulkrax
       src.gsub!("'", '%27')
       { url: src.strip } if src.present?
     end
+
+    # Override form Bulkrax v3.0.0.beta7 to strip period in the event it is added
+    # to prevent any issues with comparing to the language list
+    def parse_language(src)
+      string = src.to_s.strip.chomp('.')
+      if string.present?
+        l = ::LanguageList::LanguageInfo.find(string)
+        l ? l.name : string
+      end
+    end
   end
 end
