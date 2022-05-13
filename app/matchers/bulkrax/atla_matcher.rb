@@ -25,14 +25,25 @@ module Bulkrax
       { url: src.strip } if src.present?
     end
 
-    # Override form Bulkrax v3.0.0.beta7 to strip period in the event it is added
-    # to prevent any issues with comparing to the language list
+    # Override from Bulkrax v3.0.0.beta7
+    # Takes in a string of values and removes any periods
+    # creates an array of those values splitting on an empty space
+    # does not use 'and' as a language -- oddly enough it's on the language list
+    # and adds each languages name into our new array of languages
     def parse_language(src)
-      string = src.to_s.strip.chomp('.')
-      if string.present?
-        l = ::LanguageList::LanguageInfo.find(string)
-        l ? l.name : string
+      string = src.chomp('.')
+      arr_values = (string.strip.downcase.split(' '))
+      arr_languages=[]
+      if arr_values.present?
+        arr_values.each do |value|
+          value = value.chomp(',').strip
+          unless value == 'and'
+            l = ::LanguageList::LanguageInfo.find(value)
+            arr_languages<<l.name if l.present?
+          end
+        end
       end
+      arr_languages
     end
   end
 end
