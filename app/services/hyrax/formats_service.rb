@@ -15,7 +15,9 @@ module Hyrax
 
     def self.label_from_alt(alt)
       alt.downcase!
-      label = authority.all.map { |element| element[:label] if element[:label].downcase == alt || element[:alt_labels].include?(alt) }.compact
+      label = authority.all.map do |element|
+        element[:label] if element[:label].downcase == alt || element[:alt_labels].include?(alt)
+      end .compact
       label.blank? ? nil : label.first
     end
 

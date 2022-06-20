@@ -62,9 +62,9 @@ module Hyrax
 
         private
 
-        def whitewash(text)
-          Loofah.fragment(text.to_s).scrub!(:whitewash).to_s
-        end
+          def whitewash(text)
+            Loofah.fragment(text.to_s).scrub!(:whitewash).to_s
+          end
       end
     end
   end

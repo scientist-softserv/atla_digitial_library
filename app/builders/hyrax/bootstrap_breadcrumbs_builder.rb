@@ -16,9 +16,7 @@ class Hyrax::BootstrapBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Buil
   def render
     return "" if @elements.blank?
     # begin CUSTOM block
-    if @elements.last.options[:class]&.include?('back-to-search')
-      @back_to_search_breadcrumb = @elements.pop
-    end
+    @back_to_search_breadcrumb = @elements.pop if @elements.last.options[:class]&.include?('back-to-search')
     # end CUSTOM block
 
     @context.content_tag(:nav, breadcrumbs_options) do
@@ -29,10 +27,17 @@ class Hyrax::BootstrapBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Buil
 
       # begin CUSTOM block
       if @back_to_search_breadcrumb.present?
-        back_to_search_link = @context.link_to(@context.truncate(compute_name(@back_to_search_breadcrumb), length: 30, separator: ' '), compute_path(@back_to_search_breadcrumb), @back_to_search_breadcrumb.options)
-        record_breadcrumbs = record_breadcrumbs + back_to_search_link.to_s
+        back_to_search_link = @context.link_to(
+          @context.truncate(
+            compute_name(@back_to_search_breadcrumb),
+            length: 30,
+            separator: ' '
+          ),
+          compute_path(@back_to_search_breadcrumb),
+          @back_to_search_breadcrumb.options
+        )
+        record_breadcrumbs += back_to_search_link.to_s
       end
-
       record_breadcrumbs
       # end CUSTOM block
     end
@@ -42,7 +47,8 @@ class Hyrax::BootstrapBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Buil
     html_class = 'active' if @context.current_page?(compute_path(element)) || element.options["aria-current"] == "page"
 
     @context.content_tag(:li, class: html_class) do
-      @context.link_to_unless(html_class == 'active', @context.truncate(compute_name(element), length: 30, separator: ' '), compute_path(element), element.options)
+      @context.link_to_unless(html_class == 'active',
+@context.truncate(compute_name(element), length: 30, separator: ' '), compute_path(element), element.options)
     end
   end
 

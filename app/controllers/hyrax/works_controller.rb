@@ -34,7 +34,9 @@ module Hyrax
       last_visited = cookies[:_atla_last_collection_visited_id]
 
       if presenter.ancestor_relationships.present?
-        id_str = (last_visited.present? && presenter.ancestor_relationships.detect { |ar| ar.match?(last_visited) }) || presenter.ancestor_relationships.first
+        id_str = (last_visited.present? && presenter.ancestor_relationships.detect do |ar|
+                    ar.match?(last_visited)
+                  end) || presenter.ancestor_relationships.first
         add_ancestor_breadcrumbs(id_str)
       elsif presenter.member_of_collection_ids.present?
         collection = Collection.find(presenter.member_of_collection_ids.first)

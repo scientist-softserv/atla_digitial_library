@@ -18,11 +18,11 @@ class Work < ActiveFedora::Base
   def ancestor_collections
     return @ancestor_collections if @ancestor_collections.present?
     @ancestor_collections = []
-    self.member_of_collections.each do |c|
+    member_of_collections.each do |c|
       @ancestor_collections += c.member_of_collections
       @ancestor_collections << c
     end
-    return @ancestor_collections
+    @ancestor_collections
   end
 
   def ancestor_collection_ids
@@ -40,6 +40,6 @@ class Work < ActiveFedora::Base
       next if ac.member_of_collection_ids.blank?
       @ancestor_relationships << "#{ac.member_of_collection_ids.first}:#{ac.id}"
     end
-    return @ancestor_relationships
+    @ancestor_relationships
   end
 end

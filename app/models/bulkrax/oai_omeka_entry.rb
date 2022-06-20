@@ -1,10 +1,9 @@
 module Bulkrax
   class OaiOmekaEntry < OaiDcEntry
-
     # override to swap out the thumbnail_url
     def build_metadata
       self.parsed_metadata = {}
-      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
+      parsed_metadata[Bulkrax.system_identifier_field] ||= [record.header.identifier]
 
       record.metadata.children.each do |child|
         child.children.each do |node|
@@ -14,16 +13,24 @@ module Bulkrax
 
       identifiers = parsed_metadata['identifier']
       # remove all image urls
-      self.parsed_metadata['identifier'] = identifiers.reject { |id| id =~ %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|pdf|jp2|mp4|mp3|srt)} } unless identifiers.blank?
+      if identifiers.present?
+        parsed_metadata['identifier'] = identifiers.reject do |id|
+          id =~ %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|pdf|jp2|mp4|mp3|srt)}
+        end
+      end
       # use first image url as thumbnail in identifiers matching the given pattern
-      self.parsed_metadata['remote_files'] = [identifiers.map { |id| { url: id } if id =~ %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|jp2)} }.compact.first] unless identifiers.blank?
-      self.parsed_metadata['contributing_institution'] = [contributing_institution]
-      
+      if identifiers.present?
+        parsed_metadata['remote_files'] = [identifiers.map do |id|
+                                             { url: id } if %r{http(s{0,1}):\/\/.+\.(jpg|png|gif|jp2)}.match?(id)
+                                           end .compact.first]
+      end
+      parsed_metadata['contributing_institution'] = [contributing_institution]
+
       add_visibility
       add_rights_statement
       add_collections
 
-      self.parsed_metadata
+      parsed_metadata
     end
   end
 end

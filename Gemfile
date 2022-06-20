@@ -7,6 +7,7 @@ gem 'activejob-scheduler', git: 'https://github.com/notch8/activejob-scheduler.g
 gem 'blacklight_range_limit'
 gem 'bulkrax', git: 'https://github.com/notch8/bulkrax.git', branch: 'atla_tmp'
 gem 'activerecord-nulldb-adapter'
+gem 'bixby', group: %i[development test]
 gem 'byebug', group: %i[development test]
 gem 'capybara', '~> 2.13', group: %i[development test]
 gem 'coffee-rails', '~> 4.2'
@@ -33,6 +34,12 @@ gem 'listen', '>= 3.0.5', '< 3.2', group: [:development]
 gem 'pry-rails'
 gem 'pg'
 gem 'ruby-progressbar'
+gem 'pronto'
+gem 'pronto-brakeman', require: false
+gem 'pronto-flay', require: false
+gem 'pronto-rails_best_practices', require: false
+gem 'pronto-rails_schema', require: false
+gem 'pronto-rubocop', require: false
 gem 'puma', '~> 3.7'
 gem 'riiif', '~> 1.1'
 gem 'rinku'

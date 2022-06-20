@@ -13,7 +13,9 @@ RSpec.feature 'Rights statements render correctly on Work show page', js: false 
     end
     let(:admin_set_id) { AdminSet.find_or_create_default_admin_set_id }
     let(:permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: admin_set_id) }
-    let(:workflow) { Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: permission_template) }
+    let(:workflow) do
+      Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: permission_template)
+    end
 
     before do
       # Create a single action that can be taken
@@ -63,7 +65,9 @@ RSpec.feature 'Rights statements render correctly on Work show page', js: false 
       check('agreement')
 
       click_on('Save')
-      expect(page.html).to include("<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\" target=\"_blank\">https://creativecommons.org/licenses/by-nd/4.0/</a>")
+      expect(page.html).to include('<a rel="license"',
+                                  'href="https://creativecommons.org/licenses/by-nd/4.0/"',
+                                  'target="_blank">https://creativecommons.org/licenses/by-nd/4.0/</a>')
     end
   end
 end

@@ -1,5 +1,4 @@
 class CatalogController < ApplicationController
-
   include BlacklightRangeLimit::ControllerOverride
   include Hydra::Catalog
   include Hydra::Controller::ControllerBehavior
@@ -12,7 +11,7 @@ class CatalogController < ApplicationController
   # filtering by type Collection. See here in the Blacklight gem for location of original method:
   # app/controllers/concerns/blacklight/catalog.rb#L24
   def collections_index
-    (@response, @document_list) = search_results(params.merge({"f": {"human_readable_type_sim": ["Collection"]}}))
+    (@response, @document_list) = search_results(params.merge({ "f": { "human_readable_type_sim": ["Collection"] } }))
 
     respond_to do |format|
       format.html { store_preferred_view }
@@ -38,7 +37,6 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
-
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
     # config.search_builder_class = Hyrax::CatalogSearchBuilder
@@ -46,7 +44,7 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: "search",
-      rows: 10,
+      rows: 10
     }
 
     # solr field configuration for document/show views
@@ -381,10 +379,10 @@ class CatalogController < ApplicationController
     config.add_sort_field "score desc, #{uploaded_field} desc", label: "relevance"
     config.add_sort_field "title_sim asc", label: 'title A-Z'
     config.add_sort_field "title_sim desc", label: 'title Z-A'
-    #config.add_sort_field "#{uploaded_field} desc", label: "date uploaded \u25BC"
-    #config.add_sort_field "#{uploaded_field} asc", label: "date uploaded \u25B2"
-    #config.add_sort_field "#{modified_field} desc", label: "date modified \u25BC"
-    #config.add_sort_field "#{modified_field} asc", label: "date modified \u25B2"
+    # config.add_sort_field "#{uploaded_field} desc", label: "date uploaded \u25BC"
+    # config.add_sort_field "#{uploaded_field} asc", label: "date uploaded \u25B2"
+    # config.add_sort_field "#{modified_field} desc", label: "date modified \u25BC"
+    # config.add_sort_field "#{modified_field} asc", label: "date modified \u25B2"
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.

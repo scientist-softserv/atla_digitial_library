@@ -11,7 +11,8 @@ module Hyrax
     # OVERRIDE METHOD
     # Tell Solr to search by :slug if it can't find the document by :id
     def find_one(solr_parameters)
-      solr_parameters[:fq] << "({!raw f=id}#{blacklight_params.fetch(:id)} OR {!raw f=slug_sim}#{blacklight_params.fetch(:id)})"
+      solr_parameters[:fq] << "({!raw f=id}#{blacklight_params.fetch(:id)} OR
+                              {!raw f=slug_sim}#{blacklight_params.fetch(:id)})"
     end
   end
 end

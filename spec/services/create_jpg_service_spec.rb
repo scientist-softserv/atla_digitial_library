@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe CreateJpgService, clean: true do
-  let(:pdf_file) {
+  let(:pdf_file) do
     create(:uploaded_file,
            file: File.open(::Rails.root.join('spec/fixtures/pdf/archive.pdf')))
-  }
+  end
   let(:user) { FactoryBot.create(:user) }
 
   it 'takes in a pdf and returns a file with jpgs for each page' do

@@ -31,25 +31,27 @@ class Hyrax::PagesController < ApplicationController
 
   private
 
-  def permitted_params
-    params.require(:content_block).permit(:about,
-                                          :participate, # UPGRADE NOTE: this line differs from original source. Changed to allow for a "participate" page.
-                                          :search_tips,
-                                          :agreement,
-                                          :help,
-                                          :institutions, # UPGRADE NOTE: this line differs from original source. Changed to allow for an "institutions" page.
-                                          :terms)
-  end
+    def permitted_params
+      params.require(:content_block).permit(:about,
+                                            :participate, # UPGRADE NOTE: this line differs from original source.
+                                            # Changed to allow for a "participate" page.
+                                            :search_tips,
+                                            :agreement,
+                                            :help,
+                                            :institutions, # UPGRADE NOTE: this line differs from original source.
+                                            # Changed to allow for an "institutions" page.
+                                            :terms)
+    end
 
-  # When a request comes to the controller, it will be for one and
-  # only one of the content blocks. Params always looks like:
-  #   {'about_page' => 'Here is an awesome about page!'}
-  # So reach into permitted params and pull out the first value.
-  def update_value_from_params
-    permitted_params.values.first
-  end
+    # When a request comes to the controller, it will be for one and
+    # only one of the content blocks. Params always looks like:
+    #   {'about_page' => 'Here is an awesome about page!'}
+    # So reach into permitted params and pull out the first value.
+    def update_value_from_params
+      permitted_params.values.first
+    end
 
-  def pages_layout
-    action_name == 'show' ? 'homepage' : 'hyrax/dashboard'
-  end
+    def pages_layout
+      action_name == 'show' ? 'homepage' : 'hyrax/dashboard'
+    end
 end

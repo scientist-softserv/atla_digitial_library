@@ -1,6 +1,5 @@
-#Override construct_page_title to remove app name and change // to -
+# Override construct_page_title to remove app name and change // to -
 module Hyrax::TitleHelper
-
   def application_name
     t('hyrax.product_name', default: super)
   end
@@ -11,7 +10,8 @@ module Hyrax::TitleHelper
 
   def curation_concern_page_title(curation_concern)
     if curation_concern.persisted?
-      construct_page_title(curation_concern.to_s, "#{curation_concern.human_readable_type} [#{curation_concern.to_param}]")
+      construct_page_title(curation_concern.to_s,
+"#{curation_concern.human_readable_type} [#{curation_concern.to_param}]")
     else
       construct_page_title("New #{curation_concern.human_readable_type}")
     end

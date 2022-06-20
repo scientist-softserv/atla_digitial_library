@@ -32,5 +32,4 @@ class WorkIndexer < Hyrax::WorkIndexer
       end
     end
   end
-
 end

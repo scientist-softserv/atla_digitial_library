@@ -5,7 +5,7 @@ module Bulkrax
       {
         xml_path: :string,
         upload_path: :string,
-        rights_statements: :string,
+        rights_statements: :string
       }
     end
 
@@ -29,14 +29,13 @@ module Bulkrax
     def create_collections_with_works
       data.css('Collections').each do |collection_xml|
         collection_identifier = CdriCollectionEntry.get_identifier(collection_xml)
-        collection_entry = CdriCollectionEntry.where(importerexporter: self.importerexporter, identifier: collection_identifier).first_or_initialize
+        collection_entry = CdriCollectionEntry.where(importerexporter: importerexporter,
+                                                     identifier: collection_identifier).first_or_initialize
         collection_entry.raw_metadata = collection_xml
         collection = collection_entry.build
         collection_entry.save
         create_works(collection_xml, collection)
-        if limit && running_count >= limit
-          break
-        end
+        break if limit && running_count >= limit
       end
     end
 
@@ -45,12 +44,13 @@ module Bulkrax
         ImporterRun.find(current_importer_run.id).increment!(:enqueued_records)
         if only_updates && Work.where(identifier: [component_xml["ComponentID"].to_s]).count > 0
           ImporterRun.find(current_importer_run.id).increment!(:processed_records)
-          Rails.logger.info "skipped #{component_xml["ComponentID"]}"
+          Rails.logger.info "skipped #{component_xml['ComponentID']}"
           next
         end
         begin
           work_identifier = CdriWorkEntry.get_identifier(component_xml)
-          new_entry = entry_class.where(importerexporter: self.importerexporter, identifier: work_identifier).first_or_initialize do |e|
+          new_entry = entry_class.where(importerexporter: importerexporter,
+                                        identifier: work_identifier).first_or_initialize do |e|
             e.collection_id = collection.id
           end
           new_entry.raw_metadata = component_xml
@@ -58,14 +58,12 @@ module Bulkrax
           ImportWorkJob.perform_later(new_entry.id, importerexporter.current_importer_run.id)
           ImporterRun.find(current_importer_run.id).increment!(:processed_records)
         rescue => e
-          Rails.logger.error "Import ERROR: #{component_xml["ComponentID"].to_s} - Message: #{e.message}"
+          Rails.logger.error "Import ERROR: #{component_xml['ComponentID']} - Message: #{e.message}"
           ImporterRun.find(current_importer_run.id).increment!(:failed_records)
         end
 
         self.running_count += 1
-        if limit && running_count >= limit
-          break
-        end
+        break if limit && running_count >= limit
         false
       end
     end
@@ -78,14 +76,14 @@ module Bulkrax
       nil
     end
 
-
     def mapping_class
       CdriMapping
     end
 
     # the set of fields available in the import data
     def import_fields
-      ['contributor', 'coverage', 'creator', 'date', 'description', 'format', 'identifier', 'language', 'pub_place', 'publisher', 'pub_date', 'relation', 'rights', 'source', 'subject', 'title', 'type']
+      ['contributor', 'coverage', 'creator', 'date', 'description', 'format', 'identifier', 'language', 'pub_place',
+       'publisher', 'pub_date', 'relation', 'rights', 'source', 'subject', 'title', 'type']
     end
 
     def total
@@ -93,6 +91,5 @@ module Bulkrax
     rescue
       @total = 0
     end
-
   end
 end

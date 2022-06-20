@@ -1,9 +1,8 @@
 module Bulkrax
   class OaiIaEntry < OaiDcEntry
-
     def build_metadata
       self.parsed_metadata = {}
-      self.parsed_metadata[Bulkrax.system_identifier_field] = [record.header.identifier]
+      parsed_metadata[Bulkrax.system_identifier_field] = [record.header.identifier]
 
       record.metadata.children.each do |child|
         child.children.each do |node|
@@ -12,17 +11,17 @@ module Bulkrax
       end
       add_metadata('thumbnail_url', thumbnail_url)
 
-      self.parsed_metadata['contributing_institution'] = [contributing_institution]
-      self.parsed_metadata['remote_manifest_url'] ||= build_manifest
+      parsed_metadata['contributing_institution'] = [contributing_institution]
+      parsed_metadata['remote_manifest_url'] ||= build_manifest
 
       add_visibility
       add_rights_statement
       add_collections
 
       # @todo remove this when field_mapping is in place
-      self.parsed_metadata['contributor'] = nil
+      parsed_metadata['contributor'] = nil
 
-      return self.parsed_metadata
+      parsed_metadata
     end
 
     def build_manifest
@@ -41,7 +40,7 @@ module Bulkrax
 
     # don't use if we don't have canvases
     def manifest_canvases?(manifest)
-      JSON.parse(manifest)['sequences'].any? {|c| !c['canvases'].empty?}
+      JSON.parse(manifest)['sequences'].any? { |c| !c['canvases'].empty? }
     rescue
       false
     end

@@ -15,7 +15,9 @@ RSpec.feature 'Create a Work', js: false do
     end
     let(:admin_set_id) { AdminSet.find_or_create_default_admin_set_id }
     let(:permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: admin_set_id) }
-    let(:workflow) { Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: permission_template) }
+    let(:workflow) do
+      Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: permission_template)
+    end
 
     before do
       # Create a single action that can be taken
@@ -65,7 +67,9 @@ RSpec.feature 'Create a Work', js: false do
       # its element
       find('body').click
       choose('work_visibility_open')
-      expect(page).to have_content('Please note, making something visible to the world (i.e. marking this as Public) may be viewed as publishing which could impact your ability to')
+      expect(page).to have_content('Please note, making something visible to the world'\
+                                   ' (i.e. marking this as Public) may be viewed as'\
+                                   ' publishing which could impact your ability to')
       check('agreement')
 
       click_on('Save')
