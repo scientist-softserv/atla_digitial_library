@@ -9,7 +9,8 @@ module Hyrax
     include ActionView::Helpers::TagHelper
     attr_accessor :solr_document, :current_ability, :request
     attr_reader :subcollection_count
-    attr_accessor :parent_collections # This is expected to be a Blacklight::Solr::Response with all of the parent collections
+    attr_accessor :parent_collections # This is expected to be a Blacklight::Solr::Response
+    # with all of the parent collections
     attr_writer :collection_type
 
     class_attribute :create_work_presenter_class
@@ -36,17 +37,17 @@ module Hyrax
     end
 
     # Metadata Methods
-    delegate :title, :description, :creator, :contributor, :contributing_institution, :subject, :publisher, :keyword, :language, :embargo_release_date,
-             :lease_expiration_date, :license, :date_created, :resource_type, :based_near, :related_url, :identifier, :thumbnail_path,
-             :title_or_label, :collection_type_gid, :create_date, :modified_date, :visibility, :edit_groups, :edit_people,
-             to: :solr_document
+    delegate :title, :description, :creator, :contributor, :contributing_institution, :subject, :publisher, :keyword,
+             :language, :embargo_release_date, :lease_expiration_date, :license, :date_created, :resource_type,
+             :based_near, :related_url, :identifier, :thumbnail_path, :title_or_label, :collection_type_gid,
+             :create_date, :modified_date, :visibility, :edit_groups, :edit_people, to: :solr_document
 
     # Terms is the list of fields displayed by
     # app/views/collections/_show_descriptions.html.erb
     # removed :identifier from terms
     def self.terms
-      [:total_items, :resource_type, :creator, :contributor, :contributing_institution, :keyword, :license, :publisher, :date_created, :subject,
-       :language, :based_near, :related_url]
+      [:total_items, :resource_type, :creator, :contributor, :contributing_institution, :keyword, :license,
+       :publisher, :date_created, :subject, :language, :based_near, :related_url]
     end
 
     def terms_with_values
@@ -77,15 +78,20 @@ module Hyrax
     end
 
     def total_viewable_works
-      ActiveFedora::Base.where("member_of_collection_ids_ssim:#{id} AND generic_type_sim:Work").accessible_by(current_ability).count
+      ActiveFedora::Base.where("member_of_collection_ids_ssim:#{id} AND generic_type_sim:Work")
+                        .accessible_by(current_ability)
+                        .count
     end
 
     def total_viewable_collections
-      ActiveFedora::Base.where("member_of_collection_ids_ssim:#{id} AND generic_type_sim:Collection").accessible_by(current_ability).count
+      ActiveFedora::Base.where("member_of_collection_ids_ssim:#{id} AND generic_type_sim:Collection")
+                        .accessible_by(current_ability)
+                        .count
     end
 
     def collection_type_badge
-      content_tag(:span, collection_type.title, class: "label", style: "background-color: " + collection_type.badge_color + ";")
+      content_tag(:span, collection_type.title, class: "label",
+                                                style: "background-color: " + collection_type.badge_color + ";")
     end
 
     # The total number of parents that this collection belongs to, visible or not.
@@ -154,7 +160,9 @@ module Hyrax
     def available_parent_collections(scope:)
       return @available_parents if @available_parents.present?
       collection = Collection.find(id)
-      colls = Hyrax::Collections::NestedCollectionQueryService.available_parent_collections(child: collection, scope: scope, limit_to_id: nil)
+      colls = Hyrax::Collections::NestedCollectionQueryService.available_parent_collections(child: collection,
+                                                                                            scope: scope,
+                                                                                            limit_to_id: nil)
       @available_parents = colls.map do |col|
         { "id" => col.id, "title_first" => col.title.first }
       end
@@ -165,13 +173,17 @@ module Hyrax
       @subcollection_count = total unless total.nil?
     end
 
-    # For the Managed Collections tab, determine the label to use for the level of access the user has for this admin set.
+    # For the Managed Collections tab, determine the label to use for the level of
+    # access the user has for this admin set.
     # Checks from most permissive to most restrictive.
     # @return String the access label (e.g. Manage, Deposit, View)
     def managed_access
-      return I18n.t('hyrax.dashboard.my.collection_list.managed_access.manage') if current_ability.can?(:edit, solr_document)
-      return I18n.t('hyrax.dashboard.my.collection_list.managed_access.deposit') if current_ability.can?(:deposit, solr_document)
-      return I18n.t('hyrax.dashboard.my.collection_list.managed_access.view') if current_ability.can?(:read, solr_document)
+      return I18n.t('hyrax.dashboard.my.collection_list.managed_access.manage') if current_ability.can?(:edit,
+solr_document)
+      return I18n.t('hyrax.dashboard.my.collection_list.managed_access.deposit') if current_ability.can?(:deposit,
+solr_document)
+      return I18n.t('hyrax.dashboard.my.collection_list.managed_access.view') if current_ability.can?(:read,
+solr_document)
       ''
     end
 

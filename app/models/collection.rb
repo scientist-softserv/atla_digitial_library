@@ -7,7 +7,7 @@ class Collection < ActiveFedora::Base
   validates :slug, with: :check_slug
 
   def to_param
-    self.slug || self.id
+    slug || id
   end
 
   def self.find(id_or_slug)
@@ -19,25 +19,25 @@ class Collection < ActiveFedora::Base
 
   def check_slug
     result = if new_record?
-      Collection.where(slug_sim: self.slug).count > 0
-    else
-      Collection.where(slug_sim: self.slug).detect { |c| c.id != self.id }
-    end
-    self.errors.add(:slug, 'must be unique') if result
+               Collection.where(slug_sim: slug).count > 0
+             else
+               Collection.where(slug_sim: slug).detect { |c| c.id != id }
+             end
+    errors.add(:slug, 'must be unique') if result
   end
 
   def set_slug
-    return true if self.slug
+    return true if slug
     self.slug = title.first
     self.slug = slug.parameterize
     i = 0
-    while i < 50 do
-      if Collection.where(slug_sim: self.slug).count > 0
-        if i == 0
-          self.slug = self.slug + "-1"
-        else
-          self.slug = self.slug.gsub("-#{ i }", "-#{ i+1 }")
-        end
+    while i < 50
+      if Collection.where(slug_sim: slug).count > 0
+        self.slug = if i == 0
+                      slug + "-1"
+                    else
+                      slug.gsub("-#{i}", "-#{i + 1}")
+                    end
         i += 1
       else
         break

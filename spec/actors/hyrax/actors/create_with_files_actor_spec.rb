@@ -14,12 +14,20 @@ RSpec.describe Hyrax::Actors::CreateWithFilesActor do
   let(:work) { create(:work, user: user) }
   let(:env) { Hyrax::Actors::Environment.new(work, ability, attributes) }
   let(:terminator) { Hyrax::Actors::Terminator.new }
-  let(:uploaded_file1) { create(:uploaded_file,
-                                user: user,
-                                file: Rack::Test::UploadedFile.new("#{::Rails.root}/spec/fixtures/images/nypl-hydra-of-lerna.jpg")) }
-  let(:uploaded_file2) { create(:uploaded_file,
-                                user: user,
-                                file: Rack::Test::UploadedFile.new("#{::Rails.root}/spec/fixtures/images/world.png")) }
+  let(:uploaded_file1) do
+    create(:uploaded_file,
+            user: user,
+            file: Rack::Test::UploadedFile.new(
+            "#{::Rails.root}/spec/fixtures/images/nypl-hydra-of-lerna.jpg"
+          ))
+  end
+  let(:uploaded_file2) do
+    create(:uploaded_file,
+          user: user,
+          file: Rack::Test::UploadedFile.new(
+          "#{::Rails.root}/spec/fixtures/images/world.png"
+        ))
+  end
   let(:uploaded_file_ids) { [uploaded_file1.id, uploaded_file2.id] }
   let(:attributes) { { uploaded_files: uploaded_file_ids } }
 

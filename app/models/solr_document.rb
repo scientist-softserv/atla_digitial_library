@@ -38,15 +38,14 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
-
   # Do content negotiation for AF models.
   def to_param
-    self.slug&.first || self.id
+    slug&.first || id
   end
 
   def date
     self[Solrizer.solr_name('date')]
   end
 
-  use_extension( Hydra::ContentNegotiation )
+  use_extension(Hydra::ContentNegotiation)
 end

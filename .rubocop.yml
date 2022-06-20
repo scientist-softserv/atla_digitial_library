@@ -1,18 +1,116 @@
----
+# Turn on RSpec cops
+require: rubocop-rspec
+inherit_from: .rubocop_todo.yml
+inherit_gem:
+  bixby: bixby_default.yml
+
+RSpec/DescribedClass:
+  Enabled: false
+
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'bin/**/*'
+    - 'chart/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'lib/tasks/*'
+    - 'node_modules/**/*'
+    - 'ops/**/*'
+    - 'public/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'app/controllers/concerns/blacklight/bookmarks.rb'
+
+Rails:
+  Enabled: true
+
+Rails/DynamicFindBy:
+  Whitelist:
+    - find_by_user_key
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Layout/DotPosition:
+  EnforcedStyle: leading
+
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Style/StringLiterals:
   Enabled: false
 
-Metrics/LineLength:
+Style/WordArray:
   Enabled: false
 
-Metrics/MethodLength:
+Metrics/ClassLength:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+
+Metrics/ModuleLength:
+  Max: 200
+
+Rails/HasAndBelongsToMany:
+  Exclude:
+
+Style/HashSyntax:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+
+Style/SymbolLiteral:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+
+RSpec/AnyInstance:
   Enabled: false
 
-Metrics/AbcSize:
+RSpec/InstanceVariable:
+  Exclude:
+
+
+RSpec/NamedSubject:
   Enabled: false
 
-Lint/RescueException:
+RSpec/DescribeClass:
+  Exclude:
+    
+RSpec/FilePath:
+  Exclude:
+    
+RSpec/ExpectActual:
+  Exclude:
+
+RSpec/VerifiedDoubles:
   Enabled: false
+
+RSpec/MessageExpectation:
+  Enabled: false
+
+# By default RSpec/MessageSpies has the following:
+#   Prefer have_received for setting message expectations. Setup form as a spy using allow or instance_spy.
+RSpec/MessageSpies:
+  Enabled: true
+  EnforcedStyle: receive
+
+RSpec/ExampleLength:
+  Max: 16
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'

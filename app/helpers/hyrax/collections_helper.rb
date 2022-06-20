@@ -14,7 +14,9 @@ module Hyrax
       collection_list = Hyrax::CollectionMemberService.run(solr_doc, controller.current_ability)
       return if collection_list.empty?
       # Override links to use Collection slug if present
-      links = collection_list.map { |collection| link_to collection.title_or_label, hyrax.collection_path(slug_or_id_of(collection)) }
+      links = collection_list.map do |collection|
+        link_to collection.title_or_label, hyrax.collection_path(slug_or_id_of(collection))
+      end
       collection_links = []
       links.each_with_index do |link, n|
         collection_links << link
@@ -37,12 +39,17 @@ module Hyrax
       params[:cq].present?
     end
 
-    def button_for_remove_from_collection(collection, document, label: 'Remove From Collection', btn_class: 'btn-primary')
-      render 'hyrax/dashboard/collections/button_remove_from_collection', collection: collection, label: label, document: document, btn_class: btn_class
+    def button_for_remove_from_collection(collection,
+                                          document,
+                                          label: 'Remove From Collection',
+                                          btn_class: 'btn-primary')
+      render 'hyrax/dashboard/collections/button_remove_from_collection', collection: collection, label: label,
+                                                                          document: document, btn_class: btn_class
     end
 
     def button_for_remove_selected_from_collection(collection, label = 'Remove From Collection')
-      render 'hyrax/dashboard/collections/button_for_remove_selected_from_collection', collection: collection, label: label
+      render 'hyrax/dashboard/collections/button_for_remove_selected_from_collection', collection: collection,
+                                                                                       label: label
     end
 
     # add hidden fields to a form for removing a single document from a collection

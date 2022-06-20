@@ -39,8 +39,12 @@ module Bulkrax
         add_breadcrumb t(:'hyrax.dashboard.breadcrumbs.admin'), hyrax.dashboard_path
         add_breadcrumb 'Importers', bulkrax.importers_path
         add_breadcrumb @importer.name
-        @work_entries = @importer.entries.where(type: @importer.parser.entry_class.to_s).page(params[:work_entries_page])
-        @collection_entries = @importer.entries.where(type: @importer.parser.collection_entry_class.to_s).page(params[:collections_entries_page])
+        @work_entries = @importer.entries
+                                 .where(type: @importer.parser.entry_class.to_s)
+                                 .page(params[:work_entries_page])
+        @collection_entries = @importer.entries
+                                       .where(type: @importer.parser.collection_entry_class.to_s)
+                                       .page(params[:collections_entries_page])
       end
     end
 
@@ -120,7 +124,8 @@ module Bulkrax
         elsif params[:commit] == 'Update and Harvest Updated Items'
           Bulkrax::ImporterJob.perform_later(@importer.id, true)
         # Perform a full metadata and files re-import; do the same for an OAI re-harvest of all items
-        elsif params[:commit] == ('Update and Re-Import (update metadata and replace files)' || 'Update and Re-Harvest All Items')
+        elsif params[:commit] == ('Update and Re-Import (update metadata and replace files)' ||
+                                  'Update and Re-Harvest All Items')
           @importer.parser_fields['replace_files'] = true
           @importer.save
           Bulkrax::ImporterJob.perform_later(@importer.id)
@@ -212,7 +217,7 @@ module Bulkrax
           # For CSV, we expect only file uploads, so we won't get the file_path back
           # and we expect the import_file_path to be set already
           target = @importer.parser.retrieve_cloud_files(cloud_files)
-          @importer[:parser_fields]['import_file_path'] = target unless target.blank?
+          @importer[:parser_fields]['import_file_path'] = target if target.present?
         end
         @importer.save
       end
@@ -264,7 +269,9 @@ module Bulkrax
 
       def field_mapping_params
         # @todo replace/append once mapping GUI is in place
-        field_mapping_key = Bulkrax.parsers.map { |m| m[:class_name] if m[:class_name] == params[:importer][:parser_klass] }.compact.first
+        field_mapping_key = Bulkrax.parsers.map do |m|
+          m[:class_name] if m[:class_name] == params[:importer][:parser_klass]
+        end .compact.first
         @importer.field_mapping = Bulkrax.field_mappings[field_mapping_key] if field_mapping_key
       end
 

@@ -3,6 +3,7 @@
 module Hyrax
   module Dashboard
     ## Shows a list of all collections to the admins
+    # rubocop:disable Metrics/ClassLength
     class CollectionsController < Hyrax::My::CollectionsController
       include Blacklight::AccessControls::Catalog
       include Blacklight::Base
@@ -53,7 +54,8 @@ module Hyrax
       end
 
       def new
-        # Coming from the UI, a collection type id should always be present.  Coming from the API, if a collection type id is not specified,
+        # Coming from the UI, a collection type id should always be present.
+        # Coming from the API, if a collection type id is not specified,
         # use the default collection type (provides backward compatibility with versions < Hyrax 2.1.0)
         collection_type_id = params[:collection_type_id].presence || default_collection_type.id
         @collection.collection_type_gid = CollectionType.find(collection_type_id).gid
@@ -86,7 +88,10 @@ module Hyrax
         link_parent_collection(params[:parent_id]) unless params[:parent_id].nil?
         respond_to do |format|
           ActiveFedora::SolrService.instance.conn.commit
-          format.html { redirect_to edit_dashboard_collection_path(@collection), notice: t('hyrax.dashboard.my.action.collection_create_success') }
+          format.html do
+            redirect_to edit_dashboard_collection_path(@collection),
+           notice: t('hyrax.dashboard.my.action.collection_create_success')
+          end
           format.json { render json: @collection, status: :created, location: dashboard_collection_path(@collection) }
         end
       end
@@ -105,13 +110,16 @@ module Hyrax
         # collection is saved without a value for `has_model.`
         @collection = ::Collection.new
         authorize! :create, @collection
-        # Coming from the UI, a collection type gid should always be present.  Coming from the API, if a collection type gid is not specified,
+        # Coming from the UI, a collection type gid should always be present.
+        # Coming from the API, if a collection type gid is not specified,
         # use the default collection type (provides backward compatibility with versions < Hyrax 2.1.0)
         @collection.collection_type_gid = params[:collection_type_gid].presence || default_collection_type.gid
         @collection.attributes = collection_params.except(:members, :parent_id, :collection_type_gid)
         @collection.apply_depositor_metadata(current_user.user_key)
         add_members_to_collection unless batch.empty?
-        @collection.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PRIVATE unless @collection.discoverable?
+        unless @collection.discoverable?
+          @collection.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PRIVATE
+        end
         if @collection.save
           after_create
         else
@@ -141,7 +149,9 @@ module Hyrax
         end
 
         process_member_changes
-        @collection.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PRIVATE unless @collection.discoverable?
+        unless @collection.discoverable?
+          @collection.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PRIVATE
+        end
         # we don't have to reindex the full graph when updating collection
         @collection.reindex_extent = Hyrax::Adapters::NestingIndexAdapter::LIMITED_REINDEX
         if @collection.update(collection_params.except(:members))
@@ -168,7 +178,9 @@ module Hyrax
             flash[:notice] = t('hyrax.dashboard.my.action.collection_delete_fail')
             render :edit, status: :unprocessable_entity
           end
-          format.json { render json: { id: id }, status: :unprocessable_entity, location: dashboard_collection_path(@collection) }
+          format.json do
+            render json: { id: id }, status: :unprocessable_entity, location: dashboard_collection_path(@collection)
+          end
         end
       end
 
@@ -207,7 +219,8 @@ module Hyrax
         # Search for parent collection via :slug instead of :id
         def link_parent_collection(parent_slug)
           parent = Collection.where(slug_sim: parent_slug).first
-          Hyrax::Collections::NestedCollectionPersistenceService.persist_nested_collection_for(parent: parent, child: @collection)
+          Hyrax::Collections::NestedCollectionPersistenceService.persist_nested_collection_for(parent: parent,
+                                                                                               child: @collection)
         end
 
         def uploaded_files(uploaded_file_ids)
@@ -250,7 +263,9 @@ module Hyrax
         end
 
         def update_logo_info(uploaded_file_id, alttext, linkurl)
-          logo_info = CollectionBrandingInfo.where(collection_id: @collection.id.to_s).where(role: "logo").where(local_path: uploaded_file_id.to_s)
+          logo_info = CollectionBrandingInfo.where(collection_id: @collection.id.to_s)
+                                            .where(role: "logo")
+                                            .where(local_path: uploaded_file_id.to_s)
           logo_info.first.alt_text = alttext
           logo_info.first.target_url = linkurl
           logo_info.first.local_path = uploaded_file_id
@@ -342,8 +357,10 @@ module Hyrax
           # TODO: REMOVE in 3.0 - part of deprecation of permission attributes
           permissions = attributes.delete("permissions_attributes")
           return [] unless permissions
-          Deprecation.warn(self, "Passing in permissions_attributes parameter with a new collection is deprecated and support will be removed from Hyrax 3.0. " \
-                                 "Use Hyrax::PermissionTemplate instead to grant Manage, Deposit, or View access.")
+          Deprecation.warn(self,
+                          "Passing in permissions_attributes parameter with a new collection is deprecated and
+                          support will be removed from Hyrax 3.0. " \
+                          "Use Hyrax::PermissionTemplate instead to grant Manage, Deposit, or View access.")
           participants = []
           permissions.each do |p|
             access = access(p)
@@ -417,8 +434,10 @@ module Hyrax
         end
 
         def set_default_permissions
-          additional_grants = @participants # Grants converted from older versions (< Hyrax 2.1.0) where share was edit or read access instead of managers, depositors, and viewers
-          Collections::PermissionsCreateService.create_default(collection: @collection, creating_user: current_user, grants: additional_grants)
+          additional_grants = @participants # Grants converted from older versions (< Hyrax 2.1.0)
+          # where share was edit or read access instead of managers, depositors, and viewers
+          Collections::PermissionsCreateService.create_default(collection: @collection, creating_user: current_user,
+                                                               grants: additional_grants)
         end
 
         def query_collection_members
@@ -429,7 +448,8 @@ module Hyrax
 
         # Instantiate the membership query service
         def collection_member_service
-          @collection_member_service ||= membership_service_class.new(scope: self, collection: collection, params: params_for_query)
+          @collection_member_service ||= membership_service_class.new(scope: self, collection: collection,
+                                                                      params: params_for_query)
         end
 
         def member_works
@@ -442,7 +462,11 @@ module Hyrax
           results = collection_member_service.available_member_subcollections
           @subcollection_solr_response = results
           @subcollection_docs = results.documents
-          @subcollection_count = @presenter.nil? ? 0 : @subcollection_count = @presenter.subcollection_count = results.total
+          @subcollection_count = if @presenter.nil?
+                                   0
+                                 else
+                                   @subcollection_count = @presenter.subcollection_count = results.total
+                                 end
         end
 
         def parent_collections
@@ -463,5 +487,6 @@ module Hyrax
           params.merge(q: params[:cq])
         end
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end

@@ -53,36 +53,36 @@ module Hyrax
 
     private
 
-    def form
-      @form ||= form_class.new(@collection, current_ability, repository)
-    end
-
-    def decide_layout
-      layout = case action_name
-              when 'show'
-                '1_column'
-              else
-                'dashboard'
-              end
-      File.join(theme, layout)
-    end
-
-    def slugitout
-      if params[:id]
-        @curation_concern = Collection.where(slug_sim: params[:id]).first || Collection.find(params[:id])
-        # TODO: This is about as hacky as you can get and should be fixed.
-        # The problem is that further down the stack,
-        # where permissions are searched for and matched against
-        # the current user, it is looking at params[:id],
-        # which it expects to be the ID of the Collection instead
-        # of the instance method's (@curation_concern) ID.
-        # Because we are overriding the default behavior here
-        # to begin with it makes more sense (for now)
-        # to give the rest of the stack what it expects.
-        # The most ideal solution would have methods that require
-        # the collection id to have it passed as a function argument.
-        params[:id] = @curation_concern.id
+      def form
+        @form ||= form_class.new(@collection, current_ability, repository)
       end
-    end
+
+      def decide_layout
+        layout = case action_name
+                 when 'show'
+                   '1_column'
+                 else
+                   'dashboard'
+                 end
+        File.join(theme, layout)
+      end
+
+      def slugitout
+        if params[:id]
+          @curation_concern = Collection.where(slug_sim: params[:id]).first || Collection.find(params[:id])
+          # TODO: This is about as hacky as you can get and should be fixed.
+          # The problem is that further down the stack,
+          # where permissions are searched for and matched against
+          # the current user, it is looking at params[:id],
+          # which it expects to be the ID of the Collection instead
+          # of the instance method's (@curation_concern) ID.
+          # Because we are overriding the default behavior here
+          # to begin with it makes more sense (for now)
+          # to give the rest of the stack what it expects.
+          # The most ideal solution would have methods that require
+          # the collection id to have it passed as a function argument.
+          params[:id] = @curation_concern.id
+        end
+      end
   end
 end

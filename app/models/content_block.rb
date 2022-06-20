@@ -132,7 +132,7 @@ class ContentBlock < ActiveRecord::Base
           IO.read(
             Hyrax::Engine.root.join('app', 'views', 'hyrax', 'content_blocks', 'templates', 'terms.html.erb')
           )
-      ).result
+        ).result
     end
   end
 end

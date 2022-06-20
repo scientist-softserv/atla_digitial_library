@@ -29,12 +29,12 @@ class Hyrax::HomepageController < ApplicationController
 
     # Return 5 collections
     def collections(rows: 5)
-    #   builder = Hyrax::CollectionSearchBuilder.new(self)
-    #                                           .rows(rows)
-    #   response = repository.search(builder)
-    #   response.documents
-    # rescue Blacklight::Exceptions::ECONNREFUSED, Blacklight::Exceptions::InvalidRequest
-    #   []
+      #   builder = Hyrax::CollectionSearchBuilder.new(self)
+      #                                           .rows(rows)
+      #   response = repository.search(builder)
+      #   response.documents
+      # rescue Blacklight::Exceptions::ECONNREFUSED, Blacklight::Exceptions::InvalidRequest
+      #   []
 
       @collections = Psych.load(homepage_config_data)['homepage']['collections']
     end

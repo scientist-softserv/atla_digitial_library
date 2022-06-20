@@ -12,9 +12,7 @@ module Bulkrax
     #  then capitalize first letter
     def parse_subject(src)
       string = src.to_s.strip.chomp('.')
-      if string.present?
-        string.slice(0,1).capitalize + string.slice(1..-1)
-      end
+      string.slice(0, 1).capitalize + string.slice(1..-1) if string.present?
     end
 
     # override - clean up special characters
@@ -32,14 +30,14 @@ module Bulkrax
     # and adds each languages name into our new array of languages
     def parse_language(src)
       string = src.chomp('.')
-      arr_values = (string.strip.downcase.split(' '))
-      arr_languages=[]
+      arr_values = string.strip.downcase.split(' ')
+      arr_languages = []
       if arr_values.present?
         arr_values.each do |value|
           value = value.chomp(',').strip
           unless value == 'and'
             l = ::LanguageList::LanguageInfo.find(value)
-            arr_languages<<l.name if l.present?
+            arr_languages << l.name if l.present?
           end
         end
       end

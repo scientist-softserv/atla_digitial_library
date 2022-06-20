@@ -1,4 +1,4 @@
-## Override from hyrax to unescape urls 
+## Override from hyrax to unescape urls
 module Hyrax
   class IIIFAuthorizationService
     attr_reader :controller
@@ -13,8 +13,8 @@ module Hyrax
 
     private
 
-    def file_set_id_for(object)
-      URI.unescape(object.id).split('/').first
-    end
+      def file_set_id_for(object)
+        URI.unescape(object.id).split('/').first
+      end
   end
 end

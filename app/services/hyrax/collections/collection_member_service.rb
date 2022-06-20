@@ -46,7 +46,8 @@ module Hyrax
         # set up a member search builder for works only
         # @return [CollectionMemberSearchBuilder] new or existing
         def works_search_builder
-          @works_search_builder ||= Hyrax::CollectionMemberSearchBuilder.new(scope: scope, collection: collection, search_includes_models: :works)
+          @works_search_builder ||= Hyrax::CollectionMemberSearchBuilder.new(scope: scope, collection: collection,
+                                                                             search_includes_models: :works)
         end
 
         # @api private
@@ -54,7 +55,10 @@ module Hyrax
         # set up a member search builder for collections only
         # @return [CollectionMemberSearchBuilder] new or existing
         def subcollections_search_builder
-          @subcollections_search_builder ||= Hyrax::CollectionMemberSearchBuilder.new(scope: scope, collection: collection, search_includes_models: :collections)
+          @subcollections_search_builder ||=
+            Hyrax::CollectionMemberSearchBuilder.new(scope: scope,
+                                                     collection: collection,
+                                                     search_includes_models: :collections)
         end
 
         # @api private
@@ -62,7 +66,8 @@ module Hyrax
         # set up a member search builder for returning work ids only
         # @return [CollectionMemberSearchBuilder] new or existing
         def work_ids_search_builder
-          @work_ids_search_builder ||= Hyrax::CollectionMemberSearchBuilder.new(scope: scope, collection: collection, search_includes_models: :works)
+          @work_ids_search_builder ||= Hyrax::CollectionMemberSearchBuilder.new(scope: scope, collection: collection,
+                                                                                search_includes_models: :works)
         end
 
         # @api private

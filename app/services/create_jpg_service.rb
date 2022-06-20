@@ -49,7 +49,7 @@ class CreateJpgService
   end
 
   def files_present?(directory)
-    return true if self.cached
+    return true if cached
     Dir.glob("#{directory}/*.jpg").size.positive?
   end
 

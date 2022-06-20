@@ -1,17 +1,16 @@
 module Bulkrax
   class CdriWorkEntry < Entry
-
-    def initialize(attrs={})
+    def initialize(attrs = {})
       super(attrs)
       self.identifier ||= raw_metadata_xml['ComponentID'].to_s if raw_metadata.present?
     end
 
     def self.get_identifier(raw_metadata)
-      self.new(raw_metadata: raw_metadata).identifier
+      new(raw_metadata: raw_metadata).identifier
     end
 
     def collection
-      @collection ||= Collection.find(self.collection_ids.first) if self.collection_ids.present?
+      @collection ||= Collection.find(collection_ids.first) if collection_ids.present?
     end
 
     def files_path
@@ -19,7 +18,7 @@ module Bulkrax
     end
 
     def factory
-      @factory ||= Bulkrax::ObjectFactory.new(self.parsed_metadata, identifier, false, user, factory_class)
+      @factory ||= Bulkrax::ObjectFactory.new(parsed_metadata, identifier, false, user, factory_class)
     end
 
     def factory_class
@@ -32,7 +31,7 @@ module Bulkrax
 
     def build_metadata
       self.parsed_metadata = {}
-      raw_metadata_xml.each_with_object({}) do |(key, value), hash|
+      raw_metadata_xml.each_with_object({}) do |(key, value), _hash|
         clean_key = key.gsub(/component/i, '').gsub(/\d+/, '').underscore.downcase
         next if clean_key == 'id'
         val = value.respond_to?(:value) ? value.value : value
@@ -41,7 +40,7 @@ module Bulkrax
 
       # remove any unsupported attributes
       object = factory_class.new
-      self.parsed_metadata = self.parsed_metadata.select do |key, value|
+      self.parsed_metadata = parsed_metadata.select do |key, _value|
         object.respond_to?(key.to_sym)
       end
 
@@ -49,10 +48,14 @@ module Bulkrax
       add_rights_statement
       add_collections
 
-      self.parsed_metadata['file'] = [File.join(files_path, raw_metadata_xml["ComponentFileName"].downcase)] if raw_metadata_xml["ComponentFileName"].present?
-      self.parsed_metadata[Bulkrax.system_identifier_field] ||= [self.identifier]
-      self.parsed_metadata['has_manifest'] = "1"
-      return self.parsed_metadata
+      if raw_metadata_xml["ComponentFileName"].present?
+        parsed_metadata['file'] =
+          [File.join(files_path,
+raw_metadata_xml["ComponentFileName"].downcase)]
+      end
+      parsed_metadata[Bulkrax.system_identifier_field] ||= [self.identifier]
+      parsed_metadata['has_manifest'] = "1"
+      parsed_metadata
     end
   end
 end

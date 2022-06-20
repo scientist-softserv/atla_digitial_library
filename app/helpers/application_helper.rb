@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def slug_or_id_of(collection_obj_or_doc)
     return unless collection_obj_or_doc.respond_to?(:slug)
     return collection_obj_or_doc.id unless collection_obj_or_doc.slug.present?
@@ -11,7 +10,7 @@ module ApplicationHelper
     end
   end
 
-  def yield_meta_tag(tag, default_text)
+  def yield_meta_tag(_tag, default_text)
     content_for?(:meta_description) ? content_for(:meta_description) : default_text
   end
 
@@ -53,7 +52,7 @@ module ApplicationHelper
       logo_file = File.split(coll_info.local_path).last
       file_location = "/" + coll_info.local_path.split("/")[-4..-1].join("/") unless logo_file.empty?
       # fallback on file name for alt tag
-      alttext = coll_info.alt_text.present? ? coll_info.alt_text : logo_file
+      alttext = coll_info.alt_text.presence || logo_file
       linkurl = coll_info.target_url
       logo_info << { file: logo_file, file_location: file_location, alttext: alttext, linkurl: linkurl }
     end

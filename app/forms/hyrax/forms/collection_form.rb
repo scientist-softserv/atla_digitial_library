@@ -98,7 +98,8 @@ module Hyrax
             relative_path = "/" + logo_info.local_path.split("/")[-4..-1].join("/")
             alttext = logo_info.alt_text
             linkurl = logo_info.target_url
-            { file: logo_file, full_path: logo_info.local_path, relative_path: relative_path, alttext: alttext, linkurl: linkurl }
+            { file: logo_file, full_path: logo_info.local_path, relative_path: relative_path, alttext: alttext,
+              linkurl: linkurl }
           end
         end
       end
@@ -126,7 +127,9 @@ module Hyrax
         return @available_parents if @available_parents.present?
 
         collection = Collection.find(id)
-        colls = Hyrax::Collections::NestedCollectionQueryService.available_parent_collections(child: collection, scope: scope, limit_to_id: nil)
+        colls = Hyrax::Collections::NestedCollectionQueryService.available_parent_collections(child: collection,
+                                                                                              scope: scope,
+                                                                                              limit_to_id: nil)
         @available_parents = colls.map do |col|
           { "id" => col.id, "title_first" => col.title.first }
         end
@@ -146,7 +149,8 @@ module Hyrax
         end
 
         def collection_member_service
-          @collection_member_service ||= membership_service_class.new(scope: scope, collection: collection, params: blacklight_config.default_solr_params)
+          @collection_member_service ||= membership_service_class.new(scope: scope, collection: collection,
+                                                                      params: blacklight_config.default_solr_params)
         end
 
         def member_presenters(member_ids)
