@@ -36,8 +36,8 @@ else
   echo 'hyrax chart downloaded today, skipping'
 fi
 
-envsubst < ops/gitlab-token.tmpl.yaml > ops/gitlab-token.yaml
-kubectl apply -f ops/gitlab-token.yaml
+envsubst < ops/gitlab-secret.tmpl.yaml > ops/gitlab-secret.yaml
+kubectl apply -f ops/gitlab-secret.yaml
 
 helm upgrade \
     --install \
