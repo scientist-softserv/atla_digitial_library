@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
+gem 'delayed_job_worker_pool'
 gem 'devise', '~> 4.5'
 gem 'devise-guests', '~> 0.6'
 gem 'factory_bot_rails', group: %i[development test]

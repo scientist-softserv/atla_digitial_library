@@ -14,3 +14,20 @@ ActiveFedora::Indexing::DescendantFetcher.class_eval do
     @rdf_resource ||= Ldp::Resource::RdfSource.new(ActiveFedora.fedora.build_ntriples_connection, uri)
   end
 end
+
+# ## Catch missing nodes and skip them
+# Ldp::Resource::RdfSource.class_eval do
+#   def graph
+#     @graph ||= begin
+#                  if subject.nil?
+#                    build_empty_graph
+#                  else
+#                    filtered_graph(response_graph)
+#                  end
+#                rescue Ldp::NotFound, Ldp::HttpError
+#                  # This is an optimization that lets us avoid doing HEAD + GET
+#                  # when the object exists. We just need to handle the 404 case
+#                  build_empty_graph
+#                end
+#   end
+# end
