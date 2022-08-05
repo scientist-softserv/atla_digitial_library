@@ -41,7 +41,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      VIRTUAL_HOST: atla.docker
+      VIRTUAL_HOST: atla.test
       VIRTUAL_PORT: 3000
     depends_on:
       - worker
@@ -73,7 +73,7 @@ services:
     ports:
       - "8983"
     environment:
-      VIRTUAL_HOST: solr.atla.docker
+      VIRTUAL_HOST: solr.atla.test
       VIRTUAL_PORT: 8983
       OOM: script
     volumes:
