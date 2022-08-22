@@ -29,6 +29,8 @@ class ImportUrlJob < Hyrax::ApplicationJob
       return false
     end
 
+    return false if uri.to_s.blank?
+
     @file_set = file_set
     @operation = operation
 

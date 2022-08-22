@@ -40,6 +40,14 @@ module Hyrax
         representative_presenter.audio?
     end
 
+    def audio?
+      representative_presenter&.audio? || resource_type.include?('Sound')
+    end
+
+    def video?
+      representative_presenter&.video? || resource_type.include?('MovingImage')
+    end
+
     def members_include_viewable?
       file_set_presenters.any? do |presenter|
         (presenter.image? || presenter.video? || presenter.audio?) && current_ability.can?(:read, presenter.id)

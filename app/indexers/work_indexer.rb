@@ -13,9 +13,9 @@ class WorkIndexer < Hyrax::WorkIndexer
 
   def generate_solr_document
     super.tap do |solr_doc|
-      if object.thumbnail&.video?
+      if object.thumbnail&.video? || object.resource_type&.include?('MovingImage')
         solr_doc['thumbnail_path_ss'] = ActionController::Base.helpers.asset_path('video.png')
-      elsif object.thumbnail&.audio?
+      elsif object.thumbnail&.audio? || object.resource_type&.include?('Sound')
         solr_doc['thumbnail_path_ss'] = ActionController::Base.helpers.asset_path('audio.png')
       elsif object.thumbnail&.mime_type == 'text/html'
         solr_doc['thumbnail_path_ss'] = ActionController::Base.helpers.asset_path('html.png')
