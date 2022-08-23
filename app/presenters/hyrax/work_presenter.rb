@@ -41,11 +41,11 @@ module Hyrax
     end
 
     def audio?
-      representative_presenter&.audio? || resource_type.include?('Sound')
+      representative_presenter&.audio? || resource_type.include?('Sound') || types&.include?('Sound')
     end
 
     def video?
-      representative_presenter&.video? || resource_type.include?('MovingImage')
+      representative_presenter&.video? || resource_type.include?('MovingImage') || types&.include('Moving Image')
     end
 
     def members_include_viewable?
