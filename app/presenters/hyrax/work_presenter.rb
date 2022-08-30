@@ -45,7 +45,7 @@ module Hyrax
     end
 
     def video?
-      representative_presenter&.video? || resource_type.include?('MovingImage') || types&.include('Moving Image')
+      representative_presenter&.video? || resource_type.include?('MovingImage') || types&.include?('Moving Image')
     end
 
     def members_include_viewable?
