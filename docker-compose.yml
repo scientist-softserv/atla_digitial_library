@@ -5,7 +5,7 @@ x-app: &app
     context: .
     target: hyrax-base
   # command: sh -l -c "bundle && bundle exec puma -v -b tcp://0.0.0.0:3000"
-  image: registry.gitlab.com/notch8/atla_digital_library:${TAG:-latest}
+  image: ghcr.io/scientist-softserv/atla_digital_library:${TAG:-latest}
   env_file:
     - .env.development
     - .env
@@ -25,9 +25,9 @@ services:
       context: .
       target: hyrax-worker
       cache_from:
-        - registry.gitlab.com/notch8/atla_digital_library:${TAG:-latest}
-        - registry.gitlab.com/notch8/atla_digital_library/worker:${TAG:-latest}
-    image: registry.gitlab.com/notch8/atla_digital_library/worker:${TAG:-latest}
+        - ghcr.io/scientist-softserv/atla_digital_library:${TAG:-latest}
+        - ghcr.io/scientist-softserv/atla_digital_library/worker:${TAG:-latest}
+    image: ghcr.io/scientist-softserv/atla_digital_library/worker:${TAG:-latest}
     command: bash -l -c "bundle && yarn install && bin/rails jobs:work"
     depends_on:
       - solr
