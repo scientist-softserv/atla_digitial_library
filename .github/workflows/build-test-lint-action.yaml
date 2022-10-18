@@ -1,5 +1,18 @@
 name: "Build Test Lint"
 on: [ pull_request]
+
+env:
+  SOLR_ADMIN_USER: solr
+  SOLR_ADMIN_PASSWORD: SolrRocks
+  SOLR_CONFIGSET_NAME: hyku
+  SOLR_COLLECTION: hydra-development
+  SOLR_COLLECTION_NAME: "${SOLR_COLLECTION}"
+  SOLR_HOST: solr
+  SOLR_PORT: 8983
+  SOLR_CLOUD_BOOTSTRAP: yes
+  SOLR_ENABLE_AUTHENTICATION: yes
+  SOLR_URL: "http://${SOLR_ADMIN_USER}:${SOLR_ADMIN_PASSWORD}@${SOLR_HOST}:${SOLR_PORT}/solr/"
+
 jobs: 
   call-workflow:
     uses: scientist-softserv/build-lint-test-action/.github/workflows/build-test-lint.yaml@atla-blt
