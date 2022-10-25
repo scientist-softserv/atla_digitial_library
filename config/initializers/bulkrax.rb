@@ -84,7 +84,6 @@ Bulkrax.setup do |config|
   config.field_mappings["Bulkrax::CsvParser"]["rights_statement"] = { from: ["rights", "rights_statement"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::CsvParser"]["time_period"] = { from: ["time_period"], split: /\s*[;]\s*/ }
   config.field_mappings["Bulkrax::CsvParser"]["types"] = { from: ["type", "types", "resource_type"], split: /\s*[;]\s*/, parsed: true }
-  config.field_mappings["Bulkrax::CsvParser"]["parents"] = { from: ["parents"], split: /\s*[;]\s*/, join: true, related_parents_field_mapping: true }
 
   # internet archive - custom mappings - exclude contributor, add date parser
   config.field_mappings["Bulkrax::OaiDcParser"].each {|key,value| config.field_mappings["Bulkrax::OaiIaParser"][key] = value }
