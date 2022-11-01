@@ -77,6 +77,8 @@ extraEnvVars: &envVars
     value: hydra_staging
   - name: DATABASE_PASSWORD
     value: $DATABASE_PASSWORD
+  - name: DATABASE_URL
+    value: postgresql://postgres:$DATABASE_PASSWORD@pg-postgresql.staging-postgres.svc.cluster.local
   - name: DATABASE_USER
     value: hydra_user
   - name: FCREPO_BASE_PATH
@@ -114,13 +116,15 @@ extraEnvVars: &envVars
   - name: SMTP_ENABLED
     value: "true"
   - name: SMTP_PASSWORD
-    value: $SMTP_PASSWORD_STAGING
+    value: $SMTP_PASSWORD
   - name: SMTP_PORT
     value: "2525"
   - name: SMTP_TYPE
     value: cram_md5
   - name: SMTP_USER_NAME
     value: 857d9918238540
+  - name: SOLR_ADMIN_PASSWORD
+    value: $SOLR_ADMIN_PASSWORD
   - name: SOLR_ADMIN_USER
     value: admin
   - name: SOLR_COLLECTION_NAME
@@ -134,15 +138,13 @@ extraEnvVars: &envVars
   - name: SOLR_URL
     value: $SOLR_URL_STAGING
   - name: RAILS_CACHE_STORE_URL
-    value: redis://:staging@staging-redis-master:6379/hyrax
+    value: redis://:$REDIS_PASSWORDg@staging-redis-master:6379/hyrax
   - name: REDIS_PASSWORD
-    value: staging
+    value: $REDIS_PASSWORD
   - name: REDIS_HOST
     value: staging-redis-master
   - name: REDIS_URL
-    value: redis://:staging@staging-redis-master
-  - name: SECRET_KEY_BASE
-    value: $SECRET_KEY_BASE_STAGING
+    value: redis://:$REDIS_PASSWORD@staging-redis-master
   - name: SENTRY_DSN
     value: https://bd539e7a5436434dac5abfdab595731a@o1008683.ingest.sentry.io/6745022
   - name: DISABLE_SPRING
@@ -163,7 +165,7 @@ worker:
   podSecurityContext: *podSecValues
 
 imagePullSecrets:
-  - name: gitlab
+  - name: github-registry
 
 embargoRelease:
   enabled: false
@@ -186,7 +188,7 @@ solr:
 redis:
   cluster:
     enabled: false
-  password: staging
+  password: $REDIS_PASSWORD
 
 externalFcrepoHost: fcrepo.default.svc.cluster.local
 externalPostgresql:
@@ -199,4 +201,4 @@ externalPostgresql:
 externalSolrHost: solr.default.svc.cluster.local
 externalSolrUser: admin
 externalSolrCollection: "hyrax-staging"
-externalSolrPassword: $SOLR_PASSWORD
+externalSolrPassword: $SOLR_ADMIN_PASSWORD
