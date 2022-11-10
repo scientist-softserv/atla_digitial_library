@@ -18,7 +18,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: scientist-softserv/actions/.github/workflows/deploy.yaml@v0.0.1
+    uses: scientist-softserv/actions/.github/workflows/deploy.yaml@fix-v1-deploy-include-tag
     secrets: inherit
     with:
       k8s-release-name: ${{ inputs.environment }}
