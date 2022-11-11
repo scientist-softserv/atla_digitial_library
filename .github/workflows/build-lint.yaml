@@ -21,7 +21,6 @@ jobs:
       worker: true
       target: hyrax-base
       workerTarget: hyrax-worker
-      confdir: /app/samvera/hyrax-webapp/solr/conf
 
   lint:
     needs: build
