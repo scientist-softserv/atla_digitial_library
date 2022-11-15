@@ -18,7 +18,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: scientist-softserv/actions/.github/workflows/deploy.yaml@self-hosted-runner
+    uses: scientist-softserv/actions/.github/workflows/deploy.yaml@main
     secrets: inherit
     with:
       k8s-release-name: ${{ inputs.environment }}
