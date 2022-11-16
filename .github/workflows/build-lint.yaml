@@ -16,7 +16,8 @@ on:
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@self-hosted-runner
+    uses: scientist-softserv/actions/.github/workflows/build.yaml@arm-y_of_one
+    secrets: inherit
     with:
       worker: true
       target: hyrax-base
@@ -24,7 +25,7 @@ jobs:
 
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@self-hosted-runner
+    uses: scientist-softserv/actions/.github/workflows/lint.yaml@main
     with:
       worker: true
       # tag: deca90d9
