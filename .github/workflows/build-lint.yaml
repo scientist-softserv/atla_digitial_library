@@ -16,7 +16,8 @@ on:
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@main
+    uses: scientist-softserv/actions/.github/workflows/build.yaml@arm-y_of_one
+    secrets: inherit
     with:
       worker: true
       target: hyrax-base
