@@ -25,7 +25,7 @@ jobs:
 
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@main
+    uses: scientist-softserv/actions/.github/workflows/lint.yaml@v0.0.3
     with:
       worker: true
       # tag: deca90d9
