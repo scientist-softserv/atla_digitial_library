@@ -22,6 +22,7 @@ jobs:
       worker: true
       target: hyrax-base
       workerTarget: hyrax-worker
+      platforms: "linux/amd64"
 
   lint:
     needs: build
