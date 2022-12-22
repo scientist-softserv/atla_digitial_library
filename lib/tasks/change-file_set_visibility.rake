@@ -20,8 +20,4 @@ namespace :atla do
     end
     progress.increment
   end
-  if errors.present?
-    $stderr.puts "-- ERRORS REPORTED"
-    $stderr.puts "#{work.id} - #{e.message}\n#{e.backtrace[0..6]}"
-  end
 end
